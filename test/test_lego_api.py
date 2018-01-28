@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import pyrebrickable
-from pyrebrickable.api.lego_api import LegoApi  # noqa: E501
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.api.lego_api import LegoApi  # noqa: E501
+from rebrickable.rest import ApiException
 
 
 class TestLegoApi(unittest.TestCase):
     """LegoApi unit test stubs"""
 
     def setUp(self):
-        self.api = pyrebrickable.api.lego_api.LegoApi()  # noqa: E501
+        self.api = rebrickable.api.lego_api.LegoApi()  # noqa: E501
 
     def tearDown(self):
         pass

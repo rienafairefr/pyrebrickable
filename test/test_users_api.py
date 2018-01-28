@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import pyrebrickable
-from pyrebrickable.api.users_api import UsersApi  # noqa: E501
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.api.users_api import UsersApi  # noqa: E501
+from rebrickable.rest import ApiException
 
 
 class TestUsersApi(unittest.TestCase):
     """UsersApi unit test stubs"""
 
     def setUp(self):
-        self.api = pyrebrickable.api.users_api.UsersApi()  # noqa: E501
+        self.api = rebrickable.api.users_api.UsersApi()  # noqa: E501
 
     def tearDown(self):
         pass

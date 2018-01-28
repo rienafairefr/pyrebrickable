@@ -16,10 +16,10 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
-from pyrebrickable.api.lego_api import LegoApi
-from pyrebrickable.api.users_api import UsersApi
+from rebrickable.api.lego_api import LegoApi
+from rebrickable.api.users_api import UsersApi
 
 # import ApiClient
-from pyrebrickable.api_client import ApiClient
-from pyrebrickable.configuration import Configuration
+from rebrickable.api_client import ApiClient
+from rebrickable.configuration import Configuration
 # import models into sdk package
