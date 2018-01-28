@@ -126,7 +126,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/allparts/', 'GET',
@@ -221,7 +221,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/badges/', 'GET',
@@ -312,7 +312,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/badges/{id}/', 'GET',
@@ -411,7 +411,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/build/{set_num}/', 'GET',
@@ -518,7 +518,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/lost_parts/', 'POST',
@@ -617,7 +617,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/lost_parts/{id}/', 'DELETE',
@@ -720,7 +720,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/lost_parts/', 'GET',
@@ -831,7 +831,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/', 'POST',
@@ -930,7 +930,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/', 'DELETE',
@@ -1029,7 +1029,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/', 'GET',
@@ -1144,7 +1144,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/', 'PATCH',
@@ -1271,7 +1271,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'POST',
@@ -1386,7 +1386,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'DELETE',
@@ -1497,7 +1497,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'GET',
@@ -1612,7 +1612,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'GET',
@@ -1739,7 +1739,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'PUT',
@@ -1838,7 +1838,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/', 'GET',
@@ -1957,7 +1957,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/partlists/{list_id}/', 'PUT',
@@ -2076,7 +2076,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/parts/', 'GET',
@@ -2175,7 +2175,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/profile/', 'GET',
@@ -2286,7 +2286,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/', 'POST',
@@ -2385,7 +2385,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/', 'DELETE',
@@ -2484,7 +2484,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/', 'GET',
@@ -2599,7 +2599,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/', 'PATCH',
@@ -2698,7 +2698,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/', 'GET',
@@ -2817,7 +2817,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'POST',
@@ -2924,7 +2924,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'DELETE',
@@ -3035,7 +3035,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'GET',
@@ -3154,7 +3154,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'PATCH',
@@ -3261,7 +3261,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'GET',
@@ -3380,7 +3380,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'PUT',
@@ -3499,7 +3499,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/setlists/{list_id}/', 'PUT',
@@ -3610,7 +3610,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/sets/', 'POST',
@@ -3709,7 +3709,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/sets/{set_num}/', 'DELETE',
@@ -3840,7 +3840,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/sets/', 'GET',
@@ -3939,7 +3939,7 @@ class UsersApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/sets/{set_num}/', 'GET',
@@ -4050,7 +4050,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/sets/sync/', 'POST',
@@ -4157,7 +4157,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/{user_token}/sets/{set_num}/', 'PUT',
@@ -4260,7 +4260,7 @@ class UsersApi(object):
             ['application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/users/_token/', 'POST',

@@ -110,7 +110,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/colors/', 'GET',
@@ -201,7 +201,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/colors/{id}/', 'GET',
@@ -292,7 +292,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/elements/{element_id}/', 'GET',
@@ -391,7 +391,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/mocs/{set_num}/parts/', 'GET',
@@ -482,7 +482,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/mocs/{set_num}/', 'GET',
@@ -577,7 +577,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/part_categories/', 'GET',
@@ -668,7 +668,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/part_categories/{id}/', 'GET',
@@ -771,7 +771,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/parts/{part_num}/colors/', 'GET',
@@ -870,7 +870,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/parts/{part_num}/colors/{color_id}/', 'GET',
@@ -981,7 +981,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/', 'GET',
@@ -1108,7 +1108,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/parts/', 'GET',
@@ -1199,7 +1199,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/parts/{part_num}/', 'GET',
@@ -1302,7 +1302,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/sets/{set_num}/alternates/', 'GET',
@@ -1421,7 +1421,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/sets/', 'GET',
@@ -1520,7 +1520,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/sets/{set_num}/parts/', 'GET',
@@ -1611,7 +1611,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/sets/{set_num}/', 'GET',
@@ -1710,7 +1710,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/sets/{set_num}/sets/', 'GET',
@@ -1805,7 +1805,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/themes/', 'GET',
@@ -1896,7 +1896,7 @@ class LegoApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKey']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/lego/themes/{id}/', 'GET',

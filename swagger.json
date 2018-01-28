@@ -8,6 +8,13 @@
    "schemes":[
       "https"
    ],
+   "securityDefinitions":{
+      "APIKeyHeader":{
+         "type":"apiKey",
+         "in":"header",
+         "name":"Authorization"
+      }
+   },
    "paths":{
       "/api/v3/lego/colors/":{
          "get":{
