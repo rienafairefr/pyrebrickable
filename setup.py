@@ -43,6 +43,11 @@ setupwithgen(
     author_email="",
     url="",
     keywords=["Swagger", ""],
+    entry_points={
+        'console_scripts': [
+            'rebrickable=rebrickable.cli:main'
+    },
+        ]
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
