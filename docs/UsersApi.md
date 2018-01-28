@@ -1,4 +1,4 @@
-# pyrebrickable.UsersApi
+# rebrickable.UsersApi
 
 All URIs are relative to *https://rebrickable.com*
 
@@ -56,12 +56,12 @@ Get a list of all the Parts in all the user's Part Lists as well as the Parts in
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -113,12 +113,12 @@ Get a list of all the available Badges
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
 ordering = 'ordering_example' # str | null (optional)
@@ -164,12 +164,12 @@ Get details about a specific Badge
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 id = 'id_example' # str | null
 
 try:
@@ -211,12 +211,12 @@ Find out how many parts the user needs to build the specified Set.  The user's d
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 
@@ -260,12 +260,12 @@ Add one or more Lost Parts to the user.  ### Single Part When adding a single Pa
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 inv_part_id = 'inv_part_id_example' # str | null
 lost_quantity = 'lost_quantity_example' # str | null (optional)
@@ -311,12 +311,12 @@ Remove the Lost Part from the user.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 id = 'id_example' # str | null
 
@@ -360,12 +360,12 @@ Get a list of all the Lost Parts from the user's LEGO collection.  Optionally, f
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -413,12 +413,12 @@ Add a new Part List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 name = 'name_example' # str | null
 is_buildable = 'is_buildable_example' # str | null (optional)
@@ -466,12 +466,12 @@ Delete a Part List and all it's Parts.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 
@@ -515,12 +515,12 @@ Get a list of all the user's Part Lists.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -566,12 +566,12 @@ Update an existing Part List's details.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 is_buildable = 'is_buildable_example' # str | null (optional)
@@ -621,12 +621,12 @@ Add one or more Parts to the Part List.  ### Single Part When adding a single Pa
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 part_num = 'part_num_example' # str | null
@@ -676,12 +676,12 @@ Delete a Part from the Part List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
@@ -729,12 +729,12 @@ Get a list of all the Parts in a specific Part List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 page = 'page_example' # str | null (optional)
@@ -784,12 +784,12 @@ Get details about a specific Part in the Part List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
@@ -837,12 +837,12 @@ Replace an existing Part's details in the Part List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
@@ -892,12 +892,12 @@ Get details about a specific Part List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 
@@ -941,12 +941,12 @@ Replace an existing Part List's details.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 name = 'name_example' # str | null
@@ -996,12 +996,12 @@ Get a list of all the Parts in all the user's Part Lists.  ###Set List logic Par
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -1057,12 +1057,12 @@ Get details about a specific user.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -1108,12 +1108,12 @@ Add a new Set List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 name = 'name_example' # str | null
 is_buildable = 'is_buildable_example' # str | null (optional)
@@ -1161,12 +1161,12 @@ Delete a Set List and all it's Sets.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 
@@ -1210,12 +1210,12 @@ Get a list of all the user's Set Lists.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -1261,12 +1261,12 @@ Update an existing Set List's details.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 is_buildable = 'is_buildable_example' # str | null (optional)
@@ -1316,12 +1316,12 @@ Get details about a specific Set List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 
@@ -1365,12 +1365,12 @@ Add one or more Sets to the Set List. Existing Sets are unaffected.  ### Single 
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1420,12 +1420,12 @@ Delete a Set from the Set List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1471,12 +1471,12 @@ Get a list of all the Sets in a specific Set List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 page = 'page_example' # str | null (optional)
@@ -1526,12 +1526,12 @@ Update an existing Set's details in the Set List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1581,12 +1581,12 @@ Get details about a specific Set in the Set List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1632,12 +1632,12 @@ Replace an existing Set's details in the Set List.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1687,12 +1687,12 @@ Replace an existing Set List's details.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 name = 'name_example' # str | null
@@ -1742,12 +1742,12 @@ Add one or more Sets to the user's LEGO collection. Existing Sets are unaffected
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 quantity = 'quantity_example' # str | null (optional)
@@ -1795,12 +1795,12 @@ Delete the Set from all the user's Set Lists.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 
@@ -1844,12 +1844,12 @@ Get a list of all the Sets in the user's LEGO collection.  ### Set List logic Se
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -1911,12 +1911,12 @@ Get details about a specific Set in the user's LEGO collection.  ### Set List lo
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 
@@ -1960,12 +1960,12 @@ Synchronise a user's Sets to the POSTed list.  ### Set List logic This is used t
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 quantity = 'quantity_example' # str | null (optional)
@@ -2013,12 +2013,12 @@ Update an existing Set's quantity in all Set Lists. This PUT call is different t
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 quantity = 'quantity_example' # str | null (optional)
@@ -2064,12 +2064,12 @@ Generate a User Token to be used for authorising user account actions in subsequ
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.UsersApi()
+api_instance = rebrickable.UsersApi()
 username = 'username_example' # str | null
 password = 'password_example' # str | null
 

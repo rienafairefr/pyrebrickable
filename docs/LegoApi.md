@@ -1,4 +1,4 @@
-# pyrebrickable.LegoApi
+# rebrickable.LegoApi
 
 All URIs are relative to *https://rebrickable.com*
 
@@ -36,12 +36,12 @@ Get a list of all Colors.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
 ordering = 'ordering_example' # str | null (optional)
@@ -87,12 +87,12 @@ Get details about a specific Color.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 id = 'id_example' # str | null
 
 try:
@@ -134,12 +134,12 @@ Get details about a specific Element ID.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 element_id = 'element_id_example' # str | null
 
 try:
@@ -181,12 +181,12 @@ Get a list of all Inventory Parts in this MOC.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 set_num = 'set_num_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -232,12 +232,12 @@ Get details for a specific MOC.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 set_num = 'set_num_example' # str | null
 
 try:
@@ -279,12 +279,12 @@ Get a list of all Part Categories.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
 ordering = 'ordering_example' # str | null (optional)
@@ -330,12 +330,12 @@ Get details about a specific Part Category.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 id = 'id_example' # str | null
 
 try:
@@ -377,12 +377,12 @@ Get a list of all Colors a Part has appeared in.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 part_num = 'part_num_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -430,12 +430,12 @@ Get details about a specific Part/Color combination.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 color_id = 'color_id_example' # str | null
 part_num = 'part_num_example' # str | null
 
@@ -479,12 +479,12 @@ Get a list of all Sets the Part/Color combination has appeard in.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 color_id = 'color_id_example' # str | null
 part_num = 'part_num_example' # str | null
 page = 'page_example' # str | null (optional)
@@ -534,12 +534,12 @@ Get a list of Parts.  Optionally filter by one or more of the below query parame
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
 part_num = 'part_num_example' # str | null (optional)
@@ -601,12 +601,12 @@ Get details about a specific Part.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 part_num = 'part_num_example' # str | null
 
 try:
@@ -648,12 +648,12 @@ Get a list of MOCs which are Alternate Builds of a specific Set - i.e. all parts
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 set_num = 'set_num_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -701,12 +701,12 @@ Get a list of Sets, optionally filtered by any of the below parameters.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
 theme_id = 'theme_id_example' # str | null (optional)
@@ -764,12 +764,12 @@ Get a list of all Inventory Parts in this Set.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 set_num = 'set_num_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -815,12 +815,12 @@ Get details for a specific Set.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 set_num = 'set_num_example' # str | null
 
 try:
@@ -862,12 +862,12 @@ Get a list of all Inventory Sets in this Set.
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 set_num = 'set_num_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -913,12 +913,12 @@ Return all Themes
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
 ordering = 'ordering_example' # str | null (optional)
@@ -964,12 +964,12 @@ Return details for a specific Theme
 ```python
 from __future__ import print_function
 import time
-import pyrebrickable
-from pyrebrickable.rest import ApiException
+import rebrickable
+from rebrickable.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = pyrebrickable.LegoApi()
+api_instance = rebrickable.LegoApi()
 id = 'id_example' # str | null
 
 try:
