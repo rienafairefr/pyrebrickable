@@ -22,5 +22,17 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-**
-!rebrickable/*
+setup.py
+.travis.yml
+.gitignore
+git_push.sh
+test/**
+README.md
+tox.ini
+test-requirements.txt
+rebrickable/**
+!rebrickable/api/*
+!rebrickable/models/*
+!rebrickable/api_client.py
+!rebrickable/configuration.py
+!rebrickable/rest.py

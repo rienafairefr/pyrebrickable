@@ -60,8 +60,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -93,7 +99,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -117,8 +123,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
 ordering = 'ordering_example' # str | null (optional)
@@ -144,7 +156,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -168,8 +180,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 id = 'id_example' # str | null
 
 try:
@@ -191,7 +209,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -215,8 +233,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 
@@ -240,7 +264,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -264,8 +288,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 inv_part_id = 'inv_part_id_example' # str | null
 lost_quantity = 'lost_quantity_example' # str | null (optional)
@@ -291,7 +321,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -315,8 +345,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 id = 'id_example' # str | null
 
@@ -340,7 +376,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -364,8 +400,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -393,7 +435,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -417,8 +459,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 name = 'name_example' # str | null
 is_buildable = 'is_buildable_example' # str | null (optional)
@@ -446,7 +494,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -470,8 +518,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 
@@ -495,7 +549,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -519,8 +573,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -546,7 +606,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -570,8 +630,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 is_buildable = 'is_buildable_example' # str | null (optional)
@@ -601,7 +667,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -625,8 +691,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 part_num = 'part_num_example' # str | null
@@ -656,7 +728,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -680,8 +752,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
@@ -709,7 +787,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -733,8 +811,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 page = 'page_example' # str | null (optional)
@@ -764,7 +848,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -788,8 +872,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
@@ -817,7 +907,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -841,8 +931,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
@@ -872,7 +968,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -896,8 +992,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 
@@ -921,7 +1023,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -945,8 +1047,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 name = 'name_example' # str | null
@@ -976,7 +1084,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1000,8 +1108,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -1037,7 +1151,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1061,8 +1175,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -1088,7 +1208,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1112,8 +1232,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 name = 'name_example' # str | null
 is_buildable = 'is_buildable_example' # str | null (optional)
@@ -1141,7 +1267,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1165,8 +1291,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 
@@ -1190,7 +1322,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1214,8 +1346,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -1241,7 +1379,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1265,8 +1403,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 is_buildable = 'is_buildable_example' # str | null (optional)
@@ -1296,7 +1440,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1320,8 +1464,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 
@@ -1345,7 +1495,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1369,8 +1519,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1400,7 +1556,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1424,8 +1580,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1451,7 +1613,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1475,8 +1637,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 page = 'page_example' # str | null (optional)
@@ -1506,7 +1674,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1530,8 +1698,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1561,7 +1735,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1585,8 +1759,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1612,7 +1792,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1636,8 +1816,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 set_num = 'set_num_example' # str | null
@@ -1667,7 +1853,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1691,8 +1877,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 list_id = 'list_id_example' # str | null
 name = 'name_example' # str | null
@@ -1722,7 +1914,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1746,8 +1938,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 quantity = 'quantity_example' # str | null (optional)
@@ -1775,7 +1973,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1799,8 +1997,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 
@@ -1824,7 +2028,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1848,8 +2052,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 page = 'page_example' # str | null (optional)
 page_size = 'page_size_example' # str | null (optional)
@@ -1891,7 +2101,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1915,8 +2125,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 
@@ -1940,7 +2156,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -1964,8 +2180,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 quantity = 'quantity_example' # str | null (optional)
@@ -1993,7 +2215,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -2017,8 +2239,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
 set_num = 'set_num_example' # str | null
 quantity = 'quantity_example' # str | null (optional)
@@ -2044,7 +2272,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -2068,8 +2296,14 @@ import rebrickable
 from rebrickable.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: ApiKey
+configuration = rebrickable.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rebrickable.UsersApi()
+api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 username = 'username_example' # str | null
 password = 'password_example' # str | null
 
@@ -2093,7 +2327,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
