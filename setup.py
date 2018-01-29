@@ -12,6 +12,7 @@
 import os
 from setuptools import setup, find_packages  # noqa: H301
 
+
 NAME = "pyrebrickable"
 VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
 # To install the library, run the following
