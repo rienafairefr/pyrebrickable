@@ -15,11 +15,11 @@ def generate_swagger():
     if os.path.exists('swagger.json'):
         return
 
-    data = urlretrieve(swagger_url, "swagger.json")
+    # urlretrieve(swagger_url, "rerickable.json")
 
-    with open('swagger.json', 'r+') as swagger_file:
-        api = json.load(swagger_file)
-        swagger_file.seek(0)
+    with open('rebrickable.json', 'r') as rebrickable_file, \
+            open('swagger.json', 'w') as swagger_file:
+        api = json.load(rebrickable_file)
 
         api.update(
             {

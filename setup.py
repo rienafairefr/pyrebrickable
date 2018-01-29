@@ -12,6 +12,7 @@
 import os
 from setuptools import setup, find_packages  # noqa: H301
 
+from api_codegen import generate_swagger
 
 NAME = "pyrebrickable"
 VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
@@ -27,6 +28,8 @@ REQUIRES = ["urllib3 >= 1.15",
             "certifi >= 14.05.14",
             "python_dateutil >= 2.5.3",
             "click >=6"]
+
+generate_swagger()
 
 setup(
     name=NAME,
