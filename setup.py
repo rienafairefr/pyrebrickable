@@ -21,7 +21,11 @@ VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = ["urllib3 >= 1.15",
+            "six >= 1.10",
+            "certifi >= 14.05.14",
+            "python_dateutil >= 2.5.3",
+            "click >=6"]
 
 setup(
     name=NAME,
