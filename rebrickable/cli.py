@@ -19,10 +19,17 @@ key_path = os.path.expanduser('~/.rebrickable')
 def main(ctx, args=None):
     """Console script for pyrebrickable."""
     configuration = rebrickable.Configuration()
-    with open(key_path, 'r') as key_file:
-        api_key = key_file.read()
-        configuration.api_key['Authorization'] = api_key
-        ctx.obj = rebrickable.ApiClient(configuration)
+    
+    try:
+        with open(key_path, 'r') as key_file:
+            api_key = key_file.read()
+            configuration.api_key['Authorization'] = api_key
+            configuration.api_key_prefix['Authorization'] = 'key'
+            ctx.obj = rebrickable.ApiClient(configuration)
+    except FileNotFoundError:
+        if ctx.invoked_subcommand != 'register':
+            print('key file %s does not exist, please register your API key using: \n%s register' % (key_path, rebrickable.__name__))
+            raise click.Abort()
 
 
 @main.command(help='registers an API key with the CLI')
