@@ -30,6 +30,7 @@ test/**
 README.md
 tox.ini
 test-requirements.txt
+requirements.txt
 rebrickable/**
 !rebrickable/api/*
 !rebrickable/models/*
