@@ -15,3 +15,5 @@
 from __future__ import absolute_import
 
 # import models into model package
+from rebrickable.models.array_of_colors import ArrayOfColors
+from rebrickable.models.color import Color

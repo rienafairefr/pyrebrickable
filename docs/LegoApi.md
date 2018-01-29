@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **lego_colors_list**
-> lego_colors_list(page=page, page_size=page_size, ordering=ordering)
+> ArrayOfColors lego_colors_list(page=page, page_size=page_size, ordering=ordering)
 
 Get a list of all Colors.
 
@@ -54,7 +54,8 @@ ordering = 'ordering_example' # str | null (optional)
 
 try:
     # Get a list of all Colors.
-    api_instance.lego_colors_list(page=page, page_size=page_size, ordering=ordering)
+    api_response = api_instance.lego_colors_list(page=page, page_size=page_size, ordering=ordering)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_colors_list: %s\n" % e)
 ```
@@ -69,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfColors**](ArrayOfColors.md)
 
 ### Authorization
 
@@ -83,7 +84,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_colors_read**
-> lego_colors_read(id)
+> Color lego_colors_read(id)
 
 Get details about a specific Color.
 
@@ -109,7 +110,8 @@ id = 'id_example' # str | null
 
 try:
     # Get details about a specific Color.
-    api_instance.lego_colors_read(id)
+    api_response = api_instance.lego_colors_read(id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_colors_read: %s\n" % e)
 ```
@@ -122,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Color**](Color.md)
 
 ### Authorization
 

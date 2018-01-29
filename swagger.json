@@ -20,6 +20,29 @@
       "ApiKey": []
     }
   ],
+  "definitions": {
+    "Color": {
+      "type":"object",
+      "properties": {
+        "id": {"type": "integer"},
+        "name": {"type":"string"},
+        "rgb": {"type":"string"},
+        "is_trans": {"type":"bool"}
+      }
+    },
+    "ArrayOfColors":{
+      "type":"object",
+      "properties":{
+        "count":{"type":"integer"},
+        "results":{
+          "type":"array",
+          "items":{
+            "$ref":"#/definitions/Color"
+          }
+        }
+      }
+    }
+  },
   "paths": {
     "/api/v3/lego/colors/": {
       "get": {
@@ -28,7 +51,8 @@
         "description": "Get a list of all Colors.",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema":{"$ref":"#/definitions/ArrayOfColors"}
           }
         },
         "parameters": [
@@ -66,7 +90,8 @@
         "description": "Get details about a specific Color.",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema":{"$ref":"#/definitions/Color"}
           }
         },
         "parameters": [
