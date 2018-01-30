@@ -67,6 +67,9 @@ def generate_swagger():
                 }
             }
 
+        def ref(cls):
+            return {'$ref': "#/definitions/%s" % cls}
+
         classes = {
             'Color': {
                 "id": {"type": "integer"},
@@ -105,6 +108,12 @@ def generate_swagger():
                     "nullable": True
                 }
             },
+            'InventoryPart': {
+                "id": {'type': 'integer'},
+                "inv_part_id": {'type': 'integer'},
+                "part": ref('Part'),
+                "color": ref('Color')
+            },
             'PartCategory': {
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
@@ -116,8 +125,7 @@ def generate_swagger():
             api['definitions'].update(get_typedef_array(cls))
             api['definitions'].update(get_typedef(cls, classes[cls]))
 
-        def ref(cls):
-            return {'$ref': "#/definitions/%s" % cls}
+
 
         api['paths']['/api/v3/lego/colors/']['get']['responses']['200']['schema'] = ref('ArrayOfColors')
         api['paths']['/api/v3/lego/colors/{id}/']['get']['responses']['200']['schema'] = ref('Color')
@@ -134,6 +142,7 @@ def generate_swagger():
             'ArrayOfPartCategories')
         api['paths']['/api/v3/lego/part_categories/{id}/']['get']['responses']['200']['schema'] = ref('PartCategory')
 
+        api['paths']['/api/v3/lego/mocs/{set_num}/parts/']['get']['responses']['200']['schema'] = ref('ArrayOfInventoryParts')
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>
 <br>

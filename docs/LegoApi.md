@@ -191,7 +191,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_mocs_parts_list**
-> lego_mocs_parts_list(set_num, page=page, page_size=page_size)
+> ArrayOfInventoryParts lego_mocs_parts_list(set_num, page=page, page_size=page_size)
 
 Get a list of all Inventory Parts in this MOC.
 
@@ -219,7 +219,8 @@ page_size = 'page_size_example' # str | null (optional)
 
 try:
     # Get a list of all Inventory Parts in this MOC.
-    api_instance.lego_mocs_parts_list(set_num, page=page, page_size=page_size)
+    api_response = api_instance.lego_mocs_parts_list(set_num, page=page, page_size=page_size)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_mocs_parts_list: %s\n" % e)
 ```
@@ -234,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfInventoryParts**](ArrayOfInventoryParts.md)
 
 ### Authorization
 

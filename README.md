@@ -143,11 +143,13 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [ArrayOfColors](docs/ArrayOfColors.md)
+ - [ArrayOfInventoryParts](docs/ArrayOfInventoryParts.md)
  - [ArrayOfPartCategories](docs/ArrayOfPartCategories.md)
  - [ArrayOfParts](docs/ArrayOfParts.md)
  - [ArrayOfSets](docs/ArrayOfSets.md)
  - [ArrayOfThemes](docs/ArrayOfThemes.md)
  - [Color](docs/Color.md)
+ - [InventoryPart](docs/InventoryPart.md)
  - [Part](docs/Part.md)
  - [PartCategory](docs/PartCategory.md)
  - [Set](docs/Set.md)
