@@ -771,7 +771,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_sets_list**
-> lego_sets_list(page=page, page_size=page_size, theme_id=theme_id, min_year=min_year, max_year=max_year, min_parts=min_parts, max_parts=max_parts, ordering=ordering, search=search)
+> ArrayOfSets lego_sets_list(page=page, page_size=page_size, theme_id=theme_id, min_year=min_year, max_year=max_year, min_parts=min_parts, max_parts=max_parts, ordering=ordering, search=search)
 
 Get a list of Sets, optionally filtered by any of the below parameters.
 
@@ -805,7 +805,8 @@ search = 'search_example' # str | null (optional)
 
 try:
     # Get a list of Sets, optionally filtered by any of the below parameters.
-    api_instance.lego_sets_list(page=page, page_size=page_size, theme_id=theme_id, min_year=min_year, max_year=max_year, min_parts=min_parts, max_parts=max_parts, ordering=ordering, search=search)
+    api_response = api_instance.lego_sets_list(page=page, page_size=page_size, theme_id=theme_id, min_year=min_year, max_year=max_year, min_parts=min_parts, max_parts=max_parts, ordering=ordering, search=search)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_sets_list: %s\n" % e)
 ```
@@ -826,7 +827,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfSets**](ArrayOfSets.md)
 
 ### Authorization
 
@@ -897,7 +898,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_sets_read**
-> lego_sets_read(set_num)
+> Set lego_sets_read(set_num)
 
 Get details for a specific Set.
 
@@ -923,7 +924,8 @@ set_num = 'set_num_example' # str | null
 
 try:
     # Get details for a specific Set.
-    api_instance.lego_sets_read(set_num)
+    api_response = api_instance.lego_sets_read(set_num)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_sets_read: %s\n" % e)
 ```
@@ -936,7 +938,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Set**](Set.md)
 
 ### Authorization
 

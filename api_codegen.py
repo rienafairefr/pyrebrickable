@@ -77,6 +77,19 @@ def generate_swagger():
                 },
                 "name": {"type": "string"},
             },
+            'Set': {
+                "set_num": {"type": "string"},
+                "name": {"type": "string"},
+                "year": {"type": "integer"},
+                "theme_id": {
+                    "type": "integer",
+                    "nullable": True
+                },
+                "num_parts": {"type": "integer"},
+                "set_img_url": {"type": "string"},
+                "set_url": {"type": "string"},
+                "last_modified_dt": {"type": "string", "format": "date-time"}
+            },
         }
 
         for cls in classes:
@@ -90,6 +103,9 @@ def generate_swagger():
         api['paths']['/api/v3/lego/colors/{id}/']['get']['responses']['200']['schema'] = ref('Color')
         api['paths']['/api/v3/lego/themes/']['get']['responses']['200']['schema'] = ref('ArrayOfThemes')
         api['paths']['/api/v3/lego/themes/{id}/']['get']['responses']['200']['schema'] = ref('Theme')
+
+        api['paths']['/api/v3/lego/sets/']['get']['responses']['200']['schema'] = ref('ArrayOfSets')
+        api['paths']['/api/v3/lego/sets/{set_num}/']['get']['responses']['200']['schema'] = ref('Set')
 
         json.dump(api, swagger_file, indent=True, sort_keys=True)
 
