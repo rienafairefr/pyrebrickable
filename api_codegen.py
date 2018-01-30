@@ -90,6 +90,16 @@ def generate_swagger():
                 "set_url": {"type": "string"},
                 "last_modified_dt": {"type": "string", "format": "date-time"}
             },
+            'Part': {
+                "part_num": {"type": "string"},
+                "name": {"type": "string"},
+                "part_cat_id": {"type": "integer"},
+                "part_url": {"type": "string"},
+                "part_img_url": {
+                    "type": "string",
+                    "nullable": True
+                }
+            }
         }
 
         for cls in classes:
@@ -106,6 +116,9 @@ def generate_swagger():
 
         api['paths']['/api/v3/lego/sets/']['get']['responses']['200']['schema'] = ref('ArrayOfSets')
         api['paths']['/api/v3/lego/sets/{set_num}/']['get']['responses']['200']['schema'] = ref('Set')
+
+        api['paths']['/api/v3/lego/parts/']['get']['responses']['200']['schema'] = ref('ArrayOfParts')
+        api['paths']['/api/v3/lego/parts/{part_num}/']['get']['responses']['200']['schema'] = ref('Part')
 
         json.dump(api, swagger_file, indent=True, sort_keys=True)
 

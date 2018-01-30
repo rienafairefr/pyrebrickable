@@ -1020,7 +1020,7 @@ class LegoApi(object):
         :param str ldraw_id: null
         :param str ordering: null
         :param str search: null
-        :return: None
+        :return: ArrayOfParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1052,7 +1052,7 @@ class LegoApi(object):
         :param str ldraw_id: null
         :param str ordering: null
         :param str search: null
-        :return: None
+        :return: ArrayOfParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1118,7 +1118,7 @@ class LegoApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfParts',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1137,7 +1137,7 @@ class LegoApi(object):
 
         :param async bool
         :param str part_num: null (required)
-        :return: None
+        :return: Part
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1159,7 +1159,7 @@ class LegoApi(object):
 
         :param async bool
         :param str part_num: null (required)
-        :return: None
+        :return: Part
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1209,7 +1209,7 @@ class LegoApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='Part',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),

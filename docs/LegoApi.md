@@ -586,7 +586,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_parts_list**
-> lego_parts_list(page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id, bricklink_id=bricklink_id, brickowl_id=brickowl_id, lego_id=lego_id, ldraw_id=ldraw_id, ordering=ordering, search=search)
+> ArrayOfParts lego_parts_list(page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id, bricklink_id=bricklink_id, brickowl_id=brickowl_id, lego_id=lego_id, ldraw_id=ldraw_id, ordering=ordering, search=search)
 
 Get a list of Parts.
 
@@ -622,7 +622,8 @@ search = 'search_example' # str | null (optional)
 
 try:
     # Get a list of Parts.
-    api_instance.lego_parts_list(page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id, bricklink_id=bricklink_id, brickowl_id=brickowl_id, lego_id=lego_id, ldraw_id=ldraw_id, ordering=ordering, search=search)
+    api_response = api_instance.lego_parts_list(page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id, bricklink_id=bricklink_id, brickowl_id=brickowl_id, lego_id=lego_id, ldraw_id=ldraw_id, ordering=ordering, search=search)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_parts_list: %s\n" % e)
 ```
@@ -645,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfParts**](ArrayOfParts.md)
 
 ### Authorization
 
@@ -659,7 +660,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_parts_read**
-> lego_parts_read(part_num)
+> Part lego_parts_read(part_num)
 
 Get details about a specific Part.
 
@@ -685,7 +686,8 @@ part_num = 'part_num_example' # str | null
 
 try:
     # Get details about a specific Part.
-    api_instance.lego_parts_read(part_num)
+    api_response = api_instance.lego_parts_read(part_num)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_parts_read: %s\n" % e)
 ```
@@ -698,7 +700,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Part**](Part.md)
 
 ### Authorization
 
