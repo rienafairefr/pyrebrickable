@@ -7,9 +7,11 @@ Welcome to pyrebrickable's documentation!
 =========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
+   CLI <cli.rst>
+   API <api.rst>
 
 
 Indices and tables
