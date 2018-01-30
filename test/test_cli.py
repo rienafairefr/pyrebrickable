@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """Tests for `pyrebrickable` package."""
-from unittest import mock
-from unittest.mock import MagicMock
+import mock
+from mock import MagicMock
 
 import click
 from click.testing import CliRunner
