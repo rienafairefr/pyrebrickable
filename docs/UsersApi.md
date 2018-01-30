@@ -738,7 +738,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_partlists_parts_delete**
-> users_partlists_parts_delete(user_token, color_id, list_id, part_num)
+> users_partlists_parts_delete(user_token, list_id, color_id, part_num)
 
 Delete a Part from the Part List.
 
@@ -761,13 +761,13 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
-color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
+color_id = 'color_id_example' # str | null
 part_num = 'part_num_example' # str | null
 
 try:
     # Delete a Part from the Part List.
-    api_instance.users_partlists_parts_delete(user_token, color_id, list_id, part_num)
+    api_instance.users_partlists_parts_delete(user_token, list_id, color_id, part_num)
 except ApiException as e:
     print("Exception when calling UsersApi->users_partlists_parts_delete: %s\n" % e)
 ```
@@ -777,8 +777,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_token** | **str**| null | 
- **color_id** | **str**| null | 
  **list_id** | **str**| null | 
+ **color_id** | **str**| null | 
  **part_num** | **str**| null | 
 
 ### Return type
@@ -858,7 +858,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_partlists_parts_read**
-> users_partlists_parts_read(user_token, color_id, list_id, part_num)
+> users_partlists_parts_read(user_token, list_id, color_id, part_num)
 
 Get details about a specific Part in the Part List.
 
@@ -881,13 +881,13 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
-color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
+color_id = 'color_id_example' # str | null
 part_num = 'part_num_example' # str | null
 
 try:
     # Get details about a specific Part in the Part List.
-    api_instance.users_partlists_parts_read(user_token, color_id, list_id, part_num)
+    api_instance.users_partlists_parts_read(user_token, list_id, color_id, part_num)
 except ApiException as e:
     print("Exception when calling UsersApi->users_partlists_parts_read: %s\n" % e)
 ```
@@ -897,8 +897,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_token** | **str**| null | 
- **color_id** | **str**| null | 
  **list_id** | **str**| null | 
+ **color_id** | **str**| null | 
  **part_num** | **str**| null | 
 
 ### Return type
@@ -917,7 +917,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_partlists_parts_update**
-> users_partlists_parts_update(user_token, color_id, list_id, part_num, quantity)
+> users_partlists_parts_update(user_token, list_id, color_id, part_num, quantity)
 
 Replace an existing Part's details in the Part List.
 
@@ -940,14 +940,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = rebrickable.UsersApi(rebrickable.ApiClient(configuration))
 user_token = 'user_token_example' # str | null
-color_id = 'color_id_example' # str | null
 list_id = 'list_id_example' # str | null
+color_id = 'color_id_example' # str | null
 part_num = 'part_num_example' # str | null
 quantity = 'quantity_example' # str | null
 
 try:
     # Replace an existing Part's details in the Part List.
-    api_instance.users_partlists_parts_update(user_token, color_id, list_id, part_num, quantity)
+    api_instance.users_partlists_parts_update(user_token, list_id, color_id, part_num, quantity)
 except ApiException as e:
     print("Exception when calling UsersApi->users_partlists_parts_update: %s\n" % e)
 ```
@@ -957,8 +957,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_token** | **str**| null | 
- **color_id** | **str**| null | 
  **list_id** | **str**| null | 
+ **color_id** | **str**| null | 
  **part_num** | **str**| null | 
  **quantity** | **str**| null | 
 

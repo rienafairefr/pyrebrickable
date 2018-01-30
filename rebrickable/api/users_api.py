@@ -1289,19 +1289,19 @@ class UsersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def users_partlists_parts_delete(self, user_token, color_id, list_id, part_num, **kwargs):  # noqa: E501
+    def users_partlists_parts_delete(self, user_token, list_id, color_id, part_num, **kwargs):  # noqa: E501
         """Delete a Part from the Part List.  # noqa: E501
 
         Delete a Part from the Part List.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_partlists_parts_delete(user_token, color_id, list_id, part_num, async=True)
+        >>> thread = api.users_partlists_parts_delete(user_token, list_id, color_id, part_num, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str user_token: null (required)
-        :param str color_id: null (required)
         :param str list_id: null (required)
+        :param str color_id: null (required)
         :param str part_num: null (required)
         :return: None
                  If the method is called asynchronously,
@@ -1309,31 +1309,31 @@ class UsersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.users_partlists_parts_delete_with_http_info(user_token, color_id, list_id, part_num, **kwargs)  # noqa: E501
+            return self.users_partlists_parts_delete_with_http_info(user_token, list_id, color_id, part_num, **kwargs)  # noqa: E501
         else:
-            (data) = self.users_partlists_parts_delete_with_http_info(user_token, color_id, list_id, part_num, **kwargs)  # noqa: E501
+            (data) = self.users_partlists_parts_delete_with_http_info(user_token, list_id, color_id, part_num, **kwargs)  # noqa: E501
             return data
 
-    def users_partlists_parts_delete_with_http_info(self, user_token, color_id, list_id, part_num, **kwargs):  # noqa: E501
+    def users_partlists_parts_delete_with_http_info(self, user_token, list_id, color_id, part_num, **kwargs):  # noqa: E501
         """Delete a Part from the Part List.  # noqa: E501
 
         Delete a Part from the Part List.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_partlists_parts_delete_with_http_info(user_token, color_id, list_id, part_num, async=True)
+        >>> thread = api.users_partlists_parts_delete_with_http_info(user_token, list_id, color_id, part_num, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str user_token: null (required)
-        :param str color_id: null (required)
         :param str list_id: null (required)
+        :param str color_id: null (required)
         :param str part_num: null (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_token', 'color_id', 'list_id', 'part_num']  # noqa: E501
+        all_params = ['user_token', 'list_id', 'color_id', 'part_num']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1352,14 +1352,14 @@ class UsersApi(object):
         if ('user_token' not in params or
                 params['user_token'] is None):
             raise ValueError("Missing the required parameter `user_token` when calling `users_partlists_parts_delete`")  # noqa: E501
-        # verify the required parameter 'color_id' is set
-        if ('color_id' not in params or
-                params['color_id'] is None):
-            raise ValueError("Missing the required parameter `color_id` when calling `users_partlists_parts_delete`")  # noqa: E501
         # verify the required parameter 'list_id' is set
         if ('list_id' not in params or
                 params['list_id'] is None):
             raise ValueError("Missing the required parameter `list_id` when calling `users_partlists_parts_delete`")  # noqa: E501
+        # verify the required parameter 'color_id' is set
+        if ('color_id' not in params or
+                params['color_id'] is None):
+            raise ValueError("Missing the required parameter `color_id` when calling `users_partlists_parts_delete`")  # noqa: E501
         # verify the required parameter 'part_num' is set
         if ('part_num' not in params or
                 params['part_num'] is None):
@@ -1370,10 +1370,10 @@ class UsersApi(object):
         path_params = {}
         if 'user_token' in params:
             path_params['user_token'] = params['user_token']  # noqa: E501
-        if 'color_id' in params:
-            path_params['color_id'] = params['color_id']  # noqa: E501
         if 'list_id' in params:
             path_params['list_id'] = params['list_id']  # noqa: E501
+        if 'color_id' in params:
+            path_params['color_id'] = params['color_id']  # noqa: E501
         if 'part_num' in params:
             path_params['part_num'] = params['part_num']  # noqa: E501
 
@@ -1515,19 +1515,19 @@ class UsersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def users_partlists_parts_read(self, user_token, color_id, list_id, part_num, **kwargs):  # noqa: E501
+    def users_partlists_parts_read(self, user_token, list_id, color_id, part_num, **kwargs):  # noqa: E501
         """Get details about a specific Part in the Part List.  # noqa: E501
 
         Get details about a specific Part in the Part List.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_partlists_parts_read(user_token, color_id, list_id, part_num, async=True)
+        >>> thread = api.users_partlists_parts_read(user_token, list_id, color_id, part_num, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str user_token: null (required)
-        :param str color_id: null (required)
         :param str list_id: null (required)
+        :param str color_id: null (required)
         :param str part_num: null (required)
         :return: None
                  If the method is called asynchronously,
@@ -1535,31 +1535,31 @@ class UsersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.users_partlists_parts_read_with_http_info(user_token, color_id, list_id, part_num, **kwargs)  # noqa: E501
+            return self.users_partlists_parts_read_with_http_info(user_token, list_id, color_id, part_num, **kwargs)  # noqa: E501
         else:
-            (data) = self.users_partlists_parts_read_with_http_info(user_token, color_id, list_id, part_num, **kwargs)  # noqa: E501
+            (data) = self.users_partlists_parts_read_with_http_info(user_token, list_id, color_id, part_num, **kwargs)  # noqa: E501
             return data
 
-    def users_partlists_parts_read_with_http_info(self, user_token, color_id, list_id, part_num, **kwargs):  # noqa: E501
+    def users_partlists_parts_read_with_http_info(self, user_token, list_id, color_id, part_num, **kwargs):  # noqa: E501
         """Get details about a specific Part in the Part List.  # noqa: E501
 
         Get details about a specific Part in the Part List.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_partlists_parts_read_with_http_info(user_token, color_id, list_id, part_num, async=True)
+        >>> thread = api.users_partlists_parts_read_with_http_info(user_token, list_id, color_id, part_num, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str user_token: null (required)
-        :param str color_id: null (required)
         :param str list_id: null (required)
+        :param str color_id: null (required)
         :param str part_num: null (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_token', 'color_id', 'list_id', 'part_num']  # noqa: E501
+        all_params = ['user_token', 'list_id', 'color_id', 'part_num']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1578,14 +1578,14 @@ class UsersApi(object):
         if ('user_token' not in params or
                 params['user_token'] is None):
             raise ValueError("Missing the required parameter `user_token` when calling `users_partlists_parts_read`")  # noqa: E501
-        # verify the required parameter 'color_id' is set
-        if ('color_id' not in params or
-                params['color_id'] is None):
-            raise ValueError("Missing the required parameter `color_id` when calling `users_partlists_parts_read`")  # noqa: E501
         # verify the required parameter 'list_id' is set
         if ('list_id' not in params or
                 params['list_id'] is None):
             raise ValueError("Missing the required parameter `list_id` when calling `users_partlists_parts_read`")  # noqa: E501
+        # verify the required parameter 'color_id' is set
+        if ('color_id' not in params or
+                params['color_id'] is None):
+            raise ValueError("Missing the required parameter `color_id` when calling `users_partlists_parts_read`")  # noqa: E501
         # verify the required parameter 'part_num' is set
         if ('part_num' not in params or
                 params['part_num'] is None):
@@ -1596,10 +1596,10 @@ class UsersApi(object):
         path_params = {}
         if 'user_token' in params:
             path_params['user_token'] = params['user_token']  # noqa: E501
-        if 'color_id' in params:
-            path_params['color_id'] = params['color_id']  # noqa: E501
         if 'list_id' in params:
             path_params['list_id'] = params['list_id']  # noqa: E501
+        if 'color_id' in params:
+            path_params['color_id'] = params['color_id']  # noqa: E501
         if 'part_num' in params:
             path_params['part_num'] = params['part_num']  # noqa: E501
 
@@ -1630,19 +1630,19 @@ class UsersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def users_partlists_parts_update(self, user_token, color_id, list_id, part_num, quantity, **kwargs):  # noqa: E501
+    def users_partlists_parts_update(self, user_token, list_id, color_id, part_num, quantity, **kwargs):  # noqa: E501
         """Replace an existing Part&#39;s details in the Part List.  # noqa: E501
 
         Replace an existing Part's details in the Part List.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_partlists_parts_update(user_token, color_id, list_id, part_num, quantity, async=True)
+        >>> thread = api.users_partlists_parts_update(user_token, list_id, color_id, part_num, quantity, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str user_token: null (required)
-        :param str color_id: null (required)
         :param str list_id: null (required)
+        :param str color_id: null (required)
         :param str part_num: null (required)
         :param str quantity: null (required)
         :return: None
@@ -1651,24 +1651,24 @@ class UsersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.users_partlists_parts_update_with_http_info(user_token, color_id, list_id, part_num, quantity, **kwargs)  # noqa: E501
+            return self.users_partlists_parts_update_with_http_info(user_token, list_id, color_id, part_num, quantity, **kwargs)  # noqa: E501
         else:
-            (data) = self.users_partlists_parts_update_with_http_info(user_token, color_id, list_id, part_num, quantity, **kwargs)  # noqa: E501
+            (data) = self.users_partlists_parts_update_with_http_info(user_token, list_id, color_id, part_num, quantity, **kwargs)  # noqa: E501
             return data
 
-    def users_partlists_parts_update_with_http_info(self, user_token, color_id, list_id, part_num, quantity, **kwargs):  # noqa: E501
+    def users_partlists_parts_update_with_http_info(self, user_token, list_id, color_id, part_num, quantity, **kwargs):  # noqa: E501
         """Replace an existing Part&#39;s details in the Part List.  # noqa: E501
 
         Replace an existing Part's details in the Part List.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.users_partlists_parts_update_with_http_info(user_token, color_id, list_id, part_num, quantity, async=True)
+        >>> thread = api.users_partlists_parts_update_with_http_info(user_token, list_id, color_id, part_num, quantity, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str user_token: null (required)
-        :param str color_id: null (required)
         :param str list_id: null (required)
+        :param str color_id: null (required)
         :param str part_num: null (required)
         :param str quantity: null (required)
         :return: None
@@ -1676,7 +1676,7 @@ class UsersApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_token', 'color_id', 'list_id', 'part_num', 'quantity']  # noqa: E501
+        all_params = ['user_token', 'list_id', 'color_id', 'part_num', 'quantity']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1695,14 +1695,14 @@ class UsersApi(object):
         if ('user_token' not in params or
                 params['user_token'] is None):
             raise ValueError("Missing the required parameter `user_token` when calling `users_partlists_parts_update`")  # noqa: E501
-        # verify the required parameter 'color_id' is set
-        if ('color_id' not in params or
-                params['color_id'] is None):
-            raise ValueError("Missing the required parameter `color_id` when calling `users_partlists_parts_update`")  # noqa: E501
         # verify the required parameter 'list_id' is set
         if ('list_id' not in params or
                 params['list_id'] is None):
             raise ValueError("Missing the required parameter `list_id` when calling `users_partlists_parts_update`")  # noqa: E501
+        # verify the required parameter 'color_id' is set
+        if ('color_id' not in params or
+                params['color_id'] is None):
+            raise ValueError("Missing the required parameter `color_id` when calling `users_partlists_parts_update`")  # noqa: E501
         # verify the required parameter 'part_num' is set
         if ('part_num' not in params or
                 params['part_num'] is None):
@@ -1717,10 +1717,10 @@ class UsersApi(object):
         path_params = {}
         if 'user_token' in params:
             path_params['user_token'] = params['user_token']  # noqa: E501
-        if 'color_id' in params:
-            path_params['color_id'] = params['color_id']  # noqa: E501
         if 'list_id' in params:
             path_params['list_id'] = params['list_id']  # noqa: E501
+        if 'color_id' in params:
+            path_params['color_id'] = params['color_id']  # noqa: E501
         if 'part_num' in params:
             path_params['part_num'] = params['part_num']  # noqa: E501
 
