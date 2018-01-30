@@ -144,12 +144,7 @@ def lego_mocs_read(api, set_num):
     print(api.lego_mocs_read(set_num=set_num))
 
 
-@lego.group(name='part')
-def lego_part():
-    pass
-
-
-@lego_part.group(name='categories')
+@lego.group(name='part_categories')
 def lego_part_categories():
     pass
 

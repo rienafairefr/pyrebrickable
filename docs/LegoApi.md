@@ -301,7 +301,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_part_categories_list**
-> lego_part_categories_list(page=page, page_size=page_size, ordering=ordering)
+> ArrayOfPartCategories lego_part_categories_list(page=page, page_size=page_size, ordering=ordering)
 
 Get a list of all Part Categories.
 
@@ -329,7 +329,8 @@ ordering = 'ordering_example' # str | null (optional)
 
 try:
     # Get a list of all Part Categories.
-    api_instance.lego_part_categories_list(page=page, page_size=page_size, ordering=ordering)
+    api_response = api_instance.lego_part_categories_list(page=page, page_size=page_size, ordering=ordering)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_part_categories_list: %s\n" % e)
 ```
@@ -344,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfPartCategories**](ArrayOfPartCategories.md)
 
 ### Authorization
 
@@ -358,7 +359,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_part_categories_read**
-> lego_part_categories_read(id)
+> PartCategory lego_part_categories_read(id)
 
 Get details about a specific Part Category.
 
@@ -384,7 +385,8 @@ id = 'id_example' # str | null
 
 try:
     # Get details about a specific Part Category.
-    api_instance.lego_part_categories_read(id)
+    api_response = api_instance.lego_part_categories_read(id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_part_categories_read: %s\n" % e)
 ```
@@ -397,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**PartCategory**](PartCategory.md)
 
 ### Authorization
 

@@ -38,7 +38,12 @@ def generate_swagger():
             })
 
         def get_typedef_array(cls):
-            array = 'ArrayOf%ss' % cls
+            if cls.endswith('y'):
+                plural = cls[:-1]+'ies'
+            else:
+                plural = cls + 's'
+            array = 'ArrayOf%s' % plural
+
             return {
                 array: {
                     "type": "object",
@@ -99,6 +104,11 @@ def generate_swagger():
                     "type": "string",
                     "nullable": True
                 }
+            },
+            'PartCategory': {
+                "id": {"type": "integer"},
+                "name": {"type": "string"},
+                "part_count": {"type": "integer"}
             }
         }
 
@@ -119,6 +129,9 @@ def generate_swagger():
 
         api['paths']['/api/v3/lego/parts/']['get']['responses']['200']['schema'] = ref('ArrayOfParts')
         api['paths']['/api/v3/lego/parts/{part_num}/']['get']['responses']['200']['schema'] = ref('Part')
+
+        api['paths']['/api/v3/lego/part_categories/']['get']['responses']['200']['schema'] = ref('ArrayOfPartCategories')
+        api['paths']['/api/v3/lego/part_categories/{id}/']['get']['responses']['200']['schema'] = ref('PartCategory')
 
         json.dump(api, swagger_file, indent=True, sort_keys=True)
 
