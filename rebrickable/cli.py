@@ -575,6 +575,7 @@ def users_setlists_sets_partial():
 @users_setlists_sets_partial.command(name='update')
 @pass_usersapi
 @click.argument('user_token')
+@click.argument('list_id')
 @click.argument('set_num')
 def users_setlists_sets_partial_update(api, user_token, list_id, set_num):
     return api.users_setlists_sets_partial_update(user_token, list_id, set_num)
