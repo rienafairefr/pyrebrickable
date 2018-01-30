@@ -81,7 +81,7 @@ def generate_swagger():
         def ref(cls):
             return {'$ref': "#/definitions/%s" % cls}
 
-        api['paths']['/api/v3/lego/colors/']['get']['responses']['200']['schema'] = ref('ArrayOfcolors')
+        api['paths']['/api/v3/lego/colors/']['get']['responses']['200']['schema'] = ref('ArrayOfColors')
         api['paths']['/api/v3/lego/colors/{id}/']['get']['responses']['200']['schema'] = ref('Color')
 
         json.dump(api, swagger_file, indent=True, sort_keys=True)
