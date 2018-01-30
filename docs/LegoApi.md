@@ -1007,7 +1007,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_themes_list**
-> lego_themes_list(page=page, page_size=page_size, ordering=ordering)
+> ArrayOfThemes lego_themes_list(page=page, page_size=page_size, ordering=ordering)
 
 Return all Themes
 
@@ -1035,7 +1035,8 @@ ordering = 'ordering_example' # str | null (optional)
 
 try:
     # Return all Themes
-    api_instance.lego_themes_list(page=page, page_size=page_size, ordering=ordering)
+    api_response = api_instance.lego_themes_list(page=page, page_size=page_size, ordering=ordering)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_themes_list: %s\n" % e)
 ```
@@ -1050,7 +1051,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfThemes**](ArrayOfThemes.md)
 
 ### Authorization
 
@@ -1064,7 +1065,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_themes_read**
-> lego_themes_read(id)
+> Theme lego_themes_read(id)
 
 Return details for a specific Theme
 
@@ -1090,7 +1091,8 @@ id = 'id_example' # str | null
 
 try:
     # Return details for a specific Theme
-    api_instance.lego_themes_read(id)
+    api_response = api_instance.lego_themes_read(id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_themes_read: %s\n" % e)
 ```
@@ -1103,7 +1105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Theme**](Theme.md)
 
 ### Authorization
 

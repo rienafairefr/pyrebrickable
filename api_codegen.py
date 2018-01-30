@@ -14,9 +14,6 @@ rebrickable = 'rebrickable.json'
 
 
 def generate_swagger():
-    if os.path.exists(swagger):
-        return
-
     # urlretrieve(swagger_url, "rerickable.json")
 
     with open(rebrickable, 'r') as rebrickable_file, \
@@ -70,8 +67,16 @@ def generate_swagger():
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
                 "rgb": {"type": "string"},
-                "is_trans": {"type": "bool"}
-            }
+                "is_trans": {"type": "bool"},
+            },
+            'Theme': {
+                "id": {"type": "integer"},
+                "parent_id": {
+                    "type": "integer",
+                    "nullable": True
+                },
+                "name": {"type": "string"},
+            },
         }
 
         for cls in classes:
@@ -83,6 +88,8 @@ def generate_swagger():
 
         api['paths']['/api/v3/lego/colors/']['get']['responses']['200']['schema'] = ref('ArrayOfColors')
         api['paths']['/api/v3/lego/colors/{id}/']['get']['responses']['200']['schema'] = ref('Color')
+        api['paths']['/api/v3/lego/themes/']['get']['responses']['200']['schema'] = ref('ArrayOfThemes')
+        api['paths']['/api/v3/lego/themes/{id}/']['get']['responses']['200']['schema'] = ref('Theme')
 
         json.dump(api, swagger_file, indent=True, sort_keys=True)
 
