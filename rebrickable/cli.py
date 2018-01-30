@@ -86,7 +86,7 @@ def lego_parts_colors_sets():
 @click.argument('color_id')
 @click.argument('set_num')
 def lego_parts_colors_sets_list(api, color_id, set_num):
-    return api.lego_parts_colors_sets_list(color_id, set_num)
+    print(api.lego_parts_colors_sets_list(color_id, set_num))
 
 
 @lego.group(name='colors')
@@ -116,7 +116,7 @@ def lego_elements():
 @pass_legoapi
 @click.argument('element_id')
 def lego_elements_read(api, element_id):
-    return api.lego_elements_read(element_id)
+    print(api.lego_elements_read(element_id))
 
 
 @lego.group(name='mocs')
@@ -133,14 +133,14 @@ def lego_mocs_parts():
 @pass_legoapi
 @click.argument('set_num')
 def lego_mocs_parts_list(api, set_num):
-    return api.lego_mocs_parts_list(set_num)
+    print(api.lego_mocs_parts_list(set_num))
 
 
 @lego_mocs.command(name='read')
 @pass_legoapi
 @click.argument('set_num')
 def lego_mocs_read(api, set_num):
-    return api.lego_mocs_read(set_num)
+    print(api.lego_mocs_read(set_num))
 
 
 @lego.group(name='part')
@@ -156,21 +156,21 @@ def lego_part_categories():
 @lego_part_categories.command(name='list')
 @pass_legoapi
 def lego_part_categories_list(api):
-    return api.lego_part_categories_list()
+    print(api.lego_part_categories_list())
 
 
 @lego_part_categories.command(name='read')
 @pass_legoapi
 @click.argument('id')
 def lego_part_categories_read(api, id):
-    return api.lego_part_categories_read(id)
+    print(api.lego_part_categories_read(id))
 
 
 @lego_parts_colors.command(name='list')
 @pass_legoapi
 @click.argument('part_num')
 def lego_parts_colors_list(api, part_num):
-    return api.lego_parts_colors_list(part_num)
+    print(api.lego_parts_colors_list(part_num))
 
 
 @lego_parts_colors.command(name='read')
@@ -178,7 +178,7 @@ def lego_parts_colors_list(api, part_num):
 @click.argument('color_id')
 @click.argument('part_num')
 def lego_parts_colors_read(api, color_id, part_num):
-    return api.lego_parts_colors_read(color_id, part_num)
+    print(api.lego_parts_colors_read(color_id, part_num))
 
 
 @lego_parts_colors_sets.command(name='list')
@@ -186,20 +186,20 @@ def lego_parts_colors_read(api, color_id, part_num):
 @click.argument('color_id')
 @click.argument('part_num')
 def lego_parts_colors_sets_list(api, color_id, part_num):
-    return api.lego_parts_colors_sets_list(color_id, part_num)
+    print(api.lego_parts_colors_sets_list(color_id, part_num))
 
 
 @lego_parts.command(name='list')
 @pass_legoapi
 def lego_parts_list(api):
-    return api.lego_parts_list()
+    print(api.lego_parts_list())
 
 
 @lego_parts.command(name='read')
 @pass_legoapi
 @click.argument('part_num')
 def lego_parts_read(api, part_num):
-    return api.lego_parts_read(part_num)
+    print(api.lego_parts_read(part_num))
 
 
 @lego.group(name='sets')
@@ -216,13 +216,13 @@ def lego_sets_alternates():
 @pass_legoapi
 @click.argument('set_num')
 def lego_sets_alternates_list(api, set_num):
-    return api.lego_sets_alternates_list(set_num)
+    print(api.lego_sets_alternates_list(set_num))
 
 
 @lego_sets.command(name='list')
 @pass_legoapi
 def lego_sets_list(api):
-    return api.lego_sets_list()
+    print(api.lego_sets_list())
 
 
 @lego_sets.group(name='parts')
@@ -234,14 +234,14 @@ def lego_sets_parts():
 @pass_legoapi
 @click.argument('set_num')
 def lego_sets_parts_list(api, set_num):
-    return api.lego_sets_parts_list(set_num)
+    print(api.lego_sets_parts_list(set_num))
 
 
 @lego_sets.command(name='read')
 @pass_legoapi
 @click.argument('set_num')
 def lego_sets_read(api, set_num):
-    return api.lego_sets_read(set_num)
+    print(api.lego_sets_read(set_num))
 
 
 @lego_sets.group(name='sets')
@@ -253,7 +253,7 @@ def lego_sets_sets():
 @pass_legoapi
 @click.argument('set_num')
 def lego_sets_sets_list(api, set_num):
-    return api.lego_sets_sets_list(set_num)
+    print(api.lego_sets_sets_list(set_num))
 
 
 @lego.group(name='themes')
@@ -264,14 +264,14 @@ def lego_themes():
 @lego_themes.command(name='list')
 @pass_legoapi
 def lego_themes_list(api):
-    return api.lego_themes_list()
+    print(api.lego_themes_list())
 
 
 @lego_themes.command(name='read')
 @pass_legoapi
 @click.argument('id')
 def lego_themes_read(api, id):
-    return api.lego_themes_read(id)
+    print(api.lego_themes_read(id))
 
 
 @users.group(name='allparts')
@@ -283,7 +283,7 @@ def users_allparts():
 @pass_usersapi
 @click.argument('user_token')
 def users_allparts_list(api, user_token):
-    return api.users_allparts_list(user_token)
+    print(api.users_allparts_list(user_token))
 
 
 @users.group(name='badges')
@@ -294,14 +294,14 @@ def users_badges():
 @users_badges.command(name='list')
 @pass_usersapi
 def users_badges_list(api):
-    return api.users_badges_list()
+    print(api.users_badges_list())
 
 
 @users_badges.command(name='read')
 @pass_usersapi
 @click.argument('id')
 def users_badges_read(api, id):
-    return api.users_badges_read(id)
+    print(api.users_badges_read(id))
 
 
 @users.group(name='build')
@@ -314,7 +314,7 @@ def users_build():
 @click.argument('user_token')
 @click.argument('set_num')
 def users_build_read(api, user_token, set_num):
-    return api.users_build_read(user_token, set_num)
+    print(api.users_build_read(user_token, set_num))
 
 
 @users.group(name='lost')
@@ -332,7 +332,7 @@ def users_lost_parts():
 @click.argument('user_token')
 @click.argument('inv_part_id')
 def users_lost_parts_create(api, user_token, inv_part_id):
-    return api.users_lost_parts_create(user_token, inv_part_id)
+    print(api.users_lost_parts_create(user_token, inv_part_id))
 
 
 @users_lost_parts.command(name='delete')
@@ -340,14 +340,14 @@ def users_lost_parts_create(api, user_token, inv_part_id):
 @click.argument('user_token')
 @click.argument('id')
 def users_lost_parts_delete(api, user_token, id):
-    return api.users_lost_parts_delete(user_token, id)
+    print(api.users_lost_parts_delete(user_token, id))
 
 
 @users_lost_parts.command(name='list')
 @pass_usersapi
 @click.argument('user_token')
 def users_lost_parts_list(api, user_token):
-    return api.users_lost_parts_list(user_token)
+    print(api.users_lost_parts_list(user_token))
 
 
 @users.group(name='partlists')
@@ -360,7 +360,7 @@ def users_partlists():
 @click.argument('user_token')
 @click.argument('name')
 def users_partlists_create(api, user_token, name):
-    return api.users_partlists_create(user_token, name)
+    print(api.users_partlists_create(user_token, name))
 
 
 @users_partlists.command(name='delete')
@@ -368,14 +368,14 @@ def users_partlists_create(api, user_token, name):
 @click.argument('user_token')
 @click.argument('list_id')
 def users_partlists_delete(api, user_token, list_id):
-    return api.users_partlists_delete(user_token, list_id)
+    print(api.users_partlists_delete(user_token, list_id))
 
 
 @users_partlists.command(name='list')
 @pass_usersapi
 @click.argument('user_token')
 def users_partlists_list(api, user_token):
-    return api.users_partlists_list(user_token)
+    print(api.users_partlists_list(user_token))
 
 
 @users_partlists.group(name='partial')
@@ -388,7 +388,7 @@ def users_partlists_partial():
 @click.argument('user_token')
 @click.argument('list_id')
 def users_partlists_partial_update(api, user_token, list_id):
-    return api.users_partlists_partial_update(user_token, list_id)
+    print(api.users_partlists_partial_update(user_token, list_id))
 
 
 @users_partlists.group(name='parts')
@@ -404,7 +404,7 @@ def users_partlists_parts():
 @click.argument('quantity')
 @click.argument('color_id')
 def users_partlists_parts_create(api, user_token, list_id, part_num, quantity, color_id):
-    return api.users_partlists_parts_create(user_token, list_id, part_num, quantity, color_id)
+    print(api.users_partlists_parts_create(user_token, list_id, part_num, quantity, color_id))
 
 
 @users_partlists_parts.command(name='delete')
@@ -414,7 +414,7 @@ def users_partlists_parts_create(api, user_token, list_id, part_num, quantity, c
 @click.argument('list_id')
 @click.argument('part_num')
 def users_partlists_parts_delete(api, user_token, color_id, list_id, part_num):
-    return api.users_partlists_parts_delete(user_token, color_id, list_id, part_num)
+    print(api.users_partlists_parts_delete(user_token, color_id, list_id, part_num))
 
 
 @users_partlists_parts.command(name='list')
@@ -422,7 +422,7 @@ def users_partlists_parts_delete(api, user_token, color_id, list_id, part_num):
 @click.argument('user_token')
 @click.argument('list_id')
 def users_partlists_parts_list(api, user_token, list_id):
-    return api.users_partlists_parts_list(user_token, list_id)
+    print(api.users_partlists_parts_list(user_token, list_id))
 
 
 @users_partlists_parts.command(name='read')
@@ -432,7 +432,7 @@ def users_partlists_parts_list(api, user_token, list_id):
 @click.argument('list_id')
 @click.argument('part_num')
 def users_partlists_parts_read(api, user_token, color_id, list_id, part_num):
-    return api.users_partlists_parts_read(user_token, color_id, list_id, part_num)
+    print(api.users_partlists_parts_read(user_token, color_id, list_id, part_num))
 
 
 @users_partlists_parts.command(name='update')
@@ -443,7 +443,7 @@ def users_partlists_parts_read(api, user_token, color_id, list_id, part_num):
 @click.argument('part_num')
 @click.argument('quantity')
 def users_partlists_parts_update(api, user_token, color_id, list_id, part_num, quantity):
-    return api.users_partlists_parts_update(user_token, color_id, list_id, part_num, quantity)
+    print(api.users_partlists_parts_update(user_token, color_id, list_id, part_num, quantity))
 
 
 @users_partlists.command(name='read')
@@ -451,7 +451,7 @@ def users_partlists_parts_update(api, user_token, color_id, list_id, part_num, q
 @click.argument('user_token')
 @click.argument('list_id')
 def users_partlists_read(api, user_token, list_id):
-    return api.users_partlists_read(user_token, list_id)
+    print(api.users_partlists_read(user_token, list_id))
 
 
 @users_partlists.command(name='update')
@@ -460,7 +460,7 @@ def users_partlists_read(api, user_token, list_id):
 @click.argument('list_id')
 @click.argument('name')
 def users_partlists_update(api, user_token, list_id, name):
-    return api.users_partlists_update(user_token, list_id, name)
+    print(api.users_partlists_update(user_token, list_id, name))
 
 
 @users.group(name='parts')
@@ -472,7 +472,7 @@ def users_parts():
 @pass_usersapi
 @click.argument('user_token')
 def users_parts_list(api, user_token):
-    return api.users_parts_list(user_token)
+    print(api.users_parts_list(user_token))
 
 
 @users.group(name='profile')
@@ -484,7 +484,7 @@ def users_profile():
 @pass_usersapi
 @click.argument('user_token')
 def users_profile_list(api, user_token):
-    return api.users_profile_list(user_token)
+    print(api.users_profile_list(user_token))
 
 
 @users.group('setlists')
@@ -497,7 +497,7 @@ def users_setlists():
 @click.argument('user_token')
 @click.argument('name')
 def users_setlists_create(api, user_token, name):
-    return api.users_setlists_create(user_token, name)
+    print(api.users_setlists_create(user_token, name))
 
 
 @users_setlists.command(name='delete')
@@ -505,14 +505,14 @@ def users_setlists_create(api, user_token, name):
 @click.argument('user_token')
 @click.argument('list_id')
 def users_setlists_delete(api, user_token, list_id):
-    return api.users_setlists_delete(user_token, list_id)
+    print(api.users_setlists_delete(user_token, list_id))
 
 
 @users_setlists.command(name='list')
 @pass_usersapi
 @click.argument('user_token')
 def users_setlists_list(api, user_token):
-    return api.users_setlists_list(user_token)
+    print(api.users_setlists_list(user_token))
 
 
 @users_setlists.group(name='partial')
@@ -525,7 +525,7 @@ def users_setlists_partial():
 @click.argument('user_token')
 @click.argument('list_id')
 def users_setlists_partial_update(api, user_token, list_id):
-    return api.users_setlists_partial_update(user_token, list_id)
+    print(api.users_setlists_partial_update(user_token, list_id))
 
 
 @users_setlists.command(name='read')
@@ -533,7 +533,7 @@ def users_setlists_partial_update(api, user_token, list_id):
 @click.argument('user_token')
 @click.argument('list_id')
 def users_setlists_read(api, user_token, list_id):
-    return api.users_setlists_read(user_token, list_id)
+    print(api.users_setlists_read(user_token, list_id))
 
 
 @users_setlists.group(name='sets')
@@ -547,7 +547,7 @@ def users_setlists_sets():
 @click.argument('list_id')
 @click.argument('set_num')
 def users_setlists_sets_create(api, user_token, list_id, set_num):
-    return api.users_setlists_sets_create(user_token, list_id, set_num)
+    print(api.users_setlists_sets_create(user_token, list_id, set_num))
 
 
 @users_setlists_sets.command(name='delete')
@@ -556,7 +556,7 @@ def users_setlists_sets_create(api, user_token, list_id, set_num):
 @click.argument('list_id')
 @click.argument('set_num')
 def users_setlists_sets_delete(api, user_token, list_id, set_num):
-    return api.users_setlists_sets_delete(user_token, list_id, set_num)
+    print(api.users_setlists_sets_delete(user_token, list_id, set_num))
 
 
 @users_setlists_sets.command(name='list')
@@ -564,7 +564,7 @@ def users_setlists_sets_delete(api, user_token, list_id, set_num):
 @click.argument('user_token')
 @click.argument('list_id')
 def users_setlists_sets_list(api, user_token, list_id):
-    return api.users_setlists_sets_list(user_token, list_id)
+    print(api.users_setlists_sets_list(user_token, list_id))
 
 
 @users_setlists_sets.group()
@@ -578,7 +578,7 @@ def users_setlists_sets_partial():
 @click.argument('list_id')
 @click.argument('set_num')
 def users_setlists_sets_partial_update(api, user_token, list_id, set_num):
-    return api.users_setlists_sets_partial_update(user_token, list_id, set_num)
+    print(api.users_setlists_sets_partial_update(user_token, list_id, set_num))
 
 
 @users_setlists_sets.command(name='read')
@@ -587,7 +587,7 @@ def users_setlists_sets_partial_update(api, user_token, list_id, set_num):
 @click.argument('list_id')
 @click.argument('set_num')
 def users_setlists_sets_read(api, user_token, list_id, set_num):
-    return api.users_setlists_sets_read(user_token, list_id, set_num)
+    print(api.users_setlists_sets_read(user_token, list_id, set_num))
 
 
 @users_setlists_sets.command(name='update')
@@ -596,7 +596,7 @@ def users_setlists_sets_read(api, user_token, list_id, set_num):
 @click.argument('list_id')
 @click.argument('set_num')
 def users_setlists_sets_update(api, user_token, list_id, set_num):
-    return api.users_setlists_sets_update(user_token, list_id, set_num)
+    print(api.users_setlists_sets_update(user_token, list_id, set_num))
 
 
 @users_setlists.command(name='update')
@@ -605,7 +605,7 @@ def users_setlists_sets_update(api, user_token, list_id, set_num):
 @click.argument('list_id')
 @click.argument('name')
 def users_setlists_update(api, user_token, list_id, name):
-    return api.users_setlists_update(user_token, list_id, name)
+    print(api.users_setlists_update(user_token, list_id, name))
 
 
 @users.group(name='sets')
@@ -618,7 +618,7 @@ def users_sets():
 @click.argument('user_token')
 @click.argument('set_num')
 def users_sets_create(api, user_token, set_num):
-    return api.users_sets_create(user_token, set_num)
+    print(api.users_sets_create(user_token, set_num))
 
 
 @users_sets.command(name='delete')
@@ -626,14 +626,14 @@ def users_sets_create(api, user_token, set_num):
 @click.argument('user_token')
 @click.argument('set_num')
 def users_sets_delete(api, user_token, set_num):
-    return api.users_sets_delete(user_token, set_num)
+    print(api.users_sets_delete(user_token, set_num))
 
 
 @users_sets.command(name='list')
 @pass_usersapi
 @click.argument('user_token')
 def users_sets_list(api, user_token):
-    return api.users_sets_list(user_token)
+    print(api.users_sets_list(user_token))
 
 
 @users_sets.command(name='read')
@@ -641,7 +641,7 @@ def users_sets_list(api, user_token):
 @click.argument('user_token')
 @click.argument('set_num')
 def users_sets_read(api, user_token, set_num):
-    return api.users_sets_read(user_token, set_num)
+    print(api.users_sets_read(user_token, set_num))
 
 
 @users_sets.group(name='sync')
@@ -654,7 +654,7 @@ def users_sets_sync():
 @click.argument('user_token')
 @click.argument('set_num')
 def users_sets_sync_create(api, user_token, set_num):
-    return api.users_sets_sync_create(user_token, set_num)
+    print(api.users_sets_sync_create(user_token, set_num))
 
 
 @users_sets_sync.command(name='update')
@@ -662,7 +662,7 @@ def users_sets_sync_create(api, user_token, set_num):
 @click.argument('user_token')
 @click.argument('set_num')
 def users_sets_update(api, user_token, set_num):
-    return api.users_sets_update(user_token, set_num)
+    print(api.users_sets_update(user_token, set_num))
 
 
 @users.group(name='token')
@@ -677,7 +677,7 @@ def users_token():
 @click.argument('username')
 @click.argument('password')
 def users_token_create(api, username, password):
-    return api.users_token_create(username, password)
+    print(api.users_token_create(username, password))
 
 
 if __name__ == "__main__":
