@@ -1,0 +1,4 @@
+[submodule "gh-pages/html"]
+	path = gh-pages/html
+	url = git@github.com:rienafairefr/pyrebrickable.git
+	branch = gh-pages
