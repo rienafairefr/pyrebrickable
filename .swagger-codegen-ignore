@@ -27,7 +27,6 @@ setup.py
 .gitignore
 git_push.sh
 test/**
-README.md
 tox.ini
 test-requirements.txt
 requirements.txt
