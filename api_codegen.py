@@ -136,7 +136,9 @@ def generate_swagger():
             api['definitions'].update(get_typedef_array(cls))
             api['definitions'].update(get_typedef(cls, classes[cls]))
 
-
+        api['definitions'].update(get_typedef('UsersTokenResponse', {
+                "user_token": {'type': 'string'}
+            }))
 
         api['paths']['/api/v3/lego/colors/']['get']['responses']['200']['schema'] = ref('ArrayOfColors')
         api['paths']['/api/v3/lego/colors/{id}/']['get']['responses']['200']['schema'] = ref('Color')
@@ -181,6 +183,8 @@ def generate_swagger():
         # TODO
         # '/api/v3/lego/elements/{element_id}/', 'GET',
 
+        api['paths']['/api/v3/users/_token/']['post']['responses']['200'] = {
+            'schema': ref('UsersTokenResponse')}
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>
 <br>

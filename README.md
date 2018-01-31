@@ -156,6 +156,7 @@ Class | Method | HTTP request | Description
  - [PartCategory](docs/PartCategory.md)
  - [Set](docs/Set.md)
  - [Theme](docs/Theme.md)
+ - [UsersTokenResponse](docs/UsersTokenResponse.md)
 
 
 ## Documentation For Authorization

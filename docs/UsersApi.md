@@ -2282,7 +2282,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_token_create**
-> users_token_create(username, password)
+> UsersTokenResponse users_token_create(username, password)
 
 Generate a User Token to be used for authorising user account actions in subsequent calls. Username can be either
 
@@ -2309,7 +2309,8 @@ password = 'password_example' # str | null
 
 try:
     # Generate a User Token to be used for authorising user account actions in subsequent calls. Username can be either
-    api_instance.users_token_create(username, password)
+    api_response = api_instance.users_token_create(username, password)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_token_create: %s\n" % e)
 ```
@@ -2323,7 +2324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**UsersTokenResponse**](UsersTokenResponse.md)
 
 ### Authorization
 

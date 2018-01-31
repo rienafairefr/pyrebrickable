@@ -29,3 +29,4 @@ from rebrickable.models.part import Part
 from rebrickable.models.part_category import PartCategory
 from rebrickable.models.set import Set
 from rebrickable.models.theme import Theme
+from rebrickable.models.users_token_response import UsersTokenResponse
