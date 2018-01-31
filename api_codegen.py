@@ -244,6 +244,10 @@ def generate_swagger():
             'schema'] = ref(
             'ArrayOfSetLists')
 
+        api['paths']['/api/v3/users/{user_token}/allparts/']['get']['responses']['200'][
+            'schema'] = ref(
+            'ArrayOfParts')
+
         api['paths']['/api/v3/users/badges/']['get']['responses']['200'][
             'schema'] = ref(
             'ArrayOfBadges')

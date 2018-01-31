@@ -46,7 +46,7 @@ Method | HTTP request | Description
 
 
 # **users_allparts_list**
-> users_allparts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id)
+> ArrayOfParts users_allparts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id)
 
 Get a list of all the Parts in all the user's Part Lists as well as the Parts inside Sets in the user's Set Lists.
 
@@ -77,7 +77,8 @@ color_id = 'color_id_example' # str | null (optional)
 
 try:
     # Get a list of all the Parts in all the user's Part Lists as well as the Parts inside Sets in the user's Set Lists.
-    api_instance.users_allparts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id)
+    api_response = api_instance.users_allparts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_allparts_list: %s\n" % e)
 ```
@@ -95,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfParts**](ArrayOfParts.md)
 
 ### Authorization
 
