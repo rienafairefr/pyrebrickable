@@ -17,12 +17,14 @@ from __future__ import absolute_import
 # import models into model package
 from rebrickable.models.array_of_colors import ArrayOfColors
 from rebrickable.models.array_of_inventory_parts import ArrayOfInventoryParts
+from rebrickable.models.array_of_mocs import ArrayOfMocs
 from rebrickable.models.array_of_part_categories import ArrayOfPartCategories
 from rebrickable.models.array_of_parts import ArrayOfParts
 from rebrickable.models.array_of_sets import ArrayOfSets
 from rebrickable.models.array_of_themes import ArrayOfThemes
 from rebrickable.models.color import Color
 from rebrickable.models.inventory_part import InventoryPart
+from rebrickable.models.moc import Moc
 from rebrickable.models.part import Part
 from rebrickable.models.part_category import PartCategory
 from rebrickable.models.set import Set

@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_mocs_read**
-> lego_mocs_read(set_num)
+> Moc lego_mocs_read(set_num)
 
 Get details for a specific MOC.
 
@@ -275,7 +275,8 @@ set_num = 'set_num_example' # str | null
 
 try:
     # Get details for a specific MOC.
-    api_instance.lego_mocs_read(set_num)
+    api_response = api_instance.lego_mocs_read(set_num)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_mocs_read: %s\n" % e)
 ```
@@ -288,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Moc**](Moc.md)
 
 ### Authorization
 
@@ -717,7 +718,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_sets_alternates_list**
-> lego_sets_alternates_list(set_num, page=page, page_size=page_size, ordering=ordering)
+> ArrayOfMocs lego_sets_alternates_list(set_num, page=page, page_size=page_size, ordering=ordering)
 
 Get a list of MOCs which are Alternate Builds of a specific Set - i.e. all parts in the MOC can
 
@@ -762,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfMocs**](ArrayOfMocs.md)
 
 ### Authorization
 

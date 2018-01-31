@@ -114,6 +114,17 @@ def generate_swagger():
                 "part": ref('Part'),
                 "color": ref('Color')
             },
+            'Moc':{
+                "set_num": {"type": "string"},
+                "name": {"type": "string"},
+                "year": {"type": "integer"},
+                "theme_id": {'type':'integer'},
+                "num_parts": {'type':'integer'},
+                "moc_img_url": {"type": "string"},
+                "moc_url": {"type": "string"},
+                "designer_name": {"type": "string"},
+                "designer_url": {"type": "string"}
+            },
             'PartCategory': {
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
@@ -143,6 +154,11 @@ def generate_swagger():
         api['paths']['/api/v3/lego/part_categories/{id}/']['get']['responses']['200']['schema'] = ref('PartCategory')
 
         api['paths']['/api/v3/lego/mocs/{set_num}/parts/']['get']['responses']['200']['schema'] = ref('ArrayOfInventoryParts')
+        api['paths']['/api/v3/lego/mocs/{set_num}/']['get']['responses']['200']['schema'] = ref(
+            'Moc')
+        api['paths']['/api/v3/lego/sets/{set_num}/alternates/']['get']['responses']['200'][
+            'schema'] = ref(
+            'ArrayOfMocs')
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>
 <br>
