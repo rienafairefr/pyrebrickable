@@ -260,6 +260,41 @@ def generate_swagger():
             'schema'] = ref(
             'Build')
 
+        # TODO
+        # , 'GET',
+        # '/api/v3/users/{user_token}/lost_parts/', 'POST',
+        # '/api/v3/users/{user_token}/lost_parts/{id}/', 'DELETE',
+        # '/api/v3/users/{user_token}/lost_parts/', 'GET',
+        # '/api/v3/users/{user_token}/partlists/', 'POST',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/', 'DELETE',
+        # '/api/v3/users/{user_token}/partlists/', 'GET',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PATCH',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'POST',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'DELETE',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'GET',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'GET',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'PUT',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/', 'GET',
+        # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PUT',
+        # '/api/v3/users/{user_token}/parts/', 'GET',
+        # '/api/v3/users/{user_token}/profile/', 'GET',
+        # '/api/v3/users/{user_token}/setlists/', 'POST',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/', 'DELETE',
+        # , 'GET',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/', 'PATCH',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/', 'GET',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'POST',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'DELETE',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'GET',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'PATCH',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'GET',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'PUT',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/', 'PUT',
+        # '/api/v3/users/{user_token}/sets/{set_num}/', 'DELETE',
+        # '/api/v3/users/{user_token}/sets/sync/', 'POST',
+        # '/api/v3/users/{user_token}/sets/{set_num}/', 'PUT',
+        # '/api/v3/users/_token/', 'POST',
+
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>
 <br>
