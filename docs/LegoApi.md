@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_parts_colors_list**
-> lego_parts_colors_list(part_num, page=page, page_size=page_size, ordering=ordering)
+> ArrayOfColors lego_parts_colors_list(part_num, page=page, page_size=page_size, ordering=ordering)
 
 Get a list of all Colors a Part has appeared in.
 
@@ -444,7 +444,8 @@ ordering = 'ordering_example' # str | null (optional)
 
 try:
     # Get a list of all Colors a Part has appeared in.
-    api_instance.lego_parts_colors_list(part_num, page=page, page_size=page_size, ordering=ordering)
+    api_response = api_instance.lego_parts_colors_list(part_num, page=page, page_size=page_size, ordering=ordering)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_parts_colors_list: %s\n" % e)
 ```
@@ -460,7 +461,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfColors**](ArrayOfColors.md)
 
 ### Authorization
 
@@ -474,7 +475,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_parts_colors_read**
-> lego_parts_colors_read(color_id, part_num)
+> Color lego_parts_colors_read(color_id, part_num)
 
 Get details about a specific Part/Color combination.
 
@@ -501,7 +502,8 @@ part_num = 'part_num_example' # str | null
 
 try:
     # Get details about a specific Part/Color combination.
-    api_instance.lego_parts_colors_read(color_id, part_num)
+    api_response = api_instance.lego_parts_colors_read(color_id, part_num)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_parts_colors_read: %s\n" % e)
 ```
@@ -515,7 +517,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Color**](Color.md)
 
 ### Authorization
 
@@ -529,7 +531,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_parts_colors_sets_list**
-> lego_parts_colors_sets_list(color_id, part_num, page=page, page_size=page_size, ordering=ordering)
+> ArrayOfSets lego_parts_colors_sets_list(color_id, part_num, page=page, page_size=page_size, ordering=ordering)
 
 Get a list of all Sets the Part/Color combination has appeard in.
 
@@ -559,7 +561,8 @@ ordering = 'ordering_example' # str | null (optional)
 
 try:
     # Get a list of all Sets the Part/Color combination has appeard in.
-    api_instance.lego_parts_colors_sets_list(color_id, part_num, page=page, page_size=page_size, ordering=ordering)
+    api_response = api_instance.lego_parts_colors_sets_list(color_id, part_num, page=page, page_size=page_size, ordering=ordering)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_parts_colors_sets_list: %s\n" % e)
 ```
@@ -576,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfSets**](ArrayOfSets.md)
 
 ### Authorization
 
@@ -747,7 +750,8 @@ ordering = 'ordering_example' # str | null (optional)
 
 try:
     # Get a list of MOCs which are Alternate Builds of a specific Set - i.e. all parts in the MOC can
-    api_instance.lego_sets_alternates_list(set_num, page=page, page_size=page_size, ordering=ordering)
+    api_response = api_instance.lego_sets_alternates_list(set_num, page=page, page_size=page_size, ordering=ordering)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_sets_alternates_list: %s\n" % e)
 ```
@@ -847,7 +851,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_sets_parts_list**
-> lego_sets_parts_list(set_num, page=page, page_size=page_size)
+> ArrayOfParts lego_sets_parts_list(set_num, page=page, page_size=page_size)
 
 Get a list of all Inventory Parts in this Set.
 
@@ -875,7 +879,8 @@ page_size = 'page_size_example' # str | null (optional)
 
 try:
     # Get a list of all Inventory Parts in this Set.
-    api_instance.lego_sets_parts_list(set_num, page=page, page_size=page_size)
+    api_response = api_instance.lego_sets_parts_list(set_num, page=page, page_size=page_size)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_sets_parts_list: %s\n" % e)
 ```
@@ -890,7 +895,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfParts**](ArrayOfParts.md)
 
 ### Authorization
 
@@ -958,7 +963,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_sets_sets_list**
-> lego_sets_sets_list(set_num, page=page, page_size=page_size)
+> ArrayOfSets lego_sets_sets_list(set_num, page=page, page_size=page_size)
 
 Get a list of all Inventory Sets in this Set.
 
@@ -986,7 +991,8 @@ page_size = 'page_size_example' # str | null (optional)
 
 try:
     # Get a list of all Inventory Sets in this Set.
-    api_instance.lego_sets_sets_list(set_num, page=page, page_size=page_size)
+    api_response = api_instance.lego_sets_sets_list(set_num, page=page, page_size=page_size)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_sets_sets_list: %s\n" % e)
 ```
@@ -1001,7 +1007,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfSets**](ArrayOfSets.md)
 
 ### Authorization
 

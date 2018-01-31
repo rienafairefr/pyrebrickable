@@ -154,11 +154,33 @@ def generate_swagger():
         api['paths']['/api/v3/lego/part_categories/{id}/']['get']['responses']['200']['schema'] = ref('PartCategory')
 
         api['paths']['/api/v3/lego/mocs/{set_num}/parts/']['get']['responses']['200']['schema'] = ref('ArrayOfInventoryParts')
+
         api['paths']['/api/v3/lego/mocs/{set_num}/']['get']['responses']['200']['schema'] = ref(
             'Moc')
+
+        api['paths']['/api/v3/lego/parts/{part_num}/colors/']['get']['responses']['200']['schema'] = ref(
+            'ArrayOfColors')
+
+        api['paths']['/api/v3/lego/parts/{part_num}/colors/{color_id}/']['get']['responses']['200']['schema'] = ref(
+            'Color')
+        api['paths']['/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/']['get']['responses']['200']['schema'] = ref(
+            'ArrayOfSets')
+
+        api['paths']['/api/v3/lego/sets/{set_num}/parts/']['get']['responses']['200'][
+            'schema'] = ref(
+            'ArrayOfParts')
+
+        api['paths']['/api/v3/lego/sets/{set_num}/sets/']['get']['responses']['200'][
+            'schema'] = ref(
+            'ArrayOfSets')
+
         api['paths']['/api/v3/lego/sets/{set_num}/alternates/']['get']['responses']['200'][
             'schema'] = ref(
             'ArrayOfMocs')
+
+        # TODO
+        # '/api/v3/lego/elements/{element_id}/', 'GET',
+
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>
 <br>
