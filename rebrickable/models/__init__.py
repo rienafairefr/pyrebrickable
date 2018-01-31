@@ -25,6 +25,8 @@ from rebrickable.models.array_of_set_lists import ArrayOfSetLists
 from rebrickable.models.array_of_sets import ArrayOfSets
 from rebrickable.models.array_of_themes import ArrayOfThemes
 from rebrickable.models.badge import Badge
+from rebrickable.models.build import Build
+from rebrickable.models.build_options import BuildOptions
 from rebrickable.models.color import Color
 from rebrickable.models.inventory_part import InventoryPart
 from rebrickable.models.moc import Moc

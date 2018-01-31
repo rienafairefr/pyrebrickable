@@ -145,6 +145,34 @@ def generate_swagger():
             }
         }
         non_array_classes = {
+            'BuildOptions': {
+                "ignore_minifigs": {'type': 'boolean'},
+                "sort_by": {'type': 'integer'},
+                "max_year": {'type': 'integer'},
+                "inc_accessory": {'type': 'boolean'},
+                "max_parts": {'type': 'integer'},
+                "inc_official": {'type': 'boolean'},
+                "inc_bmodels": {'type': 'boolean'},
+                "inc_custom": {'type': 'boolean'},
+                "color": {'type': 'integer'},
+                "min_year": {'type': 'integer'},
+                "min_parts": {'type': 'integer'},
+                "ignore_altp": {'type': 'boolean'},
+                "ignore_non_lego": {'type': 'boolean'},
+                "inc_owned": {'type': 'boolean'},
+                "ignore_print": {'type': 'boolean'},
+                "inc_premium": {'type': 'boolean'},
+                "ignore_mold": {'type': 'boolean'}
+            },
+            'Build': {
+                "num_owned_less_ignored": {'type': 'integer'},
+                "total_parts": {'type': 'integer'},
+                "total_parts_less_ignored": {'type': 'integer'},
+                "pct_owned": {'type': 'number', 'format': 'float'},
+                "num_ignored": {'type': 'integer'},
+                "build_options": ref('BuildOptions'),
+                "num_missing": {'type': 'integer'}
+            },
             'UsersTokenResponse': {
                 "user_token": {'type': 'string'}
             }
@@ -223,6 +251,10 @@ def generate_swagger():
         api['paths']['/api/v3/users/badges/{id}/']['get']['responses']['200'][
             'schema'] = ref(
             'Badge')
+
+        api['paths']['/api/v3/users/{user_token}/build/{set_num}/']['get']['responses']['200'][
+            'schema'] = ref(
+            'Build')
 
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>

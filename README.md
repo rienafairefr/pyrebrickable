@@ -152,6 +152,8 @@ Class | Method | HTTP request | Description
  - [ArrayOfSets](docs/ArrayOfSets.md)
  - [ArrayOfThemes](docs/ArrayOfThemes.md)
  - [Badge](docs/Badge.md)
+ - [Build](docs/Build.md)
+ - [BuildOptions](docs/BuildOptions.md)
  - [Color](docs/Color.md)
  - [InventoryPart](docs/InventoryPart.md)
  - [Moc](docs/Moc.md)

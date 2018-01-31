@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_build_read**
-> users_build_read(user_token, set_num)
+> Build users_build_read(user_token, set_num)
 
 Find out how many parts the user needs to build the specified Set.
 
@@ -248,7 +248,8 @@ set_num = 'set_num_example' # str | null
 
 try:
     # Find out how many parts the user needs to build the specified Set.
-    api_instance.users_build_read(user_token, set_num)
+    api_response = api_instance.users_build_read(user_token, set_num)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_build_read: %s\n" % e)
 ```
@@ -262,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Build**](Build.md)
 
 ### Authorization
 
