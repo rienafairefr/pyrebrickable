@@ -131,6 +131,13 @@ def generate_swagger():
                 "designer_name": {"type": "string"},
                 "designer_url": {"type": "string"}
             },
+            'Badge': {
+                "id": {'type': 'integer'},
+                "code": {'type': 'string'},
+                "level": {'type': 'integer'},
+                "name": {'type': 'string'},
+                "descr": {'type': 'string'}
+            },
             'PartCategory': {
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
@@ -204,6 +211,15 @@ def generate_swagger():
         api['paths']['/api/v3/users/{user_token}/setlists/']['get']['responses']['200'][
             'schema'] = ref(
             'ArrayOfSetLists')
+
+        api['paths']['/api/v3/users/badges/']['get']['responses']['200'][
+            'schema'] = ref(
+            'ArrayOfBadges')
+
+        api['paths']['/api/v3/users/badges/{id}/']['get']['responses']['200'][
+            'schema'] = ref(
+            'Badge')
+
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>
 <br>

@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ArrayOfBadges](docs/ArrayOfBadges.md)
  - [ArrayOfColors](docs/ArrayOfColors.md)
  - [ArrayOfInventoryParts](docs/ArrayOfInventoryParts.md)
  - [ArrayOfMocs](docs/ArrayOfMocs.md)
@@ -150,6 +151,7 @@ Class | Method | HTTP request | Description
  - [ArrayOfSetLists](docs/ArrayOfSetLists.md)
  - [ArrayOfSets](docs/ArrayOfSets.md)
  - [ArrayOfThemes](docs/ArrayOfThemes.md)
+ - [Badge](docs/Badge.md)
  - [Color](docs/Color.md)
  - [InventoryPart](docs/InventoryPart.md)
  - [Moc](docs/Moc.md)
