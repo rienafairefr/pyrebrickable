@@ -144,14 +144,18 @@ def generate_swagger():
                 "part_count": {"type": "integer"}
             }
         }
+        non_array_classes = {
+            'UsersTokenResponse': {
+                "user_token": {'type': 'string'}
+            }
+        }
 
         for cls in classes:
             api['definitions'].update(get_typedef_array(cls))
             api['definitions'].update(get_typedef(cls, classes[cls]))
 
-        api['definitions'].update(get_typedef('UsersTokenResponse', {
-                "user_token": {'type': 'string'}
-            }))
+        for cls in non_array_classes:
+            api['definitions'].update(get_typedef(cls, non_array_classes[cls]))
 
         api['paths']['/api/v3/lego/colors/']['get']['responses']['200']['schema'] = ref('ArrayOfColors')
         api['paths']['/api/v3/lego/colors/{id}/']['get']['responses']['200']['schema'] = ref('Color')
