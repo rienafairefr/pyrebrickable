@@ -185,80 +185,49 @@ def generate_swagger():
         for cls in non_array_classes:
             api['definitions'].update(get_typedef(cls, non_array_classes[cls]))
 
-        api['paths']['/api/v3/lego/colors/']['get']['responses']['200']['schema'] = ref('ArrayOfColors')
-        api['paths']['/api/v3/lego/colors/{id}/']['get']['responses']['200']['schema'] = ref('Color')
-        api['paths']['/api/v3/lego/themes/']['get']['responses']['200']['schema'] = ref('ArrayOfThemes')
-        api['paths']['/api/v3/lego/themes/{id}/']['get']['responses']['200']['schema'] = ref('Theme')
+        def set_schema(url, schema, method='get'):
+            api['paths'][url][method]['responses']['200']['schema'] = schema
 
-        api['paths']['/api/v3/lego/sets/']['get']['responses']['200']['schema'] = ref('ArrayOfSets')
-        api['paths']['/api/v3/lego/sets/{set_num}/']['get']['responses']['200']['schema'] = ref('Set')
+        set_schema('/api/v3/lego/colors/', ref('ArrayOfColors'))
+        set_schema('/api/v3/lego/colors/{id}/', ref('Color'))
+        set_schema('/api/v3/lego/themes/', ref('ArrayOfThemes'))
+        set_schema('/api/v3/lego/themes/{id}/', ref('Theme'))
 
-        api['paths']['/api/v3/lego/parts/']['get']['responses']['200']['schema'] = ref('ArrayOfParts')
-        api['paths']['/api/v3/lego/parts/{part_num}/']['get']['responses']['200']['schema'] = ref('Part')
+        set_schema('/api/v3/lego/sets/', ref('ArrayOfSets'))
+        set_schema('/api/v3/lego/sets/{set_num}/', ref('Set'))
 
-        api['paths']['/api/v3/lego/part_categories/']['get']['responses']['200']['schema'] = ref(
-            'ArrayOfPartCategories')
-        api['paths']['/api/v3/lego/part_categories/{id}/']['get']['responses']['200']['schema'] = ref('PartCategory')
+        set_schema('/api/v3/lego/parts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/lego/parts/{part_num}/', ref('Part'))
 
-        api['paths']['/api/v3/lego/mocs/{set_num}/parts/']['get']['responses']['200']['schema'] = ref('ArrayOfInventoryParts')
+        set_schema('/api/v3/lego/part_categories/', ref('ArrayOfPartCategories'))
+        set_schema('/api/v3/lego/part_categories/{id}/', ref('PartCategory'))
 
-        api['paths']['/api/v3/lego/mocs/{set_num}/']['get']['responses']['200']['schema'] = ref(
-            'Moc')
+        set_schema('/api/v3/lego/mocs/{set_num}/parts/', ref('ArrayOfInventoryParts'))
 
-        api['paths']['/api/v3/lego/parts/{part_num}/colors/']['get']['responses']['200']['schema'] = ref(
-            'ArrayOfColors')
+        set_schema('/api/v3/lego/mocs/{set_num}/', ref('Moc'))
 
-        api['paths']['/api/v3/lego/parts/{part_num}/colors/{color_id}/']['get']['responses']['200']['schema'] = ref(
-            'Color')
-        api['paths']['/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/']['get']['responses']['200'][
-            'schema'] = ref(
-            'ArrayOfSets')
+        set_schema('/api/v3/lego/parts/{part_num}/colors/', ref('ArrayOfColors'))
 
-        api['paths']['/api/v3/lego/sets/{set_num}/parts/']['get']['responses']['200'][
-            'schema'] = ref(
-            'ArrayOfParts')
+        set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/', ref('Color'))
+        set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/', ref('ArrayOfSets'))
 
-        api['paths']['/api/v3/lego/sets/{set_num}/sets/']['get']['responses']['200'][
-            'schema'] = ref(
-            'ArrayOfSets')
+        set_schema('/api/v3/lego/sets/{set_num}/parts/', ref('ArrayOfParts'))
 
-        api['paths']['/api/v3/lego/sets/{set_num}/alternates/']['get']['responses']['200'][
-            'schema'] = ref(
-            'ArrayOfMocs')
+        set_schema('/api/v3/lego/sets/{set_num}/sets/', ref('ArrayOfSets'))
+
+        set_schema('/api/v3/lego/sets/{set_num}/alternates/', ref('ArrayOfMocs'))
 
         # TODO
         # '/api/v3/lego/elements/{element_id}/', 'GET',
 
-        api['paths']['/api/v3/users/_token/']['post']['responses']['200'] = {
-            'schema': ref('UsersTokenResponse')}
-
-        api['paths']['/api/v3/users/{user_token}/sets/']['get']['responses']['200'][
-            'schema'] = ref(
-            'ArrayOfSets')
-
-        api['paths']['/api/v3/users/{user_token}/sets/{set_num}/']['get']['responses']['200'][
-            'schema'] = ref(
-            'Set')
-
-        api['paths']['/api/v3/users/{user_token}/setlists/']['get']['responses']['200'][
-            'schema'] = ref(
-            'ArrayOfSetLists')
-
-        api['paths']['/api/v3/users/{user_token}/allparts/']['get']['responses']['200'][
-            'schema'] = ref(
-            'ArrayOfParts')
-
-        api['paths']['/api/v3/users/badges/']['get']['responses']['200'][
-            'schema'] = ref(
-            'ArrayOfBadges')
-
-        api['paths']['/api/v3/users/badges/{id}/']['get']['responses']['200'][
-            'schema'] = ref(
-            'Badge')
-
-        api['paths']['/api/v3/users/{user_token}/build/{set_num}/']['get']['responses']['200'][
-            'schema'] = ref(
-            'Build')
+        set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), 'post')
+        set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
+        set_schema('/api/v3/users/{user_token}/sets/{set_num}/', ref('Set'))
+        set_schema('/api/v3/users/{user_token}/setlists/', ref('ArrayOfSetLists'))
+        set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))
+        set_schema('/api/v3/users/badges/{id}/', ref('Badge'))
+        set_schema('/api/v3/users/{user_token}/build/{set_num}/', ref('Build'))
 
         # TODO
         # , 'GET',
