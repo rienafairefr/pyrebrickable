@@ -20,6 +20,7 @@ from rebrickable.models.array_of_inventory_parts import ArrayOfInventoryParts
 from rebrickable.models.array_of_mocs import ArrayOfMocs
 from rebrickable.models.array_of_part_categories import ArrayOfPartCategories
 from rebrickable.models.array_of_parts import ArrayOfParts
+from rebrickable.models.array_of_set_lists import ArrayOfSetLists
 from rebrickable.models.array_of_sets import ArrayOfSets
 from rebrickable.models.array_of_themes import ArrayOfThemes
 from rebrickable.models.color import Color
@@ -28,5 +29,6 @@ from rebrickable.models.moc import Moc
 from rebrickable.models.part import Part
 from rebrickable.models.part_category import PartCategory
 from rebrickable.models.set import Set
+from rebrickable.models.set_list import SetList
 from rebrickable.models.theme import Theme
 from rebrickable.models.users_token_response import UsersTokenResponse

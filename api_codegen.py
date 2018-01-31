@@ -114,12 +114,18 @@ def generate_swagger():
                 "part": ref('Part'),
                 "color": ref('Color')
             },
-            'Moc':{
+            'SetList': {
+                "id": {'type': 'integer'},
+                "is_buildable": {'type': 'bool'},
+                "name": {'type': 'string'},
+                "num_sets": {'type': 'integer'}
+            },
+            'Moc': {
                 "set_num": {"type": "string"},
                 "name": {"type": "string"},
                 "year": {"type": "integer"},
-                "theme_id": {'type':'integer'},
-                "num_parts": {'type':'integer'},
+                "theme_id": {'type': 'integer'},
+                "num_parts": {'type': 'integer'},
                 "moc_img_url": {"type": "string"},
                 "moc_url": {"type": "string"},
                 "designer_name": {"type": "string"},
@@ -194,6 +200,10 @@ def generate_swagger():
         api['paths']['/api/v3/users/{user_token}/sets/{set_num}/']['get']['responses']['200'][
             'schema'] = ref(
             'Set')
+
+        api['paths']['/api/v3/users/{user_token}/setlists/']['get']['responses']['200'][
+            'schema'] = ref(
+            'ArrayOfSetLists')
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>
 <br>

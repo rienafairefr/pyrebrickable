@@ -147,6 +147,7 @@ Class | Method | HTTP request | Description
  - [ArrayOfMocs](docs/ArrayOfMocs.md)
  - [ArrayOfPartCategories](docs/ArrayOfPartCategories.md)
  - [ArrayOfParts](docs/ArrayOfParts.md)
+ - [ArrayOfSetLists](docs/ArrayOfSetLists.md)
  - [ArrayOfSets](docs/ArrayOfSets.md)
  - [ArrayOfThemes](docs/ArrayOfThemes.md)
  - [Color](docs/Color.md)
@@ -155,6 +156,7 @@ Class | Method | HTTP request | Description
  - [Part](docs/Part.md)
  - [PartCategory](docs/PartCategory.md)
  - [Set](docs/Set.md)
+ - [SetList](docs/SetList.md)
  - [Theme](docs/Theme.md)
  - [UsersTokenResponse](docs/UsersTokenResponse.md)
 
