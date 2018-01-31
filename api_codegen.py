@@ -165,7 +165,8 @@ def generate_swagger():
 
         api['paths']['/api/v3/lego/parts/{part_num}/colors/{color_id}/']['get']['responses']['200']['schema'] = ref(
             'Color')
-        api['paths']['/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/']['get']['responses']['200']['schema'] = ref(
+        api['paths']['/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/']['get']['responses']['200'][
+            'schema'] = ref(
             'ArrayOfSets')
 
         api['paths']['/api/v3/lego/sets/{set_num}/parts/']['get']['responses']['200'][
@@ -185,6 +186,14 @@ def generate_swagger():
 
         api['paths']['/api/v3/users/_token/']['post']['responses']['200'] = {
             'schema': ref('UsersTokenResponse')}
+
+        api['paths']['/api/v3/users/{user_token}/sets/']['get']['responses']['200'][
+            'schema'] = ref(
+            'ArrayOfSets')
+
+        api['paths']['/api/v3/users/{user_token}/sets/{set_num}/']['get']['responses']['200'][
+            'schema'] = ref(
+            'Set')
         api['info']['description'] = '''
 This is pyrebrickable, a python CLI wrapper around the Rebrickable API<br>
 <br>

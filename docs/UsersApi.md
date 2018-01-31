@@ -2038,7 +2038,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_sets_list**
-> users_sets_list(user_token, page=page, page_size=page_size, set_num=set_num, theme_id=theme_id, min_year=min_year, max_year=max_year, min_parts=min_parts, max_parts=max_parts, ordering=ordering, search=search)
+> ArrayOfSets users_sets_list(user_token, page=page, page_size=page_size, set_num=set_num, theme_id=theme_id, min_year=min_year, max_year=max_year, min_parts=min_parts, max_parts=max_parts, ordering=ordering, search=search)
 
 Get a list of all the Sets in the user's LEGO collection.
 
@@ -2074,7 +2074,8 @@ search = 'search_example' # str | null (optional)
 
 try:
     # Get a list of all the Sets in the user's LEGO collection.
-    api_instance.users_sets_list(user_token, page=page, page_size=page_size, set_num=set_num, theme_id=theme_id, min_year=min_year, max_year=max_year, min_parts=min_parts, max_parts=max_parts, ordering=ordering, search=search)
+    api_response = api_instance.users_sets_list(user_token, page=page, page_size=page_size, set_num=set_num, theme_id=theme_id, min_year=min_year, max_year=max_year, min_parts=min_parts, max_parts=max_parts, ordering=ordering, search=search)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_sets_list: %s\n" % e)
 ```
@@ -2097,7 +2098,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfSets**](ArrayOfSets.md)
 
 ### Authorization
 
@@ -2111,7 +2112,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_sets_read**
-> users_sets_read(user_token, set_num)
+> Set users_sets_read(user_token, set_num)
 
 Get details about a specific Set in the user's LEGO collection.
 
@@ -2138,7 +2139,8 @@ set_num = 'set_num_example' # str | null
 
 try:
     # Get details about a specific Set in the user's LEGO collection.
-    api_instance.users_sets_read(user_token, set_num)
+    api_response = api_instance.users_sets_read(user_token, set_num)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_sets_read: %s\n" % e)
 ```
@@ -2152,7 +2154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Set**](Set.md)
 
 ### Authorization
 
