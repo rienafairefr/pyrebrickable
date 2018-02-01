@@ -294,6 +294,9 @@ def generate_swagger():
         set_schema('/api/v3/users/{user_token}/setlists/', ref('ArrayOfSetLists'))
         set_schema('/api/v3/users/{user_token}/setlists/{list_id}/', ref('SetList'))
         set_schema('/api/v3/users/{user_token}/setlists/{list_id}/sets/', ref('ArrayOfSetListSets'))
+        set_schema('/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', ref('SetListSet'))
+
+        set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSetListSets'))
 
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
@@ -308,11 +311,9 @@ def generate_swagger():
         # '/api/v3/users/{user_token}/setlists/', 'POST',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'DELETE',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'PATCH',
-
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'DELETE',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'POST',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'PATCH',
-        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'GET',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'PUT',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'PUT',
         # '/api/v3/users/{user_token}/sets/{set_num}/', 'DELETE',

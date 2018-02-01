@@ -17,7 +17,13 @@ runner = CliRunner()
 test_args = {
     'lego_mocs_read': ['MOC-4528'],
     'users_partlists_parts_list': ['66871'],
-    'users_partlists_parts_read': ['8', '40480', '6587']
+    'users_partlists_parts_read': ['8', '40480', '6587'],
+    'users_partlists_read': ['40476'],
+    'users_setlists_read': ['161396'],
+    'users_setlists_sets_list': ['161396'],
+    'users_setlists_sets_read': ['161396', '41116-1'],
+    'users_sets_read': [],
+    'users_build_read': []
 }
 
 failing = [
