@@ -11,6 +11,8 @@ from click.testing import CliRunner
 from rebrickable import cli, LegoApi, UsersApi
 from inspect import getmembers
 
+from rebrickable.cli import UsersContext
+
 
 def test_command_line_interface():
     """Test the CLI."""
@@ -34,17 +36,19 @@ def test_command_line_interface_api_calls():
         mocked_call = MagicMock()
 
         if isinstance(fun, click.Command) and not isinstance(fun, click.Group):
-            if name.startswith('users'):
-                api_class = 'rebrickable.api.users_api.UsersApi',UsersApi
-            elif name.startswith('lego'):
-                api_class = 'rebrickable.api.lego_api.LegoApi', LegoApi
-
-            with mock.patch(api_class[0], spec=api_class[1]) as api_mock:
-                setattr(api_mock,name, mocked_call)
+            def treat_(obj):
                 args = ['0' for param in fun.params]
-                result = runner.invoke(fun, obj=api_mock, args=args)
+                result = runner.invoke(fun, obj=obj, args=args)
                 print(result)
                 assert mocked_call.called
 
-            pass
-    pass
+            if name.startswith('users'):
+                with mock.patch('rebrickable.cli.UsersContext', spec=UsersContext) as ctx_mock:
+                    ctx_mock.api = MagicMock(spec=UsersApi)
+                    ctx_mock.token = 'ttt'
+                    setattr(ctx_mock.api, name, mocked_call)
+                    treat_(ctx_mock)
+            elif name.startswith('lego'):
+                with mock.patch('rebrickable.api.lego_api.LegoApi', spec=LegoApi) as ctx_mock:
+                    setattr(ctx_mock, name, mocked_call)
+                    treat_(ctx_mock)
