@@ -19,6 +19,7 @@ from rebrickable.models.all_part import AllPart
 from rebrickable.models.array_of_all_parts import ArrayOfAllParts
 from rebrickable.models.array_of_badges import ArrayOfBadges
 from rebrickable.models.array_of_colors import ArrayOfColors
+from rebrickable.models.array_of_elements import ArrayOfElements
 from rebrickable.models.array_of_inventory_parts import ArrayOfInventoryParts
 from rebrickable.models.array_of_lost_parts import ArrayOfLostParts
 from rebrickable.models.array_of_mocs import ArrayOfMocs
@@ -34,6 +35,7 @@ from rebrickable.models.badge import Badge
 from rebrickable.models.build import Build
 from rebrickable.models.build_options import BuildOptions
 from rebrickable.models.color import Color
+from rebrickable.models.element import Element
 from rebrickable.models.inventory_part import InventoryPart
 from rebrickable.models.lego import Lego
 from rebrickable.models.lost_part import LostPart

@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lego_elements_read**
-> lego_elements_read(element_id)
+> Element lego_elements_read(element_id)
 
 Get details about a specific Element ID.
 
@@ -164,7 +164,8 @@ element_id = 'element_id_example' # str | null
 
 try:
     # Get details about a specific Element ID.
-    api_instance.lego_elements_read(element_id)
+    api_response = api_instance.lego_elements_read(element_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling LegoApi->lego_elements_read: %s\n" % e)
 ```
@@ -177,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Element**](Element.md)
 
 ### Authorization
 

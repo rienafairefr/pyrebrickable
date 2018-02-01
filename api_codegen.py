@@ -166,6 +166,14 @@ def generate_swagger():
                 "name": {"type": "string"},
                 "part_count": {"type": "integer"}
             },
+            'Element':{
+                "part": ref('Part'),
+                "color": ref('Color'),
+                "element_id": {'type': 'string'},
+                "design_id": {'type': 'string'},
+                "element_img_url": {'type': 'string'},
+                "part_img_url": {'type': 'string'}
+            },
             'AllPart':{
                 "quantity": {'type': 'integer'},
                 "part": ref('Part'),
@@ -269,8 +277,7 @@ def generate_swagger():
 
         set_schema('/api/v3/lego/sets/{set_num}/alternates/', ref('ArrayOfMocs'))
 
-        # TODO
-        # '/api/v3/lego/elements/{element_id}/', 'GET',
+        set_schema('/api/v3/lego/elements/{element_id}/', ref('Element'))
 
         set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), '201', 'post')
         set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
