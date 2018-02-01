@@ -239,6 +239,7 @@ def generate_swagger():
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/{user_token}/partlists/', ref('ArrayOfPartLists'))
 
+        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/', ref('ArrayOfParts'))
 
         # TODO
         # , 'GET',
