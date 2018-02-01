@@ -185,8 +185,8 @@ def generate_swagger():
         for cls in non_array_classes:
             api['definitions'].update(get_typedef(cls, non_array_classes[cls]))
 
-        def set_schema(url, schema, method='get'):
-            api['paths'][url][method]['responses']['200']['schema'] = schema
+        def set_schema(url, schema, code='200', method='get'):
+            api['paths'][url][method]['responses'][code]['schema'] = schema
 
         set_schema('/api/v3/lego/colors/', ref('ArrayOfColors'))
         set_schema('/api/v3/lego/colors/{id}/', ref('Color'))
@@ -228,6 +228,7 @@ def generate_swagger():
         set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))
         set_schema('/api/v3/users/badges/{id}/', ref('Badge'))
         set_schema('/api/v3/users/{user_token}/build/{set_num}/', ref('Build'))
+        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
 
         # TODO
         # , 'GET',
