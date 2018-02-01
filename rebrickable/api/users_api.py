@@ -49,7 +49,7 @@ class UsersApi(object):
         :param str part_num: null
         :param str part_cat_id: null
         :param str color_id: null
-        :return: None
+        :return: ArrayOfAllParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -76,7 +76,7 @@ class UsersApi(object):
         :param str part_num: null
         :param str part_cat_id: null
         :param str color_id: null
-        :return: None
+        :return: ArrayOfAllParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -136,7 +136,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfAllParts',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -157,7 +157,7 @@ class UsersApi(object):
         :param str page: null
         :param str page_size: null
         :param str ordering: null
-        :return: None
+        :return: ArrayOfBadges
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -181,7 +181,7 @@ class UsersApi(object):
         :param str page: null
         :param str page_size: null
         :param str ordering: null
-        :return: None
+        :return: ArrayOfBadges
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -231,7 +231,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfBadges',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -250,7 +250,7 @@ class UsersApi(object):
 
         :param async bool
         :param str id: null (required)
-        :return: None
+        :return: Badge
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -272,7 +272,7 @@ class UsersApi(object):
 
         :param async bool
         :param str id: null (required)
-        :return: None
+        :return: Badge
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -322,7 +322,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='Badge',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -342,7 +342,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str set_num: null (required)
-        :return: None
+        :return: Build
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -365,7 +365,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str set_num: null (required)
-        :return: None
+        :return: Build
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -421,7 +421,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='Build',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -649,7 +649,7 @@ class UsersApi(object):
         :param str page: null
         :param str page_size: null
         :param str ordering: null
-        :return: None
+        :return: ArrayOfLostParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -674,7 +674,7 @@ class UsersApi(object):
         :param str page: null
         :param str page_size: null
         :param str ordering: null
-        :return: None
+        :return: ArrayOfLostParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -730,7 +730,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfLostParts',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -961,7 +961,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str page: null
         :param str page_size: null
-        :return: None
+        :return: ArrayOfPartLists
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -985,7 +985,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str page: null
         :param str page_size: null
-        :return: None
+        :return: ArrayOfPartLists
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1039,7 +1039,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfPartLists',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1419,7 +1419,7 @@ class UsersApi(object):
         :param str page: null
         :param str page_size: null
         :param str ordering: null
-        :return: None
+        :return: ArrayOfPartListParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1445,7 +1445,7 @@ class UsersApi(object):
         :param str page: null
         :param str page_size: null
         :param str ordering: null
-        :return: None
+        :return: ArrayOfPartListParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1507,7 +1507,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfPartListParts',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1529,7 +1529,7 @@ class UsersApi(object):
         :param str list_id: null (required)
         :param str color_id: null (required)
         :param str part_num: null (required)
-        :return: None
+        :return: PartListPart
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1554,7 +1554,7 @@ class UsersApi(object):
         :param str list_id: null (required)
         :param str color_id: null (required)
         :param str part_num: null (required)
-        :return: None
+        :return: PartListPart
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1622,7 +1622,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='PartListPart',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1769,7 +1769,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str list_id: null (required)
-        :return: None
+        :return: PartList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1792,7 +1792,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str list_id: null (required)
-        :return: None
+        :return: PartList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1848,7 +1848,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='PartList',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1993,7 +1993,7 @@ class UsersApi(object):
         :param str color_id: null
         :param str ordering: null
         :param str search: null
-        :return: None
+        :return: ArrayOfPartListParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2022,7 +2022,7 @@ class UsersApi(object):
         :param str color_id: null
         :param str ordering: null
         :param str search: null
-        :return: None
+        :return: ArrayOfPartListParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2086,7 +2086,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfPartListParts',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2107,7 +2107,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str page: null
         :param str page_size: null
-        :return: None
+        :return: Profile
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2131,7 +2131,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str page: null
         :param str page_size: null
-        :return: None
+        :return: Profile
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2185,7 +2185,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='Profile',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2416,7 +2416,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str page: null
         :param str page_size: null
-        :return: None
+        :return: ArrayOfSetLists
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2440,7 +2440,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str page: null
         :param str page_size: null
-        :return: None
+        :return: ArrayOfSetLists
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2494,7 +2494,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfSetLists',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2629,7 +2629,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str list_id: null (required)
-        :return: None
+        :return: SetList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2652,7 +2652,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str list_id: null (required)
-        :return: None
+        :return: SetList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2708,7 +2708,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='SetList',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2957,7 +2957,7 @@ class UsersApi(object):
         :param str page: null
         :param str page_size: null
         :param str ordering: null
-        :return: None
+        :return: ArrayOfSetListSets
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2983,7 +2983,7 @@ class UsersApi(object):
         :param str page: null
         :param str page_size: null
         :param str ordering: null
-        :return: None
+        :return: ArrayOfSetListSets
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3045,7 +3045,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfSetListSets',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3185,7 +3185,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str list_id: null (required)
         :param str set_num: null (required)
-        :return: None
+        :return: SetListSet
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3209,7 +3209,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str list_id: null (required)
         :param str set_num: null (required)
-        :return: None
+        :return: SetListSet
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3271,7 +3271,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='SetListSet',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3748,7 +3748,7 @@ class UsersApi(object):
         :param str max_parts: null
         :param str ordering: null
         :param str search: null
-        :return: None
+        :return: ArrayOfSetListSets
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3780,7 +3780,7 @@ class UsersApi(object):
         :param str max_parts: null
         :param str ordering: null
         :param str search: null
-        :return: None
+        :return: ArrayOfSetListSets
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3850,7 +3850,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfSetListSets',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3870,7 +3870,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str set_num: null (required)
-        :return: None
+        :return: SetListSet
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3893,7 +3893,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str set_num: null (required)
-        :return: None
+        :return: SetListSet
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3949,7 +3949,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='SetListSet',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4187,7 +4187,7 @@ class UsersApi(object):
         :param async bool
         :param str username: null (required)
         :param str password: null (required)
-        :return: None
+        :return: UsersTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4210,7 +4210,7 @@ class UsersApi(object):
         :param async bool
         :param str username: null (required)
         :param str password: null (required)
-        :return: None
+        :return: UsersTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4270,7 +4270,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='UsersTokenResponse',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
