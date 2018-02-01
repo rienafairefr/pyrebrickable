@@ -25,14 +25,3 @@ deploy:
 before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
-
-# Tell Travis CI to copy the documentation to the gh-pages branch of
-# your GitHub repository.
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep-history: true
-  on:
-    branch: master
-  local_dir: gh-pages/html/
