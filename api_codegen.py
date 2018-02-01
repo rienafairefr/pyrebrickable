@@ -274,7 +274,7 @@ def generate_swagger():
 
         set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), '201', 'post')
         set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
-        set_schema('/api/v3/users/{user_token}/sets/{set_num}/', ref('Set'))
+        set_schema('/api/v3/users/{user_token}/sets/{set_num}/', ref('SetListSet'))
 
         set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfAllParts'))
         set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))

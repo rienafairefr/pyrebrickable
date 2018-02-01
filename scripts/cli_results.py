@@ -22,8 +22,8 @@ test_args = {
     'users_setlists_read': ['161396'],
     'users_setlists_sets_list': ['161396'],
     'users_setlists_sets_read': ['161396', '41116-1'],
-    'users_sets_read': [],
     'users_build_read': []
+    'users_sets_read': ['5866-1'],
 }
 
 failing = [

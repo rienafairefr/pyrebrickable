@@ -2127,7 +2127,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_sets_read**
-> Set users_sets_read(user_token, set_num)
+> SetListSet users_sets_read(user_token, set_num)
 
 Get details about a specific Set in the user's LEGO collection.
 
@@ -2169,7 +2169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Set**](Set.md)
+[**SetListSet**](SetListSet.md)
 
 ### Authorization
 
