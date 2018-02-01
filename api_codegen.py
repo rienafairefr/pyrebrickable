@@ -144,6 +144,11 @@ def generate_swagger():
                 "name": {'type': 'string'},
                 "num_parts": {'type': 'integer'}
             },
+            'LostPart':{
+                "lost_part_id":{'type': 'integer'},
+                "lost_quantity":{'type': 'integer'},
+                "inv_part":ref('InventoryPart')
+            },
             'PartCategory': {
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
@@ -241,11 +246,11 @@ def generate_swagger():
 
         set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/', ref('ArrayOfParts'))
 
+        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
+
         # TODO
-        # , 'GET',
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
         # '/api/v3/users/{user_token}/lost_parts/{id}/', 'DELETE',
-        # '/api/v3/users/{user_token}/lost_parts/', 'GET',
         # '/api/v3/users/{user_token}/partlists/', 'POST',
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'DELETE',
         # , 'GET',

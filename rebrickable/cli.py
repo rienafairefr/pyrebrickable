@@ -366,12 +366,7 @@ def users_build_read(users_context, set_num):
                                set_num=set_num))
 
 
-@users.group(name='lost')
-def users_lost():
-    pass
-
-
-@users_lost.group(name='parts')
+@users.group(name='lost_parts')
 def users_lost_parts():
     pass
 

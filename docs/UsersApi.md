@@ -390,7 +390,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_lost_parts_list**
-> ArrayOfParts users_lost_parts_list(user_token, page=page, page_size=page_size, ordering=ordering)
+> ArrayOfLostParts users_lost_parts_list(user_token, page=page, page_size=page_size, ordering=ordering)
 
 Get a list of all the Lost Parts from the user's LEGO collection.
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ArrayOfParts**](ArrayOfParts.md)
+[**ArrayOfLostParts**](ArrayOfLostParts.md)
 
 ### Authorization
 
