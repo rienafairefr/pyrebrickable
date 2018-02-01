@@ -961,7 +961,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str page: null
         :param str page_size: null
-        :return: None
+        :return: ArrayOfPartLists
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -985,7 +985,7 @@ class UsersApi(object):
         :param str user_token: null (required)
         :param str page: null
         :param str page_size: null
-        :return: None
+        :return: ArrayOfPartLists
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1039,7 +1039,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ArrayOfPartLists',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),

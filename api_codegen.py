@@ -138,6 +138,12 @@ def generate_swagger():
                 "name": {'type': 'string'},
                 "descr": {'type': 'string'}
             },
+            'PartList': {
+                "id": {'type': 'integer'},
+                "is_buildable": {'type': 'boolean'},
+                "name": {'type': 'string'},
+                "num_parts": {'type': 'integer'}
+            },
             'PartCategory': {
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
@@ -230,6 +236,7 @@ def generate_swagger():
         set_schema('/api/v3/users/{user_token}/build/{set_num}/', ref('Build'))
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
 
+        set_schema('/api/v3/users/{user_token}/partlists/', ref('ArrayOfPartLists'))
         # TODO
         # , 'GET',
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
@@ -237,7 +244,7 @@ def generate_swagger():
         # '/api/v3/users/{user_token}/lost_parts/', 'GET',
         # '/api/v3/users/{user_token}/partlists/', 'POST',
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'DELETE',
-        # '/api/v3/users/{user_token}/partlists/', 'GET',
+        # , 'GET',
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PATCH',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'POST',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'DELETE',
