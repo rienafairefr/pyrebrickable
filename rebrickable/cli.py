@@ -116,7 +116,7 @@ def users_login(users_api, username=None):
         update_data('users_token', users_token.user_token)
 
         print('OK, saved users token into %s' % data_path)
-    except ApiException, e:
+    except ApiException as e:
         print('Login failed, response was %s' % e.body)
         click.Abort()
 
