@@ -1103,7 +1103,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_parts_list**
-> users_parts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id, ordering=ordering, search=search)
+> ArrayOfPartListParts users_parts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id, ordering=ordering, search=search)
 
 Get a list of all the Parts in all the user's Part Lists.
 
@@ -1136,7 +1136,8 @@ search = 'search_example' # str | null (optional)
 
 try:
     # Get a list of all the Parts in all the user's Part Lists.
-    api_instance.users_parts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id, ordering=ordering, search=search)
+    api_response = api_instance.users_parts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id, ordering=ordering, search=search)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_parts_list: %s\n" % e)
 ```
@@ -1156,7 +1157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfPartListParts**](ArrayOfPartListParts.md)
 
 ### Authorization
 

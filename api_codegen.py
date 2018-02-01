@@ -257,6 +257,8 @@ def generate_swagger():
 
         set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', ref('PartListPart'))
 
+        set_schema('/api/v3/users/{user_token}/parts/', ref('ArrayOfPartListParts'))
+
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
         # '/api/v3/users/{user_token}/lost_parts/{id}/', 'DELETE',
@@ -270,11 +272,11 @@ def generate_swagger():
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'PUT',
 
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PUT',
-        # '/api/v3/users/{user_token}/parts/', 'GET',
+
         # '/api/v3/users/{user_token}/profile/', 'GET',
         # '/api/v3/users/{user_token}/setlists/', 'POST',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'DELETE',
-        # , 'GET',
+
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'PATCH',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'GET',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'POST',
