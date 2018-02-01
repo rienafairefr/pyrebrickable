@@ -332,7 +332,7 @@ def users_allparts():
 @users_allparts.command(name='list')
 @pass_userscontext
 def users_allparts_list(users_context):
-    print(users_context.users_context.api.users_allparts_list(user_token=users_context.token))
+    print(users_context.api.users_allparts_list(user_token=users_context.token))
 
 
 @users.group(name='badges')

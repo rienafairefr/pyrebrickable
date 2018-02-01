@@ -142,6 +142,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AllPart](docs/AllPart.md)
+ - [ArrayOfAllParts](docs/ArrayOfAllParts.md)
  - [ArrayOfBadges](docs/ArrayOfBadges.md)
  - [ArrayOfColors](docs/ArrayOfColors.md)
  - [ArrayOfInventoryParts](docs/ArrayOfInventoryParts.md)

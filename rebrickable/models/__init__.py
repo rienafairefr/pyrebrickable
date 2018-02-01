@@ -15,6 +15,8 @@
 from __future__ import absolute_import
 
 # import models into model package
+from rebrickable.models.all_part import AllPart
+from rebrickable.models.array_of_all_parts import ArrayOfAllParts
 from rebrickable.models.array_of_badges import ArrayOfBadges
 from rebrickable.models.array_of_colors import ArrayOfColors
 from rebrickable.models.array_of_inventory_parts import ArrayOfInventoryParts

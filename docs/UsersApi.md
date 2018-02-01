@@ -46,7 +46,7 @@ Method | HTTP request | Description
 
 
 # **users_allparts_list**
-> ArrayOfParts users_allparts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id)
+> ArrayOfAllParts users_allparts_list(user_token, page=page, page_size=page_size, part_num=part_num, part_cat_id=part_cat_id, color_id=color_id)
 
 Get a list of all the Parts in all the user's Part Lists as well as the Parts inside Sets in the user's Set Lists.
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ArrayOfParts**](ArrayOfParts.md)
+[**ArrayOfAllParts**](ArrayOfAllParts.md)
 
 ### Authorization
 

@@ -49,7 +49,7 @@ class UsersApi(object):
         :param str part_num: null
         :param str part_cat_id: null
         :param str color_id: null
-        :return: ArrayOfParts
+        :return: ArrayOfAllParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -76,7 +76,7 @@ class UsersApi(object):
         :param str part_num: null
         :param str part_cat_id: null
         :param str color_id: null
-        :return: ArrayOfParts
+        :return: ArrayOfAllParts
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -136,7 +136,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ArrayOfParts',  # noqa: E501
+            response_type='ArrayOfAllParts',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),

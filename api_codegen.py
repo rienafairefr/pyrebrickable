@@ -165,6 +165,11 @@ def generate_swagger():
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
                 "part_count": {"type": "integer"}
+            },
+            'AllPart':{
+                "quantity": {'type': 'integer'},
+                "part": ref('Part'),
+                "color": ref('Color')
             }
         }
         non_array_classes = {
@@ -271,7 +276,7 @@ def generate_swagger():
         set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
         set_schema('/api/v3/users/{user_token}/sets/{set_num}/', ref('Set'))
 
-        set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfAllParts'))
         set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))
         set_schema('/api/v3/users/badges/{id}/', ref('Badge'))
         set_schema('/api/v3/users/{user_token}/build/{set_num}/', ref('Build'))
