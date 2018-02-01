@@ -149,6 +149,12 @@ def generate_swagger():
                 "lost_quantity":{'type': 'integer'},
                 "inv_part":ref('InventoryPart')
             },
+            'PartListPart':{
+                "list_id": {'type': 'integer'},
+                "quantity": {'type': 'integer'},
+                "part": ref('Part'),
+                "color": ref('Color')
+            },
             'PartCategory': {
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
@@ -244,7 +250,7 @@ def generate_swagger():
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/{user_token}/partlists/', ref('ArrayOfPartLists'))
 
-        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/', ref('ArrayOfPartListParts'))
 
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
 
@@ -253,11 +259,11 @@ def generate_swagger():
         # '/api/v3/users/{user_token}/lost_parts/{id}/', 'DELETE',
         # '/api/v3/users/{user_token}/partlists/', 'POST',
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'DELETE',
-        # , 'GET',
+
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PATCH',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'POST',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'DELETE',
-        # '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'GET',
+
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'GET',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'PUT',
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'GET',

@@ -21,6 +21,7 @@ from rebrickable.models.array_of_inventory_parts import ArrayOfInventoryParts
 from rebrickable.models.array_of_lost_parts import ArrayOfLostParts
 from rebrickable.models.array_of_mocs import ArrayOfMocs
 from rebrickable.models.array_of_part_categories import ArrayOfPartCategories
+from rebrickable.models.array_of_part_list_parts import ArrayOfPartListParts
 from rebrickable.models.array_of_part_lists import ArrayOfPartLists
 from rebrickable.models.array_of_parts import ArrayOfParts
 from rebrickable.models.array_of_set_lists import ArrayOfSetLists
@@ -36,6 +37,7 @@ from rebrickable.models.moc import Moc
 from rebrickable.models.part import Part
 from rebrickable.models.part_category import PartCategory
 from rebrickable.models.part_list import PartList
+from rebrickable.models.part_list_part import PartListPart
 from rebrickable.models.set import Set
 from rebrickable.models.set_list import SetList
 from rebrickable.models.theme import Theme

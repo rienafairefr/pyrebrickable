@@ -803,7 +803,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_partlists_parts_list**
-> ArrayOfParts users_partlists_parts_list(user_token, list_id, page=page, page_size=page_size, ordering=ordering)
+> ArrayOfPartListParts users_partlists_parts_list(user_token, list_id, page=page, page_size=page_size, ordering=ordering)
 
 Get a list of all the Parts in a specific Part List.
 
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ArrayOfParts**](ArrayOfParts.md)
+[**ArrayOfPartListParts**](ArrayOfPartListParts.md)
 
 ### Authorization
 
