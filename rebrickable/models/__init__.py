@@ -24,6 +24,7 @@ from rebrickable.models.array_of_part_categories import ArrayOfPartCategories
 from rebrickable.models.array_of_part_list_parts import ArrayOfPartListParts
 from rebrickable.models.array_of_part_lists import ArrayOfPartLists
 from rebrickable.models.array_of_parts import ArrayOfParts
+from rebrickable.models.array_of_set_list_sets import ArrayOfSetListSets
 from rebrickable.models.array_of_set_lists import ArrayOfSetLists
 from rebrickable.models.array_of_sets import ArrayOfSets
 from rebrickable.models.array_of_themes import ArrayOfThemes
@@ -43,5 +44,6 @@ from rebrickable.models.profile import Profile
 from rebrickable.models.rewards import Rewards
 from rebrickable.models.set import Set
 from rebrickable.models.set_list import SetList
+from rebrickable.models.set_list_set import SetListSet
 from rebrickable.models.theme import Theme
 from rebrickable.models.users_token_response import UsersTokenResponse

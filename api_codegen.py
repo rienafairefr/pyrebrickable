@@ -155,6 +155,12 @@ def generate_swagger():
                 "part": ref('Part'),
                 "color": ref('Color')
             },
+            'SetListSet': {
+                "list_id": {'type': 'integer'},
+                "quantity": {'type': 'integer'},
+                "include_spares": {'type': 'boolean'},
+                "set": ref('Set'),
+            },
             'PartCategory': {
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
@@ -264,7 +270,7 @@ def generate_swagger():
         set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), '201', 'post')
         set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
         set_schema('/api/v3/users/{user_token}/sets/{set_num}/', ref('Set'))
-        set_schema('/api/v3/users/{user_token}/setlists/', ref('ArrayOfSetLists'))
+
         set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))
         set_schema('/api/v3/users/badges/{id}/', ref('Badge'))
@@ -285,29 +291,26 @@ def generate_swagger():
 
         set_schema('/api/v3/users/{user_token}/profile/', ref('Profile'))
 
+        set_schema('/api/v3/users/{user_token}/setlists/', ref('ArrayOfSetLists'))
+        set_schema('/api/v3/users/{user_token}/setlists/{list_id}/', ref('SetList'))
+        set_schema('/api/v3/users/{user_token}/setlists/{list_id}/sets/', ref('ArrayOfSetListSets'))
+
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
         # '/api/v3/users/{user_token}/lost_parts/{id}/', 'DELETE',
         # '/api/v3/users/{user_token}/partlists/', 'POST',
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'DELETE',
-
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PATCH',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'POST',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'DELETE',
-
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'PUT',
-
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PUT',
-
-
         # '/api/v3/users/{user_token}/setlists/', 'POST',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'DELETE',
-
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'PATCH',
-        # '/api/v3/users/{user_token}/setlists/{list_id}/', 'GET',
-        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'POST',
+
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'DELETE',
-        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'GET',
+        # '/api/v3/users/{user_token}/setlists/{list_id}/sets/', 'POST',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'PATCH',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'GET',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'PUT',

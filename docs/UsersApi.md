@@ -1462,7 +1462,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_setlists_read**
-> users_setlists_read(user_token, list_id)
+> SetList users_setlists_read(user_token, list_id)
 
 Get details about a specific Set List.
 
@@ -1489,7 +1489,8 @@ list_id = 'list_id_example' # str | null
 
 try:
     # Get details about a specific Set List.
-    api_instance.users_setlists_read(user_token, list_id)
+    api_response = api_instance.users_setlists_read(user_token, list_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_setlists_read: %s\n" % e)
 ```
@@ -1503,7 +1504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**SetList**](SetList.md)
 
 ### Authorization
 
@@ -1635,7 +1636,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_setlists_sets_list**
-> users_setlists_sets_list(user_token, list_id, page=page, page_size=page_size, ordering=ordering)
+> ArrayOfSetListSets users_setlists_sets_list(user_token, list_id, page=page, page_size=page_size, ordering=ordering)
 
 Get a list of all the Sets in a specific Set List.
 
@@ -1665,7 +1666,8 @@ ordering = 'ordering_example' # str | null (optional)
 
 try:
     # Get a list of all the Sets in a specific Set List.
-    api_instance.users_setlists_sets_list(user_token, list_id, page=page, page_size=page_size, ordering=ordering)
+    api_response = api_instance.users_setlists_sets_list(user_token, list_id, page=page, page_size=page_size, ordering=ordering)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_setlists_sets_list: %s\n" % e)
 ```
@@ -1682,7 +1684,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfSetListSets**](ArrayOfSetListSets.md)
 
 ### Authorization
 

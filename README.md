@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
  - [ArrayOfPartListParts](docs/ArrayOfPartListParts.md)
  - [ArrayOfPartLists](docs/ArrayOfPartLists.md)
  - [ArrayOfParts](docs/ArrayOfParts.md)
+ - [ArrayOfSetListSets](docs/ArrayOfSetListSets.md)
  - [ArrayOfSetLists](docs/ArrayOfSetLists.md)
  - [ArrayOfSets](docs/ArrayOfSets.md)
  - [ArrayOfThemes](docs/ArrayOfThemes.md)
@@ -170,6 +171,7 @@ Class | Method | HTTP request | Description
  - [Rewards](docs/Rewards.md)
  - [Set](docs/Set.md)
  - [SetList](docs/SetList.md)
+ - [SetListSet](docs/SetListSet.md)
  - [Theme](docs/Theme.md)
  - [UsersTokenResponse](docs/UsersTokenResponse.md)
 
