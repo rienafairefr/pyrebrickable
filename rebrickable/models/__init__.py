@@ -32,12 +32,15 @@ from rebrickable.models.build import Build
 from rebrickable.models.build_options import BuildOptions
 from rebrickable.models.color import Color
 from rebrickable.models.inventory_part import InventoryPart
+from rebrickable.models.lego import Lego
 from rebrickable.models.lost_part import LostPart
 from rebrickable.models.moc import Moc
 from rebrickable.models.part import Part
 from rebrickable.models.part_category import PartCategory
 from rebrickable.models.part_list import PartList
 from rebrickable.models.part_list_part import PartListPart
+from rebrickable.models.profile import Profile
+from rebrickable.models.rewards import Rewards
 from rebrickable.models.set import Set
 from rebrickable.models.set_list import SetList
 from rebrickable.models.theme import Theme

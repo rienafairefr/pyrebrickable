@@ -1171,7 +1171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_profile_list**
-> users_profile_list(user_token, page=page, page_size=page_size)
+> Profile users_profile_list(user_token, page=page, page_size=page_size)
 
 Get details about a specific user.
 
@@ -1199,7 +1199,8 @@ page_size = 'page_size_example' # str | null (optional)
 
 try:
     # Get details about a specific user.
-    api_instance.users_profile_list(user_token, page=page, page_size=page_size)
+    api_response = api_instance.users_profile_list(user_token, page=page, page_size=page_size)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_profile_list: %s\n" % e)
 ```
@@ -1214,7 +1215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Profile**](Profile.md)
 
 ### Authorization
 

@@ -190,6 +190,30 @@ def generate_swagger():
                 "build_options": ref('BuildOptions'),
                 "num_missing": {'type': 'integer'}
             },
+            'Rewards': {
+                "badges": [56, 43, 39],
+                "points": 0,
+                "level": 0
+            },
+            'Lego': {
+                "lost_set_parts": {'type': 'integer'},
+                "total_set_parts": {'type': 'integer'},
+                "total_sets": {'type': 'integer'},
+                "all_parts": {'type': 'integer'},
+                "total_loose_parts": {'type': 'integer'}
+            },
+            'Profile': {
+                "user_id": {'type': 'integer'},
+                "username": {'type': 'string'},
+                "email": {'type': 'string'},
+                "real_name": {'type': 'string'},
+                "last_activity": {'type': 'string', 'format': 'date-time'},
+                "last_ip": {'type': 'string'},
+                "location": {'type': 'string'},
+                "rewards": ref('Rewards'),
+                "lego": ref('Lego'),
+                "avatar_img": {'string': 'type'}
+            },
             'UsersTokenResponse': {
                 "user_token": {'type': 'string'}
             }
@@ -259,6 +283,8 @@ def generate_swagger():
 
         set_schema('/api/v3/users/{user_token}/parts/', ref('ArrayOfPartListParts'))
 
+        set_schema('/api/v3/users/{user_token}/profile/', ref('Profile'))
+
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
         # '/api/v3/users/{user_token}/lost_parts/{id}/', 'DELETE',
@@ -273,7 +299,7 @@ def generate_swagger():
 
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PUT',
 
-        # '/api/v3/users/{user_token}/profile/', 'GET',
+
         # '/api/v3/users/{user_token}/setlists/', 'POST',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'DELETE',
 
