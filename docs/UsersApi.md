@@ -390,7 +390,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_lost_parts_list**
-> users_lost_parts_list(user_token, page=page, page_size=page_size, ordering=ordering)
+> ArrayOfParts users_lost_parts_list(user_token, page=page, page_size=page_size, ordering=ordering)
 
 Get a list of all the Lost Parts from the user's LEGO collection.
 
@@ -419,7 +419,8 @@ ordering = 'ordering_example' # str | null (optional)
 
 try:
     # Get a list of all the Lost Parts from the user's LEGO collection.
-    api_instance.users_lost_parts_list(user_token, page=page, page_size=page_size, ordering=ordering)
+    api_response = api_instance.users_lost_parts_list(user_token, page=page, page_size=page_size, ordering=ordering)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_lost_parts_list: %s\n" % e)
 ```
@@ -435,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayOfParts**](ArrayOfParts.md)
 
 ### Authorization
 

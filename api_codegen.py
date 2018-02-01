@@ -217,7 +217,7 @@ def generate_swagger():
         set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/', ref('Color'))
         set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/', ref('ArrayOfSets'))
 
-        set_schema('/api/v3/lego/sets/{set_num}/parts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/lego/sets/{set_num}/parts/',ref('ArrayOfParts'))
 
         set_schema('/api/v3/lego/sets/{set_num}/sets/', ref('ArrayOfSets'))
 
@@ -226,7 +226,7 @@ def generate_swagger():
         # TODO
         # '/api/v3/lego/elements/{element_id}/', 'GET',
 
-        set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), 'post')
+        set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), '201','post')
         set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
         set_schema('/api/v3/users/{user_token}/sets/{set_num}/', ref('Set'))
         set_schema('/api/v3/users/{user_token}/setlists/', ref('ArrayOfSetLists'))
@@ -236,7 +236,10 @@ def generate_swagger():
         set_schema('/api/v3/users/{user_token}/build/{set_num}/', ref('Build'))
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
 
+        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/{user_token}/partlists/', ref('ArrayOfPartLists'))
+
+
         # TODO
         # , 'GET',
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',

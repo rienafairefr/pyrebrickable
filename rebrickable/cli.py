@@ -45,18 +45,22 @@ def update_data(key, value):
     write_data(data)
 
 
+def get_api_client():
+    configuration = rebrickable.Configuration()
+    data = get_data()
+    api_key = data['api_key']
+    configuration.api_key['Authorization'] = api_key
+    configuration.api_key_prefix['Authorization'] = 'key'
+    return rebrickable.ApiClient(configuration)
+
+
 @click.group(help="Rebrickable CLI implemented in Python")
 @click.pass_context
 def main(ctx, args=None):
     """Console script for pyrebrickable."""
-    configuration = rebrickable.Configuration()
 
     try:
-        data = get_data()
-        api_key = data['api_key']
-        configuration.api_key['Authorization'] = api_key
-        configuration.api_key_prefix['Authorization'] = 'key'
-        ctx.obj = rebrickable.ApiClient(configuration)
+        ctx.obj = get_api_client()
     except (IOError, KeyError, ValueError):
         if ctx.invoked_subcommand != 'register':
             print('please register your API key using: \n%s register' % (
@@ -78,6 +82,13 @@ def lego(ctx, client):
     ctx.obj = LegoApi(client)
 
 
+def get_users_context(client):
+    users_api = UsersApi(client)
+    data = get_data()
+    users_token = data['users_token']
+    return UsersContext(users_api, users_token)
+
+
 @main.group()
 @pass_client
 @click.pass_context
@@ -85,9 +96,7 @@ def users(ctx, client):
     users_api = UsersApi(client)
     ctx.obj = users_api
     try:
-        data = get_data()
-        users_token = data['users_token']
-        ctx.obj = UsersContext(users_api, users_token)
+        ctx.obj = get_users_context(client)
     except (IOError, KeyError, ValueError):
         if ctx.invoked_subcommand != 'login':
             print('Please login using: \n%s users login' % rebrickable.__name__)
