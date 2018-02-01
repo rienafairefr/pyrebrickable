@@ -865,7 +865,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_partlists_parts_read**
-> users_partlists_parts_read(user_token, list_id, color_id, part_num)
+> PartListPart users_partlists_parts_read(user_token, list_id, color_id, part_num)
 
 Get details about a specific Part in the Part List.
 
@@ -894,7 +894,8 @@ part_num = 'part_num_example' # str | null
 
 try:
     # Get details about a specific Part in the Part List.
-    api_instance.users_partlists_parts_read(user_token, list_id, color_id, part_num)
+    api_response = api_instance.users_partlists_parts_read(user_token, list_id, color_id, part_num)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_partlists_parts_read: %s\n" % e)
 ```
@@ -910,7 +911,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**PartListPart**](PartListPart.md)
 
 ### Authorization
 
@@ -985,7 +986,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_partlists_read**
-> users_partlists_read(user_token, list_id)
+> PartList users_partlists_read(user_token, list_id)
 
 Get details about a specific Part List.
 
@@ -1012,7 +1013,8 @@ list_id = 'list_id_example' # str | null
 
 try:
     # Get details about a specific Part List.
-    api_instance.users_partlists_read(user_token, list_id)
+    api_response = api_instance.users_partlists_read(user_token, list_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->users_partlists_read: %s\n" % e)
 ```
@@ -1026,7 +1028,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**PartList**](PartList.md)
 
 ### Authorization
 

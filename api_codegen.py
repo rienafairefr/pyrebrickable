@@ -249,10 +249,13 @@ def generate_swagger():
 
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/{user_token}/partlists/', ref('ArrayOfPartLists'))
+        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/', ref('PartList'))
 
         set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/', ref('ArrayOfPartListParts'))
 
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
+
+        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', ref('PartListPart'))
 
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
@@ -264,9 +267,8 @@ def generate_swagger():
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/', 'POST',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'DELETE',
 
-        # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'GET',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'PUT',
-        # '/api/v3/users/{user_token}/partlists/{list_id}/', 'GET',
+
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PUT',
         # '/api/v3/users/{user_token}/parts/', 'GET',
         # '/api/v3/users/{user_token}/profile/', 'GET',

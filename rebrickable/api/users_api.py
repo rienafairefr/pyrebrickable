@@ -1529,7 +1529,7 @@ class UsersApi(object):
         :param str list_id: null (required)
         :param str color_id: null (required)
         :param str part_num: null (required)
-        :return: None
+        :return: PartListPart
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1554,7 +1554,7 @@ class UsersApi(object):
         :param str list_id: null (required)
         :param str color_id: null (required)
         :param str part_num: null (required)
-        :return: None
+        :return: PartListPart
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1622,7 +1622,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='PartListPart',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1769,7 +1769,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str list_id: null (required)
-        :return: None
+        :return: PartList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1792,7 +1792,7 @@ class UsersApi(object):
         :param async bool
         :param str user_token: null (required)
         :param str list_id: null (required)
-        :return: None
+        :return: PartList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1848,7 +1848,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='PartList',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
