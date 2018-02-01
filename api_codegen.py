@@ -248,67 +248,56 @@ def generate_swagger():
         def set_schema(url, schema, code='200', method='get'):
             api['paths'][url][method]['responses'][code]['schema'] = schema
 
-        set_schema('/api/v3/lego/colors/', ref('ArrayOfColors'))
-        set_schema('/api/v3/lego/colors/{id}/', ref('Color'))
-        set_schema('/api/v3/lego/themes/', ref('ArrayOfThemes'))
-        set_schema('/api/v3/lego/themes/{id}/', ref('Theme'))
-
-        set_schema('/api/v3/lego/sets/', ref('ArrayOfSets'))
-        set_schema('/api/v3/lego/sets/{set_num}/', ref('Set'))
-
-        set_schema('/api/v3/lego/parts/', ref('ArrayOfParts'))
-        set_schema('/api/v3/lego/parts/{part_num}/', ref('Part'))
-
-        set_schema('/api/v3/lego/part_categories/', ref('ArrayOfPartCategories'))
-        set_schema('/api/v3/lego/part_categories/{id}/', ref('PartCategory'))
-
-        set_schema('/api/v3/lego/mocs/{set_num}/parts/', ref('ArrayOfInventoryParts'))
-
-        set_schema('/api/v3/lego/mocs/{set_num}/', ref('Moc'))
-
-        set_schema('/api/v3/lego/parts/{part_num}/colors/', ref('ArrayOfColors'))
-
-        set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/', ref('Color'))
-        set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/', ref('ArrayOfSets'))
-
-        set_schema('/api/v3/lego/sets/{set_num}/parts/', ref('ArrayOfParts'))
-
-        set_schema('/api/v3/lego/sets/{set_num}/sets/', ref('ArrayOfSets'))
-
-        set_schema('/api/v3/lego/sets/{set_num}/alternates/', ref('ArrayOfMocs'))
-
-        set_schema('/api/v3/lego/elements/{element_id}/', ref('Element'))
 
         set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), '201', 'post')
-        set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
-        set_schema('/api/v3/users/{user_token}/sets/{set_num}/', ref('SetListSet'))
+        set_schema('/api/v3/lego/elements/{element_id}/', ref('Element'))
 
-        set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfAllParts'))
-        set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))
-        set_schema('/api/v3/users/badges/{id}/', ref('Badge'))
         set_schema('/api/v3/users/{user_token}/build/{set_num}/', ref('Build'))
-        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
-
-        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
-        set_schema('/api/v3/users/{user_token}/partlists/', ref('ArrayOfPartLists'))
-        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/', ref('PartList'))
-
-        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/', ref('ArrayOfPartListParts'))
-
-        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
-
-        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', ref('PartListPart'))
-
-        set_schema('/api/v3/users/{user_token}/parts/', ref('ArrayOfPartListParts'))
-
         set_schema('/api/v3/users/{user_token}/profile/', ref('Profile'))
 
-        set_schema('/api/v3/users/{user_token}/setlists/', ref('ArrayOfSetLists'))
+        # single element
+        set_schema('/api/v3/lego/colors/{id}/', ref('Color'))
+        set_schema('/api/v3/lego/themes/{id}/', ref('Theme'))
+        set_schema('/api/v3/lego/mocs/{set_num}/', ref('Moc'))
+        set_schema('/api/v3/lego/parts/{part_num}/', ref('Part'))
+        set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/', ref('Color'))
+        set_schema('/api/v3/lego/part_categories/{id}/', ref('PartCategory'))
+        set_schema('/api/v3/lego/sets/{set_num}/', ref('Set'))
+        set_schema('/api/v3/users/badges/{id}/', ref('Badge'))
+        set_schema('/api/v3/users/{user_token}/sets/{set_num}/', ref('SetListSet'))
         set_schema('/api/v3/users/{user_token}/setlists/{list_id}/', ref('SetList'))
-        set_schema('/api/v3/users/{user_token}/setlists/{list_id}/sets/', ref('ArrayOfSetListSets'))
         set_schema('/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', ref('SetListSet'))
-
+        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/', ref('PartList'))
+        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', ref('PartListPart'))
+        # list
+        set_schema('/api/v3/lego/colors/', ref('ArrayOfColors'))
+        set_schema('/api/v3/lego/themes/', ref('ArrayOfThemes'))
+        set_schema('/api/v3/lego/mocs/{set_num}/parts/', ref('ArrayOfInventoryParts'))
+        set_schema('/api/v3/lego/parts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/lego/parts/{part_num}/colors/', ref('ArrayOfColors'))
+        set_schema('/api/v3/lego/part_categories/', ref('ArrayOfPartCategories'))
+        set_schema('/api/v3/lego/sets/', ref('ArrayOfSets'))
+        set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))
         set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSetListSets'))
+        set_schema('/api/v3/users/{user_token}/setlists/', ref('ArrayOfSetLists'))
+        set_schema('/api/v3/users/{user_token}/setlists/{list_id}/sets/', ref('ArrayOfSetListSets'))
+        set_schema('/api/v3/users/{user_token}/partlists/', ref('ArrayOfPartLists'))
+        set_schema('/api/v3/users/{user_token}/partlists/{list_id}/parts/', ref('ArrayOfPartListParts'))
+
+        # lists without corresponding single element
+        set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/sets/', ref('ArrayOfSets'))
+        set_schema('/api/v3/lego/sets/{set_num}/parts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/lego/sets/{set_num}/sets/', ref('ArrayOfSets'))
+        set_schema('/api/v3/lego/sets/{set_num}/alternates/', ref('ArrayOfMocs'))
+        set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
+        set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfAllParts'))
+        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
+        set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
+        set_schema('/api/v3/users/{user_token}/parts/', ref('ArrayOfPartListParts'))
+
+
+
 
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',

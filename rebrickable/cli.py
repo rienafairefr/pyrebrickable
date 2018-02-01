@@ -144,30 +144,20 @@ def lego_parts_colors_sets_list(api, color_id, set_num):
     print(api.lego_parts_colors_sets_list(color_id=color_id, set_num=set_num))
 
 
-@lego.group(name='colors')
-def lego_colors():
-    pass
-
-
-@lego_colors.command(name='list')
+@lego.command(name='colors')
 @pass_legoapi
 def lego_colors_list(api):
     print(api.lego_colors_list())
 
 
-@lego_colors.command(name='read')
+@lego.command(name='color')
 @pass_legoapi
 @click.argument('id')
 def lego_colors_read(api, id):
     print(api.lego_colors_read(id=id))
 
 
-@lego.group(name='elements')
-def lego_elements():
-    pass
-
-
-@lego_elements.command(name='read')
+@lego.command(name='element')
 @pass_legoapi
 @click.argument('element_id')
 def lego_elements_read(api, element_id):
@@ -198,18 +188,13 @@ def lego_mocs_read(api, set_num):
     print(api.lego_mocs_read(set_num=set_num))
 
 
-@lego.group(name='part_categories')
-def lego_part_categories():
-    pass
-
-
-@lego_part_categories.command(name='list')
+@lego.command(name='part_categories')
 @pass_legoapi
 def lego_part_categories_list(api):
     print(api.lego_part_categories_list())
 
 
-@lego_part_categories.command(name='read')
+@lego.command(name='part_category')
 @pass_legoapi
 @click.argument('id')
 def lego_part_categories_read(api, id):
@@ -245,7 +230,7 @@ def lego_parts_list(api):
     print(api.lego_parts_list())
 
 
-@lego_parts.command(name='read')
+@lego.command(name='part')
 @pass_legoapi
 @click.argument('part_num')
 def lego_parts_read(api, part_num):
@@ -287,7 +272,7 @@ def lego_sets_parts_list(api, set_num):
     print(api.lego_sets_parts_list(set_num=set_num))
 
 
-@lego_sets.command(name='read')
+@lego.command(name='set')
 @pass_legoapi
 @click.argument('set_num')
 def lego_sets_read(api, set_num):
@@ -306,18 +291,13 @@ def lego_sets_sets_list(api, set_num):
     print(api.lego_sets_sets_list(set_num=set_num))
 
 
-@lego.group(name='themes')
-def lego_themes():
-    pass
-
-
-@lego_themes.command(name='list')
+@lego.command(name='themes')
 @pass_legoapi
 def lego_themes_list(api):
     print(api.lego_themes_list())
 
 
-@lego_themes.command(name='read')
+@lego.command(name='theme')
 @pass_legoapi
 @click.argument('id')
 def lego_themes_read(api, id):
@@ -335,30 +315,20 @@ def users_allparts_list(users_context):
     print(users_context.api.users_allparts_list(user_token=users_context.token))
 
 
-@users.group(name='badges')
-def users_badges():
-    pass
-
-
-@users_badges.command(name='list')
+@users.command(name='badges')
 @pass_userscontext
 def users_badges_list(users_context):
     print(users_context.api.users_badges_list())
 
 
-@users_badges.command(name='read')
+@users.command(name='badge')
 @pass_userscontext
 @click.argument('id')
 def users_badges_read(users_context, id):
     print(users_context.api.users_badges_read(id=id))
 
 
-@users.group(name='build')
-def users_build():
-    pass
-
-
-@users_build.command(name='read')
+@users.command(name='build')
 @pass_userscontext
 @click.argument('set_num')
 def users_build_read(users_context, set_num):
@@ -504,23 +474,13 @@ def users_partlists_update(users_context, list_id, name):
     print(users_context.api.users_partlists_update(users_context.token, list_id=list_id, name=name))
 
 
-@users.group(name='parts')
-def users_parts():
-    pass
-
-
-@users_parts.command(name='list')
+@users.command(name='parts')
 @pass_userscontext
 def users_parts_list(users_context):
     print(users_context.api.users_parts_list(user_token=users_context.token))
 
 
-@users.group(name='profile')
-def users_profile():
-    pass
-
-
-@users_profile.command(name='list')
+@users.command(name='profile')
 @pass_userscontext
 def users_profile_list(users_context):
     print(users_context.api.users_profile_list(user_token=users_context.token))
