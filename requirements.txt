@@ -1,3 +1,0 @@
-click >=6
--e pyrebrickable-api
--e pyrebrickable-cli

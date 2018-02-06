@@ -14,7 +14,7 @@ import os
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "pyrebrickable_cli"
-VERSION = open(os.path.join('..','VERSION')).read()
+VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
 # To install the library, run the following
 #
 # python setup.py install

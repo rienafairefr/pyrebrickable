@@ -6,7 +6,6 @@ try:
 except ImportError:
     from urllib.request import urlretrieve
 import json
-import shutil
 
 swagger_url = "https://rebrickable.com/api/v3/swagger/?format=openapi"
 swagger = 'swagger.json'
