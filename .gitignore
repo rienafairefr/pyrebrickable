@@ -66,5 +66,6 @@ target/
 # PyCharm
 \.idea/
 
-# auto-generated file
+# auto-generated files
 swagger.json
+pyrebrickable-api

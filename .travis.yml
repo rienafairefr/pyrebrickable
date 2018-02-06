@@ -3,17 +3,20 @@ sudo: required
 services:
   - docker
 python:
-- 3.6
-- 3.5
-- 3.4
-- 3.3
-- 2.7
+  - 3.6
+  - 3.5
+  - 3.4
+  - 3.3
+  - 2.7
 install:
-- pip install -U tox-travis
-script: tox
+  - python patch_swagger.py
+  - ./generate_api.sh
+  - 'pip install -U tox-travis'
+script:
+  - tox
 deploy:
   provider: pypi
-  distributions: sdist bdist_wheel
+  distributions: 'sdist bdist_wheel'
   user: rienafairefr
   password:
     secure: pM4B8YO96+ZEuzbtthfuItIdDtv5cDMuhjrJ3Kd0NiqGQyS7OklANX0DPDC6NSf2GLULuqvdR260TQkiTQ8mrOTJeVSZEMQcT0jeoHHnGpD1Jn45N/Xfqc05ZbsTEmzrR/yV5nkuOABVZMbfR742XELXe5m6NTp4S1vbP38GNgci5HScZPr4FSPueEkQQGltqUe12XGWNQUd7I9VTavlWoIQXwy5YqUmP1KhuXZrzG8YHwq+CJu+SZX+m249eLKOagZ7cjO+uLCyo0MRLjTZkuZ0ZgRFZcrfzsDeZh3LhqmL+TAdlqOyZCHQoTCDAfPLzqpbLPgGp1l7uS8XSxBEs4mbAV6eFiQ1gfZvdtF76YvgIVOHcS5uOplK8EO9KXGBfCdfJmWFU6RcRdEdBgpSST3H3R1rZLHfw8UEZKGIHEHeTWLpL4TfEwwaVvU0fQy42tjTV09NKDpWhk1Dij4v3qOjDGL0Ehl9l6Cg+jpLc4PPChi+gh6DG5MsV0gM4hkOQwOY8mTCAmUFfAk65XM+ddWce3TydnGpKlj4jlcBAgazWIFEj+uBzdLaaJBLl//XbSHGNmWLPS8ue18UPv3InMQ0MnC7vA7RxvlVB64WKv2ejBbr/Ub9NjkJXqm3BCWQOmWmiq/eozaFtmEX1S4USiaQdSGWkfVFThswq292pMk=
