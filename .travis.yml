@@ -21,6 +21,7 @@ jobs:
       script:
         - set -e
         - pip install doctr
+        - pip install -r docs-requirements.txt
         - cd docs
         - make html
         - cd ..
