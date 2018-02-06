@@ -15,6 +15,18 @@ install:
 - pip install twine
 script:
 - tox
+jobs:
+  include:
+    - stage: deploy_docs
+      script:
+        - set -e
+        - pip install doctr
+        - cd docs
+        - make html
+        - cd ..
+        - python -m doctr deploy docs
+        - python -m doctr deploy --sync --no-require-master  --built-docs docs/_build/html "docs-$TRAVIS_BRANCH";
+      python: 3.5
 after_success:
 - "./upload_pypi.sh"
 deploy:
@@ -28,3 +40,7 @@ deploy:
   on:
     repo: rienafairefr/pyrebrickable
     tags: true
+env:
+  global:
+    # Doctr deploy key for rienafairefr/pyrebrickable
+    - secure: "UARzXIwEGzY4ngPgGriYvCmFGz3Pip3SkMVAzfaa9oSC09/eyGBF9GuN4QwuXX/KeC2Zieto1p/BoWx3+OZ2AL1oJQbQZRCLkmh2apxR5oYC4w+//DxWoO/oLZFODFPgDbvV/3u8jaLfo1EWIYBfzYrHdD2A7Lii0goJl3hE42CAZAE5EEb7oEewok+b5d4HX7UXBN9CWPV7xF3+xPGfkf9Y0NOCysI/655D9Uzj9tYH9sjlT1hGRhuOAcUpUzQ9DfQ/sEec9gakHHJLcCGpz9lsZJiyXWtgXroN0iT3QBbqhAkCbyHxs6eJ0I2oVdJ5ottTfRnsBKl24fJ8u5A7s3JuBM7becoHoQPvQsYHoO7lblcrV4Zw63BGJKVeCqZZ5I1SE+ywVVcGydsbYcAsDI8NCNIOkTXfx2E2jQF1L8H8moKpAKbk0v29yGvEB7zn7FUv/RxNPUf0F3ZjyyKVXDt99Lz8Y/C41armfoJeWEnA2W0TRP2t5zMl4oAAOdNPAQb+Zb7DWo8hEWYgv5DPPqd41+AyJZotBB1jqw4shTtHyjeTlmSgwwuDyJmqqyTtlTRA0IXe0aZAXMlKfvYQIem+86kVs0LbHQ7zgJvddVx7x5k41wwPrb0pPMMLXnKoqks1/UUoaG3iWNPrNDef5OQ60OS2SGvmylGZz63DkmU="
