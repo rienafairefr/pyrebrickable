@@ -4,3 +4,5 @@ py>=1.4.31
 randomize>=0.13
 pytest
 mock
+-e pyrebrickable-api
+-e pyrebrickable-cli

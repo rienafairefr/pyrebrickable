@@ -8,11 +8,11 @@ from mock import MagicMock
 import click
 from click.testing import CliRunner
 
-from rebrickable import cli
-from rebrickable.api import LegoApi, UsersApi
+from rebrickable_api import LegoApi, UsersApi
 from inspect import getmembers
 
-from rebrickable.cli import UsersContext
+from rebrickable_cli import cli
+from rebrickable_cli.cli import UsersContext
 
 
 def test_command_line_interface():
@@ -44,12 +44,12 @@ def test_command_line_interface_api_calls():
                 assert mocked_call.called
 
             if name.startswith('users'):
-                with mock.patch('rebrickable.cli.UsersContext', spec=UsersContext) as ctx_mock:
+                with mock.patch('rebrickable_cli.cli.UsersContext', spec=UsersContext) as ctx_mock:
                     ctx_mock.api = MagicMock(spec=UsersApi)
                     ctx_mock.token = 'ttt'
                     setattr(ctx_mock.api, name, mocked_call)
                     treat_(ctx_mock)
             elif name.startswith('lego'):
-                with mock.patch('rebrickable.api.lego_api.LegoApi', spec=LegoApi) as ctx_mock:
+                with mock.patch('rebrickable_api.LegoApi', spec=LegoApi) as ctx_mock:
                     setattr(ctx_mock, name, mocked_call)
                     treat_(ctx_mock)
