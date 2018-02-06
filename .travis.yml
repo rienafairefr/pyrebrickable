@@ -16,4 +16,15 @@ install:
 script:
 - tox
 after_success:
-- ./upload_pypi.sh
+- "./upload_pypi.sh"
+deploy:
+  provider: releases
+  api_key:
+    secure: P9EDLAG1WQfnPSfSTNMWcrTCaueSY2QpvUxKEFgKd8r9KmlgnensARMCbBsSMHVophI0v4q9Uwlej3a6BiWSTHa47AyuK85x4ZvQ55dmQbZdX5syfDnUygfnq3xQRbanOyeAtvqpwyAXqgUTfK1Xyg5yrojVgtd13WOT6o9tWZAjCEJJ3Nr8gLxtFmE8HV8J3qrjYLDA5RjWgP7D3xrik+bR+ydb/tXZ3YxGcqrPTDDi1c9dBBtqa+xcbfkADsjB08nkRCWzATwyrm21c3ZrNt6BbvRsPR3zij6bztZBa0GQtoIUyHg7Jcm/Bdzz/JwQBra2LYmur4zHFfsyEIX0Y+rdjCvMBCmkQXCVTlE+mXQwy9hnFSI+iWZjNmPLeCW6GUkyAyqu5GAcCXn/XLUvoL/7CB2VfVZXY0GD+jF52ZMhRnThXtHzcGQVYZk6UmKRKwYgcRs+ELasZKKsvEdjc0j36CJlSvaAdwlHdKLIjKDge1jAcHjmuHRVfztwF3vXmhIU2x/87u+dADizLuBHmjXHCWfm1sHwQr+wDybz5qA3L+zfrBZ1cmzQLa6OzgUphyg/SM/7dSjIkBvSvPvzM+S+gOwMprMKeA2y1SsWlq/OpTBCsg1FwKptUn3/51LBppGGQKx0A8sirzRnTXYF4rhoOHoSLXYvmMpFW08yPko=
+  file_glob: true
+  file:
+    - dist/*
+    - rebrickable-api.tar.gz
+  on:
+    repo: rienafairefr/pyrebrickable
+    tags: true
