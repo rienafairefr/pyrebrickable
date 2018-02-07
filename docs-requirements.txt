@@ -1,3 +1,5 @@
 sphinx
 sphinx-click
 recommonmark
+doctr
+-r dev-requirements.txt
