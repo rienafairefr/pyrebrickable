@@ -6,8 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = pyrebrickable
 SOURCEDIR     = .
-DOCSDIR       = ../docs
-BUILDDIR      = ../gh-pages
+BUILDDIR      = _build
 
 # Put it first so that "make" without argument is like "make help".
 help:
