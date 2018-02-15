@@ -1,3 +1,8 @@
+[run]
+source =
+    pyrebrickable-api
+    pyrebrickable-cli
+
 [report]
 exclude_lines =
     pragma: no cover
