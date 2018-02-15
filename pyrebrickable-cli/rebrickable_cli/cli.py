@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
 """Console script for pyrebrickable."""
-import json
 from getpass import getpass
 
 import click
-import os
 from six.moves import input
 
+from rebrickable_api import ApiClient, Configuration
 from rebrickable_api import LegoApi, UsersApi
-from rebrickable_api import ApiClient
+from rebrickable_api.rest import ApiException
+from rebrickable_cli.utils import update_data, get_data, DATA_PATH
 
 
 class UsersContext(object):
@@ -23,35 +23,14 @@ pass_legoapi = click.make_pass_decorator(LegoApi)
 pass_userscontext = click.make_pass_decorator(UsersContext)
 pass_usersapi = click.make_pass_decorator(UsersApi)
 
-data_path = os.path.expanduser('~/.rebrickable')
-
-
-def get_data():
-    try:
-        with open(data_path, 'r') as data_file:
-            return json.load(data_file)
-    except ValueError:
-        return {}
-
-
-def write_data(data):
-    with open(data_path, 'w') as data_file:
-        json.dump(data, data_file)
-
-
-def update_data(key, value):
-    data = get_data()
-    data[key] = value
-    write_data(data)
-
 
 def get_api_client():
-    configuration = rebrickable.Configuration()
+    configuration = Configuration()
     data = get_data()
     api_key = data['api_key']
     configuration.api_key['Authorization'] = api_key
     configuration.api_key_prefix['Authorization'] = 'key'
-    return rebrickable.ApiClient(configuration)
+    return ApiClient(configuration)
 
 
 @click.group(help="Rebrickable CLI implemented in Python")
@@ -63,8 +42,7 @@ def main(ctx, args=None):
         ctx.obj = get_api_client()
     except (IOError, KeyError, ValueError):
         if ctx.invoked_subcommand != 'register':
-            print('please register your API key using: \n%s register' % (
-                rebrickable.__name__))
+            print('please register your API key using: \nrebrickable register')
             raise click.Abort()
 
 
@@ -72,7 +50,7 @@ def main(ctx, args=None):
 def register():
     key = getpass(prompt='Please enter your API key:')
     update_data('api_key', key)
-    print('OK, registered API key in %s' % data_path)
+    print('OK, registered API key in %s' % DATA_PATH)
 
 
 @main.group()
@@ -99,7 +77,7 @@ def users(ctx, client):
         ctx.obj = get_users_context(client)
     except (IOError, KeyError, ValueError):
         if ctx.invoked_subcommand != 'login':
-            print('Please login using: \n%s users login' % rebrickable.__name__)
+            print('Please login using: \nrebrickable users login')
             raise click.Abort()
 
 
@@ -110,15 +88,14 @@ def users_login(users_api, username=None):
     if username is None:
         username = input('Username: ')
     password = getpass()
-    from rebrickable.rest import ApiException
     try:
-        users_token = users_api.users_token_create(username=username, password=password)
+        users_token = users_api.users_token_create(username, password)
         update_data('users_token', users_token.user_token)
 
-        print('OK, saved users token into %s' % data_path)
+        print('OK, saved users token into %s' % DATA_PATH)
     except ApiException as e:
         print('Login failed, response was %s' % e.body)
-        click.Abort()
+        raise click.Abort()
 
 
 @lego.group(name='parts')

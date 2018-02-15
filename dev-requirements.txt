@@ -6,3 +6,5 @@ pytest
 mock
 -e pyrebrickable-api
 -e pyrebrickable-cli
+pytest-cov
+coveralls

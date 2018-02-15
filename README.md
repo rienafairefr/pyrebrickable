@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/rienafairefr/pyrebrickable.svg?branch=master)](https://travis-ci.org/rienafairefr/pyrebrickable)
+[![Coverage Status](https://coveralls.io/repos/github/rienafairefr/pyrebrickable/badge.svg?branch=master)](https://coveralls.io/github/rienafairefr/pyrebrickable?branch=master)
+
 # pyrebrickable
 
 This is pyrebrickable, containing two packages:
