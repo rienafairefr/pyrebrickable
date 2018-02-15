@@ -291,12 +291,6 @@ def test_users_profile_invalid_login(runner):
         assert result.exception is not None
 
 
-def test_register_nogetpass(runner):
-    result = runner.invoke(main, ['register'])
-
-    assert result.exception is not None
-
-
 def test_register_valid(runner):
     def getpass(prompt):
         return 'api_key_value'
