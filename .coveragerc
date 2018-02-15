@@ -1,6 +1,5 @@
 [run]
 source =
-    pyrebrickable-api
     pyrebrickable-cli
 
 [report]
