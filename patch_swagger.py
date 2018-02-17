@@ -210,9 +210,9 @@ def generate_swagger():
                 "num_missing": {'type': 'integer'}
             },
             'Rewards': {
-                "badges": [56, 43, 39],
-                "points": 0,
-                "level": 0
+                "badges": {"type": "array", "items": {'type': 'integer'}},
+                "points": {'type': 'integer'},
+                "level": {'type': 'integer'}
             },
             'Lego': {
                 "lost_set_parts": {'type': 'integer'},
