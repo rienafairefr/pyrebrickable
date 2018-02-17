@@ -88,20 +88,14 @@ def generate_swagger():
             },
             'Theme': {
                 "id": {"type": "integer"},
-                "parent_id": {
-                    "type": "integer",
-                    "nullable": True
-                },
+                "parent_id": {"type": "integer"},
                 "name": {"type": "string"},
             },
             'Set': {
                 "set_num": {"type": "string"},
                 "name": {"type": "string"},
                 "year": {"type": "integer"},
-                "theme_id": {
-                    "type": "integer",
-                    "nullable": True
-                },
+                "theme_id": {"type": "integer"},
                 "num_parts": {"type": "integer"},
                 "set_img_url": {"type": "string"},
                 "set_url": {"type": "string"},
@@ -112,10 +106,7 @@ def generate_swagger():
                 "name": {"type": "string"},
                 "part_cat_id": {"type": "integer"},
                 "part_url": {"type": "string"},
-                "part_img_url": {
-                    "type": "string",
-                    "nullable": True
-                }
+                "part_img_url": {"type": "string"}
             },
             'InventoryPart': {
                 "id": {'type': 'integer'},
