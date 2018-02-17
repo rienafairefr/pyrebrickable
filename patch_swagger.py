@@ -22,6 +22,13 @@ def generate_swagger():
             open(swagger, 'w') as swagger_file:
         api = json.load(rebrickable_file)
 
+        for url, path in api['paths'].items():
+            for method, method_dict in path.items():
+                for i, param in enumerate(method_dict['parameters']):
+                    if param['description'] is None:
+                        api['paths'][url][method]['parameters'][i]['description'] = param['name']
+
+
         api.update(
             {
                 "securityDefinitions": {
@@ -77,24 +84,18 @@ def generate_swagger():
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
                 "rgb": {"type": "string"},
-                "is_trans": {"type": "bool"},
+                "is_trans": {"type": "boolean"},
             },
             'Theme': {
                 "id": {"type": "integer"},
-                "parent_id": {
-                    "type": "integer",
-                    "nullable": True
-                },
+                "parent_id": {"type": "integer"},
                 "name": {"type": "string"},
             },
             'Set': {
                 "set_num": {"type": "string"},
                 "name": {"type": "string"},
                 "year": {"type": "integer"},
-                "theme_id": {
-                    "type": "integer",
-                    "nullable": True
-                },
+                "theme_id": {"type": "integer"},
                 "num_parts": {"type": "integer"},
                 "set_img_url": {"type": "string"},
                 "set_url": {"type": "string"},
@@ -105,10 +106,7 @@ def generate_swagger():
                 "name": {"type": "string"},
                 "part_cat_id": {"type": "integer"},
                 "part_url": {"type": "string"},
-                "part_img_url": {
-                    "type": "string",
-                    "nullable": True
-                }
+                "part_img_url": {"type": "string"}
             },
             'InventoryPart': {
                 "id": {'type': 'integer'},
@@ -118,7 +116,7 @@ def generate_swagger():
             },
             'SetList': {
                 "id": {'type': 'integer'},
-                "is_buildable": {'type': 'bool'},
+                "is_buildable": {'type': 'boolean'},
                 "name": {'type': 'string'},
                 "num_sets": {'type': 'integer'}
             },
@@ -168,7 +166,7 @@ def generate_swagger():
                 "name": {"type": "string"},
                 "part_count": {"type": "integer"}
             },
-            'Element':{
+            'Element': {
                 "part": ref('Part'),
                 "color": ref('Color'),
                 "element_id": {'type': 'string'},
@@ -176,7 +174,7 @@ def generate_swagger():
                 "element_img_url": {'type': 'string'},
                 "part_img_url": {'type': 'string'}
             },
-            'AllPart':{
+            'AllPart': {
                 "quantity": {'type': 'integer'},
                 "part": ref('Part'),
                 "color": ref('Color')
@@ -212,9 +210,9 @@ def generate_swagger():
                 "num_missing": {'type': 'integer'}
             },
             'Rewards': {
-                "badges": [56, 43, 39],
-                "points": 0,
-                "level": 0
+                "badges": {"type": "array", "items": {'type': 'integer'}},
+                "points": {'type': 'integer'},
+                "level": {'type': 'integer'}
             },
             'Lego': {
                 "lost_set_parts": {'type': 'integer'},
@@ -233,7 +231,7 @@ def generate_swagger():
                 "location": {'type': 'string'},
                 "rewards": ref('Rewards'),
                 "lego": ref('Lego'),
-                "avatar_img": {'string': 'type'}
+                "avatar_img": {'type': 'string'}
             },
             'UsersTokenResponse': {
                 "user_token": {'type': 'string'}
@@ -249,7 +247,6 @@ def generate_swagger():
 
         def set_schema(url, schema, code='200', method='get'):
             api['paths'][url][method]['responses'][code]['schema'] = schema
-
 
         set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), '201', 'post')
         set_schema('/api/v3/lego/elements/{element_id}/', ref('Element'))
@@ -298,9 +295,6 @@ def generate_swagger():
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
         set_schema('/api/v3/users/{user_token}/parts/', ref('ArrayOfPartListParts'))
 
-
-
-
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
         # '/api/v3/users/{user_token}/lost_parts/{id}/', 'DELETE',
@@ -329,8 +323,6 @@ def generate_swagger():
 '''
 
         json.dump(api, swagger_file, indent=True, sort_keys=True)
-
-
 
 
 if __name__ == '__main__':
