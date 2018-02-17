@@ -22,6 +22,13 @@ def generate_swagger():
             open(swagger, 'w') as swagger_file:
         api = json.load(rebrickable_file)
 
+        for url, path in api['paths'].items():
+            for method, method_dict in path.items():
+                for i, param in enumerate(method_dict['parameters']):
+                    if param['description'] is None:
+                        api['paths'][url][method]['parameters'][i]['description'] = param['name']
+
+
         api.update(
             {
                 "securityDefinitions": {
