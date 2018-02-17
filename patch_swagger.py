@@ -231,7 +231,7 @@ def generate_swagger():
                 "location": {'type': 'string'},
                 "rewards": ref('Rewards'),
                 "lego": ref('Lego'),
-                "avatar_img": {'string': 'type'}
+                "avatar_img": {'type': 'string'}
             },
             'UsersTokenResponse': {
                 "user_token": {'type': 'string'}
