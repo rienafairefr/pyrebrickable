@@ -84,7 +84,7 @@ def generate_swagger():
                 "id": {"type": "integer"},
                 "name": {"type": "string"},
                 "rgb": {"type": "string"},
-                "is_trans": {"type": "bool"},
+                "is_trans": {"type": "boolean"},
             },
             'Theme': {
                 "id": {"type": "integer"},
@@ -125,7 +125,7 @@ def generate_swagger():
             },
             'SetList': {
                 "id": {'type': 'integer'},
-                "is_buildable": {'type': 'bool'},
+                "is_buildable": {'type': 'boolean'},
                 "name": {'type': 'string'},
                 "num_sets": {'type': 'integer'}
             },
