@@ -11,6 +11,7 @@ Welcome to pyrebrickable's documentation!
    :caption: Contents:
 
      CLI <cli.rst>
+     API <api.rst>
      CLI Reference <reference/cli/modules.rst>
      Auto-generated API Client Reference <reference/api/modules.rst>
 
