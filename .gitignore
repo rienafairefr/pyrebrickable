@@ -72,3 +72,5 @@ pyrebrickable-api
 
 #pytest
 .pytest_cache/
+
+pyrebrickable-data/rebrickable\.db
