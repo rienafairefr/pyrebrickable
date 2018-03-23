@@ -13,3 +13,4 @@ class Set(Base):
     num_parts = Column(Integer)
 
     theme = relationship('Theme')
+    inventory = relationship('Inventory')
