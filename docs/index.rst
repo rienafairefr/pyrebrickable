@@ -10,8 +10,9 @@ Welcome to pyrebrickable's documentation!
    :maxdepth: 1
    :caption: Contents:
 
-   CLI <cli.rst>
-   API <api.rst>
+     CLI <cli.rst>
+     CLI Reference <reference/cli/modules.rst>
+     Auto-generated API Client Reference <reference/api/modules.rst>
 
 
 Indices and tables

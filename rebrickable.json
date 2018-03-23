@@ -217,7 +217,7 @@
         },
         "/api/v3/lego/parts/": {
             "get": {
-                "description": "Get a list of Parts.\n\nOptionally filter by one or more of the below query parameters.",
+                "description": "Get a list of Parts.\n\nOptional parameter inc_part_details=1 can be used to return additional fields, the same as for a single part lookup.\n\nThe optional part_nums filter parameter should be a comma separated list of part_num without spaces.\n\nOptionally filter by one or more of the below query parameters.",
                 "operationId": "lego_parts_list",
                 "parameters": [
                     {
@@ -238,6 +238,13 @@
                         "description": null,
                         "in": "query",
                         "name": "part_num",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "description": null,
+                        "in": "query",
+                        "name": "part_nums",
                         "required": false,
                         "type": "string"
                     },
@@ -612,7 +619,7 @@
         },
         "/api/v3/lego/sets/{set_num}/parts/": {
             "get": {
-                "description": "Get a list of all Inventory Parts in this Set.",
+                "description": "Get a list of all Inventory Parts in this Set.\n\nOptional parameter inc_part_details=1 can be used to return additional part fields, the same as for a single part lookup.",
                 "operationId": "lego_sets_parts_list",
                 "parameters": [
                     {
@@ -1301,7 +1308,7 @@
         },
         "/api/v3/users/{user_token}/partlists/{list_id}/parts/": {
             "get": {
-                "description": "Get a list of all the Parts in a specific Part List.",
+                "description": "Get a list of all the Parts in a specific Part List.\n\nOptional parameter inc_part_details=1 can be used to return additional part fields, the same as for a single part lookup.",
                 "operationId": "users_partlists_parts_list",
                 "parameters": [
                     {
@@ -1547,7 +1554,7 @@
         },
         "/api/v3/users/{user_token}/parts/": {
             "get": {
-                "description": "Get a list of all the Parts in all the user's Part Lists.\n\n###Set List logic\nParts appearing in multiple Part Lists will be listed multiple times.\n\nOptionally, filter by one or more of the below query parameters.",
+                "description": "Get a list of all the Parts in all the user's Part Lists.\n\nOptional parameter inc_part_details=1 can be used to return additional part fields, the same as for a single part lookup.\n\n###Set List logic\nParts appearing in multiple Part Lists will be listed multiple times.\n\nOptionally, filter by one or more of the below query parameters.",
                 "operationId": "users_parts_list",
                 "parameters": [
                     {
