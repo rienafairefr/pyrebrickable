@@ -12,3 +12,4 @@ coveralls
 tox
 tox-travis
 twine
+swagger-spec-validator
