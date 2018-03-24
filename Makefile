@@ -9,7 +9,7 @@ ifdef TRAVIS_TAG
 	python pyrebrickable-data/setup.py sdist bdist_wheel
 	python setup.py sdist bdist_wheel
 
-	twine upload -u $PYPI_USER -p $PYPI_PASSWORD dist/*
+	twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} dist/*
 else
 	@echo "not tagged"
 endif
