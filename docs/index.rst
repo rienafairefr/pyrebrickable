@@ -14,6 +14,7 @@ Welcome to pyrebrickable's documentation!
      API <api.rst>
      CLI Reference <reference/cli/modules.rst>
      Auto-generated API Client Reference <reference/api/modules.rst>
+     Database <data.rst>
 
 
 Indices and tables

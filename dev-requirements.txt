@@ -6,5 +6,9 @@ pytest
 mock
 -e pyrebrickable-api
 -e pyrebrickable-cli
+-e pyrebrickable-data
 pytest-cov
 coveralls
+tox
+tox-travis
+twine

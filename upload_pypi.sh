@@ -5,6 +5,8 @@ rm -rf dist
 
 python pyrebrickable-api/setup.py sdist bdist_wheel
 python pyrebrickable-cli/setup.py sdist bdist_wheel
+python pyrebrickable-data/setup.py sdist bdist_wheel
+python setup.py sdist bdist_wheel
 
 twine upload -u $PYPI_USER -p $PYPI_PASSWORD dist/*
 
