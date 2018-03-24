@@ -9,7 +9,7 @@ class Theme(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
-    parent_id = Column(Integer, ForeignKey('themes.id'))
+    parent_id = Column(Integer, ForeignKey('themes.id'), nullable=True)
     parent = relationship('Theme', backref='children', uselist=False, remote_side=[id])
 
     def __repr__(self):

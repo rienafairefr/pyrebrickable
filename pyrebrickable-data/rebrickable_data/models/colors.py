@@ -9,3 +9,6 @@ class Color(Base):
     name = Column(String)
     rgb = Column(String)
     is_trans = Column(Boolean)
+
+    def __repr__(self):
+        return '<Color %s>' % self.name

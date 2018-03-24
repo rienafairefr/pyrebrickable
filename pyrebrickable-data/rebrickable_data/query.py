@@ -1,4 +1,6 @@
-from sqlalchemy import func
+import random
+
+from sqlalchemy import func, or_
 
 from rebrickable_data.models import Set, Theme, Part, PartRelationship
 from rebrickable_data.database import Session
@@ -6,39 +8,34 @@ from rebrickable_data.database import Session
 session = Session()
 
 
-def random_row(session, model_name):
-    return session.query(model_name).order_by(func.random()).first()
+for set in session.query(Set):
+    if len(set.inventories) == 5:
+        # the 421-2 set from 1966
+        for inventory in set.inventories:
+            print(len(inventory.parts) + ' parts in inventory')
 
 
-while True:
-    random_part = random_row(session, Part)
-    if random_part.printed_variants != [] or random_part.printed_variant_of != []:
-        break
-
-print(random_part)
-print()
-print('relationship is child  ' + str(session.query(PartRelationship).filter(PartRelationship.c.child_part_num == random_part.part_num).all()))
-print('relationship is parent ' + str(session.query(PartRelationship).filter(PartRelationship.c.parent_part_num == random_part.part_num).all()))
-print()
-print('printed variants' + str(random_part.printed_variants))
-print('printed variant of ' + str(random_part.printed_variant_of))
-
-exit(0)
+for part in session.query(Part) \
+        .filter(Part.has_variants).limit(50):
+    print(part)
+    for p in part.printed_variants:
+        print('printed  : ' + str(p))
+    for p in part.alt_variants:
+        print('alt      : ' + str(p))
+    for p in part.mold_variants:
+        print('mold alt : ' + str(p))
+    for p in part.patterned_variants:
+        print('patterns : ' + str(p))
 
 
-random_set = random_row(session, Set)
-print(random_set.inventory)
-
-def print_theme(theme, indent):
+def print_theme(theme, indent=0):
     print(' ' * indent + theme.name)
     for child in theme.children:
         print_theme(child, indent+4)
 
 
-for theme in session.query(Theme):
+for theme in session.query(Theme) \
+        .filter(Theme.parent != None).limit(25):
     if theme.parent is not None:
         continue
-    print_theme(theme, 0)
-
-for theme in session.query(Theme):
-    print(theme)
+    print_theme(theme)

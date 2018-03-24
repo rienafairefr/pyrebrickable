@@ -5,6 +5,10 @@ from rebrickable_data.models import Base
 
 
 class Inventory(Base):
+    """
+    an inventory is a collection with multiple sets in it
+    it also links a set with a collection of parts
+    """
     __tablename__ = 'inventories'
 
     id = Column(Integer, primary_key=True)
@@ -12,19 +16,20 @@ class Inventory(Base):
     set_num = Column(String, ForeignKey('sets.set_num'))
 
     parts = relationship("InventoryPart")
-    sets = relationship("InventorySet")
+    sets = relationship('InventorySet')
 
 
 class InventoryPart(Base):
+    """ Parts content of set """
     __tablename__ = 'inventory_parts'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
 
-    inventory_id = Column(Integer, ForeignKey('inventories.id'))
+    inventory_id = Column(  Integer, ForeignKey('inventories.id'))
     part_num = Column(String, ForeignKey('parts.part_num'))
     color_id = Column(Integer, ForeignKey('colors.id'))
-    quantity = Column(Integer)
-    is_spare = Column(Boolean)
+    quantity = Column(Integer, default=1)
+    is_spare = Column(Boolean, default=False)
 
     color = relationship('Color')
 
