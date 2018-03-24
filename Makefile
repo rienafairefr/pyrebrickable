@@ -35,9 +35,8 @@ generate_api:
 docs_build:
 	set -e
 	pip install -r docs-requirements.txt
-	cd docs
-	make html
-	cd ..
+	make -C docs html
+
 	python -m doctr deploy docs
 
 	python -m doctr deploy --sync --require-master  --built-docs docs/_build/html "."
