@@ -11,8 +11,7 @@ python:
 install:
 - python patch_swagger.py
 - "./generate_api.sh"
-- pip install -U tox-travis
-- pip install twine
+- pip install -r dev-requirements.txt
 script:
 - "./validate_spec.sh swagger.json"
 - tox
@@ -31,7 +30,6 @@ deploy:
   file_glob: true
   file:
     - dist/*
-    - rebrickable-api.tar.gz
   on:
     repo: rienafairefr/pyrebrickable
     tags: true

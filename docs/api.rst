@@ -1,10 +1,20 @@
-API Documentation
+API documentation
 =================
 
 
+There are two sub-APIs, the Lego and Users API, the documentation auto-generated from the swagger spec is here:
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
-   Lego API <../pyrebrickable-api/docs/LegoApi.md>
-   Users API <../pyrebrickable-api/docs/UsersApi.md>
+     Lego API <../pyrebrickable-api/docs/LegoApi>
+     Users API <../pyrebrickable-api/docs/UsersApi>
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
