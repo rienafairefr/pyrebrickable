@@ -178,9 +178,9 @@ def test_command_line_interface_api_calls(runner):
             treat_(func, ctx_mock, mocked_call)
 
 
-@main.command()
+@main.command(name='test')
 @click.pass_obj
-def test(obj):
+def command_dummy(obj):
     pass
 
 
