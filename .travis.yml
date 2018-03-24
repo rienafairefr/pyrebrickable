@@ -9,20 +9,18 @@ python:
 - 3.3
 - 2.7
 install:
-- python patch_swagger.py
-- "./generate_api.sh"
+- make generate_api
 - pip install -r dev-requirements.txt
 script:
-- "./validate_spec.sh swagger.json"
+- make validate_spec
 - tox
 jobs:
   include:
     - stage: deploy_docs
-      script:
-        "./docs_build.sh"
+      script: make docs_build
       python: 3.5
 after_success:
-- "./upload_pypi.sh"
+- make upload_pypi
 deploy:
   provider: releases
   api_key:
