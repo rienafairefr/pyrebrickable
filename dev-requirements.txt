@@ -11,5 +11,6 @@ pytest-cov
 coveralls
 tox
 tox-travis
-twine
+setuptools>=38.6.0
+twine>=1.11.0
 swagger-spec-validator

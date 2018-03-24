@@ -16,7 +16,7 @@ REQUIRES = ["pyrebrickable_api", "pyrebrickable_cli", "pyrebrickable_data"]
 setup(
     name=NAME,
     version=VERSION,
-    description="""This is pyrebrickable, tools for the www.rebrickable.com website and data
+    long_description="""This is pyrebrickable, tools for the www.rebrickable.com website and data
     
 It provides:
 * an auto-generated rebrickable API (in the rebrickable_api package)
@@ -24,8 +24,10 @@ It provides:
 * a SQLalchemy wrapper around the monthly database dumps (in the rebrickable_data package)
 
 """,
-    author_email="",
-    url="",
+    long_description_content_type='text/markdown',
+    author='rienafairefr',
+    author_email="rienafairefr@gmail.com",
+    url="https://rienafairefr.github.io/pyrebrickable/",
     keywords=["rebrickable"],
     install_requires=REQUIRES,
 )
