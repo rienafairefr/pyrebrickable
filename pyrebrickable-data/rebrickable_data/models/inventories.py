@@ -15,8 +15,8 @@ class Inventory(Base):
     version = Column(Integer)
     set_num = Column(String, ForeignKey('sets.set_num'))
 
-    parts = relationship("InventoryPart")
-    sets = relationship('InventorySet')
+    parts = relationship("InventoryPart", backref='inventories')
+    sets = relationship('InventorySet', backref='inventories')
 
 
 class InventoryPart(Base):
