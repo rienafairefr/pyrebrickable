@@ -25,6 +25,13 @@ setup(
     
 It uses the monthly data dumps (http://www.rebrickable.com/downloads) and provides
 SQLAlchemy models to query the data inside
+
+You gain access to the rebrickable-data cli :
+
+`rebrickable-data download` to download csv files from rebrickable
+`rebrickable-data import` to import them in a database
+
+see examples in examples folder
 """,
     author_email="",
     url="",
