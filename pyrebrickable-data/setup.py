@@ -16,7 +16,7 @@ from setuptools import setup, find_packages  # noqa: H301
 NAME = "pyrebrickable_data"
 VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
 
-REQUIRES = ['sqlalchemy', 'appdirs', 'requests']
+REQUIRES = ['sqlalchemy', 'appdirs', 'requests', 'click']
 
 setup(
     name=NAME,
@@ -29,6 +29,11 @@ SQLAlchemy models to query the data inside
     author_email="",
     url="",
     keywords=["LEGO","Rebrickable", "SQL"],
+    entry_points={
+        'console_scripts': [
+            'rebrickable-data=rebrickable_data.cli:main'
+        ]
+    },
     install_requires=REQUIRES,
     include_package_data=True,
     packages=find_packages()
