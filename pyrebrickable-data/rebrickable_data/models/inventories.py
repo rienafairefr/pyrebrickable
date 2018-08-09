@@ -15,8 +15,8 @@ class Inventory(Base):
     version = Column(Integer)
     set_num = Column(String, ForeignKey('sets.set_num'))
 
-    parts = relationship("InventoryPart")
-    sets = relationship('InventorySet')
+    parts = relationship("InventoryPart", backref='inventories')
+    sets = relationship('InventorySet', backref='inventories')
 
 
 class InventoryPart(Base):
@@ -32,6 +32,7 @@ class InventoryPart(Base):
     is_spare = Column(Boolean, default=False)
 
     color = relationship('Color')
+    part = relationship('Part')
 
 
 class InventorySet(Base):
@@ -42,3 +43,5 @@ class InventorySet(Base):
     inventory_id = Column(Integer, ForeignKey('inventories.id'))
     set_num = Column(String, ForeignKey('sets.set_num'))
     quantity = Column(Integer)
+
+    set = relationship('Set')

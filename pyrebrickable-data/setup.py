@@ -16,7 +16,7 @@ from setuptools import setup, find_packages  # noqa: H301
 NAME = "pyrebrickable_data"
 VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
 
-REQUIRES = ['sqlalchemy', 'appdirs', 'requests']
+REQUIRES = ['sqlalchemy', 'appdirs', 'requests', 'click']
 
 setup(
     name=NAME,
@@ -25,10 +25,22 @@ setup(
     
 It uses the monthly data dumps (http://www.rebrickable.com/downloads) and provides
 SQLAlchemy models to query the data inside
+
+You gain access to the rebrickable-data cli :
+
+`rebrickable-data download` to download csv files from rebrickable
+`rebrickable-data import` to import them in a database
+
+see examples in examples folder
 """,
     author_email="",
     url="",
     keywords=["LEGO","Rebrickable", "SQL"],
+    entry_points={
+        'console_scripts': [
+            'rebrickable-data=rebrickable_data.cli:main'
+        ]
+    },
     install_requires=REQUIRES,
     include_package_data=True,
     packages=find_packages()

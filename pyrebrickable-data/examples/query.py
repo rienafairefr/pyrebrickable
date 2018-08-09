@@ -1,20 +1,17 @@
-import random
-
-from sqlalchemy import func, or_
-
-from rebrickable_data.models import Set, Theme, Part, PartRelationship
+from rebrickable_data.models import Set, Theme, Part
 from rebrickable_data.database import Session
 
 session = Session()
 
 
-for set in session.query(Set):
+for set in session.query(Set).filter():
     if len(set.inventories) == 5:
         # the 421-2 set from 1966
         for inventory in set.inventories:
-            print(len(inventory.parts) + ' parts in inventory')
+            print(str(len(inventory.parts)) + ' parts in inventory')
 
 
+# parts variants (printed, alt, model alt, patterned)
 for part in session.query(Part) \
         .filter(Part.has_variants).limit(50):
     print(part)
@@ -33,7 +30,7 @@ def print_theme(theme, indent=0):
     for child in theme.children:
         print_theme(child, indent+4)
 
-
+# list themes/subthemes
 for theme in session.query(Theme) \
         .filter(Theme.parent != None).limit(25):
     if theme.parent is not None:
