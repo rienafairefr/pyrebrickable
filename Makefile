@@ -3,7 +3,7 @@
 TAG_NAME:=${TAG_NAME}
 TRAVIS_TAG:=${TRAVIS_TAG}
 TRAVIS_BRANCH:=${TRAVIS_BRANCH}
-VERSION ?= $(if $(TRAVIS_TAG), $(TRAVIS_TAG), $(if $(TAG_NAME), $(TAG_NAME), dev))
+VERSION ?= $(if $(TRAVIS_TAG),$(TRAVIS_TAG),$(if $(TAG_NAME),$(TAG_NAME),dev))
 
 upload_pypi:
 ifdef TRAVIS_TAG
