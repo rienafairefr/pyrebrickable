@@ -57,7 +57,7 @@ def generate_swagger():
                 array: {
                     "type": "object",
                     "properties": {
-                        "count": {"type": "integer"},
+                        "count": Integer,
                         "results": {
                             "type": "array",
                             "items": {
@@ -78,163 +78,168 @@ def generate_swagger():
 
         def ref(cls):
             return {'$ref': "#/definitions/%s" % cls}
+        
+        Integer = {'type': 'integer'}
+        String = {'type': 'string'}
+        Boolean = {'type': 'boolean'}
+        Url = {'type': 'string', 'format': 'uri'}
 
         classes = {
             'Color': {
-                "id": {"type": "integer"},
-                "name": {"type": "string"},
-                "rgb": {"type": "string"},
-                "is_trans": {"type": "boolean"},
+                "id": Integer,
+                "name": String,
+                "rgb": String,
+                "is_trans": Boolean,
             },
             'Theme': {
-                "id": {"type": "integer"},
-                "parent_id": {"type": "integer"},
-                "name": {"type": "string"},
+                "id": Integer,
+                "parent_id": Integer,
+                "name": String,
             },
             'Set': {
-                "set_num": {"type": "string"},
-                "name": {"type": "string"},
-                "year": {"type": "integer"},
-                "theme_id": {"type": "integer"},
-                "num_parts": {"type": "integer"},
-                "set_img_url": {"type": "string"},
-                "set_url": {"type": "string"},
+                "set_num": String,
+                "name": String,
+                "year": Integer,
+                "theme_id": Integer,
+                "num_parts": Integer,
+                "set_img_url": Url,
+                "set_url": Url,
                 "last_modified_dt": {"type": "string", "format": "date-time"}
             },
             'Part': {
-                "part_num": {"type": "string"},
-                "name": {"type": "string"},
-                "part_cat_id": {"type": "integer"},
-                "part_url": {"type": "string"},
-                "part_img_url": {"type": "string"}
+                "part_num": String,
+                "name": String,
+                "part_cat_id": Integer,
+                "part_url": Url,
+                "part_img_url": Url
             },
             'InventoryPart': {
-                "id": {'type': 'integer'},
-                "inv_part_id": {'type': 'integer'},
+                "id": Integer,
+                "inv_part_id": Integer,
                 "part": ref('Part'),
                 "color": ref('Color')
             },
             'SetList': {
-                "id": {'type': 'integer'},
-                "is_buildable": {'type': 'boolean'},
-                "name": {'type': 'string'},
-                "num_sets": {'type': 'integer'}
+                "id": Integer,
+                "is_buildable": Boolean,
+                "name": String,
+                "num_sets": Integer
             },
             'Moc': {
-                "set_num": {"type": "string"},
-                "name": {"type": "string"},
-                "year": {"type": "integer"},
-                "theme_id": {'type': 'integer'},
-                "num_parts": {'type': 'integer'},
-                "moc_img_url": {"type": "string"},
-                "moc_url": {"type": "string"},
-                "designer_name": {"type": "string"},
-                "designer_url": {"type": "string"}
+                "set_num": String,
+                "name": String,
+                "year": Integer,
+                "theme_id": Integer,
+                "num_parts": Integer,
+                "moc_img_url": Url,
+                "moc_url": Url,
+                "designer_name": String,
+                "designer_url": Url
             },
             'Badge': {
-                "id": {'type': 'integer'},
-                "code": {'type': 'string'},
-                "level": {'type': 'integer'},
-                "name": {'type': 'string'},
-                "descr": {'type': 'string'}
+                "id": Integer,
+                "code": String,
+                "level": Integer,
+                "name": String,
+                "descr": String
             },
             'PartList': {
-                "id": {'type': 'integer'},
-                "is_buildable": {'type': 'boolean'},
-                "name": {'type': 'string'},
-                "num_parts": {'type': 'integer'}
+                "id": Integer,
+                "is_buildable": Boolean,
+                "name": String,
+                "num_parts": Integer
             },
             'LostPart': {
-                "lost_part_id": {'type': 'integer'},
-                "lost_quantity": {'type': 'integer'},
+                "lost_part_id": Integer,
+                "lost_quantity": Integer,
                 "inv_part": ref('InventoryPart')
             },
             'PartListPart': {
-                "list_id": {'type': 'integer'},
-                "quantity": {'type': 'integer'},
+                "list_id": Integer,
+                "quantity": Integer,
                 "part": ref('Part'),
                 "color": ref('Color')
             },
             'SetListSet': {
-                "list_id": {'type': 'integer'},
-                "quantity": {'type': 'integer'},
-                "include_spares": {'type': 'boolean'},
+                "list_id": Integer,
+                "quantity": Integer,
+                "include_spares": Boolean,
                 "set": ref('Set'),
             },
             'PartCategory': {
-                "id": {"type": "integer"},
-                "name": {"type": "string"},
-                "part_count": {"type": "integer"}
+                "id": Integer,
+                "name": String,
+                "part_count": Integer
             },
             'Element': {
                 "part": ref('Part'),
                 "color": ref('Color'),
-                "element_id": {'type': 'string'},
-                "design_id": {'type': 'string'},
-                "element_img_url": {'type': 'string'},
-                "part_img_url": {'type': 'string'}
+                "element_id": String,
+                "design_id": String,
+                "element_img_url": Url,
+                "part_img_url": Url
             },
             'AllPart': {
-                "quantity": {'type': 'integer'},
+                "quantity": Integer,
                 "part": ref('Part'),
                 "color": ref('Color')
             }
         }
         non_array_classes = {
             'BuildOptions': {
-                "ignore_minifigs": {'type': 'boolean'},
-                "sort_by": {'type': 'integer'},
-                "max_year": {'type': 'integer'},
-                "inc_accessory": {'type': 'boolean'},
-                "max_parts": {'type': 'integer'},
-                "inc_official": {'type': 'boolean'},
-                "inc_bmodels": {'type': 'boolean'},
-                "inc_custom": {'type': 'boolean'},
-                "color": {'type': 'integer'},
-                "min_year": {'type': 'integer'},
-                "min_parts": {'type': 'integer'},
-                "ignore_altp": {'type': 'boolean'},
-                "ignore_non_lego": {'type': 'boolean'},
-                "inc_owned": {'type': 'boolean'},
-                "ignore_print": {'type': 'boolean'},
-                "inc_premium": {'type': 'boolean'},
-                "ignore_mold": {'type': 'boolean'}
+                "ignore_minifigs": Boolean,
+                "sort_by": Integer,
+                "max_year": Integer,
+                "inc_accessory": Boolean,
+                "max_parts": Integer,
+                "inc_official": Boolean,
+                "inc_bmodels": Boolean,
+                "inc_custom": Boolean,
+                "color": Integer,
+                "min_year": Integer,
+                "min_parts": Integer,
+                "ignore_altp": Boolean,
+                "ignore_non_lego": Boolean,
+                "inc_owned": Boolean,
+                "ignore_print": Boolean,
+                "inc_premium": Boolean,
+                "ignore_mold": Boolean
             },
             'Build': {
-                "num_owned_less_ignored": {'type': 'integer'},
-                "total_parts": {'type': 'integer'},
-                "total_parts_less_ignored": {'type': 'integer'},
+                "num_owned_less_ignored": Integer,
+                "total_parts": Integer,
+                "total_parts_less_ignored": Integer,
                 "pct_owned": {'type': 'number', 'format': 'float'},
-                "num_ignored": {'type': 'integer'},
+                "num_ignored": Integer,
                 "build_options": ref('BuildOptions'),
-                "num_missing": {'type': 'integer'}
+                "num_missing": Integer
             },
             'Rewards': {
-                "badges": {"type": "array", "items": {'type': 'integer'}},
-                "points": {'type': 'integer'},
-                "level": {'type': 'integer'}
+                "badges": {"type": "array", "items": Integer},
+                "points": Integer,
+                "level": Integer
             },
             'Lego': {
-                "lost_set_parts": {'type': 'integer'},
-                "total_set_parts": {'type': 'integer'},
-                "total_sets": {'type': 'integer'},
-                "all_parts": {'type': 'integer'},
-                "total_loose_parts": {'type': 'integer'}
+                "lost_set_parts": Integer,
+                "total_set_parts": Integer,
+                "total_sets": Integer,
+                "all_parts": Integer,
+                "total_loose_parts": Integer
             },
             'Profile': {
-                "user_id": {'type': 'integer'},
-                "username": {'type': 'string'},
-                "email": {'type': 'string'},
-                "real_name": {'type': 'string'},
+                "user_id": Integer,
+                "username": String,
+                "email": String,
+                "real_name": String,
                 "last_activity": {'type': 'string', 'format': 'date-time'},
-                "last_ip": {'type': 'string'},
-                "location": {'type': 'string'},
+                "last_ip": String,
+                "location": String,
                 "rewards": ref('Rewards'),
                 "lego": ref('Lego'),
-                "avatar_img": {'type': 'string'}
+                "avatar_img": String
             },
             'UsersTokenResponse': {
-                "user_token": {'type': 'string'}
+                "user_token": String
             }
         }
 
