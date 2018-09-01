@@ -8,8 +8,8 @@ There are two sub-APIs, the Lego and Users API, the documentation auto-generated
    :maxdepth: 1
    :caption: Contents:
 
-     Lego API <../pyrebrickable-api/docs/LegoApi>
-     Users API <../pyrebrickable-api/docs/UsersApi>
+     Lego API <../api/docs/LegoApi>
+     Users API <../api/docs/UsersApi>
 
 
 Indices and tables

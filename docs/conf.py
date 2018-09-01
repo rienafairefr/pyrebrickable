@@ -171,8 +171,8 @@ def run_apidoc(_):
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
     cur_dir = os.path.abspath(os.path.dirname(__file__))
     modules = [
-        ('pyrebrickable-api','api'),
-        ('pyrebrickable-cli','cli')
+        ('api','api'),
+        ('cli','cli')
     ]
 
     def rel(pth):

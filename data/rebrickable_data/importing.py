@@ -1,3 +1,4 @@
+from __future__ import print_function
 import csv
 import os
 
@@ -7,6 +8,12 @@ from sqlalchemy import Table
 from rebrickable_data.models import Base
 from rebrickable_data.utils import data_dir, data_mapping
 from rebrickable_data.database import engine, Session, db_path
+
+
+def UnicodeDictReader(utf8_data, **kwargs):
+    csv_reader = csv.DictReader(utf8_data, **kwargs)
+    for row in csv_reader:
+        yield {unicode(key, 'utf-8'):unicode(value, 'utf-8') for key, value in row.iteritems()}
 
 
 @click.command(name='import')
@@ -36,17 +43,20 @@ def import_main(force=False):
             not_overwriting = True
             continue
 
-        print('Importing %s ... ' % data_file, end= '')
+        print('Importing %s ... ' % data_file, end='')
 
         csv_path = os.path.join(data_dir, data_file+'.csv')
         with open(csv_path, 'r') as csv_file:
-            reader = csv.DictReader(csv_file)
+            reader1 = csv.DictReader(csv_file)
+            fieldnames = list(reader1.fieldnames)
 
+        with open(csv_path, 'r') as csv_file:
+            reader = UnicodeDictReader(csv_file)
             objects = list(reader)
 
-            print(' %i rows ... ' % len(objects), end= '')
+            print(' %i rows ... ' % len(objects), end='')
 
-            for k in reader.fieldnames:
+            for k in fieldnames:
                 if k.startswith('is_'):
                     for row in objects:
                         row[k] = row[k] == 't'

@@ -69,8 +69,10 @@ target/
 # auto-generated files
 swagger.json
 pyrebrickable-api
+api
 
 #pytest
 .pytest_cache/
 
 pyrebrickable-data/rebrickable\.db
+data/rebrickable\.db

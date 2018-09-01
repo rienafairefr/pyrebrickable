@@ -1,7 +1,7 @@
 [run]
 source =
-    pyrebrickable-cli
-    pyrebrickable-data
+    cli
+    data
 
 [report]
 exclude_lines =
