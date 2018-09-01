@@ -183,6 +183,14 @@ def generate_swagger():
                 "quantity": Integer,
                 "part": ref('Part'),
                 "color": ref('Color')
+            },
+            'PartColorsList': {
+                "num_sets": Integer,
+                "elements": {'type': 'array', 'items': Integer},
+                "num_set_parts": Integer,
+                "color_id": Integer,
+                "part_img_url": Url,
+                "color_name": String
             }
         }
         non_array_classes = {
@@ -278,7 +286,7 @@ def generate_swagger():
         set_schema('/api/v3/lego/themes/', ref('ArrayOfThemes'))
         set_schema('/api/v3/lego/mocs/{set_num}/parts/', ref('ArrayOfInventoryParts'))
         set_schema('/api/v3/lego/parts/', ref('ArrayOfParts'))
-        set_schema('/api/v3/lego/parts/{part_num}/colors/', ref('ArrayOfColors'))
+        set_schema('/api/v3/lego/parts/{part_num}/colors/', ref('ArrayOfPartColorsLists'))
         set_schema('/api/v3/lego/part_categories/', ref('ArrayOfPartCategories'))
         set_schema('/api/v3/lego/sets/', ref('ArrayOfSets'))
         set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))
