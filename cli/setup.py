@@ -23,6 +23,7 @@ VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = ["pyrebrickable_api",
+            'appdirs',
             "click >=6"]
 
 setup(
