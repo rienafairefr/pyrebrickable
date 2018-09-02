@@ -165,6 +165,7 @@ def generate_swagger():
                 "quantity": Integer,
                 "include_spares": Boolean,
                 "set": ref('Set'),
+                "set_num": String
             },
             'PartCategory': {
                 "id": Integer,
@@ -259,6 +260,16 @@ def generate_swagger():
             }
         }
 
+        api['definitions'].update(
+            {
+                'ErrorMessage': {
+                    "type": "array",
+                    'items': {
+                        'type': 'string'
+                    }
+                }
+            })
+
         for cls in classes:
             api['definitions'].update(get_typedef_array(cls))
             api['definitions'].update(get_typedef(cls, classes[cls]))
@@ -309,12 +320,13 @@ def generate_swagger():
         set_schema('/api/v3/lego/sets/{set_num}/parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/lego/sets/{set_num}/sets/', ref('ArrayOfSets'))
         set_schema('/api/v3/lego/sets/{set_num}/alternates/', ref('ArrayOfMocs'))
-        set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
+        set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSetListSets'))
         set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfAllParts'))
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
         set_schema('/api/v3/users/{user_token}/parts/', ref('ArrayOfPartListParts'))
+        set_schema('/api/v3/users/{user_token}/sets/', ref('SetListSet'), '201', 'post')
 
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
