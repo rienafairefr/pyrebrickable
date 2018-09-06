@@ -83,6 +83,8 @@ def generate_swagger():
         String = {'type': 'string'}
         Boolean = {'type': 'boolean'}
         Url = {'type': 'string', 'format': 'uri'}
+        ArrayOfInteger = {'type': 'array', 'items': Integer}
+        ArrayOfString = {'type': 'array', 'items': String}
 
         classes = {
             'Color': {
@@ -90,6 +92,7 @@ def generate_swagger():
                 "name": String,
                 "rgb": String,
                 "is_trans": Boolean,
+                'external_ids': ref('ExternalColorIds')
             },
             'Theme': {
                 "id": Integer,
@@ -110,8 +113,14 @@ def generate_swagger():
                 "part_num": String,
                 "name": String,
                 "part_cat_id": Integer,
+                "year_from": Integer,
+                "year_to": Integer,
                 "part_url": Url,
-                "part_img_url": Url
+                "part_img_url": Url,
+                "prints": ArrayOfString,
+                "molds": ArrayOfString,
+                "alternates": ArrayOfString,
+                "external_ids": ref('ExternalIds'),
             },
             'InventoryPart': {
                 "id": Integer,
@@ -187,7 +196,7 @@ def generate_swagger():
             },
             'PartColorsList': {
                 "num_sets": Integer,
-                "elements": {'type': 'array', 'items': Integer},
+                "elements": ArrayOfInteger,
                 "num_set_parts": Integer,
                 "color_id": Integer,
                 "part_img_url": Url,
@@ -195,7 +204,7 @@ def generate_swagger():
             },
             "PartColorsElement": {
                 'num_sets': Integer,
-                'elements': {'type': 'array', 'items': Integer},
+                'elements': ArrayOfString,
                 'num_set_parts': Integer,
                 'year_from': Integer,
                 'part_img_url': Url,
@@ -203,6 +212,23 @@ def generate_swagger():
             }
         }
         non_array_classes = {
+            'ExternalColorId': {
+                'ext_ids': ArrayOfInteger,
+                'ext_descrs': {'type': 'array', 'items': ArrayOfString}
+            },
+            'ExternalColorIds': {
+                'BrickLink': ref('ExternalColorId'),
+                'LEGO': ref('ExternalColorId'),
+                'BrickOwl': ref('ExternalColorId'),
+                'Peeron': ref('ExternalColorId'),
+                'LDraw': ref('ExternalColorId')
+            },
+            'ExternalIds': {
+                "BrickLink": ArrayOfString,
+                "BrickOwl": ArrayOfString,
+                "LDraw": ArrayOfString,
+                "LEGO": ArrayOfString
+            },
             'BuildOptions': {
                 "ignore_minifigs": Boolean,
                 "sort_by": Integer,
@@ -220,6 +246,7 @@ def generate_swagger():
                 "inc_owned": Boolean,
                 "ignore_print": Boolean,
                 "inc_premium": Boolean,
+                "theme": Integer,
                 "ignore_mold": Boolean
             },
             'Build': {
@@ -232,7 +259,7 @@ def generate_swagger():
                 "num_missing": Integer
             },
             'Rewards': {
-                "badges": {"type": "array", "items": Integer},
+                "badges": ArrayOfInteger,
                 "points": Integer,
                 "level": Integer
             },
@@ -269,6 +296,26 @@ def generate_swagger():
                     }
                 }
             })
+
+        api['paths']['/api/v3/users/{user_token}/sets/sync/']['post']['parameters'] = [
+            {
+                "description": "user_token",
+                "in": "path",
+                "name": "user_token",
+                "required": True,
+                "type": "string"
+            },
+            {
+                "description": "json_set_list",
+                "in": "body",
+                "schema": ref('ArrayOfSetListSets'),
+                "name": "json_set_list",
+                "required": True
+            },
+        ]
+        api['paths']['/api/v3/users/{user_token}/sets/sync/']['post']['consumes'] = [
+            'application/json'
+        ]
 
         for cls in classes:
             api['definitions'].update(get_typedef_array(cls))
@@ -327,6 +374,7 @@ def generate_swagger():
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
         set_schema('/api/v3/users/{user_token}/parts/', ref('ArrayOfPartListParts'))
         set_schema('/api/v3/users/{user_token}/sets/', ref('SetListSet'), '201', 'post')
+        set_schema('/api/v3/users/{user_token}/setlists/', ref('SetList'), '201', 'post')
 
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
@@ -338,7 +386,6 @@ def generate_swagger():
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'DELETE',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'PUT',
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PUT',
-        # '/api/v3/users/{user_token}/setlists/', 'POST',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'DELETE',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'PATCH',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'DELETE',
