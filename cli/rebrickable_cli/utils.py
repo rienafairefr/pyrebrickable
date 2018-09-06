@@ -25,9 +25,8 @@ def get_data(data_path=DATA_PATH):
     try:
         with open(data_path, 'r') as data_file:
             return json.load(data_file)
-    except IOError:
-        return {}
-    except ValueError:
+    except (IOError, ValueError):
+        print('error getting config data from %s' % data_path)
         return {}
 
 
