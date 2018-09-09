@@ -32,7 +32,7 @@ def test_data():
 
         users_context = get_user_context(api_client)
 
-        assert users_context.token == users_token
+        assert users_context.user_token == users_token
         assert users_context.api.api_client == api_client
 
 

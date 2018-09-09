@@ -1,6 +1,5 @@
 from __future__ import print_function
 
-from rebrickable_api import Set, Part, Color, Moc, PartList, PartListPart, SetList, SetListSet
 from six import StringIO
 
 import pytest
@@ -48,103 +47,6 @@ def do_test(cli_func, method, cli_args, call_kwargs, runner, api, context):
     assert 'stuff\n' == result.output
 
 
-# legoapi
-lego_operations = [
-    (lego_colors, 'lego_colors_list', [], {}),
-    (lego_color, 'lego_colors_read', ['6'], {'id': 6}),
-    (lego_element, 'lego_elements_read', ['1234'], {'element_id': '1234'}),
-    (lego_part_categories, 'lego_part_categories_list', [], {}),
-    (lego_part_category, 'lego_part_categories_read', ['17859'], {'id': 17859}),
-    (lego_parts, 'lego_parts_list', [], {}),
-    (lego_sets, 'lego_sets_list', [], {}),
-    (lego_themes, 'lego_themes_list', [], {}),
-    (lego_theme, 'lego_themes_read', ['1485'], {'id': '1485'}),
-]
-
-
-@parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], lego_operations)
-def test_lego_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-    )
-
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api, context)
-
-
-lego_set_operations = [
-    (lego_set, 'lego_sets_read', ['75192-1'], {}),
-    (lego_set_alternates, 'lego_sets_alternates_list', [], {}),
-    (lego_set_parts, 'lego_sets_parts_list', [], {}),
-    (lego_set_sets, 'lego_sets_sets_list', [], {}),
-]
-
-@parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], lego_set_operations)
-def test_lego_set_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        Set(set_num='75192-1')
-    )
-
-    call_kwargs['set_num'] = '75192-1'
-
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api, context)
-
-
-lego_part_operations = [
-    (lego_part_colors, 'lego_parts_colors_list', [], {}),
-    (lego_part, 'lego_parts_read', ['3004'], {}),
-]
-
-
-@parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], lego_part_operations)
-def test_lego_part_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        Part(part_num='3004')
-    )
-
-    call_kwargs['part_num'] = '3004'
-
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api, context)
-
-
-lego_part_color_operations = [
-    (lego_part_color, 'lego_parts_colors_read', ['45'], {}),
-    (lego_part_color_sets, 'lego_parts_colors_sets_list', [], {}),
-]
-
-
-@parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], lego_part_color_operations)
-def test_lego_part_color_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        Part(part_num='3020'),
-        Color(id=45),
-    )
-
-    call_kwargs['part_num'] = '3020'
-    call_kwargs['color_id'] = 45
-
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api, context)
-
-
-lego_moc_operations = [
-    (lego_moc_parts, 'lego_mocs_parts_list', [], {}),
-    (lego_moc, 'lego_mocs_read', ['MOC-5634'], {}),
-]
-
-
-@parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], lego_moc_operations)
-def test_lego_moc_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        Moc(set_num='MOC-5634')
-    )
-    call_kwargs['set_num'] = 'MOC-5634'
-
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_lego_api, context)
-
-
 users_operations = [
     (user_partlists_create, 'users_partlists_create', ['test'], {'name': 'test'}),
     (user_partlists_list, 'users_partlists_list', [], {}),
@@ -171,7 +73,7 @@ users_operations = [
 def test_users_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
     context = context_stack(
         GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, token='abcdef')
+        UserContext(api=mocked_users_api, user_token='abcdef')
     )
     call_kwargs['user_token'] = 'abcdef'
     do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
@@ -187,7 +89,7 @@ users_no_token_operations = [
 def test_users_no_token_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
     context = context_stack(
         GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, token='abcdef')
+        UserContext(api=mocked_users_api, user_token='abcdef')
     )
     do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
 
@@ -208,8 +110,7 @@ users_partlist_operations = [
 def test_users_partlist_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
     context = context_stack(
         GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, token='abcdef'),
-        PartList(id=987654321)
+        UserContext(api=mocked_users_api, user_token='abcdef', list_id=987654321)
     )
 
     call_kwargs['list_id'] = 987654321
@@ -230,9 +131,7 @@ users_partlist_part_operations = [
 def test_users_partlist_part_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
     context = context_stack(
         GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, token='abcdef'),
-        PartList(id=987654321),
-        PartListPart(color=Color(id=45), part=Part(part_num='3004'))
+        UserContext(api=mocked_users_api, user_token='abcdef', list_id=987654321, color_id=45, part_num='3004')
     )
     call_kwargs['color_id'] = 45
     call_kwargs['part_num'] = '3004'
@@ -256,8 +155,7 @@ users_setlist_operations = [
 def test_users_setlist_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
     context = context_stack(
         GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, token='abcdef'),
-        SetList(id=987654321)
+        UserContext(api=mocked_users_api, user_token='abcdef', list_id=987654321),
     )
 
     call_kwargs['list_id'] = 987654321
@@ -278,9 +176,7 @@ users_setlist_set_operations = [
 def test_users_setlist_set_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
     context = context_stack(
         GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, token='abcdef'),
-        SetList(id=987654321),
-        SetListSet(set_num='1357-1')
+        UserContext(api=mocked_users_api, user_token='abcdef', list_id=987654321, set_num='1357-1')
     )
 
     call_kwargs['list_id'] = 987654321
@@ -301,87 +197,10 @@ users_set_operations = [
 def test_users_set_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
     context = context_stack(
         GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, token='abcdef'),
-        Set(set_num='75192-1')
+        UserContext(api=mocked_users_api, user_token='abcdef', set_num='75192-1')
     )
 
     call_kwargs['set_num'] = '75192-1'
     call_kwargs['user_token'] = 'abcdef'
 
     do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
-
-"""
-
-lego
-  - colors:
-    - list
-  - color: 
-    - read
-  - element:
-    - read
-  - moc:
-    - read 
-    - parts  
-  - part_categories:
-    - list
-  - part_category:
-    - read
-  - parts:
-    - list
-  - part:
-    - read 
-    - colors
-    - color :
-      - sets
-  - sets:
-    - list
-  - set:
-    - read 
-    - alternates
-    - parts
-    - sets
-  - themes:
-    - list
-  - theme:
-    - read
-
-users:
-  - _token
-  - badges
-  - badge
-  
-user
-  - allparts
-  - build
-  - lost_parts:
-    - list
-  - lost_part:
-    - read
-  - partlists:
-    - list
-  - partlist:
-    - read
-    - parts:
-      - list
-    - part:
-      - read
-    
-  - parts:
-    - list
-  - profile:
-    - read
-  - setlists:
-    - list
-  - setlist:
-    - read
-    - sets:
-      - list
-    - set:
-      - read
-  - sets:
-    - list
-    - sync
-  - set:
-    - read
-
-"""

@@ -26,8 +26,7 @@ def users_badges_list(api):
 @add_typed_subcommands(Badge)
 @users.group('badge')
 @pass_usersapi
-@click.argument('id', type=int)
-@get_or_push_context_obj
+@get_or_push_context_obj(click.argument('id', type=int))
 def users_badge(api, id):
     return api.users_badges_read(id=id)
 

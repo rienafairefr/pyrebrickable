@@ -10,7 +10,7 @@ from functools import wraps
 
 from rebrickable_api import Part, Color, Element, Moc, LegoApi, PartColorsElement
 from rebrickable_api.rest import ApiException
-from rebrickable_cli.cli.common import pass_usercontext, pass_global
+from rebrickable_cli.cli.common import pass_usercontext, pass_global, pass_lego
 from rebrickable_cli.cli.lego import lego, lego_part, lego_part_color, lego_color, lego_element, lego_moc
 from rebrickable_cli.cli.main import main
 from rebrickable_cli.cli.user import user
@@ -48,17 +48,17 @@ def mocked_data(value=None):
 
 
 def with_mocked_api():
-    def decorator(fun):
-        def get_part(part_num, *args, **kwargs):
+    def wrapper(fun, *args, **kwargs):
+        def get_part(part_num, *a, **kwa):
             return Part(part_num=part_num)
 
         @wraps(fun)
         @patch.object(LegoApi, 'lego_parts_read', Mock(side_effect=get_part))
-        def wrapper(*args, **kwargs):
-            return fun(*args, **kwargs)
+        def wrapper(*a, **kwa):
+            return fun(*a, **kwa)
 
         return wrapper
-    return decorator
+    return decorator.decorator(wrapper)
 
 @mocked_data({'api_key': 'api_key_value'})
 def test_main_command_pass_obj_valid(runner):
@@ -74,8 +74,8 @@ def test_main_command_pass_obj_invalid(runner):
 
 @user.command(name='test')
 @pass_usercontext
-def user_test(users_context):
-    assert users_context.token == 'user_token_value'
+def user_test(ctx):
+    assert ctx.user_token == 'user_token_value'
 
 
 @mocked_data({'api_key': 'api_key_value', 'users': {'%%default%%': {'token': 'user_token_value'}}})
@@ -94,10 +94,9 @@ def test_users_command_pass_obj_invalid(runner):
 @patch.object(LegoApi, 'lego_parts_read', Mock(return_value=Part(part_num='3002')))
 def test_lego_part_command_pass_obj(runner):
     @lego_part.command(name='test')
-    @click.pass_context
+    @pass_lego
     def lego_part_test(ctx):
-        part = ctx.find_object(Part)
-        assert part.part_num == "3002"
+        assert ctx.part_num == "3002"
 
     result = runner.invoke(main, ['lego', 'part', '3002', 'test'])
     assert result.exception is None
@@ -108,11 +107,10 @@ def test_lego_part_command_pass_obj(runner):
 @patch.object(LegoApi, 'lego_parts_colors_read', Mock(return_value=PartColorsElement(elements=[Element(color=Color(id=5), part=Part(part_num="3002"))])))
 def test_lego_part_color_command_pass_obj(runner):
     @lego_part_color.command(name='test')
-    @click.pass_context
+    @pass_lego
     def lego_part_color_test(ctx):
-        part_colors_element = ctx.find_object(PartColorsElement).elements[0]
-        assert part_colors_element.color.id == 5
-        assert part_colors_element.part.part_num == "3002"
+        assert ctx.color_id == 5
+        assert ctx.part_num == "3002"
 
     result = runner.invoke(main, ['lego', 'part', '3002', 'color', '5', 'test'])
     assert result.exception is None
@@ -122,10 +120,9 @@ def test_lego_part_color_command_pass_obj(runner):
 @patch.object(LegoApi, 'lego_colors_read', Mock(return_value=Color(id=1234)))
 def test_lego_color_command_pass_obj(runner):
     @lego_color.command(name='test')
-    @click.pass_context
+    @pass_lego
     def lego_color_test(ctx):
-        color = ctx.find_object(Color)
-        assert color.id == 1234
+        assert ctx.color_id == 1234
 
     result = runner.invoke(main, ['lego', 'color', '1234', 'test'])
     assert result.exception is None
@@ -135,10 +132,9 @@ def test_lego_color_command_pass_obj(runner):
 @patch.object(LegoApi, 'lego_elements_read', Mock(return_value=Element(element_id=1234)))
 def test_lego_element_command_pass_obj(runner):
     @lego_element.command(name='test')
-    @click.pass_context
+    @pass_lego
     def lego_element_test(ctx):
-        element = ctx.find_object(Element)
-        assert element.element_id == 1234
+        assert ctx.element_id == '1234'
 
     result = runner.invoke(main, ['lego', 'element', '1234', 'test'])
     assert result.exception is None
@@ -148,10 +144,9 @@ def test_lego_element_command_pass_obj(runner):
 @patch.object(LegoApi, 'lego_mocs_read', Mock(return_value = Moc(set_num='MOC-1234')))
 def test_lego_moc_command_pass_obj(runner):
     @lego_moc.command(name='test')
-    @click.pass_context
+    @pass_lego
     def lego_moc_test(ctx):
-        moc = ctx.find_object(Moc)
-        assert moc.set_num == "MOC-1234"
+        assert ctx.set_num == "MOC-1234"
 
     result = runner.invoke(main, ['lego', 'moc', 'MOC-1234', 'test'])
     assert result.exception is None

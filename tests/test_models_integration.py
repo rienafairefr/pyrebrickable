@@ -53,7 +53,7 @@ def remove_nulls(d):
     ('lego_themes_read', dict(id=99)),
 ], ids=get_id)
 @pytest.mark.integration
-def test_objects_attributes(func, kwargs, lego_api, api_client):
+def test_lego_objects_attributes(func, kwargs, lego_api, api_client):
     func = getattr(lego_api, func)
     do_test(func, kwargs, api_client)
 
@@ -68,7 +68,7 @@ def test_objects_attributes(func, kwargs, lego_api, api_client):
 @pytest.mark.integration
 def test_objects_attributes(func, kwargs, user_context, api_client):
     func = getattr(user_context.api, func)
-    kwargs['user_token'] = user_context.token
+    kwargs['user_token'] = user_context.user_token
     do_test(func, kwargs, api_client)
 
 
