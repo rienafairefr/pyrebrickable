@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """Tests for `pyrebrickable` package."""
+import decorator
 
 import click
 from mock import patch, Mock
@@ -9,7 +10,7 @@ from functools import wraps
 
 from rebrickable_api import Part, Color, Element, Moc, LegoApi, PartColorsElement
 from rebrickable_api.rest import ApiException
-from rebrickable_cli.cli.common import pass_usercontext, pass_global, GlobalContext
+from rebrickable_cli.cli.common import pass_usercontext, pass_global
 from rebrickable_cli.cli.lego import lego, lego_part, lego_part_color, lego_color, lego_element, lego_moc
 from rebrickable_cli.cli.main import main
 from rebrickable_cli.cli.user import user
@@ -35,15 +36,15 @@ def mocked_data(value=None):
     def get_():
         return value
 
-    def decorator(fun):
+    def wrapper(fun, *args, **kwargs):
         @patch('rebrickable_cli.cli.common.get_data', new=Mock(side_effect=get_))
         @patch('rebrickable_cli.cli.main.get_data', new=Mock(side_effect=get_))
         @patch('rebrickable_cli.cli.users.get_data', new=Mock(side_effect=get_))
-        @wraps(fun)
-        def wrapper(*args, **kwargs):
-            return fun(*args, **kwargs)
-        return wrapper
-    return decorator
+        def decorated(*a, **kwa):
+            return fun(*a, **kwa)
+
+        return decorated
+    return decorator.decorator(wrapper)
 
 
 def with_mocked_api():
