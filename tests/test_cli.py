@@ -10,7 +10,7 @@ from functools import wraps
 
 from rebrickable_api import Part, Color, Element, Moc, LegoApi, PartColorsElement
 from rebrickable_api.rest import ApiException
-from rebrickable_cli.cli.common import pass_usercontext, pass_global, pass_lego
+from rebrickable_cli.cli.common import pass_state
 from rebrickable_cli.cli.lego import lego, lego_part, lego_part_color, lego_color, lego_element, lego_moc
 from rebrickable_cli.cli.main import main
 from rebrickable_cli.cli.user import user
@@ -27,7 +27,7 @@ def test_command_line_interface(runner):
 
 
 @main.command(name='test')
-@pass_global
+@pass_state
 def command_dummy(obj):
     pass
 
@@ -73,7 +73,7 @@ def test_main_command_pass_obj_invalid(runner):
 
 
 @user.command(name='test')
-@pass_usercontext
+@pass_state
 def user_test(ctx):
     assert ctx.user_token == 'user_token_value'
 
@@ -94,7 +94,7 @@ def test_users_command_pass_obj_invalid(runner):
 @patch.object(LegoApi, 'lego_parts_read', Mock(return_value=Part(part_num='3002')))
 def test_lego_part_command_pass_obj(runner):
     @lego_part.command(name='test')
-    @pass_lego
+    @pass_state
     def lego_part_test(ctx):
         assert ctx.part_num == "3002"
 
@@ -107,7 +107,7 @@ def test_lego_part_command_pass_obj(runner):
 @patch.object(LegoApi, 'lego_parts_colors_read', Mock(return_value=PartColorsElement(elements=[Element(color=Color(id=5), part=Part(part_num="3002"))])))
 def test_lego_part_color_command_pass_obj(runner):
     @lego_part_color.command(name='test')
-    @pass_lego
+    @pass_state
     def lego_part_color_test(ctx):
         assert ctx.color_id == 5
         assert ctx.part_num == "3002"
@@ -120,7 +120,7 @@ def test_lego_part_color_command_pass_obj(runner):
 @patch.object(LegoApi, 'lego_colors_read', Mock(return_value=Color(id=1234)))
 def test_lego_color_command_pass_obj(runner):
     @lego_color.command(name='test')
-    @pass_lego
+    @pass_state
     def lego_color_test(ctx):
         assert ctx.color_id == 1234
 
@@ -132,7 +132,7 @@ def test_lego_color_command_pass_obj(runner):
 @patch.object(LegoApi, 'lego_elements_read', Mock(return_value=Element(element_id=1234)))
 def test_lego_element_command_pass_obj(runner):
     @lego_element.command(name='test')
-    @pass_lego
+    @pass_state
     def lego_element_test(ctx):
         assert ctx.element_id == '1234'
 
@@ -144,7 +144,7 @@ def test_lego_element_command_pass_obj(runner):
 @patch.object(LegoApi, 'lego_mocs_read', Mock(return_value = Moc(set_num='MOC-1234')))
 def test_lego_moc_command_pass_obj(runner):
     @lego_moc.command(name='test')
-    @pass_lego
+    @pass_state
     def lego_moc_test(ctx):
         assert ctx.set_num == "MOC-1234"
 

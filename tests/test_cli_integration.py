@@ -26,20 +26,10 @@ def parametrized(*args, **kwargs):
     return decorator
 
 
-def context_stack(*objs):
-    ctx = None
-    for obj in objs:
-        if ctx is None:
-            ctx = Context(main, obj=obj)
-        else:
-            ctx = Context(main, obj=obj, parent=ctx)
-    return ctx
-
-
 def do_test(cli_func, method, cli_args, call_kwargs, runner, api, context):
     mocked_method = getattr(api, method)
     mocked_method.return_value = 'stuff'
-    result = runner.invoke(cli_func, cli_args, obj=api, parent=context)
+    result = runner.invoke(cli_func, cli_args, obj=context)
     if result.exit_code != 0:
         print(result.output)
         pass
@@ -71,12 +61,10 @@ users_operations = [
 
 @parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], users_operations)
 def test_users_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, user_token='abcdef')
-    )
+    state = State(format=OutputFormatter(output=print), api=mocked_users_api, user_token='abcdef')
+
     call_kwargs['user_token'] = 'abcdef'
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
+    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, state)
 
 
 users_no_token_operations = [
@@ -87,11 +75,9 @@ users_no_token_operations = [
 
 @parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], users_no_token_operations)
 def test_users_no_token_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, user_token='abcdef')
-    )
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
+    state = State(format=OutputFormatter(output=print), api=mocked_users_api, user_token='abcdef')
+
+    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, state)
 
 
 users_partlist_operations = [
@@ -108,15 +94,12 @@ users_partlist_operations = [
 
 @parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], users_partlist_operations)
 def test_users_partlist_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, user_token='abcdef', list_id=987654321)
-    )
+    state = State(format=OutputFormatter(output=print), api=mocked_users_api, user_token='abcdef', list_id=987654321)
 
     call_kwargs['list_id'] = 987654321
     call_kwargs['user_token'] = 'abcdef'
 
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
+    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, state)
 
 
 users_partlist_part_operations = [
@@ -129,16 +112,14 @@ users_partlist_part_operations = [
 
 @parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], users_partlist_part_operations)
 def test_users_partlist_part_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, user_token='abcdef', list_id=987654321, color_id=45, part_num='3004')
-    )
+    state = State(format=OutputFormatter(output=print), api=mocked_users_api, user_token='abcdef', list_id=987654321, color_id=45, part_num='3004')
+
     call_kwargs['color_id'] = 45
     call_kwargs['part_num'] = '3004'
     call_kwargs['list_id'] = 987654321
     call_kwargs['user_token'] = 'abcdef'
 
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
+    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, state)
 
 
 users_setlist_operations = [
@@ -153,15 +134,12 @@ users_setlist_operations = [
 
 @parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], users_setlist_operations)
 def test_users_setlist_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, user_token='abcdef', list_id=987654321),
-    )
+    state = State(format=OutputFormatter(output=print),  api=mocked_users_api, user_token='abcdef', list_id=987654321)
 
     call_kwargs['list_id'] = 987654321
     call_kwargs['user_token'] = 'abcdef'
 
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
+    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, state)
 
 
 users_setlist_set_operations = [
@@ -174,16 +152,13 @@ users_setlist_set_operations = [
 
 @parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], users_setlist_set_operations)
 def test_users_setlist_set_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, user_token='abcdef', list_id=987654321, set_num='1357-1')
-    )
+    state = State(format=OutputFormatter(output=print), api=mocked_users_api, user_token='abcdef', list_id=987654321, set_num='1357-1')
 
     call_kwargs['list_id'] = 987654321
     call_kwargs['user_token'] = 'abcdef'
     call_kwargs['set_num'] = '1357-1'
 
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
+    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, state)
 
 
 users_set_operations = [
@@ -195,12 +170,9 @@ users_set_operations = [
 
 @parametrized(['cli_func', 'method', 'cli_args', 'call_kwargs'], users_set_operations)
 def test_users_set_entrypoints(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api):
-    context = context_stack(
-        GlobalContext(OutputFormatter(output=print), None),
-        UserContext(api=mocked_users_api, user_token='abcdef', set_num='75192-1')
-    )
+    state = State(format=OutputFormatter(output=print), api=mocked_users_api, user_token='abcdef', set_num='75192-1')
 
     call_kwargs['set_num'] = '75192-1'
     call_kwargs['user_token'] = 'abcdef'
 
-    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, context)
+    do_test(cli_func, method, cli_args, call_kwargs, runner, mocked_users_api, state)

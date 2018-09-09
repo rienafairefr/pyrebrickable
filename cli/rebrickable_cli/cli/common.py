@@ -1,7 +1,7 @@
 from functools import wraps
 
 import click
-from click import get_current_context
+from click import get_current_context, Group
 
 from rebrickable_api import UsersApi
 from rebrickable_cli.utils import get_data
@@ -25,15 +25,23 @@ class UserContext(object):
         self.set_num = set_num
 
 
-def oprint(obj):
-    # print an object using the current configured output (json/yaml/py)
-    get_current_context().find_object(GlobalContext).format.output(obj)
-
-
-class GlobalContext(object):
-    def __init__(self, format, client):
+class State(object):
+    def __init__(self, format=None, client=None, user_token=None,
+                 list_id=None, part_num=None, color_id=None, set_num=None, api=None):
         self.format = format
         self.client = client
+
+        self.api = api
+        self.user_token = user_token
+        self.list_id = list_id
+        self.part_num = part_num
+        self.color_id = color_id
+        self.set_num = set_num
+
+
+def oprint(obj):
+    # print an object using the current configured output (json/yaml/py)
+    get_current_context().find_object(State).format.output(obj)
 
 
 def get_or_push_context_obj(*decorators):
@@ -44,10 +52,7 @@ def get_or_push_context_obj(*decorators):
         def decorated(ctx, obj, *args, **kwargs):
             for attr in kwargs:
                 setattr(obj, attr, kwargs[attr])
-            try:
-                current_obj = fun(obj, *args, **kwargs)
-            except:
-                current_obj = fun(*args, **kwargs)
+            current_obj = fun(*args, **kwargs)
             if ctx.invoked_subcommand is None:
                 oprint(current_obj)
 
@@ -86,14 +91,21 @@ def add_typed_subcommands(type_):
     return decorator
 
 
-def get_user_context(client, username='%%default%%'):
-    users_api = UsersApi(client)
+def get_user_token(username='%%default%%'):
     data = get_data()
-    user_token = data['users'][username]['token']
-    return UserContext(users_api, user_token)
+    return data['users'][username]['token']
 
 
-pass_global = click.make_pass_decorator(GlobalContext)
-pass_lego = click.make_pass_decorator(LegoContext)
-pass_usercontext = click.make_pass_decorator(UserContext)
-pass_usersapi = click.make_pass_decorator(UsersApi)
+pass_state = click.make_pass_decorator(State)
+
+
+class StateGroup(Group):
+    def group(self, *args, **kwargs):
+        def decorated(fun):
+            return pass_state(fun)
+        return super(StateGroup, self).group(*args, **kwargs)(decorated)
+
+    def command(self, *args, **kwargs):
+        def decorated(fun):
+            return pass_state(fun)
+        return super(StateGroup, self).command(*args, **kwargs)(decorated)

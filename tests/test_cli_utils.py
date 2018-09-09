@@ -2,7 +2,6 @@ import json
 
 import mock
 
-from rebrickable_cli.cli.common import get_user_context
 from rebrickable_cli.cli.main import get_api_client
 from rebrickable_cli.utils import get_data, write_data
 
@@ -29,11 +28,6 @@ def test_data():
 
         assert api_client.configuration.api_key['Authorization'] == api_key
         assert api_client.configuration.api_key_prefix['Authorization'] == 'key'
-
-        users_context = get_user_context(api_client)
-
-        assert users_context.user_token == users_token
-        assert users_context.api.api_client == api_client
 
 
 def test_invalid_data():

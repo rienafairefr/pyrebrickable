@@ -11,7 +11,7 @@ import yaml
 from click import get_current_context
 
 from rebrickable_api import ApiClient, Configuration
-from rebrickable_cli.cli.common import GlobalContext
+from rebrickable_cli.cli.common import State
 
 from rebrickable_cli.cli.lego import lego
 from rebrickable_cli.cli.user import user
@@ -31,7 +31,6 @@ class OutputFormat(Enum):
     py = 2  # print
 
 
-
 OutputFormatter = namedtuple('OutputFormatter', ['output'])
 
 
@@ -47,7 +46,7 @@ def get_api_client():
 @click.group(help="Rebrickable CLI implemented in Python")
 @click.pass_context
 @click.option('--output', '-o', type=EnumType(OutputFormat, casesensitive=False), default="py")
-def main(ctx, output):
+def main(click_context, output):
     """Console script for pyrebrickable."""
 
     format = None
@@ -59,9 +58,9 @@ def main(ctx, output):
         format = OutputFormatter(output=lambda o: print(o))
 
     try:
-        ctx.obj = GlobalContext(format, get_api_client())
+        click_context.obj = State(format=format, client=get_api_client())
     except (IOError, KeyError, ValueError):
-        if ctx.invoked_subcommand != 'register':
+        if click_context.invoked_subcommand != 'register':
             print('please register your API key using: \nrebrickable register')
             raise click.Abort()
 

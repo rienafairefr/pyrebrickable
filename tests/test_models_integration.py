@@ -5,8 +5,8 @@ import pytest
 import six
 from jsondiff import diff
 
-from rebrickable_api import LegoApi, ApiClient
-from rebrickable_cli.cli.common import get_user_context
+from rebrickable_api import LegoApi, ApiClient, UsersApi
+from rebrickable_cli.cli.common import get_user_token, State
 from rebrickable_cli.cli.main import get_api_client
 
 """
@@ -26,8 +26,8 @@ def lego_api(api_client):
 
 
 @pytest.fixture
-def user_context(api_client):
-    return get_user_context(api_client)
+def users_context(api_client):
+    return State(client=api_client, api=UsersApi(api_client), user_token=get_user_token())
 
 
 def get_id(element):
@@ -53,9 +53,9 @@ def remove_nulls(d):
     ('lego_themes_read', dict(id=99)),
 ], ids=get_id)
 @pytest.mark.integration
-def test_lego_objects_attributes(func, kwargs, lego_api, api_client):
+def test_lego_objects_attributes(func, kwargs, lego_api, users_context):
     func = getattr(lego_api, func)
-    do_test(func, kwargs, api_client)
+    do_test(func, kwargs, users_context)
 
 
 @pytest.mark.parametrize(['func', 'kwargs'], [
@@ -66,19 +66,19 @@ def test_lego_objects_attributes(func, kwargs, lego_api, api_client):
     ('users_sets_read', dict(set_num='8277-1')),
 ], ids=get_id)
 @pytest.mark.integration
-def test_objects_attributes(func, kwargs, user_context, api_client):
-    func = getattr(user_context.api, func)
-    kwargs['user_token'] = user_context.user_token
-    do_test(func, kwargs, api_client)
+def test_objects_attributes(func, kwargs, users_context):
+    func = getattr(users_context.api, func)
+    kwargs['user_token'] = users_context.user_token
+    do_test(func, kwargs, users_context)
 
 
 @pytest.mark.integration
-def test_users_badges_read_attributes(user_context, api_client):
-    do_test(user_context.api.users_badges_read, dict(id=63), api_client)
+def test_users_badges_read_attributes(users_context):
+    do_test(users_context.api.users_badges_read, dict(id=63), users_context)
 
 
-def do_test(func, kwargs, api_client):
-    obj = api_client.sanitize_for_serialization(func(**kwargs))
+def do_test(func, kwargs, ctx):
+    obj = ctx.client.sanitize_for_serialization(func(**kwargs))
     obj_no_preload = json.loads(func(_preload_content=False, **kwargs).data)
 
     # ignore Set last_modified_dt (datetime format)
