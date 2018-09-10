@@ -1,6 +1,7 @@
 from functools import wraps
 
 import click
+import decorator
 from click import get_current_context, Group
 
 
@@ -25,15 +26,20 @@ def oprint(obj):
 
 def get_or_push_context_obj(*decorators):
     def decorator(fun):
-        @click.pass_obj
+        @pass_state
         @click.pass_context
         @wraps(fun)
-        def decorated(ctx, obj, *args, **kwargs):
+        def decorated(ctx, state, *args, **kwargs):
             for attr in kwargs:
-                setattr(obj, attr, kwargs[attr])
-            current_obj = fun(*args, **kwargs)
+                setattr(state, attr, kwargs[attr])
+            try:
+                current_obj = fun(*args, **kwargs)
+            except:
+                current_obj = fun(state, *args, **kwargs)
             if ctx.invoked_subcommand is None:
                 oprint(current_obj)
+            else:
+                ctx.obj = current_obj
 
         current = decorated
         for dec in decorators:
@@ -44,12 +50,11 @@ def get_or_push_context_obj(*decorators):
 
 
 def object_print(fun):
-    @wraps(fun)
-    def decorated(*args, **kwargs):
+    def object_print_decorator(fun, *args, **kwargs):
         obj = fun(*args, **kwargs)
         oprint(obj)
 
-    return decorated
+    return decorator.decorate(fun, object_print_decorator)
 
 
 def add_typed_subcommands(type_):

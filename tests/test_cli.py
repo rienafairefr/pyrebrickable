@@ -4,7 +4,6 @@
 """Tests for `pyrebrickable` package."""
 import decorator
 
-import click
 from mock import patch, Mock
 from functools import wraps
 

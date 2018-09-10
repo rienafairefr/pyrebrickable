@@ -45,7 +45,7 @@ def get_api_client():
 
 @click.group(help="Rebrickable CLI implemented in Python")
 @click.pass_context
-@click.option('--output', '-o', type=EnumType(OutputFormat, casesensitive=False), default="py")
+@click.option('--output', '-o', help='output printer (json, yaml, py --regular print Python function--)',type=EnumType(OutputFormat, casesensitive=False), default="py")
 def main(click_context, output):
     """Console script for pyrebrickable."""
 
