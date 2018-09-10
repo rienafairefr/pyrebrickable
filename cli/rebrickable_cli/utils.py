@@ -46,11 +46,11 @@ class EnumType(click.Choice):
         # TODO choices do not have the save order as enum
         super(EnumType, self).__init__(list(sorted(set(choices))))
 
-    def convert(self, value, param, ctx):
+    def convert(self, value, param, state):
         if not self.__casesensitive:
             value = value.lower()
 
-        value = super(EnumType, self).convert(value, param, ctx)
+        value = super(EnumType, self).convert(value, param, state)
 
         if not self.__casesensitive:
             return next(_ for _ in self._EnumType__enum if _.name.lower() ==

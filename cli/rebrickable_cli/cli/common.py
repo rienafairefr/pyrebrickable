@@ -29,17 +29,17 @@ def get_or_push_context_obj(*decorators):
         @pass_state
         @click.pass_context
         @wraps(fun)
-        def decorated(ctx, state, *args, **kwargs):
+        def decorated(click_context, state, *args, **kwargs):
             for attr in kwargs:
                 setattr(state, attr, kwargs[attr])
             try:
                 current_obj = fun(*args, **kwargs)
             except:
                 current_obj = fun(state, *args, **kwargs)
-            if ctx.invoked_subcommand is None:
+            if click_context.invoked_subcommand is None:
                 oprint(current_obj)
             else:
-                ctx.obj = current_obj
+                click_context.obj = current_obj
 
         current = decorated
         for dec in decorators:

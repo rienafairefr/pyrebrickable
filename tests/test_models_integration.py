@@ -78,8 +78,8 @@ def test_users_badges_read_attributes(users_context):
     do_test(users_context.api.users_badges_read, dict(id=63), users_context)
 
 
-def do_test(func, kwargs, ctx):
-    obj = ctx.client.sanitize_for_serialization(func(**kwargs))
+def do_test(func, kwargs, state):
+    obj = state.client.sanitize_for_serialization(func(**kwargs))
     obj_no_preload = json.loads(func(_preload_content=False, **kwargs).data)
 
     # ignore Set last_modified_dt (datetime format)

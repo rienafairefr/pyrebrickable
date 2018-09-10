@@ -19,7 +19,7 @@ def _read_echo(type_):
 
 @pytest.fixture
 def mocked_lego_api():
-    with mock.patch('rebrickable_api.LegoApi', spec=LegoApi) as ctx_mock, \
+    with mock.patch('rebrickable_api.LegoApi', spec=LegoApi) as state_mock, \
             patch.object(LegoApi, 'lego_colors_read', side_effect=_read_echo(Color)), \
             patch.object(LegoApi, 'lego_elements_read', side_effect=_read_echo(Element)), \
             patch.object(LegoApi, 'lego_mocs_read', side_effect=_read_echo(Moc)), \
@@ -28,16 +28,16 @@ def mocked_lego_api():
             patch.object(LegoApi, 'lego_parts_read', side_effect=_read_echo(Part)), \
             patch.object(LegoApi, 'lego_sets_read', side_effect=_read_echo(Set)), \
             patch.object(LegoApi, 'lego_themes_read', side_effect=_read_echo(Theme)):
-        yield ctx_mock
+        yield state_mock
 
 
 @pytest.fixture
 def mocked_users_api():
-    with mock.patch('rebrickable_api.UsersApi', spec=UsersApi) as ctx_mock, \
+    with mock.patch('rebrickable_api.UsersApi', spec=UsersApi) as state_mock, \
             patch.object(UsersApi, 'users_badges_read', side_effect=_read_echo(Badge)), \
             patch.object(UsersApi, 'users_build_read', side_effect=lambda *args, **kwargs: Build()), \
             patch.object(UsersApi, 'users_partlists_parts_read', side_effect=_read_echo(PartListPart)), \
             patch.object(UsersApi, 'users_partlists_read', side_effect=_read_echo(PartList)), \
             patch.object(UsersApi, 'users_setlists_read', side_effect=_read_echo(SetList)), \
             patch.object(UsersApi, 'users_sets_read', side_effect=_read_echo(Set)):
-        yield ctx_mock
+        yield state_mock

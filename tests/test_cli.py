@@ -73,8 +73,8 @@ def test_main_command_pass_obj_invalid(runner):
 
 @user.command(name='test')
 @pass_state
-def user_test(ctx):
-    assert ctx.user_token == 'user_token_value'
+def user_test(state):
+    assert state.user_token == 'user_token_value'
 
 
 @mocked_data({'api_key': 'api_key_value', 'users': {'%%default%%': {'token': 'user_token_value'}}})
@@ -94,8 +94,8 @@ def test_users_command_pass_obj_invalid(runner):
 def test_lego_part_command_pass_obj(runner):
     @lego_part.command(name='test')
     @pass_state
-    def lego_part_test(ctx):
-        assert ctx.part_num == "3002"
+    def lego_part_test(state):
+        assert state.part_num == "3002"
 
     result = runner.invoke(main, ['lego', 'part', '3002', 'test'])
     assert result.exception is None
@@ -107,9 +107,9 @@ def test_lego_part_command_pass_obj(runner):
 def test_lego_part_color_command_pass_obj(runner):
     @lego_part_color.command(name='test')
     @pass_state
-    def lego_part_color_test(ctx):
-        assert ctx.color_id == 5
-        assert ctx.part_num == "3002"
+    def lego_part_color_test(state):
+        assert state.color_id == 5
+        assert state.part_num == "3002"
 
     result = runner.invoke(main, ['lego', 'part', '3002', 'color', '5', 'test'])
     assert result.exception is None
@@ -120,8 +120,8 @@ def test_lego_part_color_command_pass_obj(runner):
 def test_lego_color_command_pass_obj(runner):
     @lego_color.command(name='test')
     @pass_state
-    def lego_color_test(ctx):
-        assert ctx.color_id == 1234
+    def lego_color_test(state):
+        assert state.color_id == 1234
 
     result = runner.invoke(main, ['lego', 'color', '1234', 'test'])
     assert result.exception is None
@@ -132,8 +132,8 @@ def test_lego_color_command_pass_obj(runner):
 def test_lego_element_command_pass_obj(runner):
     @lego_element.command(name='test')
     @pass_state
-    def lego_element_test(ctx):
-        assert ctx.element_id == '1234'
+    def lego_element_test(state):
+        assert state.element_id == '1234'
 
     result = runner.invoke(main, ['lego', 'element', '1234', 'test'])
     assert result.exception is None
@@ -144,8 +144,8 @@ def test_lego_element_command_pass_obj(runner):
 def test_lego_moc_command_pass_obj(runner):
     @lego_moc.command(name='test')
     @pass_state
-    def lego_moc_test(ctx):
-        assert ctx.set_num == "MOC-1234"
+    def lego_moc_test(state):
+        assert state.set_num == "MOC-1234"
 
     result = runner.invoke(main, ['lego', 'moc', 'MOC-1234', 'test'])
     assert result.exception is None
