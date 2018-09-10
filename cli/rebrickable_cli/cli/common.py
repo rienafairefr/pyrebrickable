@@ -3,26 +3,6 @@ from functools import wraps
 import click
 from click import get_current_context, Group
 
-from rebrickable_api import UsersApi
-
-
-class LegoContext(object):
-    def __init__(self, api=None, part_num=None, set_num=None, color_id=None):
-        self.api = api
-        self.part_num = part_num
-        self.set_num = set_num
-        self.color_id = color_id
-
-
-class UserContext(object):
-    def __init__(self, api=None, user_token=None, list_id=None, part_num=None, color_id=None, set_num=None):
-        self.api = api
-        self.user_token = user_token
-        self.list_id = list_id
-        self.part_num = part_num
-        self.color_id = color_id
-        self.set_num = set_num
-
 
 class State(object):
     def __init__(self, format=None, client=None, user_token=None,

@@ -5,7 +5,6 @@ from six import StringIO
 import pytest
 from click import Context, Command
 
-from rebrickable_cli.cli.common import UserContext
 from rebrickable_cli.cli.lego import *
 from rebrickable_cli.cli.main import *
 from rebrickable_cli.cli.user import *
