@@ -5,7 +5,8 @@ import click
 from rebrickable_api import PartList, Profile, SetList, SetListSet, Build, UsersApi
 from rebrickable_api.rest import ApiException
 from rebrickable_cli.cli.common import add_typed_subcommands, pass_state, \
-    get_or_push_context_obj, object_print, get_user_token
+    get_or_push_context_obj, object_print
+from rebrickable_cli.utils import get_data
 
 
 @click.group(help='user data (sets, parts lists, set lists, etc.)')
@@ -380,3 +381,8 @@ def user_partlists_create(ctx, name):
 @object_print
 def user_partlists_list(ctx):
     return ctx.api.users_partlists_list(user_token=ctx.user_token)
+
+
+def get_user_token(username='%%default%%'):
+    data = get_data()
+    return data['users'][username]['token']

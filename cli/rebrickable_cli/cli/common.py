@@ -4,7 +4,6 @@ import click
 from click import get_current_context, Group
 
 from rebrickable_api import UsersApi
-from rebrickable_cli.utils import get_data
 
 
 class LegoContext(object):
@@ -89,11 +88,6 @@ def add_typed_subcommands(type_):
         return fun
 
     return decorator
-
-
-def get_user_token(username='%%default%%'):
-    data = get_data()
-    return data['users'][username]['token']
 
 
 pass_state = click.make_pass_decorator(State)
