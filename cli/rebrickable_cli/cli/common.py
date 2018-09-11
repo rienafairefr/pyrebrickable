@@ -24,29 +24,23 @@ def oprint(obj):
     get_current_context().find_object(State).format.output(obj)
 
 
-def get_or_push_context_obj(*decorators):
-    def decorator(fun):
-        @pass_state
-        @click.pass_context
-        @wraps(fun)
-        def decorated(click_context, state, *args, **kwargs):
-            for attr in kwargs:
-                setattr(state, attr, kwargs[attr])
-            try:
-                current_obj = fun(*args, **kwargs)
-            except:
-                current_obj = fun(state, *args, **kwargs)
-            if click_context.invoked_subcommand is None:
-                oprint(current_obj)
-            else:
-                click_context.obj = current_obj
+def get_or_push(fun):
+    @pass_state
+    @click.pass_context
+    @wraps(fun)
+    def decorated(click_context, state, *args, **kwargs):
+        for attr in kwargs:
+            setattr(state, attr, kwargs[attr])
+        try:
+            current_obj = fun(*args, **kwargs)
+        except:
+            current_obj = fun(state, *args, **kwargs)
+        if click_context.invoked_subcommand is None:
+            oprint(current_obj)
+        else:
+            click_context.obj = current_obj
 
-        current = decorated
-        for dec in decorators:
-            current = dec(current)
-
-        return  current
-    return decorator
+    return decorated
 
 
 def object_print(fun):
@@ -76,15 +70,3 @@ def add_typed_subcommands(type_):
 
 
 pass_state = click.make_pass_decorator(State)
-
-
-class StateGroup(Group):
-    def group(self, *args, **kwargs):
-        def decorated(fun):
-            return pass_state(fun)
-        return super(StateGroup, self).group(*args, **kwargs)(decorated)
-
-    def command(self, *args, **kwargs):
-        def decorated(fun):
-            return pass_state(fun)
-        return super(StateGroup, self).command(*args, **kwargs)(decorated)

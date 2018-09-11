@@ -5,7 +5,7 @@ import click
 from rebrickable_api import PartList, Profile, SetList, SetListSet, Build, UsersApi
 from rebrickable_api.rest import ApiException
 from rebrickable_cli.cli.common import add_typed_subcommands, pass_state, \
-    get_or_push_context_obj, object_print
+    get_or_push, object_print, get_or_push
 from rebrickable_cli.utils import get_data
 
 
@@ -24,7 +24,8 @@ def user(state, username):
 @add_typed_subcommands(PartList)
 @user.group('partlist')
 @pass_state
-@get_or_push_context_obj(click.argument('list_id', type=int))
+@get_or_push
+@click.argument('list_id', type=int)
 def user_partlist(state, list_id):
     return state.api.users_partlists_read(user_token=state.user_token, list_id=list_id)
 
@@ -89,7 +90,9 @@ def user_partlist_parts_list(state):
 @add_typed_subcommands(PartList)
 @user_partlist.group('part')
 @pass_state
-@get_or_push_context_obj(click.argument('part_num'), click.argument('color_id', type=int))
+@get_or_push
+@click.argument('color_id', type=int)
+@click.argument('part_num')
 def user_partlist_part(state, color_id, part_num):
     return state.api.users_partlists_parts_read(user_token=state.user_token, color_id=color_id,
                                               list_id=state.list_id,
@@ -144,7 +147,8 @@ def user_setlists_list(state):
 @add_typed_subcommands(SetList)
 @user.group('setlist')
 @pass_state
-@get_or_push_context_obj(click.argument('list_id', type=int))
+@get_or_push
+@click.argument('list_id', type=int)
 def user_setlist(state, list_id):
     return state.api.users_setlists_read(user_token=state.user_token, list_id=list_id)
 
@@ -191,7 +195,8 @@ def user_setlist_sets_list(state):
 @add_typed_subcommands(SetListSet)
 @user_setlist.group('set')
 @pass_state
-@get_or_push_context_obj(click.argument('set_num'))
+@get_or_push
+@click.argument('set_num')
 def user_setlist_set(state, set_num):
     return state.api.users_setlists_sets_read(user_token=state.user_token, list_id=state.list_id, set_num=set_num)
 
@@ -271,7 +276,8 @@ def user_sets_list(state, *args, **kwargs):
 @add_typed_subcommands(SetListSet)
 @user.group('set')
 @pass_state
-@get_or_push_context_obj(click.argument('set_num'))
+@get_or_push
+@click.argument('set_num')
 def user_set(state, set_num):
     return state.api.users_sets_read(user_token=state.user_token, set_num=set_num)
 
@@ -328,7 +334,8 @@ def user_allparts(state):
 @add_typed_subcommands(Build)
 @user.group('build')
 @pass_state
-@get_or_push_context_obj(click.argument('set_num'))
+@get_or_push
+@click.argument('set_num')
 def user_build(state, set_num):
     return state.api.users_build_read(user_token=state.user_token,
                                     set_num=set_num)

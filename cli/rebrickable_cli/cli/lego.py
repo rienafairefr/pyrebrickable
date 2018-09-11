@@ -1,8 +1,8 @@
 import click
 
 from rebrickable_api import LegoApi, Part, PartColorsElement, Color, Element, Moc, PartCategory, Set, Theme
-from rebrickable_cli.cli.common import add_typed_subcommands, pass_state, get_or_push_context_obj, \
-    object_print, oprint
+from rebrickable_cli.cli.common import add_typed_subcommands, pass_state, \
+    object_print, oprint, get_or_push
 
 
 @click.group(help='LEGO data (parts, sets, themes, etc.)')
@@ -21,7 +21,8 @@ def lego_parts(state):
 @add_typed_subcommands(Part)
 @lego.group('part')
 @pass_state
-@get_or_push_context_obj(click.argument('part_num'))
+@get_or_push
+@click.argument('part_num')
 def lego_part(state, part_num):
     return state.api.lego_parts_read(part_num=state.part_num)
 
@@ -36,7 +37,8 @@ def lego_part_colors(state):
 @add_typed_subcommands(PartColorsElement)
 @lego_part.group('color')
 @pass_state
-@get_or_push_context_obj(click.argument('color_id', type=int))
+@get_or_push
+@click.argument('color_id', type=int)
 def lego_part_color(state, color_id):
     return state.api.lego_parts_colors_read(color_id=color_id, part_num=state.part_num)
 
@@ -58,7 +60,8 @@ def lego_colors(state):
 @add_typed_subcommands(Color)
 @lego.group('color')
 @pass_state
-@get_or_push_context_obj(click.argument('color_id', type=int))
+@get_or_push
+@click.argument('color_id', type=int)
 def lego_color(state, color_id):
     return state.api.lego_colors_read(id=color_id)
 
@@ -66,7 +69,8 @@ def lego_color(state, color_id):
 @add_typed_subcommands(Element)
 @lego.group('element')
 @pass_state
-@get_or_push_context_obj(click.argument('element_id'))
+@get_or_push
+@click.argument('element_id')
 def lego_element(state, element_id):
     return state.api.lego_elements_read(element_id=element_id)
 
@@ -74,7 +78,8 @@ def lego_element(state, element_id):
 @add_typed_subcommands(Moc)
 @lego.group('moc')
 @pass_state
-@get_or_push_context_obj(click.argument('set_num'))
+@get_or_push
+@click.argument('set_num')
 def lego_moc(state, set_num):
     return state.api.lego_mocs_read(set_num=set_num)
 
@@ -96,7 +101,8 @@ def lego_part_categories(state):
 @add_typed_subcommands(PartCategory)
 @lego.group('part_category')
 @pass_state
-@get_or_push_context_obj(click.argument('id', type=int))
+@get_or_push
+@click.argument('id', type=int)
 def lego_part_category(state, id):
     return state.api.lego_part_categories_read(id=id)
 
@@ -110,7 +116,8 @@ def lego_sets(state):
 @add_typed_subcommands(Set)
 @lego.group('set')
 @pass_state
-@get_or_push_context_obj(click.argument('set_num'))
+@get_or_push
+@click.argument('set_num')
 def lego_set(state, set_num):
     return state.api.lego_sets_read(set_num=set_num)
 
@@ -146,6 +153,7 @@ def lego_themes(state):
 @add_typed_subcommands(Theme)
 @lego.group('theme')
 @pass_state
-@get_or_push_context_obj(click.argument('theme_id'))
+@get_or_push
+@click.argument('theme_id')
 def lego_theme(state, theme_id):
     return state.api.lego_themes_read(id=theme_id)

@@ -5,7 +5,7 @@ import click
 from rebrickable_api import UsersApi, Badge
 from rebrickable_api.rest import ApiException
 from rebrickable_cli.cli.common import object_print, add_typed_subcommands, \
-    get_or_push_context_obj, pass_state
+    pass_state, get_or_push
 from rebrickable_cli.utils import get_data, write_data, DATA_PATH
 
 
@@ -25,9 +25,10 @@ def users_badges_list(state):
 @add_typed_subcommands(Badge)
 @users.group('badge')
 @pass_state
-@get_or_push_context_obj(click.argument('id', type=int))
-def users_badge(state, id):
-    return state.api.users_badges_read(id=id)
+@get_or_push
+@click.argument('badge_id', type=int)
+def users_badge(state, badge_id):
+    return state.api.users_badges_read(id=badge_id)
 
 
 def create_auth(state, username=None):
