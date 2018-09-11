@@ -3,13 +3,13 @@
 
 """Tests for `pyrebrickable` package."""
 import decorator
+import pytest
 
 from mock import patch, Mock
-from functools import wraps
 
-from rebrickable_api import Part, Color, Element, Moc, LegoApi, PartColorsElement
+from rebrickable_api import Part, Color, Element, Moc, LegoApi, PartColorsElement, UsersApi
 from rebrickable_api.rest import ApiException
-from rebrickable_cli.cli.common import pass_state
+from rebrickable_cli.cli.common import pass_state, State
 from rebrickable_cli.cli.lego import lego, lego_part, lego_part_color, lego_color, lego_element, lego_moc
 from rebrickable_cli.cli.main import main
 from rebrickable_cli.cli.user import user
@@ -23,12 +23,6 @@ def test_command_line_interface(runner):
     help_result = runner.invoke(main, ['--help'])
     assert help_result.exit_code == 0
     assert 'Show this message and exit.' in help_result.output
-
-
-@main.command(name='test')
-@pass_state
-def command_dummy(obj):
-    pass
 
 
 def mocked_data(value=None):
@@ -46,23 +40,9 @@ def mocked_data(value=None):
     return decorator.decorator(wrapper)
 
 
-def with_mocked_api():
-    def wrapper(fun, *args, **kwargs):
-        def get_part(part_num, *a, **kwa):
-            return Part(part_num=part_num)
-
-        @wraps(fun)
-        @patch.object(LegoApi, 'lego_parts_read', Mock(side_effect=get_part))
-        def wrapper(*a, **kwa):
-            return fun(*a, **kwa)
-
-        return wrapper
-    return decorator.decorator(wrapper)
-
-@mocked_data({'api_key': 'api_key_value'})
-def test_main_command_pass_obj_valid(runner):
-    result = runner.invoke(main, ['test'])
-    assert result.exception is None
+@main.command(name='test')
+def command_dummy():
+    pass
 
 
 @mocked_data({})
@@ -71,25 +51,47 @@ def test_main_command_pass_obj_invalid(runner):
     assert result.exception is not None
 
 
-@user.command(name='test')
-@pass_state
-def user_test(state):
-    assert state.user_token == 'user_token_value'
-
-
-@mocked_data({'api_key': 'api_key_value', 'users': {'%%default%%': {'token': 'user_token_value'}}})
-def test_users_command_pass_obj_valid(runner):
-    result = runner.invoke(main, ['user', 'test'])
-    assert result.exception is None
-
-
 @mocked_data(None)
 def test_users_command_pass_obj_invalid(runner):
     result = runner.invoke(main, ['user', 'test'])
     assert result.exception is not None
 
 
-@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
+@mocked_data({'api_key': 'api_key_value'})
+def test_main_command_pass_obj_valid(runner):
+    result = runner.invoke(main, ['test'])
+    assert result.exception is None
+
+
+@mocked_data({'api_key': 'api_key_value', 'users': {'%%default%%': {'token': 'user_token_value'}}})
+def test_users_command_pass_obj_valid(runner):
+    @user.command(name='test')
+    @pass_state
+    def user_test(state):
+        assert isinstance(state.api, UsersApi)
+        assert state.user_token == 'user_token_value'
+
+    result = runner.invoke(main, ['user', 'test'])
+    assert result.exception is None
+
+
+@mocked_data({'api_key': 'api_key_value', 'users': {'username': {'token': 'user_token_value'}}})
+def test_users_command_pass_obj_valid(runner):
+    @user.command(name='test')
+    @pass_state
+    def user_test(state):
+        assert isinstance(state.api, UsersApi)
+        assert state.user_token == 'user_token_value'
+
+    result = runner.invoke(main, ['user', '-u', 'username', 'test'])
+    assert result.exception is None
+
+
+@pytest.fixture
+def mocked_state():
+    return State()
+
+
 @patch.object(LegoApi, 'lego_parts_read', Mock(return_value=Part(part_num='3002')))
 def test_lego_part_command_pass_obj(runner):
     @lego_part.command(name='test')
@@ -151,14 +153,14 @@ def test_lego_moc_command_pass_obj(runner):
     assert result.exception is None
 
 
-@lego.command(name='test')
-def lego_test():
-    pass
-
-
 @patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
 @mocked_data({'api_key': 'api_key_value'})
 def test_lego_command_pass_obj_valid(runner):
+    @lego.command(name='test')
+    @pass_state
+    def lego_test(state):
+        assert isinstance(state.api, LegoApi)
+
     result = runner.invoke(main, ['lego', 'test'])
     assert result.exception is None
 
