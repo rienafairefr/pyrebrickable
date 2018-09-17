@@ -57,7 +57,7 @@ def generate_swagger():
                 array: {
                     "type": "object",
                     "properties": {
-                        "count": {"type": "integer"},
+                        "count": Integer,
                         "results": {
                             "type": "array",
                             "items": {
@@ -78,165 +78,244 @@ def generate_swagger():
 
         def ref(cls):
             return {'$ref': "#/definitions/%s" % cls}
+        
+        Integer = {'type': 'integer'}
+        String = {'type': 'string'}
+        Boolean = {'type': 'boolean'}
+        Url = {'type': 'string', 'format': 'uri'}
+        ArrayOfInteger = {'type': 'array', 'items': Integer}
+        ArrayOfString = {'type': 'array', 'items': String}
 
         classes = {
             'Color': {
-                "id": {"type": "integer"},
-                "name": {"type": "string"},
-                "rgb": {"type": "string"},
-                "is_trans": {"type": "boolean"},
+                "id": Integer,
+                "name": String,
+                "rgb": String,
+                "is_trans": Boolean,
+                'external_ids': ref('ExternalColorIds')
             },
             'Theme': {
-                "id": {"type": "integer"},
-                "parent_id": {"type": "integer"},
-                "name": {"type": "string"},
+                "id": Integer,
+                "parent_id": Integer,
+                "name": String,
             },
             'Set': {
-                "set_num": {"type": "string"},
-                "name": {"type": "string"},
-                "year": {"type": "integer"},
-                "theme_id": {"type": "integer"},
-                "num_parts": {"type": "integer"},
-                "set_img_url": {"type": "string"},
-                "set_url": {"type": "string"},
+                "set_num": String,
+                "name": String,
+                "year": Integer,
+                "theme_id": Integer,
+                "num_parts": Integer,
+                "set_img_url": Url,
+                "set_url": Url,
                 "last_modified_dt": {"type": "string", "format": "date-time"}
             },
             'Part': {
-                "part_num": {"type": "string"},
-                "name": {"type": "string"},
-                "part_cat_id": {"type": "integer"},
-                "part_url": {"type": "string"},
-                "part_img_url": {"type": "string"}
+                "part_num": String,
+                "name": String,
+                "part_cat_id": Integer,
+                "year_from": Integer,
+                "year_to": Integer,
+                "part_url": Url,
+                "part_img_url": Url,
+                "prints": ArrayOfString,
+                "molds": ArrayOfString,
+                "alternates": ArrayOfString,
+                "external_ids": ref('ExternalIds'),
             },
             'InventoryPart': {
-                "id": {'type': 'integer'},
-                "inv_part_id": {'type': 'integer'},
+                "id": Integer,
+                "inv_part_id": Integer,
                 "part": ref('Part'),
                 "color": ref('Color')
             },
             'SetList': {
-                "id": {'type': 'integer'},
-                "is_buildable": {'type': 'boolean'},
-                "name": {'type': 'string'},
-                "num_sets": {'type': 'integer'}
+                "id": Integer,
+                "is_buildable": Boolean,
+                "name": String,
+                "num_sets": Integer
             },
             'Moc': {
-                "set_num": {"type": "string"},
-                "name": {"type": "string"},
-                "year": {"type": "integer"},
-                "theme_id": {'type': 'integer'},
-                "num_parts": {'type': 'integer'},
-                "moc_img_url": {"type": "string"},
-                "moc_url": {"type": "string"},
-                "designer_name": {"type": "string"},
-                "designer_url": {"type": "string"}
+                "set_num": String,
+                "name": String,
+                "year": Integer,
+                "theme_id": Integer,
+                "num_parts": Integer,
+                "moc_img_url": Url,
+                "moc_url": Url,
+                "designer_name": String,
+                "designer_url": Url
             },
             'Badge': {
-                "id": {'type': 'integer'},
-                "code": {'type': 'string'},
-                "level": {'type': 'integer'},
-                "name": {'type': 'string'},
-                "descr": {'type': 'string'}
+                "id": Integer,
+                "code": String,
+                "level": Integer,
+                "name": String,
+                "descr": String
             },
             'PartList': {
-                "id": {'type': 'integer'},
-                "is_buildable": {'type': 'boolean'},
-                "name": {'type': 'string'},
-                "num_parts": {'type': 'integer'}
+                "id": Integer,
+                "is_buildable": Boolean,
+                "name": String,
+                "num_parts": Integer
             },
             'LostPart': {
-                "lost_part_id": {'type': 'integer'},
-                "lost_quantity": {'type': 'integer'},
+                "lost_part_id": Integer,
+                "lost_quantity": Integer,
                 "inv_part": ref('InventoryPart')
             },
             'PartListPart': {
-                "list_id": {'type': 'integer'},
-                "quantity": {'type': 'integer'},
+                "list_id": Integer,
+                "quantity": Integer,
                 "part": ref('Part'),
                 "color": ref('Color')
             },
             'SetListSet': {
-                "list_id": {'type': 'integer'},
-                "quantity": {'type': 'integer'},
-                "include_spares": {'type': 'boolean'},
+                "list_id": Integer,
+                "quantity": Integer,
+                "include_spares": Boolean,
                 "set": ref('Set'),
+                "set_num": String
             },
             'PartCategory': {
-                "id": {"type": "integer"},
-                "name": {"type": "string"},
-                "part_count": {"type": "integer"}
+                "id": Integer,
+                "name": String,
+                "part_count": Integer
             },
             'Element': {
                 "part": ref('Part'),
                 "color": ref('Color'),
-                "element_id": {'type': 'string'},
-                "design_id": {'type': 'string'},
-                "element_img_url": {'type': 'string'},
-                "part_img_url": {'type': 'string'}
+                "element_id": String,
+                "design_id": String,
+                "element_img_url": Url,
+                "part_img_url": Url
             },
             'AllPart': {
-                "quantity": {'type': 'integer'},
+                "quantity": Integer,
                 "part": ref('Part'),
                 "color": ref('Color')
+            },
+            'PartColorsList': {
+                "num_sets": Integer,
+                "elements": ArrayOfInteger,
+                "num_set_parts": Integer,
+                "color_id": Integer,
+                "part_img_url": Url,
+                "color_name": String
+            },
+            "PartColorsElement": {
+                'num_sets': Integer,
+                'elements': ArrayOfString,
+                'num_set_parts': Integer,
+                'year_from': Integer,
+                'part_img_url': Url,
+                'year_to': Integer
             }
         }
         non_array_classes = {
+            'ExternalColorId': {
+                'ext_ids': ArrayOfInteger,
+                'ext_descrs': {'type': 'array', 'items': ArrayOfString}
+            },
+            'ExternalColorIds': {
+                'BrickLink': ref('ExternalColorId'),
+                'LEGO': ref('ExternalColorId'),
+                'BrickOwl': ref('ExternalColorId'),
+                'Peeron': ref('ExternalColorId'),
+                'LDraw': ref('ExternalColorId')
+            },
+            'ExternalIds': {
+                "BrickLink": ArrayOfString,
+                "BrickOwl": ArrayOfString,
+                "LDraw": ArrayOfString,
+                "LEGO": ArrayOfString
+            },
             'BuildOptions': {
-                "ignore_minifigs": {'type': 'boolean'},
-                "sort_by": {'type': 'integer'},
-                "max_year": {'type': 'integer'},
-                "inc_accessory": {'type': 'boolean'},
-                "max_parts": {'type': 'integer'},
-                "inc_official": {'type': 'boolean'},
-                "inc_bmodels": {'type': 'boolean'},
-                "inc_custom": {'type': 'boolean'},
-                "color": {'type': 'integer'},
-                "min_year": {'type': 'integer'},
-                "min_parts": {'type': 'integer'},
-                "ignore_altp": {'type': 'boolean'},
-                "ignore_non_lego": {'type': 'boolean'},
-                "inc_owned": {'type': 'boolean'},
-                "ignore_print": {'type': 'boolean'},
-                "inc_premium": {'type': 'boolean'},
-                "ignore_mold": {'type': 'boolean'}
+                "ignore_minifigs": Boolean,
+                "sort_by": Integer,
+                "max_year": Integer,
+                "inc_accessory": Boolean,
+                "max_parts": Integer,
+                "inc_official": Boolean,
+                "inc_bmodels": Boolean,
+                "inc_custom": Boolean,
+                "color": Integer,
+                "min_year": Integer,
+                "min_parts": Integer,
+                "ignore_altp": Boolean,
+                "ignore_non_lego": Boolean,
+                "inc_owned": Boolean,
+                "ignore_print": Boolean,
+                "inc_premium": Boolean,
+                "theme": Integer,
+                "ignore_mold": Boolean
             },
             'Build': {
-                "num_owned_less_ignored": {'type': 'integer'},
-                "total_parts": {'type': 'integer'},
-                "total_parts_less_ignored": {'type': 'integer'},
+                "num_owned_less_ignored": Integer,
+                "total_parts": Integer,
+                "total_parts_less_ignored": Integer,
                 "pct_owned": {'type': 'number', 'format': 'float'},
-                "num_ignored": {'type': 'integer'},
+                "num_ignored": Integer,
                 "build_options": ref('BuildOptions'),
-                "num_missing": {'type': 'integer'}
+                "num_missing": Integer
             },
             'Rewards': {
-                "badges": {"type": "array", "items": {'type': 'integer'}},
-                "points": {'type': 'integer'},
-                "level": {'type': 'integer'}
+                "badges": ArrayOfInteger,
+                "points": Integer,
+                "level": Integer
             },
             'Lego': {
-                "lost_set_parts": {'type': 'integer'},
-                "total_set_parts": {'type': 'integer'},
-                "total_sets": {'type': 'integer'},
-                "all_parts": {'type': 'integer'},
-                "total_loose_parts": {'type': 'integer'}
+                "lost_set_parts": Integer,
+                "total_set_parts": Integer,
+                "total_sets": Integer,
+                "all_parts": Integer,
+                "total_loose_parts": Integer
             },
             'Profile': {
-                "user_id": {'type': 'integer'},
-                "username": {'type': 'string'},
-                "email": {'type': 'string'},
-                "real_name": {'type': 'string'},
+                "user_id": Integer,
+                "username": String,
+                "email": String,
+                "real_name": String,
                 "last_activity": {'type': 'string', 'format': 'date-time'},
-                "last_ip": {'type': 'string'},
-                "location": {'type': 'string'},
+                "last_ip": String,
+                "location": String,
                 "rewards": ref('Rewards'),
                 "lego": ref('Lego'),
-                "avatar_img": {'type': 'string'}
+                "avatar_img": String
             },
             'UsersTokenResponse': {
-                "user_token": {'type': 'string'}
+                "user_token": String
             }
         }
+
+        api['definitions'].update(
+            {
+                'ErrorMessage': {
+                    "type": "array",
+                    'items': {
+                        'type': 'string'
+                    }
+                }
+            })
+
+        api['paths']['/api/v3/users/{user_token}/sets/sync/']['post']['parameters'] = [
+            {
+                "description": "user_token",
+                "in": "path",
+                "name": "user_token",
+                "required": True,
+                "type": "string"
+            },
+            {
+                "description": "json_set_list",
+                "in": "body",
+                "schema": ref('ArrayOfSetListSets'),
+                "name": "json_set_list",
+                "required": True
+            },
+        ]
+        api['paths']['/api/v3/users/{user_token}/sets/sync/']['post']['consumes'] = [
+            'application/json'
+        ]
 
         for cls in classes:
             api['definitions'].update(get_typedef_array(cls))
@@ -259,7 +338,7 @@ def generate_swagger():
         set_schema('/api/v3/lego/themes/{id}/', ref('Theme'))
         set_schema('/api/v3/lego/mocs/{set_num}/', ref('Moc'))
         set_schema('/api/v3/lego/parts/{part_num}/', ref('Part'))
-        set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/', ref('Color'))
+        set_schema('/api/v3/lego/parts/{part_num}/colors/{color_id}/', ref('PartColorsElement'))
         set_schema('/api/v3/lego/part_categories/{id}/', ref('PartCategory'))
         set_schema('/api/v3/lego/sets/{set_num}/', ref('Set'))
         set_schema('/api/v3/users/badges/{id}/', ref('Badge'))
@@ -273,7 +352,7 @@ def generate_swagger():
         set_schema('/api/v3/lego/themes/', ref('ArrayOfThemes'))
         set_schema('/api/v3/lego/mocs/{set_num}/parts/', ref('ArrayOfInventoryParts'))
         set_schema('/api/v3/lego/parts/', ref('ArrayOfParts'))
-        set_schema('/api/v3/lego/parts/{part_num}/colors/', ref('ArrayOfColors'))
+        set_schema('/api/v3/lego/parts/{part_num}/colors/', ref('ArrayOfPartColorsLists'))
         set_schema('/api/v3/lego/part_categories/', ref('ArrayOfPartCategories'))
         set_schema('/api/v3/lego/sets/', ref('ArrayOfSets'))
         set_schema('/api/v3/users/badges/', ref('ArrayOfBadges'))
@@ -288,12 +367,14 @@ def generate_swagger():
         set_schema('/api/v3/lego/sets/{set_num}/parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/lego/sets/{set_num}/sets/', ref('ArrayOfSets'))
         set_schema('/api/v3/lego/sets/{set_num}/alternates/', ref('ArrayOfMocs'))
-        set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSets'))
+        set_schema('/api/v3/users/{user_token}/sets/', ref('ArrayOfSetListSets'))
         set_schema('/api/v3/users/{user_token}/allparts/', ref('ArrayOfAllParts'))
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfParts'))
         set_schema('/api/v3/users/{user_token}/lost_parts/', ref('ArrayOfLostParts'))
         set_schema('/api/v3/users/{user_token}/parts/', ref('ArrayOfPartListParts'))
+        set_schema('/api/v3/users/{user_token}/sets/', ref('SetListSet'), '201', 'post')
+        set_schema('/api/v3/users/{user_token}/setlists/', ref('SetList'), '201', 'post')
 
         # TODO
         # '/api/v3/users/{user_token}/lost_parts/', 'POST',
@@ -305,7 +386,6 @@ def generate_swagger():
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'DELETE',
         # '/api/v3/users/{user_token}/partlists/{list_id}/parts/{part_num}/{color_id}/', 'PUT',
         # '/api/v3/users/{user_token}/partlists/{list_id}/', 'PUT',
-        # '/api/v3/users/{user_token}/setlists/', 'POST',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'DELETE',
         # '/api/v3/users/{user_token}/setlists/{list_id}/', 'PATCH',
         # '/api/v3/users/{user_token}/setlists/{list_id}/sets/{set_num}/', 'DELETE',
