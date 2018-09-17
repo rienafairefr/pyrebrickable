@@ -92,6 +92,7 @@ def mocked_state():
     return State()
 
 
+@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
 @patch.object(LegoApi, 'lego_parts_read', Mock(return_value=Part(part_num='3002')))
 def test_lego_part_command_pass_obj(runner):
     @lego_part.command(name='test')
