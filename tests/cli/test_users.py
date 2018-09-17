@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from rebrickable_cli.cli.common import State
 from rebrickable_cli.cli.main import OutputFormatter
 from rebrickable_cli.cli.users import users_badges_list, users_badge
