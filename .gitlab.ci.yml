@@ -1,0 +1,10 @@
+test:
+  script:
+    - make generate_api
+    - pip install -r dev-requirements.txt
+    - make validate_spec
+    - tox
+
+deploy_docs:
+  script:
+    - make docs_build
