@@ -30,7 +30,8 @@ build:
   services:
   - docker:dind
   script:
-  - docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local openapitools/openapi-generator-cli:v3.2.2 \
+  - |
+    docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local openapitools/openapi-generator-cli:v3.2.2 \
     generate -i /local/swagger.json \
     --git-user-id rienafairefr \
     --git-repo-id pyrebrickable \
