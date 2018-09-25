@@ -47,6 +47,7 @@ docs_build:
 	pip install -r docs-requirements.txt
 	make -C docs html
 
+docs_deploy: docs_build
 	python -m doctr deploy docs
 
 	python -m doctr deploy --sync --require-master  --built-docs docs/_build/html "."

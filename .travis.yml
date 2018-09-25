@@ -16,7 +16,7 @@ script:
 jobs:
   include:
     - stage: deploy_docs
-      script: make docs_build
+      script: make docs_deploy
       python: 3.5
 after_success:
 - make upload_pypi
