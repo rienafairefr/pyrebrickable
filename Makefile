@@ -9,10 +9,10 @@ deploy_pypi:
 ifdef VERSION
 	rm -rf dist
 
-	python api/setup.py sdist bdist_wheel
-	python cli/setup.py sdist bdist_wheel
-	python data/setup.py sdist bdist_wheel
-	python setup.py sdist bdist_wheel
+	python3 api/setup.py sdist bdist_wheel
+	python3 cli/setup.py sdist bdist_wheel
+	python3 data/setup.py sdist bdist_wheel
+	python3 setup.py sdist bdist_wheel
 
 	twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} dist/*
 else
@@ -23,7 +23,7 @@ validate_spec:
 	prance validate swagger.json
 
 generate_api:
-	python patch_swagger.py
+	python3 patch_swagger.py
 
 	echo -- `cat swagger.json`
 

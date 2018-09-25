@@ -19,7 +19,6 @@ before_script:
 job_build:
   stage: build
   script:
-
   - make generate_api
 
 job_test:
