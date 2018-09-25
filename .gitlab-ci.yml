@@ -23,6 +23,7 @@ build:
   artifacts:
     paths:
     - api/
+    - swagger.json
 
 test:
   stage: test
