@@ -1,10 +1,26 @@
-test:
+stages:
+  - build
+  - test
+  - deploy_pypi
+  - deploy_docs
+
+
+job_build:
+  stage: build
   script:
     - make generate_api
+
+job_test:
+  stage: test
+  script:
     - pip install -r dev-requirements.txt
     - make validate_spec
     - tox
 
-deploy_docs:
-  script:
-    - make docs_build
+job_deploy_pypi:
+  stage: deploy_pypi
+  script: make deploy_pypi
+
+job_deploy_docs:
+  stage: deploy_docs
+  script: make deploy_docs

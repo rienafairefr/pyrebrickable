@@ -5,7 +5,7 @@ TRAVIS_TAG:=${TRAVIS_TAG}
 TRAVIS_BRANCH:=${TRAVIS_BRANCH}
 VERSION ?= $(if $(TRAVIS_TAG),$(TRAVIS_TAG),$(if $(TAG_NAME),$(TAG_NAME),dev))
 
-upload_pypi:
+deploy_pypi:
 ifdef TRAVIS_TAG
 	rm -rf dist
 
@@ -42,13 +42,13 @@ generate_api:
 	        -DappName="pyrebrickable-api" -DinfoEmail="rienafairefr@gmail.com" \
 
 
-docs_build:
+build_docs:
 	set -e
 	pip install -r docs-requirements.txt
 	make -C docs html
 
-docs_deploy: docs_build
-	python -m doctr deploy docs
+deploy_docs: build_docs
+	#python -m doctr deploy docs
 
-	python -m doctr deploy --sync --require-master  --built-docs docs/_build/html "."
-	python -m doctr deploy --sync --no-require-master  --built-docs docs/_build/html "docs-$(TRAVIS_BRANCH)"
+	#python -m doctr deploy --sync --require-master  --built-docs docs/_build/html "."
+	#python -m doctr deploy --sync --no-require-master  --built-docs docs/_build/html "docs-$(TRAVIS_BRANCH)"
