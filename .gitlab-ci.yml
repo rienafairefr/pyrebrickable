@@ -16,7 +16,7 @@ before_script:
 - apk update && apk add make
 
 
-buildd:
+build:
   stage: build
   script:
   - make generate_api
