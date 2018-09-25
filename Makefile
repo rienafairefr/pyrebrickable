@@ -44,7 +44,7 @@ generate_api:
 
 build_docs:
 	set -e
-	pip install -r docs-requirements.txt
+	pip3 install -r docs-requirements.txt
 	make -C docs html
 
 deploy_docs: build_docs
