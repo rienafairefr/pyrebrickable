@@ -5,14 +5,14 @@ TRAVIS_TAG:=${TRAVIS_TAG}
 TRAVIS_BRANCH:=${TRAVIS_BRANCH}
 VERSION ?= $(if $(TRAVIS_TAG),$(TRAVIS_TAG),$(if $(TAG_NAME),$(TAG_NAME),dev))
 
-upload_pypi:
-ifdef TRAVIS_TAG
+deploy_pypi:
+ifdef VERSION
 	rm -rf dist
 
-	python api/setup.py sdist bdist_wheel
-	python cli/setup.py sdist bdist_wheel
-	python data/setup.py sdist bdist_wheel
-	python setup.py sdist bdist_wheel
+	python3 api/setup.py sdist bdist_wheel
+	python3 cli/setup.py sdist bdist_wheel
+	python3 data/setup.py sdist bdist_wheel
+	python3 setup.py sdist bdist_wheel
 
 	twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} dist/*
 else
@@ -23,7 +23,7 @@ validate_spec:
 	prance validate swagger.json
 
 generate_api:
-	python patch_swagger.py
+	python3 patch_swagger.py
 
 	echo -- `cat swagger.json`
 
@@ -42,13 +42,13 @@ generate_api:
 	        -DappName="pyrebrickable-api" -DinfoEmail="rienafairefr@gmail.com" \
 
 
-docs_build:
+build_docs:
 	set -e
-	pip install -r docs-requirements.txt
+	pip3 install -r docs-requirements.txt
 	make -C docs html
 
-docs_deploy: docs_build
-	python -m doctr deploy docs
+deploy_docs: build_docs
+	#python -m doctr deploy docs
 
-	python -m doctr deploy --sync --require-master  --built-docs docs/_build/html "."
-	python -m doctr deploy --sync --no-require-master  --built-docs docs/_build/html "docs-$(TRAVIS_BRANCH)"
+	#python -m doctr deploy --sync --require-master  --built-docs docs/_build/html "."
+	#python -m doctr deploy --sync --no-require-master  --built-docs docs/_build/html "docs-$(TRAVIS_BRANCH)"

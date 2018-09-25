@@ -1,0 +1,47 @@
+image: docker:dind
+
+stages:
+- build
+- test
+- deploy_pypi
+- deploy_pages
+
+before_script:
+- dockerd &
+- sleep 5
+- docker info
+- apk update
+- apk upgrade
+- apk add python3 build-base
+- apk update && apk add make
+
+
+job_build:
+  stage: build
+  script:
+  - make generate_api
+
+job_test:
+  stage: test
+  script:
+  - pip install -r dev-requirements.txt
+  - make validate_spec
+  - tox
+
+job_deploy_pypi:
+  stage: deploy_pypi
+  script: VERSION=$CI_COMMIT_TAG make deploy_pypi
+  only:
+  - master
+  - tags
+
+pages:
+  stage: deploy_pages
+  script:
+  - make build_docs
+  artifacts:
+    paths:
+    - docs
+  only:
+  - master
+  - tags
