@@ -16,26 +16,31 @@ before_script:
 - apk update && apk add make
 
 
-job_build:
+buildd:
   stage: build
   script:
   - make generate_api
+  artifacts:
+    paths:
+    - api/
 
-job_test:
+test:
   stage: test
   script:
   - pip3 install -r dev-requirements.txt
   - make validate_spec
   - tox
+  dependencies:
+  - build
 
-job_deploy_pypi:
+deploy_pypi:
   stage: deploy_pypi
   script: VERSION=$CI_COMMIT_TAG make deploy_pypi
   only:
   - master
   - tags
 
-pages:
+deploy_pages:
   stage: deploy_pages
   script:
   - make build_docs
