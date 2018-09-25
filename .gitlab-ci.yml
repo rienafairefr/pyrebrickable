@@ -24,7 +24,7 @@ job_build:
 job_test:
   stage: test
   script:
-  - pip install -r dev-requirements.txt
+  - pip3 install -r dev-requirements.txt
   - make validate_spec
   - tox
 
