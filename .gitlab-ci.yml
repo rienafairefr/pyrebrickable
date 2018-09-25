@@ -13,6 +13,7 @@ stages:
 job_build:
   stage: build
   script:
+  - apk update && apk add make
   - make generate_api
 
 job_test:
