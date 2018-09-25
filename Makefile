@@ -19,9 +19,6 @@ else
 	@echo "not tagged"
 endif
 
-validate_spec:
-	prance validate swagger.json
-
 patch:
 	python3 patch_swagger.py
 	echo -- `cat swagger.json`
