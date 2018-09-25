@@ -20,7 +20,8 @@ patch:
   stage: patch
   script:
   - python3 patch_swagger.py
-  - pip install prance
+  - python3 -m ensurepip
+  - pip3 install prance
   - prance validate swagger.json
   artifacts:
     paths:
