@@ -12,7 +12,7 @@ before_script:
 - docker info
 - apk update
 - apk upgrade
-- apk add python3 build-base
+- apk add python3 build-base libffi
 - apk update && apk add make
 
 
