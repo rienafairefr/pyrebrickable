@@ -14,7 +14,7 @@ before_script:
 - apk update
 - apk upgrade
 - apk add make git python3 python3-dev build-base libffi libffi-dev
-- apk-install curl ca-certificates bash openssl-dev readline-dev bzip2-dev sqlite-dev ncurses-dev linux-headers
+- apk add curl ca-certificates bash openssl-dev readline-dev bzip2-dev sqlite-dev ncurses-dev linux-headers
 - curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer -o /pyenv-installer && \
   touch /root/.bashrc && \
   /bin/ln -s /root/.bashrc /root/.bash_profile && \
