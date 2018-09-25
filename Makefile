@@ -22,11 +22,11 @@ endif
 validate_spec:
 	prance validate swagger.json
 
-generate_api:
+patch:
 	python3 patch_swagger.py
-
 	echo -- `cat swagger.json`
 
+generate_api:
 	docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local openapitools/openapi-generator-cli:v3.2.2 \
 	           generate -i /local/swagger.json \
 	           --git-user-id rienafairefr \
