@@ -6,7 +6,7 @@ TRAVIS_BRANCH:=${TRAVIS_BRANCH}
 VERSION ?= $(if $(TRAVIS_TAG),$(TRAVIS_TAG),$(if $(TAG_NAME),$(TAG_NAME),dev))
 
 deploy_pypi:
-ifdef TRAVIS_TAG
+ifdef VERSION
 	rm -rf dist
 
 	python api/setup.py sdist bdist_wheel

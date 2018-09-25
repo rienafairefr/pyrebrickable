@@ -1,32 +1,41 @@
 image: docker:latest
 
 services:
-  - name: docker:dind
-    command: ["--experimental"]
-    
-stages:
-  - build
-  - test
-  - deploy_pypi
-  - deploy_docs
+- name: docker:dind
+  command: ["--experimental"]
 
+stages:
+- build
+- test
+- deploy_pypi
+- deploy_pages
 
 job_build:
   stage: build
   script:
-    - make generate_api
+  - make generate_api
 
 job_test:
   stage: test
   script:
-    - pip install -r dev-requirements.txt
-    - make validate_spec
-    - tox
+  - pip install -r dev-requirements.txt
+  - make validate_spec
+  - tox
 
 job_deploy_pypi:
   stage: deploy_pypi
-  script: make deploy_pypi
+  script: VERSION=$CI_COMMIT_TAG make deploy_pypi
+  only:
+  - master
+  - tags
 
-job_deploy_docs:
-  stage: deploy_docs
-  script: make deploy_docs
+pages:
+  stage: deploy_pages
+  script:
+  - make build_docs
+  artifacts:
+    paths:
+    - docs
+  only:
+  - master
+  - tags
