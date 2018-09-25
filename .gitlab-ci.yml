@@ -1,3 +1,9 @@
+image: docker:latest
+
+services:
+  - name: docker:dind
+    command: ["--experimental"]
+    
 stages:
   - build
   - test
