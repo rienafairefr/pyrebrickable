@@ -23,7 +23,7 @@ class InventoryPart(Base):
     """ Parts content of set """
     __tablename__ = 'inventory_parts'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    inv_part_id = Column(Integer, primary_key=True, autoincrement=True)
 
     inventory_id = Column(  Integer, ForeignKey('inventories.id'))
     part_num = Column(String, ForeignKey('parts.part_num'))
