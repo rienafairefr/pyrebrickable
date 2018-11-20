@@ -1,5 +1,6 @@
 import os
 from appdirs import AppDirs
+from sqlalchemy import inspect
 
 from rebrickable_data.models import *
 
@@ -21,3 +22,8 @@ data_mapping = {
     'inventory_sets': InventorySet,
     'part_relationships': PartRelationship
 }
+
+
+def object_as_dict(obj):
+    return {c.key: getattr(obj, c.key)
+            for c in inspect(obj).mapper.column_attrs}
