@@ -93,7 +93,7 @@ class CustomUsersApi(UsersApi):
         :param async_req bool
         :param str user_token: user_token (required)
         :param str list_id: list_id (required)
-        :param list[PartListPartItem] parts_list: parts_list (required)
+        :param PartListParts parts_list: parts_list (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -169,7 +169,7 @@ class CustomUsersApi(UsersApi):
 
 
 api_client = get_api_client()
-api = UsersApi(api_client)
+api = CustomUsersApi(api_client)
 user_token=get_user_token()
 
 partlist = get_partlist_by_name('minecraft')
@@ -181,4 +181,4 @@ partlist_parts = [
     for row in list_parts
 ]
 
-api.users_partlists_parts_create(user_token, partlist.id, parts_list=partlist_parts)
+api.users_partlists_multiple_parts_create(user_token, partlist.id, parts_list=partlist_parts)
