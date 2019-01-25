@@ -328,6 +328,7 @@ def generate_swagger():
             api['paths'][url][method]['responses'][code]['schema'] = schema
 
         set_schema('/api/v3/users/_token/', ref('UsersTokenResponse'), '201', 'post')
+        set_schema('/api/v3/users/{user_token}/partlists/', ref('PartList'), '201', 'post')
         set_schema('/api/v3/lego/elements/{element_id}/', ref('Element'))
 
         set_schema('/api/v3/users/{user_token}/build/{set_num}/', ref('Build'))
