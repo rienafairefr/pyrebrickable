@@ -3,6 +3,7 @@ import csv
 import os
 
 import click
+import six
 from sqlalchemy import Table
 
 from rebrickable_data.models import Base
@@ -13,7 +14,7 @@ from rebrickable_data.database import engine, Session, db_path
 def UnicodeDictReader(utf8_data, **kwargs):
     csv_reader = csv.DictReader(utf8_data, **kwargs)
     for row in csv_reader:
-        yield {unicode(key, 'utf-8'):unicode(value, 'utf-8') for key, value in row.iteritems()}
+        yield {six.u(key):six.u(value) for key, value in six.iteritems(row)}
 
 
 @click.command(name='import')
