@@ -284,6 +284,20 @@ def generate_swagger():
             },
             'UsersTokenResponse': {
                 "user_token": String
+            },
+            'PartListPartItem': {
+                "quantity": Integer,
+                "part_num": String,
+                "color_id": Integer
+            },
+            'SetListSetItem': {
+                "include_spares": Boolean,
+                "set_num": String,
+                "quantity": Integer
+            },
+            'UserSetItem': {
+                "set_num": String,
+                "quantity": Integer
             }
         }
 
@@ -294,28 +308,20 @@ def generate_swagger():
                     'items': {
                         'type': 'string'
                     }
+                },
+                'PartListParts': {
+                    "type": 'array',
+                    'items': ref('PartListPartItem')
+                },
+                'SetListSets': {
+                    "type": 'array',
+                    'items': ref('SetListSetItem')
+                },
+                'UserSets': {
+                    "type": 'array',
+                    'items': ref('UserSetItem')
                 }
             })
-
-        api['paths']['/api/v3/users/{user_token}/sets/sync/']['post']['parameters'] = [
-            {
-                "description": "user_token",
-                "in": "path",
-                "name": "user_token",
-                "required": True,
-                "type": "string"
-            },
-            {
-                "description": "json_set_list",
-                "in": "body",
-                "schema": ref('ArrayOfSetListSets'),
-                "name": "json_set_list",
-                "required": True
-            },
-        ]
-        api['paths']['/api/v3/users/{user_token}/sets/sync/']['post']['consumes'] = [
-            'application/json'
-        ]
 
         for cls in classes:
             api['definitions'].update(get_typedef_array(cls))
