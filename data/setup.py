@@ -24,12 +24,15 @@ setup(
     description="""This is rebrickable_data, providing a wrapper around rebrickable data
     
 It uses the monthly data dumps (http://www.rebrickable.com/downloads) and provides
-SQLAlchemy models to query the data inside
+SQLAlchemy models to query the data inside. Data is stored in a local SQLite file
+in your user directory (inside %APPDATA% on Windows, ~/.local/share on Linux, ~/Library/Application Support/ on MacOS)
 
-You gain access to the rebrickable-data cli :
+Once installed, you gain access to the rebrickable-data cli :
 
 `rebrickable-data download` to download csv files from rebrickable
 `rebrickable-data import` to import them in a database
+`rebrickable-data reset-db` to reset the in a database
+#EXPERIMENTAL# `rebrickable-data download-extra` to download data from rebrickable that are not in the dumps (e.g. MOCs data)
 
 see examples in examples folder
 """,

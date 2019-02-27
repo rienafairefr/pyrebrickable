@@ -18,3 +18,7 @@ class Moc(Base):
     num_parts = Column(Integer)
     theme_id = Column(Integer)
     year = Column(Integer)
+
+    @property
+    def absent(self):
+        return self.moc_url is None
