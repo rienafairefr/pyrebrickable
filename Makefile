@@ -23,12 +23,6 @@ patch:
 	python3 patch_swagger.py
 	echo -- `cat swagger.json`
 
-generate_models:
-	docker build -t rebrickable-models-generator rebrickable_models
-	docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local rebrickable-models-generator \
-	           generate -i /local/swagger.json \
-	           -g org.openapitools.codegen.Rebrickable_modelsGenerator -o /local/api_models
-
 generate_api:
 	docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local openapitools/openapi-generator-cli:v3.2.2 \
 	           generate -i /local/swagger.json \
