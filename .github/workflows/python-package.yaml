@@ -20,7 +20,7 @@ jobs:
     - uses: dschep/install-pipenv-action@v1
     - name: Install dependencies
       run: |
-        pipenv install --dev
+        pipenv --python ${{ matrix.python-version }} install --dev
     - name: generate code
       run: |
         make rebrickable/api
@@ -54,15 +54,13 @@ jobs:
         pipenv --python ${{ matrix.python-version }} install --dev
     - name: generate code
       run: |
-        make api
+        make rebrickable/api
     - name: Build package sdist
       if: matrix.python-version == '2.7'
       run: |
-        cd api
         pipenv run python setup.py sdist
     - name: Build package wheel
       run: |
-        cd api
         pipenv run python setup.py bdist_wheel
     - name: Publish package
       if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
