@@ -7,7 +7,6 @@ mock
 pytest-cov
 coveralls
 tox
-tox-travis
 setuptools>=38.6.0
 twine>=1.11.0
 jsondiff
