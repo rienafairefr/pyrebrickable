@@ -18,10 +18,13 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - uses: dschep/install-pipenv-action@v1
+    - name: Install dependencies
+      run: |
+        pipenv --python ${{ matrix.python-version }} install --dev
     - name: generate code
       run: |
         make rebrickable/api
-    - name: Test with tox
+    - name: Test with pytest
       run: |
         pipenv run tox
     - name: Coveralls
