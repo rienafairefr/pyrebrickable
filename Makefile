@@ -1,9 +1,9 @@
 # put env TWINE_REPOSITORY_URL=https://test.pypi.org/legacy/ for testing
 
+.PHONY: clean
+
 TAG_NAME:=${TAG_NAME}
-TRAVIS_TAG:=${TRAVIS_TAG}
-TRAVIS_BRANCH:=${TRAVIS_BRANCH}
-VERSION ?= $(if $(TRAVIS_TAG),$(TRAVIS_TAG),$(if $(TAG_NAME),$(TAG_NAME),dev))
+VERSION ?= $(if $(TAG_NAME),$(TAG_NAME),dev)
 
 deploy_pypi:
 ifdef VERSION
@@ -23,12 +23,15 @@ swagger.json: rebrickable.json
 	python3 patch_swagger.py
 	echo -- `cat swagger.json`
 
+clean:
+	rm -rf rebrickable/api
+
 rebrickable/api: swagger.json Makefile
 	docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local openapitools/openapi-generator-cli:v4.1.3 \
 	           generate \
-	           -g python
+	           -g python \
 	           -i /local/swagger.json \
-	           -o /local/rebrickable/api \
+	           -o /local \
 	           --git-user-id rienafairefr \
 	           --git-repo-id pyrebrickable \
 	           -p generateSourceCodeOnly=true \

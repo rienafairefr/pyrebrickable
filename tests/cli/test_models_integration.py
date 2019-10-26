@@ -7,7 +7,7 @@ import pytest
 import six
 from jsondiff import diff
 
-from rebrickable_api import LegoApi, UsersApi
+from rebrickable.api import LegoApi, UsersApi
 from rebrickable_cli.cli.common import State
 from rebrickable_cli.cli.user import get_user_token
 from rebrickable_cli.cli.main import get_api_client

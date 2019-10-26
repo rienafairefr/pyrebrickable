@@ -7,8 +7,8 @@ import pytest
 
 from mock import patch, Mock
 
-from rebrickable_api import Part, Color, Element, Moc, LegoApi, PartColorsElement, UsersApi
-from rebrickable_api.rest import ApiException
+from rebrickable.api import Part, Color, Element, Moc, LegoApi, PartColorsElement, UsersApi
+from rebrickable.api.rest import ApiException
 from rebrickable_cli.cli.common import pass_state, State
 from rebrickable_cli.cli.lego import lego, lego_part, lego_part_color, lego_color, lego_element, lego_moc
 from rebrickable_cli.cli.main import main

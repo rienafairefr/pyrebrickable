@@ -1,6 +1,6 @@
 import click
 
-from rebrickable_api import LegoApi, Part, PartColorsElement, Color, Element, Moc, PartCategory, Set, Theme
+from rebrickable.api import LegoApi, Part, PartColorsElement, Color, Element, Moc, PartCategory, Set, Theme
 from rebrickable_cli.cli.common import add_typed_subcommands, pass_state, \
     object_print, oprint, get_or_push
 

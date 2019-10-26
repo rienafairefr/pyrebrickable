@@ -10,19 +10,19 @@ import click
 import yaml
 from click import get_current_context
 
-from rebrickable_api import ApiClient, Configuration
-from rebrickable_cli.cli.common import State
+from rebrickable.api import ApiClient, Configuration
+from rebrickable.cli.common import State
 
-from rebrickable_cli.cli.lego import lego
-from rebrickable_cli.cli.user import user
-from rebrickable_cli.cli.users import users
+from rebrickable.cli.lego import lego
+from rebrickable.cli.user import user
+from rebrickable.cli.users import users
 
 try:
     from enum import Enum, EnumMeta  # pragma: no cover
 except ImportError:  # pragma: no cover
     from enum34 import Enum, EnumMeta  # pragma: no cover
 
-from rebrickable_cli.utils import get_data, DATA_PATH, EnumType, write_data
+from rebrickable.cli.utils import get_data, DATA_PATH, EnumType, write_data
 
 
 class OutputFormat(Enum):

@@ -2,7 +2,7 @@ import pytest
 from click.testing import CliRunner
 from mock import mock, patch
 
-from rebrickable_api import *
+from rebrickable.api import *
 
 
 @pytest.fixture(scope='session')
@@ -19,7 +19,7 @@ def _read_echo(type_):
 
 @pytest.fixture
 def mocked_lego_api():
-    with mock.patch('rebrickable_api.LegoApi', spec=LegoApi) as state_mock, \
+    with mock.patch('rebrickable.api.LegoApi', spec=LegoApi) as state_mock, \
             patch.object(LegoApi, 'lego_colors_read', side_effect=_read_echo(Color)), \
             patch.object(LegoApi, 'lego_elements_read', side_effect=_read_echo(Element)), \
             patch.object(LegoApi, 'lego_mocs_read', side_effect=_read_echo(Moc)), \
@@ -33,7 +33,7 @@ def mocked_lego_api():
 
 @pytest.fixture
 def mocked_users_api():
-    with mock.patch('rebrickable_api.UsersApi', spec=UsersApi) as state_mock, \
+    with mock.patch('rebrickable.api.UsersApi', spec=UsersApi) as state_mock, \
             patch.object(UsersApi, 'users_badges_read', side_effect=_read_echo(Badge)), \
             patch.object(UsersApi, 'users_build_read', side_effect=lambda *args, **kwargs: Build()), \
             patch.object(UsersApi, 'users_partlists_parts_read', side_effect=_read_echo(PartListPart)), \

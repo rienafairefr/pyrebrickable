@@ -8,11 +8,6 @@ As part of pyrebrickable
 
     pip install pyrebrickable
 
-Or standalone
-
-    pip install pyrebrickable-data
-
-
 Download and Import
 -------------------
 
@@ -20,8 +15,8 @@ Before anything, you need to download and import the database CSV dumps into you
 The local database will be created in your user data directory (somewhere in ~/.local/share, or %APPDATA% for Windows)
 The database dumps will be saved there as well. Use:
 
-    python -m rebrickable_data.download
-    python -m rebrickable_data.import
+    rebrickable-data download
+    rebrickable-data import
 
 This can take some time (a few minutes)
 

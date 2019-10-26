@@ -1,0 +1,73 @@
+name: Python package
+
+on: [push, pull_request]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [2.7, 3.4, 3.5, 3.6, 3.7, 3.8]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - uses: dschep/install-pipenv-action@v1
+    - name: Install dependencies
+      run: |
+        pipenv install --dev
+    - name: generate code
+      run: |
+        make rebrickable/api
+    - name: Test with pytest
+      run: |
+        pipenv run pytest --cov=rebrickable
+    - name: Coveralls
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
+      run: |
+        pipenv run coveralls
+
+  publish:
+    needs: test
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [2.7, 3.5]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - uses: dschep/install-pipenv-action@v1
+    - name: Install dependencies
+      run: |
+        pipenv --python ${{ matrix.python-version }} install --dev
+    - name: generate code
+      run: |
+        make api
+    - name: Build package sdist
+      if: matrix.python-version == '2.7'
+      run: |
+        cd api
+        pipenv run python setup.py sdist
+    - name: Build package wheel
+      run: |
+        cd api
+        pipenv run python setup.py bdist_wheel
+    - name: Publish package
+      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.pypi_password }}
+      run: |
+        pipenv run twine upload dist/*

@@ -2,8 +2,8 @@ import json
 
 import click
 
-from rebrickable_api import PartList, Profile, SetList, SetListSet, Build, UsersApi
-from rebrickable_api.rest import ApiException
+from rebrickable.api import PartList, Profile, SetList, SetListSet, Build, UsersApi
+from rebrickable.api.rest import ApiException
 from rebrickable_cli.cli.common import add_typed_subcommands, pass_state, \
     get_or_push, object_print, get_or_push
 from rebrickable_cli.utils import get_data
