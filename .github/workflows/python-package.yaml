@@ -23,7 +23,7 @@ jobs:
         make rebrickable/api
     - name: Test with tox
       run: |
-        tox
+        pipenv run tox
     - name: Coveralls
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
