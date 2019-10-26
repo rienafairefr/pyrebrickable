@@ -27,7 +27,7 @@ You can access it through its CLI at `rebrickable-data`
 
 # Requirements.
 
-Python 2.7 and 3.4+
+Python 2.7 and 3.5+
 
 # Installation & Usage
 
