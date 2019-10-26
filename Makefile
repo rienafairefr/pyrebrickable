@@ -6,7 +6,7 @@ TAG_NAME:=${TAG_NAME}
 VERSION ?= $(if $(TAG_NAME),$(TAG_NAME),dev)
 
 swagger.json: rebrickable.json
-	pipenv run patch_swagger.py
+	pipenv run python patch_swagger.py
 	echo -- `cat swagger.json`
 
 clean:
