@@ -19,11 +19,11 @@ else
 	@echo "not tagged"
 endif
 
-patch:
+swagger.json: rebrickable.json
 	python3 patch_swagger.py
 	echo -- `cat swagger.json`
 
-generate_api:
+api: swagger.json
 	docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local openapitools/openapi-generator-cli:v3.2.2 \
 	           generate -i /local/swagger.json \
 	           --git-user-id rienafairefr \
