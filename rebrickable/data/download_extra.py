@@ -2,11 +2,11 @@ import random
 import time
 
 import click
-from rebrickable_api import LegoApi
-from rebrickable_api.rest import ApiException
-from rebrickable_cli.cli.main import get_api_client
-from rebrickable_data.database import Session, engine
-from rebrickable_data.models import Base, Moc, InventoryPart, Inventory, Color, Part
+from rebrickable.api import LegoApi
+from rebrickable.api.rest import ApiException
+from rebrickable.cli.cli.main import get_api_client
+from rebrickable.data.database import Session, engine
+from rebrickable.data.models import Base, Moc, InventoryPart, Inventory, Color, Part
 
 client = get_api_client()
 

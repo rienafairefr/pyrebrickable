@@ -3,11 +3,11 @@ from pprint import pprint
 import six
 from sqlalchemy import not_, and_
 
-from rebrickable_api import UsersApi
-from rebrickable_cli.cli.main import get_api_client
-from rebrickable_cli.cli.user import get_user_token
-from rebrickable_data.database import Session
-from rebrickable_data.models import Theme, Set, PartCategory
+from rebrickable.api import UsersApi
+from rebrickable.cli.main import get_api_client
+from rebrickable.cli.user import get_user_token
+from rebrickable.data.database import Session
+from rebrickable.data.models import Theme, Set, PartCategory
 
 session = Session()
 

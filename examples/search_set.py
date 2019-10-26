@@ -1,8 +1,8 @@
 # Used to answer https://bricks.stackexchange.com/q/10233/9843
 from sqlalchemy import and_
 
-from rebrickable_data.models import Part, Inventory, InventoryPart, Color, Set
-from rebrickable_data.database import Session
+from rebrickable.data.models import Part, Inventory, InventoryPart, Color, Set
+from rebrickable.data.database import Session
 
 session = Session()
 

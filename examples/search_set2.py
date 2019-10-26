@@ -3,9 +3,9 @@ import pprint
 
 from sqlalchemy import and_
 
-from rebrickable_data.database import Session
-from rebrickable_data.models import Part, Inventory, InventoryPart, Color, Set
-from rebrickable_data.utils import object_as_dict
+from rebrickable.data.database import Session
+from rebrickable.data.models import Part, Inventory, InventoryPart, Color, Set
+from rebrickable.data.utils import object_as_dict
 
 session = Session()
 

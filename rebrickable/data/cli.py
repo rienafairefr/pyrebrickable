@@ -1,9 +1,9 @@
 import click
 
-from rebrickable_data.database import reset_db_main
-from rebrickable_data.download import download_main
-from rebrickable_data.importing import import_main
-from rebrickable_data.download_extra import download_extra_main
+from .database import reset_db_main
+from .download import download_main
+from .importing import import_main
+from .download_extra import download_extra_main
 
 
 @click.group()

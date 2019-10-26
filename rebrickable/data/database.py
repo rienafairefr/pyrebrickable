@@ -1,11 +1,11 @@
 import os
 
 import click
-from rebrickable_data.models import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from rebrickable_data.utils import data_dir
+from .models import Base
+from .utils import data_dir
 
 db_path = os.path.join(data_dir, 'rebrickable.db')
 db_url = 'sqlite:///%s' % db_path

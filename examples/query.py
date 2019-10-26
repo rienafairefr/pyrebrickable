@@ -1,5 +1,5 @@
-from rebrickable_data.models import Set, Theme, Part
-from rebrickable_data.database import Session
+from rebrickable.data.models import Set, Theme, Part
+from rebrickable.data.database import Session
 
 session = Session()
 

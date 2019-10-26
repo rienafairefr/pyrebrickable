@@ -3,7 +3,7 @@ import os
 import click
 import requests
 
-from rebrickable_data.utils import data_mapping, data_dir
+from .utils import data_mapping, data_dir
 
 
 url_format = 'https://m.rebrickable.com/media/downloads/%s.csv'

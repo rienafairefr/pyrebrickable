@@ -1,7 +1,7 @@
 from sqlalchemy import func
 
-from rebrickable_data.models import InventoryPart
-from rebrickable_data.database import Session
+from rebrickable.data.models import InventoryPart
+from rebrickable.data.database import Session
 
 session = Session()
 
