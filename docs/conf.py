@@ -50,7 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'pyrebrickable'
-copyright = u'2018, rienafairefr'
+copyright = u'2019, rienafairefr'
 author = u'rienafairefr'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -172,7 +172,7 @@ def run_apidoc(_):
     cur_dir = os.path.abspath(os.path.dirname(__file__))
     modules = [
         ('api', 'rebrickable.api'),
-        ('cli', 'rebrickable_cli')
+        ('cli', 'rebrickable.cli')
     ]
 
     def rel(pth):

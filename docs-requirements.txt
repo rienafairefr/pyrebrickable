@@ -1,4 +1,0 @@
-sphinx
-sphinx-click
-recommonmark
--r dev-requirements.txt
