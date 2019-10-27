@@ -4,15 +4,15 @@ py>=1.4.31
 randomize>=0.13
 pytest
 mock
--e api
--e cli
--e data
--e .
 pytest-cov
 coveralls
-tox
-tox-travis
 setuptools>=38.6.0
 twine>=1.11.0
 jsondiff
-decorator
+sphinx
+sphinx-click
+recommonmark
+tox
+tox-pyenv
+tox-gh-actions
+-r requirements.txt

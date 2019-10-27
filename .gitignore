@@ -78,3 +78,6 @@ pyrebrickable-data/rebrickable\.db
 data/rebrickable\.db
 
 api-yaml/
+Pipfile.lock
+
+docs/reference/rebrickable/

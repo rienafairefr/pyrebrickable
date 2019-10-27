@@ -1,7 +1,7 @@
 CLI documentation
 =================
 
-.. click:: rebrickable_cli.cli.main:main
+.. click:: rebrickable.cli.main:main
    :prog: rebrickable
    :show-nested:
 

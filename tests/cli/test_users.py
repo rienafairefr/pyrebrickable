@@ -1,8 +1,8 @@
 from __future__ import print_function
 
-from rebrickable_cli.cli.common import State
-from rebrickable_cli.cli.main import OutputFormatter
-from rebrickable_cli.cli.users import users_badges_list, users_badge
+from rebrickable.cli.common import State
+from rebrickable.cli.main import OutputFormatter
+from rebrickable.cli.users import users_badges_list, users_badge
 from tests.utils import parametrized, do_test
 
 users_no_token_operations = [

@@ -1,7 +1,0 @@
-rebrickable\_api.models.external\_color\_id module
-==================================================
-
-.. automodule:: rebrickable_api.models.external_color_id
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,0 +1,162 @@
+name: Python package
+
+on: [push, pull_request]
+
+jobs:
+  generate-code:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: generate code
+        run: |
+          make rebrickable/api
+      - name: Upload generated code
+        uses: actions/upload-artifact@v1
+        with:
+          name: code
+          path: rebrickable/api
+
+  test-3-8:
+    needs: generate-code
+
+    runs-on: ubuntu-latest
+    container: python:3.8.0
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Download generated code
+        uses: actions/download-artifact@v1
+        with:
+          name: code
+          path: rebrickable/api
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: Test
+        run: |
+          tox
+      - name: Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
+        run: |
+          coveralls
+
+  test:
+    needs: generate-code
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Download generated code
+        uses: actions/download-artifact@v1
+        with:
+          name: code
+          path: rebrickable/api
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: generate code
+        run: |
+          make rebrickable/api
+      - name: Test
+        run: |
+          tox
+      - name: Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
+        run: |
+          coveralls
+
+  publish-docs:
+    if: github.event_name == 'push' && github.event.ref == 'refs/heads/master'
+
+    needs:
+      - test
+      - generate-code
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Download generated code
+        uses: actions/download-artifact@v1
+        with:
+          name: code
+          path: rebrickable/api
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.5
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: Generate docs
+        run: |
+          make -C docs html
+      - name: Deploy GH-pages
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./docs/_build/html
+
+  publish:
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+
+    needs:
+      - test
+      - generate-code
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [2.7, 3.5]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Download generated code
+        uses: actions/download-artifact@v1
+        with:
+          name: code
+          path: rebrickable/api
+
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: Build package sdist
+        if: matrix.python-version == '2.7'
+        run: |
+          python setup.py sdist
+      - name: Build package wheel
+        run: |
+          python setup.py bdist_wheel
+      - name: Publish package
+        if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.pypi_password }}
+        run: |
+          twine upload dist/*
