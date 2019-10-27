@@ -15,9 +15,8 @@ def login(username=None):
         users_api = UsersApi(client)
         users_token = create_auth(users_api, username)
         data = get_data()
-        data_users = data.setdefault('users', {})
-        data_users.setdefault('%%default%%', {})['token'] = users_token
-        data_users.setdefault(username, {})['token'] = users_token
+        data['default_user'] = username
+        data.setdefault('users', {}).setdefault(username, {})['token'] = users_token
         write_data(data)
 
         print('OK, saved users token into %s' % DATA_PATH)

@@ -62,7 +62,7 @@ def test_main_command_pass_obj_valid(runner):
     assert result.exception is None
 
 
-@mocked_data({'api_key': 'api_key_value', 'users': {'%%default%%': {'token': 'user_token_value'}}})
+@mocked_data({'api_key': 'api_key_value', 'default_user': 'username', 'users': {'username': {'token': 'user_token_value'}}})
 def test_users_command_pass_obj_valid(runner):
     @user.command(name='test')
     @pass_state

@@ -12,7 +12,7 @@ from .common import add_typed_subcommands, pass_state, \
 
 
 @click.group(help='user data (sets, parts lists, set lists, etc.)')
-@click.option('--username', '-u', required=False, default='%%default%%')
+@click.option('--username', '-u', required=False)
 @pass_state
 @pass_context
 def user(context, state, username):

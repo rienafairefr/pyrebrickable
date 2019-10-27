@@ -17,10 +17,8 @@ def test_users_login_no_username(runner):
 def test_users_login(runner):
     def write_data(data):
         assert data == {'api_key': 'api_key_value',
+                        'default_user': 'username',
                         'users': {
-                            '%%default%%': {
-                                'token': 'user_token'
-                            },
                             'username': {
                                 'token': 'user_token'
                             }

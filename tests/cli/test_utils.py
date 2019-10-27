@@ -9,11 +9,12 @@ user_token = 'user_token'
 other_user_token = 'other_user_token'
 read_data_dict = {
     'api_key': api_key,
+    'default_user': 'username',
     'users': {
-        '%%default%%': {
+        'username': {
             'token': user_token
         },
-        'username': {
+        'other_username': {
             'token': other_user_token
         }
     }
@@ -53,7 +54,7 @@ def test_write_data(tmpdir):
     assert data2.items() == data.items()
 
 
-@mock.patch('rebrickable.cli.user.get_data', return_value=read_data_dict)
+@mock.patch('rebrickable.cli.utils.get_data', return_value=read_data_dict)
 def test_get_user_token(mocked):
     assert get_user_token() == user_token
     assert get_user_token('username') == other_user_token

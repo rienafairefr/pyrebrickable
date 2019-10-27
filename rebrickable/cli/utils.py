@@ -103,8 +103,12 @@ class NotLoggedIn(Exception):
     pass
 
 
-def get_user_token(username='%%default%%'):
-    user_token = get_data().get('users', {}).get(username, {}).get('token')
+def get_user_token(username=None):
+    data = get_data()
+    if username is None:
+        username = data.get('default_user')
+
+    user_token = data.get('users', {}).get(username, {}).get('token')
     if user_token is None:
         raise NotLoggedIn()
     return user_token
