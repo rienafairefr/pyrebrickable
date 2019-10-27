@@ -113,7 +113,7 @@ jobs:
           directory: docs/_build/html
 
   publish:
-    if: contains(github.ref, 'tags')
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
 
     needs:
       - test
