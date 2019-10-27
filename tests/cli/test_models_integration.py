@@ -9,8 +9,7 @@ from jsondiff import diff
 
 from rebrickable.api import LegoApi, UsersApi
 from rebrickable.cli.common import State
-from rebrickable.cli.user import get_user_token
-from rebrickable.cli.main import get_api_client
+from rebrickable.cli.utils import get_api_client, get_user_token
 
 """
 assumes a working authentication 

@@ -4,8 +4,7 @@ import six
 from sqlalchemy import not_, and_
 
 from rebrickable.api import UsersApi
-from rebrickable.cli.main import get_api_client
-from rebrickable.cli.user import get_user_token
+from rebrickable.cli.utils import get_api_client, get_user_token
 from rebrickable.data.database import Session
 from rebrickable.data.models import Theme, Set, PartCategory
 

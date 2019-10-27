@@ -2,21 +2,19 @@ import json
 
 import mock
 
-from rebrickable.cli.main import get_api_client
-from rebrickable.cli.user import get_user_token
-from rebrickable.cli.utils import get_data, write_data
-
+from rebrickable.cli.utils import get_data, write_data, get_api_client, get_user_token
 
 api_key = 'nice_api_key'
 user_token = 'user_token'
 other_user_token = 'other_user_token'
 read_data_dict = {
     'api_key': api_key,
+    'default_user': 'username',
     'users': {
-        '%%default%%': {
+        'username': {
             'token': user_token
         },
-        'username': {
+        'other_username': {
             'token': other_user_token
         }
     }
@@ -56,7 +54,7 @@ def test_write_data(tmpdir):
     assert data2.items() == data.items()
 
 
-@mock.patch('rebrickable.cli.user.get_data', return_value=read_data_dict)
+@mock.patch('rebrickable.cli.utils.get_data', return_value=read_data_dict)
 def test_get_user_token(mocked):
     assert get_user_token() == user_token
-    assert get_user_token('username') == other_user_token
+    assert get_user_token('other_username') == other_user_token
