@@ -8,7 +8,6 @@ import pytest
 from mock import patch, Mock
 
 from rebrickable.api import Part, Color, Element, Moc, LegoApi, PartColorsElement, UsersApi
-from rebrickable.api.rest import ApiException
 from rebrickable.cli.common import pass_state, State
 from rebrickable.cli.lego import lego, lego_part, lego_part_color, lego_color, lego_element, lego_moc
 from rebrickable.cli.main import main
@@ -154,7 +153,7 @@ def test_lego_moc_command_pass_obj(runner):
     assert result.exception is None
 
 
-@patch('rebrickable.cli.main.get_api_client', new=Mock())
+@patch('rebrickable.cli.utils.get_api_client', new=Mock())
 @mocked_data({'api_key': 'api_key_value'})
 def test_lego_command_pass_obj_valid(runner):
     @lego.command(name='test')
@@ -172,65 +171,9 @@ def test_lego_command_pass_invalid(runner):
     assert result.exception is not None
 
 
-@patch('rebrickable.cli.main.get_api_client', new=Mock())
 @mocked_data({'api_key': 'api_key_value'})
-def test_users_login_no_username(runner):
-    result = runner.invoke(main, ['users', 'login'])
-    # no username
-    assert result.exception is not None
-
-
-@mocked_data({'api_key': 'api_key_value'})
-def test_users_login(runner):
-    def write_data(data):
-        assert data == {'api_key': 'api_key_value',
-                        'users': {
-                            '%%default%%': {
-                                'token': 'user_token'
-                            },
-                            'username': {
-                                'token': 'user_token'
-                            }
-                        }}
-
-    with patch('rebrickable.cli.users.create_auth', return_value='user_token'), \
-         patch('rebrickable.cli.users.write_data', side_effect=write_data):
-        result = runner.invoke(main, ['users', 'login', 'username'])
-
-        assert result.exception is None
-
-
-@mocked_data({'api_key': 'api_key_value'})
-def test_users_login_other(runner):
-    def write_data(data):
-        assert data == {'api_key': 'api_key_value',
-                        'users': {
-                            'username': {
-                                'token': 'user_token'
-                            }
-                        }}
-
-    with patch('rebrickable.cli.users.create_auth', return_value='user_token'), \
-         patch('rebrickable.cli.users.write_data', side_effect=write_data):
-        result = runner.invoke(main, ['users', 'login', '--other', 'username'])
-
-        assert result.exception is None
-
-
-@mocked_data({'api_key': 'api_key_value'})
-def test_users_login_invalid_login(runner):
-    def create_auth(users_api, username):
-        raise ApiException()
-
-    with patch('rebrickable.cli.users.create_auth', side_effect=create_auth):
-        result = runner.invoke(main, ['users', 'login', 'username'])
-
-    assert result.exception is not None
-
-
-@mocked_data({'api_key': 'api_key_value'})
-def test_users_profile_invalid_login(runner):
-    result = runner.invoke(main, ['users', 'profile'])
+def test_user_profile(runner):
+    result = runner.invoke(main, ['user', 'profile'])
 
     assert result.exception is not None
 
@@ -239,8 +182,8 @@ def test_register_valid(runner):
     def write_data(data):
         assert data['api_key'] == 'api_key_value'
 
-    with patch('rebrickable.cli.main.get_api_key', return_value='api_key_value'), \
-         patch('rebrickable.cli.main.write_data', side_effect=write_data):
+    with patch('rebrickable.cli.main.prompt', return_value='api_key_value'), \
+         patch('rebrickable.cli.utils.write_data', side_effect=write_data):
         result = runner.invoke(main, ['register'])
 
         assert result.exception is None

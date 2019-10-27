@@ -8,6 +8,7 @@ from collections import namedtuple
 
 import click
 import yaml
+from click import prompt
 
 from rebrickable.cli.data import data
 from rebrickable.cli.common import State
@@ -55,7 +56,7 @@ def main(click_context, output):
 
 @main.command(help='registers an API key with the CLI')
 def register():
-    key = click.prompt('API key')
+    key = prompt('API key')
     data = get_data()
     data['api_key'] = key
     write_data(data)
