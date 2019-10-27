@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 coverage = ">=4.0.3"
 pluggy = ">=0.3.1"
-tox = "==3.7.0"
+tox = "*"
 tox-pipenv = "*"
 tox-gh-actions = "*"
 coveralls = "*"
