@@ -15,6 +15,9 @@ jobs:
       - name: generate code
         run: |
           make rebrickable/api
+      - name: scm_version
+        run: |
+          python -m setuptools_scm
       - name: Upload generated code
         uses: actions/upload-artifact@v1
         with:
@@ -115,7 +118,7 @@ jobs:
           PUBLISH_DIR: ./docs/_build/html
 
   publish:
-    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+    if: github.event_name  == 'push' && startsWith(github.event.ref, 'refs/tags')
 
     needs:
       - test
