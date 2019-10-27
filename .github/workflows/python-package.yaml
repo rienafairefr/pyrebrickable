@@ -3,7 +3,7 @@ name: Python package
 on: [push, pull_request]
 
 jobs:
-  test-3.8:
+  test-3-8:
     runs-on: ubuntu-latest
     container: python:3.8.0
     steps:
