@@ -105,6 +105,8 @@ jobs:
       - name: Generate docs
         run: |
           make -C docs html
+      - name: no Jekyll
+        run : touch docs/_build/html/.nojekyll
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
