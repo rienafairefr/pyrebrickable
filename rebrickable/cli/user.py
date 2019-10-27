@@ -4,9 +4,9 @@ import click
 
 from rebrickable.api import PartList, Profile, SetList, SetListSet, Build, UsersApi
 from rebrickable.api.rest import ApiException
-from rebrickable_cli.cli.common import add_typed_subcommands, pass_state, \
-    get_or_push, object_print, get_or_push
-from rebrickable_cli.utils import get_data
+from .common import add_typed_subcommands, pass_state, \
+    object_print, get_or_push
+from .utils import get_data
 
 
 @click.group(help='user data (sets, parts lists, set lists, etc.)')

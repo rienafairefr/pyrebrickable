@@ -9,10 +9,10 @@ from mock import patch, Mock
 
 from rebrickable.api import Part, Color, Element, Moc, LegoApi, PartColorsElement, UsersApi
 from rebrickable.api.rest import ApiException
-from rebrickable_cli.cli.common import pass_state, State
-from rebrickable_cli.cli.lego import lego, lego_part, lego_part_color, lego_color, lego_element, lego_moc
-from rebrickable_cli.cli.main import main
-from rebrickable_cli.cli.user import user
+from rebrickable.cli.common import pass_state, State
+from rebrickable.cli.lego import lego, lego_part, lego_part_color, lego_color, lego_element, lego_moc
+from rebrickable.cli.main import main
+from rebrickable.cli.user import user
 
 
 def test_command_line_interface(runner):
@@ -30,9 +30,9 @@ def mocked_data(value=None):
         return value
 
     def wrapper(fun, *args, **kwargs):
-        @patch('rebrickable_cli.cli.common.get_data', new=Mock(side_effect=get_))
-        @patch('rebrickable_cli.cli.main.get_data', new=Mock(side_effect=get_))
-        @patch('rebrickable_cli.cli.users.get_data', new=Mock(side_effect=get_))
+        @patch('rebrickable.cli.common.get_data', new=Mock(side_effect=get_))
+        @patch('rebrickable.cli.main.get_data', new=Mock(side_effect=get_))
+        @patch('rebrickable.cli.users.get_data', new=Mock(side_effect=get_))
         def decorated(*a, **kwa):
             return fun(*a, **kwa)
 
@@ -92,7 +92,7 @@ def mocked_state():
     return State()
 
 
-@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
+@patch('rebrickable.cli.main.get_api_client', new=Mock())
 @patch.object(LegoApi, 'lego_parts_read', Mock(return_value=Part(part_num='3002')))
 def test_lego_part_command_pass_obj(runner):
     @lego_part.command(name='test')
@@ -104,7 +104,7 @@ def test_lego_part_command_pass_obj(runner):
     assert result.exception is None
 
 
-@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
+@patch('rebrickable.cli.main.get_api_client', new=Mock())
 @patch.object(LegoApi, 'lego_parts_read', Mock(return_value=Part(part_num='3002')))
 @patch.object(LegoApi, 'lego_parts_colors_read', Mock(return_value=PartColorsElement(elements=[Element(color=Color(id=5), part=Part(part_num="3002"))])))
 def test_lego_part_color_command_pass_obj(runner):
@@ -118,7 +118,7 @@ def test_lego_part_color_command_pass_obj(runner):
     assert result.exception is None
 
 
-@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
+@patch('rebrickable.cli.main.get_api_client', new=Mock())
 @patch.object(LegoApi, 'lego_colors_read', Mock(return_value=Color(id=1234)))
 def test_lego_color_command_pass_obj(runner):
     @lego_color.command(name='test')
@@ -130,7 +130,7 @@ def test_lego_color_command_pass_obj(runner):
     assert result.exception is None
 
 
-@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
+@patch('rebrickable.cli.main.get_api_client', new=Mock())
 @patch.object(LegoApi, 'lego_elements_read', Mock(return_value=Element(element_id=1234)))
 def test_lego_element_command_pass_obj(runner):
     @lego_element.command(name='test')
@@ -142,7 +142,7 @@ def test_lego_element_command_pass_obj(runner):
     assert result.exception is None
 
 
-@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
+@patch('rebrickable.cli.main.get_api_client', new=Mock())
 @patch.object(LegoApi, 'lego_mocs_read', Mock(return_value = Moc(set_num='MOC-1234')))
 def test_lego_moc_command_pass_obj(runner):
     @lego_moc.command(name='test')
@@ -154,7 +154,7 @@ def test_lego_moc_command_pass_obj(runner):
     assert result.exception is None
 
 
-@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
+@patch('rebrickable.cli.main.get_api_client', new=Mock())
 @mocked_data({'api_key': 'api_key_value'})
 def test_lego_command_pass_obj_valid(runner):
     @lego.command(name='test')
@@ -172,7 +172,7 @@ def test_lego_command_pass_invalid(runner):
     assert result.exception is not None
 
 
-@patch('rebrickable_cli.cli.main.get_api_client', new=Mock())
+@patch('rebrickable.cli.main.get_api_client', new=Mock())
 @mocked_data({'api_key': 'api_key_value'})
 def test_users_login_no_username(runner):
     result = runner.invoke(main, ['users', 'login'])
@@ -193,8 +193,8 @@ def test_users_login(runner):
                             }
                         }}
 
-    with patch('rebrickable_cli.cli.users.create_auth', return_value='user_token'), \
-         patch('rebrickable_cli.cli.users.write_data', side_effect=write_data):
+    with patch('rebrickable.cli.users.create_auth', return_value='user_token'), \
+         patch('rebrickable.cli.users.write_data', side_effect=write_data):
         result = runner.invoke(main, ['users', 'login', 'username'])
 
         assert result.exception is None
@@ -210,8 +210,8 @@ def test_users_login_other(runner):
                             }
                         }}
 
-    with patch('rebrickable_cli.cli.users.create_auth', return_value='user_token'), \
-         patch('rebrickable_cli.cli.users.write_data', side_effect=write_data):
+    with patch('rebrickable.cli.users.create_auth', return_value='user_token'), \
+         patch('rebrickable.cli.users.write_data', side_effect=write_data):
         result = runner.invoke(main, ['users', 'login', '--other', 'username'])
 
         assert result.exception is None
@@ -222,7 +222,7 @@ def test_users_login_invalid_login(runner):
     def create_auth(users_api, username):
         raise ApiException()
 
-    with patch('rebrickable_cli.cli.users.create_auth', side_effect=create_auth):
+    with patch('rebrickable.cli.users.create_auth', side_effect=create_auth):
         result = runner.invoke(main, ['users', 'login', 'username'])
 
     assert result.exception is not None
@@ -239,8 +239,8 @@ def test_register_valid(runner):
     def write_data(data):
         assert data['api_key'] == 'api_key_value'
 
-    with patch('rebrickable_cli.cli.main.get_api_key', return_value='api_key_value'), \
-         patch('rebrickable_cli.cli.main.write_data', side_effect=write_data):
+    with patch('rebrickable.cli.main.get_api_key', return_value='api_key_value'), \
+         patch('rebrickable.cli.main.write_data', side_effect=write_data):
         result = runner.invoke(main, ['register'])
 
         assert result.exception is None

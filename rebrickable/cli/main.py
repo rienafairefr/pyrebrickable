@@ -8,14 +8,13 @@ from getpass import getpass
 
 import click
 import yaml
-from click import get_current_context
 
 from rebrickable.api import ApiClient, Configuration
-from rebrickable.cli.common import State
+from .common import State
 
-from rebrickable.cli.lego import lego
-from rebrickable.cli.user import user
-from rebrickable.cli.users import users
+from .lego import lego
+from .user import user
+from .users import users
 
 try:
     from enum import Enum, EnumMeta  # pragma: no cover

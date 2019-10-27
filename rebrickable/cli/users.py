@@ -4,9 +4,9 @@ import click
 
 from rebrickable.api import UsersApi, Badge
 from rebrickable.api.rest import ApiException
-from rebrickable.cli.common import object_print, add_typed_subcommands, \
+from .common import object_print, add_typed_subcommands, \
     pass_state, get_or_push
-from rebrickable.utils import get_data, write_data, DATA_PATH
+from .utils import get_data, write_data, DATA_PATH
 
 
 @click.group(help='login a certain user or get global badges information')

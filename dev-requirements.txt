@@ -10,4 +10,6 @@ tox
 setuptools>=38.6.0
 twine>=1.11.0
 jsondiff
-decorator
+sphinx
+sphinx-click
+recommonmark

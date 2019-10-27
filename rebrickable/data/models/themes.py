@@ -1,7 +1,7 @@
 from sqlalchemy import Integer, Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 
-from rebrickable_data.models import Base
+from . import Base
 
 
 class Theme(Base):

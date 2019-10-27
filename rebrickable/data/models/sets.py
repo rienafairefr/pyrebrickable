@@ -1,7 +1,7 @@
 from sqlalchemy import Integer, Column, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 
-from rebrickable_data.models import Base, InventorySet
+from rebrickable.data.models import Base, InventorySet
 
 
 class Set(Base):

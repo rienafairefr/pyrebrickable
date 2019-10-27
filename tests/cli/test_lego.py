@@ -2,11 +2,11 @@ from __future__ import print_function
 
 import pytest
 
-from rebrickable_cli.cli.common import State
-from rebrickable_cli.cli.lego import lego_colors, lego_color, lego_element, lego_part_categories, lego_part_category, \
+from rebrickable.cli.common import State
+from rebrickable.cli.lego import lego_colors, lego_color, lego_element, lego_part_categories, lego_part_category, \
     lego_parts, lego_sets, lego_themes, lego_theme, lego_set, lego_set_alternates, lego_set_parts, lego_set_sets, \
     lego_part_colors, lego_part, lego_part_color, lego_part_color_sets, lego_moc_parts, lego_moc
-from rebrickable_cli.cli.main import OutputFormatter
+from rebrickable.cli.main import OutputFormatter
 
 from tests.utils import parametrized, do_test
 

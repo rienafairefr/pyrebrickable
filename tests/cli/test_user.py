@@ -2,8 +2,8 @@ from __future__ import print_function
 
 from six import StringIO
 
-from rebrickable_cli.cli.main import *
-from rebrickable_cli.cli.user import *
+from rebrickable.cli.main import *
+from rebrickable.cli.user import *
 from tests.utils import parametrized, do_test
 
 users_operations = [
