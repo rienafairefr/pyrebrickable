@@ -1,0 +1,7 @@
+rebrickable.api.models.badge module
+===================================
+
+.. automodule:: rebrickable.api.models.badge
+   :members:
+   :undoc-members:
+   :show-inheritance:

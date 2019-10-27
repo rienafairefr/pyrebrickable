@@ -1,0 +1,7 @@
+rebrickable.api.models.set module
+=================================
+
+.. automodule:: rebrickable.api.models.set
+   :members:
+   :undoc-members:
+   :show-inheritance:

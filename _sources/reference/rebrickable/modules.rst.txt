@@ -1,0 +1,7 @@
+rebrickable
+===========
+
+.. toctree::
+   :maxdepth: 4
+
+   rebrickable

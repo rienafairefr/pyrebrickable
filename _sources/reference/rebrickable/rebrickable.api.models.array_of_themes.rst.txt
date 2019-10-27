@@ -1,0 +1,7 @@
+rebrickable.api.models.array\_of\_themes module
+===============================================
+
+.. automodule:: rebrickable.api.models.array_of_themes
+   :members:
+   :undoc-members:
+   :show-inheritance:

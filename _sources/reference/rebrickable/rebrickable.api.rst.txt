@@ -1,0 +1,28 @@
+rebrickable.api package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+
+   rebrickable.api.api
+   rebrickable.api.models
+
+Submodules
+----------
+
+.. toctree::
+
+   rebrickable.api.api_client
+   rebrickable.api.configuration
+   rebrickable.api.exceptions
+   rebrickable.api.rest
+
+Module contents
+---------------
+
+.. automodule:: rebrickable.api
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+rebrickable.api.models.lego module
+==================================
+
+.. automodule:: rebrickable.api.models.lego
+   :members:
+   :undoc-members:
+   :show-inheritance:

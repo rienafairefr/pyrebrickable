@@ -1,0 +1,22 @@
+rebrickable.data.models package
+===============================
+
+Submodules
+----------
+
+.. toctree::
+
+   rebrickable.data.models.colors
+   rebrickable.data.models.inventories
+   rebrickable.data.models.mocs
+   rebrickable.data.models.parts
+   rebrickable.data.models.sets
+   rebrickable.data.models.themes
+
+Module contents
+---------------
+
+.. automodule:: rebrickable.data.models
+   :members:
+   :undoc-members:
+   :show-inheritance:

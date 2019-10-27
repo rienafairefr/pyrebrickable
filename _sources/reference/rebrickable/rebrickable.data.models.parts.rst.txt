@@ -1,0 +1,7 @@
+rebrickable.data.models.parts module
+====================================
+
+.. automodule:: rebrickable.data.models.parts
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+rebrickable.api.api\_client module
+==================================
+
+.. automodule:: rebrickable.api.api_client
+   :members:
+   :undoc-members:
+   :show-inheritance:

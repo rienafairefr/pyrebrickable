@@ -1,0 +1,7 @@
+rebrickable.api.models.moc module
+=================================
+
+.. automodule:: rebrickable.api.models.moc
+   :members:
+   :undoc-members:
+   :show-inheritance:

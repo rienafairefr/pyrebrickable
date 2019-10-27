@@ -1,0 +1,7 @@
+rebrickable.api.models.user\_set\_item module
+=============================================
+
+.. automodule:: rebrickable.api.models.user_set_item
+   :members:
+   :undoc-members:
+   :show-inheritance:

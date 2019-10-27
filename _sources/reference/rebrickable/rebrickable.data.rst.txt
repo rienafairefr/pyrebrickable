@@ -1,0 +1,28 @@
+rebrickable.data package
+========================
+
+Subpackages
+-----------
+
+.. toctree::
+
+   rebrickable.data.models
+
+Submodules
+----------
+
+.. toctree::
+
+   rebrickable.data.database
+   rebrickable.data.download
+   rebrickable.data.download_extra
+   rebrickable.data.importing
+   rebrickable.data.utils
+
+Module contents
+---------------
+
+.. automodule:: rebrickable.data
+   :members:
+   :undoc-members:
+   :show-inheritance:

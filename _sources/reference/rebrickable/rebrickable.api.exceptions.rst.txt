@@ -1,0 +1,7 @@
+rebrickable.api.exceptions module
+=================================
+
+.. automodule:: rebrickable.api.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:

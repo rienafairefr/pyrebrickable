@@ -1,0 +1,7 @@
+rebrickable.api.models.array\_of\_badges module
+===============================================
+
+.. automodule:: rebrickable.api.models.array_of_badges
+   :members:
+   :undoc-members:
+   :show-inheritance:

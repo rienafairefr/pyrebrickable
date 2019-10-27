@@ -1,0 +1,7 @@
+rebrickable.data.importing module
+=================================
+
+.. automodule:: rebrickable.data.importing
+   :members:
+   :undoc-members:
+   :show-inheritance:

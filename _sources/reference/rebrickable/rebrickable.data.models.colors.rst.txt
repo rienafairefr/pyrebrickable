@@ -1,0 +1,7 @@
+rebrickable.data.models.colors module
+=====================================
+
+.. automodule:: rebrickable.data.models.colors
+   :members:
+   :undoc-members:
+   :show-inheritance:

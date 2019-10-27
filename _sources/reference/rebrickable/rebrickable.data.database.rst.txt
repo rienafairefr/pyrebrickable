@@ -1,0 +1,7 @@
+rebrickable.data.database module
+================================
+
+.. automodule:: rebrickable.data.database
+   :members:
+   :undoc-members:
+   :show-inheritance:

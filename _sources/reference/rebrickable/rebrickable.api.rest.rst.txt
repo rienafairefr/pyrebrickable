@@ -1,0 +1,7 @@
+rebrickable.api.rest module
+===========================
+
+.. automodule:: rebrickable.api.rest
+   :members:
+   :undoc-members:
+   :show-inheritance:

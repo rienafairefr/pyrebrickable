@@ -1,0 +1,19 @@
+rebrickable package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+
+   rebrickable.api
+   rebrickable.cli
+   rebrickable.data
+
+Module contents
+---------------
+
+.. automodule:: rebrickable
+   :members:
+   :undoc-members:
+   :show-inheritance:

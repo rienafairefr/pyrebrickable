@@ -1,0 +1,7 @@
+rebrickable.cli.data module
+===========================
+
+.. automodule:: rebrickable.cli.data
+   :members:
+   :undoc-members:
+   :show-inheritance:

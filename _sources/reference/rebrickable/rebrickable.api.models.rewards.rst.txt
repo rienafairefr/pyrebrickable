@@ -1,0 +1,7 @@
+rebrickable.api.models.rewards module
+=====================================
+
+.. automodule:: rebrickable.api.models.rewards
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,1438 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>CLI documentation &#8212; pyrebrickable  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API documentation" href="api.html" />
+    <link rel="prev" title="Welcome to pyrebrickable’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="cli-documentation">
+<h1>CLI documentation<a class="headerlink" href="#cli-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rebrickable">
+<h2>rebrickable<a class="headerlink" href="#rebrickable" title="Permalink to this headline">¶</a></h2>
+<p>Rebrickable CLI implemented in Python</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-o">
+<code class="sig-name descname">-o</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--output</code><code class="sig-prename descclassname"> &lt;output&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-o" title="Permalink to this definition">¶</a></dt>
+<dd><p>output printer (json, yaml, py –regular print Python function–)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p>json|py|yaml</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="rebrickable-data">
+<h3>data<a class="headerlink" href="#rebrickable-data" title="Permalink to this headline">¶</a></h3>
+<p>data commands</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable data <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-data-download">
+<h4>download<a class="headerlink" href="#rebrickable-data-download" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable data download <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-data-download-force">
+<code class="sig-name descname">--force</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-data-download-force" title="Permalink to this definition">¶</a></dt>
+<dd><p>force to overwrite existing file(s)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-data-download-extra">
+<h4>download-extra<a class="headerlink" href="#rebrickable-data-download-extra" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable data download-extra <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-data-import">
+<h4>import<a class="headerlink" href="#rebrickable-data-import" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable data import <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-data-import-force">
+<code class="sig-name descname">--force</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-data-import-force" title="Permalink to this definition">¶</a></dt>
+<dd><p>force to overwrite existing data in the database</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-data-reset-db">
+<h4>reset-db<a class="headerlink" href="#rebrickable-data-reset-db" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable data reset-db <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego">
+<h3>lego<a class="headerlink" href="#rebrickable-lego" title="Permalink to this headline">¶</a></h3>
+<p>LEGO data (parts, sets, themes, etc.)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-lego-color">
+<h4>color<a class="headerlink" href="#rebrickable-lego-color" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego color <span class="o">[</span>OPTIONS<span class="o">]</span> COLOR_ID COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-lego-color-arg-color-id">
+<code class="sig-name descname">COLOR_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-lego-color-arg-color-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-lego-color-external-ids">
+<h5>external_ids<a class="headerlink" href="#rebrickable-lego-color-external-ids" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego color external_ids <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-color-id">
+<h5>id<a class="headerlink" href="#rebrickable-lego-color-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego color id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-color-is-trans">
+<h5>is_trans<a class="headerlink" href="#rebrickable-lego-color-is-trans" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego color is_trans <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-color-name">
+<h5>name<a class="headerlink" href="#rebrickable-lego-color-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego color name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-color-rgb">
+<h5>rgb<a class="headerlink" href="#rebrickable-lego-color-rgb" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego color rgb <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-colors">
+<h4>colors<a class="headerlink" href="#rebrickable-lego-colors" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego colors <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-element">
+<h4>element<a class="headerlink" href="#rebrickable-lego-element" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego element <span class="o">[</span>OPTIONS<span class="o">]</span> ELEMENT_ID COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-lego-element-arg-element-id">
+<code class="sig-name descname">ELEMENT_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-lego-element-arg-element-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-lego-element-color">
+<h5>color<a class="headerlink" href="#rebrickable-lego-element-color" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego element color <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-element-design-id">
+<h5>design_id<a class="headerlink" href="#rebrickable-lego-element-design-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego element design_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-element-element-id">
+<h5>element_id<a class="headerlink" href="#rebrickable-lego-element-element-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego element element_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-element-element-img-url">
+<h5>element_img_url<a class="headerlink" href="#rebrickable-lego-element-element-img-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego element element_img_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-element-part">
+<h5>part<a class="headerlink" href="#rebrickable-lego-element-part" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego element part <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-element-part-img-url">
+<h5>part_img_url<a class="headerlink" href="#rebrickable-lego-element-part-img-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego element part_img_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc">
+<h4>moc<a class="headerlink" href="#rebrickable-lego-moc" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc <span class="o">[</span>OPTIONS<span class="o">]</span> SET_NUM COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-lego-moc-arg-set-num">
+<code class="sig-name descname">SET_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-lego-moc-arg-set-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-lego-moc-designer-name">
+<h5>designer_name<a class="headerlink" href="#rebrickable-lego-moc-designer-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc designer_name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-designer-url">
+<h5>designer_url<a class="headerlink" href="#rebrickable-lego-moc-designer-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc designer_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-moc-img-url">
+<h5>moc_img_url<a class="headerlink" href="#rebrickable-lego-moc-moc-img-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc moc_img_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-moc-url">
+<h5>moc_url<a class="headerlink" href="#rebrickable-lego-moc-moc-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc moc_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-name">
+<h5>name<a class="headerlink" href="#rebrickable-lego-moc-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-num-parts">
+<h5>num_parts<a class="headerlink" href="#rebrickable-lego-moc-num-parts" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc num_parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-parts">
+<h5>parts<a class="headerlink" href="#rebrickable-lego-moc-parts" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-set-num">
+<h5>set_num<a class="headerlink" href="#rebrickable-lego-moc-set-num" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc set_num <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-theme-id">
+<h5>theme_id<a class="headerlink" href="#rebrickable-lego-moc-theme-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc theme_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-moc-year">
+<h5>year<a class="headerlink" href="#rebrickable-lego-moc-year" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego moc year <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part">
+<h4>part<a class="headerlink" href="#rebrickable-lego-part" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part <span class="o">[</span>OPTIONS<span class="o">]</span> PART_NUM COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-lego-part-arg-part-num">
+<code class="sig-name descname">PART_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-lego-part-arg-part-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-lego-part-alternates">
+<h5>alternates<a class="headerlink" href="#rebrickable-lego-part-alternates" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part alternates <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-color">
+<h5>color<a class="headerlink" href="#rebrickable-lego-part-color" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part color <span class="o">[</span>OPTIONS<span class="o">]</span> COLOR_ID COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-lego-part-color-arg-color-id">
+<code class="sig-name descname">COLOR_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-lego-part-color-arg-color-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-lego-part-color-elements">
+<h6>elements<a class="headerlink" href="#rebrickable-lego-part-color-elements" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part color elements <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-color-num-set-parts">
+<h6>num_set_parts<a class="headerlink" href="#rebrickable-lego-part-color-num-set-parts" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part color num_set_parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-color-num-sets">
+<h6>num_sets<a class="headerlink" href="#rebrickable-lego-part-color-num-sets" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part color num_sets <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-color-part-img-url">
+<h6>part_img_url<a class="headerlink" href="#rebrickable-lego-part-color-part-img-url" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part color part_img_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-color-sets">
+<h6>sets<a class="headerlink" href="#rebrickable-lego-part-color-sets" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part color sets <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-color-year-from">
+<h6>year_from<a class="headerlink" href="#rebrickable-lego-part-color-year-from" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part color year_from <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-color-year-to">
+<h6>year_to<a class="headerlink" href="#rebrickable-lego-part-color-year-to" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part color year_to <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-colors">
+<h5>colors<a class="headerlink" href="#rebrickable-lego-part-colors" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part colors <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-external-ids">
+<h5>external_ids<a class="headerlink" href="#rebrickable-lego-part-external-ids" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part external_ids <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-molds">
+<h5>molds<a class="headerlink" href="#rebrickable-lego-part-molds" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part molds <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-name">
+<h5>name<a class="headerlink" href="#rebrickable-lego-part-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-part-cat-id">
+<h5>part_cat_id<a class="headerlink" href="#rebrickable-lego-part-part-cat-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part part_cat_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-part-img-url">
+<h5>part_img_url<a class="headerlink" href="#rebrickable-lego-part-part-img-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part part_img_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-part-num">
+<h5>part_num<a class="headerlink" href="#rebrickable-lego-part-part-num" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part part_num <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-part-url">
+<h5>part_url<a class="headerlink" href="#rebrickable-lego-part-part-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part part_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-prints">
+<h5>prints<a class="headerlink" href="#rebrickable-lego-part-prints" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part prints <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-year-from">
+<h5>year_from<a class="headerlink" href="#rebrickable-lego-part-year-from" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part year_from <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-year-to">
+<h5>year_to<a class="headerlink" href="#rebrickable-lego-part-year-to" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part year_to <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-categories">
+<h4>part_categories<a class="headerlink" href="#rebrickable-lego-part-categories" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part_categories <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-category">
+<h4>part_category<a class="headerlink" href="#rebrickable-lego-part-category" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part_category <span class="o">[</span>OPTIONS<span class="o">]</span> ID COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-lego-part-category-arg-id">
+<code class="sig-name descname">ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-lego-part-category-arg-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-lego-part-category-id">
+<h5>id<a class="headerlink" href="#rebrickable-lego-part-category-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part_category id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-category-name">
+<h5>name<a class="headerlink" href="#rebrickable-lego-part-category-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part_category name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-part-category-part-count">
+<h5>part_count<a class="headerlink" href="#rebrickable-lego-part-category-part-count" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego part_category part_count <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-parts">
+<h4>parts<a class="headerlink" href="#rebrickable-lego-parts" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set">
+<h4>set<a class="headerlink" href="#rebrickable-lego-set" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> <span class="o">[</span>OPTIONS<span class="o">]</span> SET_NUM COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-lego-set-arg-set-num">
+<code class="sig-name descname">SET_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-lego-set-arg-set-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-lego-set-alternates">
+<h5>alternates<a class="headerlink" href="#rebrickable-lego-set-alternates" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> alternates <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-last-modified-dt">
+<h5>last_modified_dt<a class="headerlink" href="#rebrickable-lego-set-last-modified-dt" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> last_modified_dt <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-name">
+<h5>name<a class="headerlink" href="#rebrickable-lego-set-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-num-parts">
+<h5>num_parts<a class="headerlink" href="#rebrickable-lego-set-num-parts" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> num_parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-parts">
+<h5>parts<a class="headerlink" href="#rebrickable-lego-set-parts" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-set-img-url">
+<h5>set_img_url<a class="headerlink" href="#rebrickable-lego-set-set-img-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> set_img_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-set-num">
+<h5>set_num<a class="headerlink" href="#rebrickable-lego-set-set-num" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> set_num <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-set-url">
+<h5>set_url<a class="headerlink" href="#rebrickable-lego-set-set-url" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> set_url <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-sets">
+<h5>sets<a class="headerlink" href="#rebrickable-lego-set-sets" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> sets <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-theme-id">
+<h5>theme_id<a class="headerlink" href="#rebrickable-lego-set-theme-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> theme_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-set-year">
+<h5>year<a class="headerlink" href="#rebrickable-lego-set-year" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego <span class="nb">set</span> year <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-sets">
+<h4>sets<a class="headerlink" href="#rebrickable-lego-sets" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego sets <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-theme">
+<h4>theme<a class="headerlink" href="#rebrickable-lego-theme" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego theme <span class="o">[</span>OPTIONS<span class="o">]</span> THEME_ID COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-lego-theme-arg-theme-id">
+<code class="sig-name descname">THEME_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-lego-theme-arg-theme-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-lego-theme-id">
+<h5>id<a class="headerlink" href="#rebrickable-lego-theme-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego theme id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-theme-name">
+<h5>name<a class="headerlink" href="#rebrickable-lego-theme-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego theme name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-theme-parent-id">
+<h5>parent_id<a class="headerlink" href="#rebrickable-lego-theme-parent-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego theme parent_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-lego-themes">
+<h4>themes<a class="headerlink" href="#rebrickable-lego-themes" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable lego themes <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-register">
+<h3>register<a class="headerlink" href="#rebrickable-register" title="Permalink to this headline">¶</a></h3>
+<p>registers an API key with the CLI</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable register <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user">
+<h3>user<a class="headerlink" href="#rebrickable-user" title="Permalink to this headline">¶</a></h3>
+<p>user data (sets, parts lists, set lists, etc.)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-u">
+<code class="sig-name descname">-u</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--username</code><code class="sig-prename descclassname"> &lt;username&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-u" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="rebrickable-user-allparts">
+<h4>allparts<a class="headerlink" href="#rebrickable-user-allparts" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user allparts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-build">
+<h4>build<a class="headerlink" href="#rebrickable-user-build" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user build <span class="o">[</span>OPTIONS<span class="o">]</span> SET_NUM COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-build-arg-set-num">
+<code class="sig-name descname">SET_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-build-arg-set-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-user-build-build-options">
+<h5>build_options<a class="headerlink" href="#rebrickable-user-build-build-options" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user build build_options <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-build-num-ignored">
+<h5>num_ignored<a class="headerlink" href="#rebrickable-user-build-num-ignored" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user build num_ignored <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-build-num-missing">
+<h5>num_missing<a class="headerlink" href="#rebrickable-user-build-num-missing" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user build num_missing <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-build-num-owned-less-ignored">
+<h5>num_owned_less_ignored<a class="headerlink" href="#rebrickable-user-build-num-owned-less-ignored" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user build num_owned_less_ignored <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-build-pct-owned">
+<h5>pct_owned<a class="headerlink" href="#rebrickable-user-build-pct-owned" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user build pct_owned <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-build-total-parts">
+<h5>total_parts<a class="headerlink" href="#rebrickable-user-build-total-parts" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user build total_parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-build-total-parts-less-ignored">
+<h5>total_parts_less_ignored<a class="headerlink" href="#rebrickable-user-build-total-parts-less-ignored" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user build total_parts_less_ignored <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-lost-parts">
+<h4>lost_parts<a class="headerlink" href="#rebrickable-user-lost-parts" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user lost_parts <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-user-lost-parts-create">
+<h5>create<a class="headerlink" href="#rebrickable-user-lost-parts-create" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user lost_parts create <span class="o">[</span>OPTIONS<span class="o">]</span> INV_PART_ID
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-lost-parts-create-arg-inv-part-id">
+<code class="sig-name descname">INV_PART_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-lost-parts-create-arg-inv-part-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-lost-parts-delete">
+<h5>delete<a class="headerlink" href="#rebrickable-user-lost-parts-delete" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user lost_parts delete <span class="o">[</span>OPTIONS<span class="o">]</span> LOST_PART_ID
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-lost-parts-delete-arg-lost-part-id">
+<code class="sig-name descname">LOST_PART_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-lost-parts-delete-arg-lost-part-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-lost-parts-list">
+<h5>list<a class="headerlink" href="#rebrickable-user-lost-parts-list" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user lost_parts list <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist">
+<h4>partlist<a class="headerlink" href="#rebrickable-user-partlist" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist <span class="o">[</span>OPTIONS<span class="o">]</span> LIST_ID COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-arg-list-id">
+<code class="sig-name descname">LIST_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-arg-list-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-user-partlist-delete">
+<h5>delete<a class="headerlink" href="#rebrickable-user-partlist-delete" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist delete <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-id">
+<h5>id<a class="headerlink" href="#rebrickable-user-partlist-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-is-buildable">
+<h5>is_buildable<a class="headerlink" href="#rebrickable-user-partlist-is-buildable" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist is_buildable <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-name">
+<h5>name<a class="headerlink" href="#rebrickable-user-partlist-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-num-parts">
+<h5>num_parts<a class="headerlink" href="#rebrickable-user-partlist-num-parts" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist num_parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-part">
+<h5>part<a class="headerlink" href="#rebrickable-user-partlist-part" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist part <span class="o">[</span>OPTIONS<span class="o">]</span> COLOR_ID PART_NUM COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-part-arg-color-id">
+<code class="sig-name descname">COLOR_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-part-arg-color-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-part-arg-part-num">
+<code class="sig-name descname">PART_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-part-arg-part-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-user-partlist-part-id">
+<h6>id<a class="headerlink" href="#rebrickable-user-partlist-part-id" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist part id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-part-is-buildable">
+<h6>is_buildable<a class="headerlink" href="#rebrickable-user-partlist-part-is-buildable" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist part is_buildable <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-part-name">
+<h6>name<a class="headerlink" href="#rebrickable-user-partlist-part-name" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist part name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-part-num-parts">
+<h6>num_parts<a class="headerlink" href="#rebrickable-user-partlist-part-num-parts" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist part num_parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-part-update">
+<h6>update<a class="headerlink" href="#rebrickable-user-partlist-part-update" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist part update <span class="o">[</span>OPTIONS<span class="o">]</span> QUANTITY
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-part-update-arg-quantity">
+<code class="sig-name descname">QUANTITY</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-part-update-arg-quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-partial-update">
+<h5>partial_update<a class="headerlink" href="#rebrickable-user-partlist-partial-update" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist partial_update <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-partial-update-name">
+<code class="sig-name descname">--name</code><code class="sig-prename descclassname"> &lt;name&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-partial-update-name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-partial-update-is-buildable">
+<code class="sig-name descname">--is_buildable</code><code class="sig-prename descclassname"> &lt;is_buildable&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-partial-update-is-buildable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-partial-update-num-parts">
+<code class="sig-name descname">--num_parts</code><code class="sig-prename descclassname"> &lt;num_parts&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-partial-update-num-parts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-partlist-parts">
+<h5>parts<a class="headerlink" href="#rebrickable-user-partlist-parts" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist parts <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-user-partlist-parts-create">
+<h6>create<a class="headerlink" href="#rebrickable-user-partlist-parts-create" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist parts create <span class="o">[</span>OPTIONS<span class="o">]</span> PART_NUM QUANTITY COLOR_ID
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-parts-create-arg-part-num">
+<code class="sig-name descname">PART_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-parts-create-arg-part-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-parts-create-arg-quantity">
+<code class="sig-name descname">QUANTITY</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-parts-create-arg-quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-parts-create-arg-color-id">
+<code class="sig-name descname">COLOR_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-parts-create-arg-color-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-partlist-parts-delete">
+<h6>delete<a class="headerlink" href="#rebrickable-user-partlist-parts-delete" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist parts delete <span class="o">[</span>OPTIONS<span class="o">]</span> COLOR_ID PART_NUM
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-parts-delete-arg-color-id">
+<code class="sig-name descname">COLOR_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-parts-delete-arg-color-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-parts-delete-arg-part-num">
+<code class="sig-name descname">PART_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-parts-delete-arg-part-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-partlist-parts-list">
+<h6>list<a class="headerlink" href="#rebrickable-user-partlist-parts-list" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist parts list <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlist-update">
+<h5>update<a class="headerlink" href="#rebrickable-user-partlist-update" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlist update <span class="o">[</span>OPTIONS<span class="o">]</span> NAME
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlist-update-arg-name">
+<code class="sig-name descname">NAME</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlist-update-arg-name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="rebrickable-user-partlists">
+<h4>partlists<a class="headerlink" href="#rebrickable-user-partlists" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlists <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-user-partlists-create">
+<h5>create<a class="headerlink" href="#rebrickable-user-partlists-create" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlists create <span class="o">[</span>OPTIONS<span class="o">]</span> NAME
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-partlists-create-arg-name">
+<code class="sig-name descname">NAME</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-partlists-create-arg-name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-partlists-list">
+<h5>list<a class="headerlink" href="#rebrickable-user-partlists-list" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user partlists list <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-parts">
+<h4>parts<a class="headerlink" href="#rebrickable-user-parts" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user parts <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile">
+<h4>profile<a class="headerlink" href="#rebrickable-user-profile" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-user-profile-avatar-img">
+<h5>avatar_img<a class="headerlink" href="#rebrickable-user-profile-avatar-img" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile avatar_img <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-email">
+<h5>email<a class="headerlink" href="#rebrickable-user-profile-email" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile email <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-last-activity">
+<h5>last_activity<a class="headerlink" href="#rebrickable-user-profile-last-activity" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile last_activity <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-last-ip">
+<h5>last_ip<a class="headerlink" href="#rebrickable-user-profile-last-ip" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile last_ip <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-lego">
+<h5>lego<a class="headerlink" href="#rebrickable-user-profile-lego" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile lego <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-location">
+<h5>location<a class="headerlink" href="#rebrickable-user-profile-location" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile location <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-real-name">
+<h5>real_name<a class="headerlink" href="#rebrickable-user-profile-real-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile real_name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-rewards">
+<h5>rewards<a class="headerlink" href="#rebrickable-user-profile-rewards" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile rewards <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-user-id">
+<h5>user_id<a class="headerlink" href="#rebrickable-user-profile-user-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile user_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-profile-username">
+<h5>username<a class="headerlink" href="#rebrickable-user-profile-username" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user profile username <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-set">
+<h4>set<a class="headerlink" href="#rebrickable-user-set" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="nb">set</span> <span class="o">[</span>OPTIONS<span class="o">]</span> SET_NUM COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-set-arg-set-num">
+<code class="sig-name descname">SET_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-set-arg-set-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-user-set-delete">
+<h5>delete<a class="headerlink" href="#rebrickable-user-set-delete" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="nb">set</span> delete <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-set-include-spares">
+<h5>include_spares<a class="headerlink" href="#rebrickable-user-set-include-spares" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="nb">set</span> include_spares <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-set-list-id">
+<h5>list_id<a class="headerlink" href="#rebrickable-user-set-list-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="nb">set</span> list_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-set-quantity">
+<h5>quantity<a class="headerlink" href="#rebrickable-user-set-quantity" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="nb">set</span> quantity <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-set-set">
+<h5>set<a class="headerlink" href="#rebrickable-user-set-set" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="nb">set</span> <span class="nb">set</span> <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-set-set-num">
+<h5>set_num<a class="headerlink" href="#rebrickable-user-set-set-num" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="nb">set</span> set_num <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-set-sync">
+<h5>sync<a class="headerlink" href="#rebrickable-user-set-sync" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user <span class="nb">set</span> sync <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist">
+<h4>setlist<a class="headerlink" href="#rebrickable-user-setlist" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist <span class="o">[</span>OPTIONS<span class="o">]</span> LIST_ID COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-setlist-arg-list-id">
+<code class="sig-name descname">LIST_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-setlist-arg-list-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-user-setlist-delete">
+<h5>delete<a class="headerlink" href="#rebrickable-user-setlist-delete" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist delete <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-id">
+<h5>id<a class="headerlink" href="#rebrickable-user-setlist-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-is-buildable">
+<h5>is_buildable<a class="headerlink" href="#rebrickable-user-setlist-is-buildable" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist is_buildable <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-name">
+<h5>name<a class="headerlink" href="#rebrickable-user-setlist-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-num-sets">
+<h5>num_sets<a class="headerlink" href="#rebrickable-user-setlist-num-sets" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist num_sets <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-partial">
+<h5>partial<a class="headerlink" href="#rebrickable-user-setlist-partial" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist partial <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-set">
+<h5>set<a class="headerlink" href="#rebrickable-user-setlist-set" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist <span class="nb">set</span> <span class="o">[</span>OPTIONS<span class="o">]</span> SET_NUM COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-setlist-set-arg-set-num">
+<code class="sig-name descname">SET_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-setlist-set-arg-set-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-user-setlist-set-include-spares">
+<h6>include_spares<a class="headerlink" href="#rebrickable-user-setlist-set-include-spares" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist <span class="nb">set</span> include_spares <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-set-list-id">
+<h6>list_id<a class="headerlink" href="#rebrickable-user-setlist-set-list-id" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist <span class="nb">set</span> list_id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-set-quantity">
+<h6>quantity<a class="headerlink" href="#rebrickable-user-setlist-set-quantity" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist <span class="nb">set</span> quantity <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-set-set">
+<h6>set<a class="headerlink" href="#rebrickable-user-setlist-set-set" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist <span class="nb">set</span> <span class="nb">set</span> <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-set-set-num">
+<h6>set_num<a class="headerlink" href="#rebrickable-user-setlist-set-set-num" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist <span class="nb">set</span> set_num <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-sets">
+<h5>sets<a class="headerlink" href="#rebrickable-user-setlist-sets" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist sets <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-user-setlist-sets-create">
+<h6>create<a class="headerlink" href="#rebrickable-user-setlist-sets-create" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist sets create <span class="o">[</span>OPTIONS<span class="o">]</span> SET_NUM
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-setlist-sets-create-arg-set-num">
+<code class="sig-name descname">SET_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-setlist-sets-create-arg-set-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-setlist-sets-delete">
+<h6>delete<a class="headerlink" href="#rebrickable-user-setlist-sets-delete" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist sets delete <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-sets-list">
+<h6>list<a class="headerlink" href="#rebrickable-user-setlist-sets-list" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist sets list <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-sets-update">
+<h6>update<a class="headerlink" href="#rebrickable-user-setlist-sets-update" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist sets update <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-sets-user-setlists-sets-partial">
+<h6>user-setlists-sets-partial<a class="headerlink" href="#rebrickable-user-setlist-sets-user-setlists-sets-partial" title="Permalink to this headline">¶</a></h6>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist sets user-setlists-sets-partial <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND
+                                                         <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-user-setlist-sets-user-setlists-sets-partial-update">
+<h7>update<a class="headerlink" href="#rebrickable-user-setlist-sets-user-setlists-sets-partial-update" title="Permalink to this headline">¶</a></h7>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist sets user-setlists-sets-partial update 
+    <span class="o">[</span>OPTIONS<span class="o">]</span> SET_NUM
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-setlist-sets-user-setlists-sets-partial-update-arg-set-num">
+<code class="sig-name descname">SET_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-setlist-sets-user-setlists-sets-partial-update-arg-set-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlist-update">
+<h5>update<a class="headerlink" href="#rebrickable-user-setlist-update" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlist update <span class="o">[</span>OPTIONS<span class="o">]</span> NAME
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-setlist-update-arg-name">
+<code class="sig-name descname">NAME</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-setlist-update-arg-name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="rebrickable-user-setlists">
+<h4>setlists<a class="headerlink" href="#rebrickable-user-setlists" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlists <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-user-setlists-create">
+<h5>create<a class="headerlink" href="#rebrickable-user-setlists-create" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlists create <span class="o">[</span>OPTIONS<span class="o">]</span> NAME
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-setlists-create-arg-name">
+<code class="sig-name descname">NAME</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-setlists-create-arg-name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-setlists-list">
+<h5>list<a class="headerlink" href="#rebrickable-user-setlists-list" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user setlists list <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-user-sets">
+<h4>sets<a class="headerlink" href="#rebrickable-user-sets" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user sets <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-user-sets-create">
+<h5>create<a class="headerlink" href="#rebrickable-user-sets-create" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user sets create <span class="o">[</span>OPTIONS<span class="o">]</span> SET_NUM
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-create-arg-set-num">
+<code class="sig-name descname">SET_NUM</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-create-arg-set-num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-sets-list">
+<h5>list<a class="headerlink" href="#rebrickable-user-sets-list" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user sets list <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-list-set-num">
+<code class="sig-name descname">--set_num</code><code class="sig-prename descclassname"> &lt;set_num&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-list-set-num" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-list-theme-id">
+<code class="sig-name descname">--theme_id</code><code class="sig-prename descclassname"> &lt;theme_id&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-list-theme-id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-list-min-year">
+<code class="sig-name descname">--min_year</code><code class="sig-prename descclassname"> &lt;min_year&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-list-min-year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-list-max-year">
+<code class="sig-name descname">--max_year</code><code class="sig-prename descclassname"> &lt;max_year&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-list-max-year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-list-min-parts">
+<code class="sig-name descname">--min_parts</code><code class="sig-prename descclassname"> &lt;min_parts&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-list-min-parts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-list-max-parts">
+<code class="sig-name descname">--max_parts</code><code class="sig-prename descclassname"> &lt;max_parts&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-list-max-parts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-list-search">
+<code class="sig-name descname">--search</code><code class="sig-prename descclassname"> &lt;search&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-list-search" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="rebrickable-user-sets-sync">
+<h5>sync<a class="headerlink" href="#rebrickable-user-sets-sync" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable user sets sync <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-user-sets-sync-f">
+<code class="sig-name descname">-f</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--file</code><code class="sig-prename descclassname"> &lt;file&gt;</code><a class="headerlink" href="#cmdoption-rebrickable-user-sets-sync-f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-users">
+<h3>users<a class="headerlink" href="#rebrickable-users" title="Permalink to this headline">¶</a></h3>
+<p>login a certain user or get global badges information</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="rebrickable-users-badge">
+<h4>badge<a class="headerlink" href="#rebrickable-users-badge" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users badge <span class="o">[</span>OPTIONS<span class="o">]</span> BADGE_ID COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-users-badge-arg-badge-id">
+<code class="sig-name descname">BADGE_ID</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-users-badge-arg-badge-id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<div class="section" id="rebrickable-users-badge-code">
+<h5>code<a class="headerlink" href="#rebrickable-users-badge-code" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users badge code <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-users-badge-descr">
+<h5>descr<a class="headerlink" href="#rebrickable-users-badge-descr" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users badge descr <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-users-badge-id">
+<h5>id<a class="headerlink" href="#rebrickable-users-badge-id" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users badge id <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-users-badge-level">
+<h5>level<a class="headerlink" href="#rebrickable-users-badge-level" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users badge level <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-users-badge-name">
+<h5>name<a class="headerlink" href="#rebrickable-users-badge-name" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users badge name <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rebrickable-users-badges">
+<h4>badges<a class="headerlink" href="#rebrickable-users-badges" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users badges <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebrickable-users-login">
+<h4>login<a class="headerlink" href="#rebrickable-users-login" title="Permalink to this headline">¶</a></h4>
+<p>login a certain user (store its user token)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rebrickable users login <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>USERNAME<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-users-login-other">
+<code class="sig-name descname">--other</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-users-login-other" title="Permalink to this definition">¶</a></dt>
+<dd><p>login another user and not the default (which will be used by default in “rebrickable user […]”)</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-rebrickable-users-login-arg-username">
+<code class="sig-name descname">USERNAME</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-rebrickable-users-login-arg-username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to pyrebrickable’s documentation!</a></li>
+      <li>Next: <a href="api.html" title="next chapter">API documentation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, rienafairefr.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/cli.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

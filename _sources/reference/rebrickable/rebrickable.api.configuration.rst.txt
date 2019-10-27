@@ -1,0 +1,7 @@
+rebrickable.api.configuration module
+====================================
+
+.. automodule:: rebrickable.api.configuration
+   :members:
+   :undoc-members:
+   :show-inheritance:

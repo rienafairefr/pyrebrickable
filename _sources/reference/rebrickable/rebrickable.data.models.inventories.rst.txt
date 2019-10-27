@@ -1,0 +1,7 @@
+rebrickable.data.models.inventories module
+==========================================
+
+.. automodule:: rebrickable.data.models.inventories
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,23 @@
+rebrickable.cli package
+=======================
+
+Submodules
+----------
+
+.. toctree::
+
+   rebrickable.cli.common
+   rebrickable.cli.data
+   rebrickable.cli.lego
+   rebrickable.cli.main
+   rebrickable.cli.user
+   rebrickable.cli.users
+   rebrickable.cli.utils
+
+Module contents
+---------------
+
+.. automodule:: rebrickable.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:

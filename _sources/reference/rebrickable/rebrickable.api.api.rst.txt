@@ -1,0 +1,18 @@
+rebrickable.api.api package
+===========================
+
+Submodules
+----------
+
+.. toctree::
+
+   rebrickable.api.api.lego_api
+   rebrickable.api.api.users_api
+
+Module contents
+---------------
+
+.. automodule:: rebrickable.api.api
+   :members:
+   :undoc-members:
+   :show-inheritance:

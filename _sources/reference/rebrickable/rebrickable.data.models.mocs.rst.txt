@@ -1,0 +1,7 @@
+rebrickable.data.models.mocs module
+===================================
+
+.. automodule:: rebrickable.data.models.mocs
+   :members:
+   :undoc-members:
+   :show-inheritance:

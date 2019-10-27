@@ -1,0 +1,7 @@
+rebrickable.data.download\_extra module
+=======================================
+
+.. automodule:: rebrickable.data.download_extra
+   :members:
+   :undoc-members:
+   :show-inheritance:

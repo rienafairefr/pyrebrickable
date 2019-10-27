@@ -1,0 +1,7 @@
+rebrickable.api.models.part\_colors\_element module
+===================================================
+
+.. automodule:: rebrickable.api.models.part_colors_element
+   :members:
+   :undoc-members:
+   :show-inheritance:

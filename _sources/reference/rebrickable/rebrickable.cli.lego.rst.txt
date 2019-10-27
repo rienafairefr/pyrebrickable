@@ -1,0 +1,7 @@
+rebrickable.cli.lego module
+===========================
+
+.. automodule:: rebrickable.cli.lego
+   :members:
+   :undoc-members:
+   :show-inheritance:

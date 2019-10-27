@@ -1,0 +1,7 @@
+rebrickable.data.utils module
+=============================
+
+.. automodule:: rebrickable.data.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

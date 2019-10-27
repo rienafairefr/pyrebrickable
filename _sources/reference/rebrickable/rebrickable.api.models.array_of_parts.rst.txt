@@ -1,0 +1,7 @@
+rebrickable.api.models.array\_of\_parts module
+==============================================
+
+.. automodule:: rebrickable.api.models.array_of_parts
+   :members:
+   :undoc-members:
+   :show-inheritance:
