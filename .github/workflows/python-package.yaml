@@ -19,7 +19,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: code
-          path: .
+          path: rebrickable/api
 
   test-3-8:
     needs: generate-code
@@ -28,11 +28,12 @@ jobs:
     container: python:3.8.0
 
     steps:
+      - uses: actions/checkout@v1
       - name: Download generated code
         uses: actions/download-artifact@v1
         with:
           name: code
-          path: .
+          path: rebrickable/api
       - name: Install dependencies
         run: |
           pip install -r dev-requirements.txt
@@ -55,29 +56,30 @@ jobs:
         python-version: [2.7, 3.5, 3.6, 3.7]
 
     steps:
-    - name: Download generated code
-      uses: actions/download-artifact@v1
-      with:
-        name: code
-        path: .
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        pip install -r dev-requirements.txt
-    - name: generate code
-      run: |
-        make rebrickable/api
-    - name: Test
-      run: |
-        tox
-    - name: Coveralls
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
-      run: |
-        coveralls
+      - uses: actions/checkout@v1
+      - name: Download generated code
+        uses: actions/download-artifact@v1
+        with:
+          name: code
+          path: rebrickable/api
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: generate code
+        run: |
+          make rebrickable/api
+      - name: Test
+        run: |
+          tox
+      - name: Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
+        run: |
+          coveralls
 
   publish-docs:
     needs:
@@ -87,11 +89,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v1
       - name: Download generated code
         uses: actions/download-artifact@v1
         with:
           name: code
-          path: .
+          path: rebrickable/api
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
@@ -110,6 +113,8 @@ jobs:
           directory: docs/_build/html
 
   publish:
+    if: contains(github.ref, 'tags')
+
     needs:
       - test
       - generate-code
@@ -121,11 +126,16 @@ jobs:
         python-version: [2.7, 3.5]
 
     steps:
+      - uses: actions/checkout@v1
       - name: Download generated code
         uses: actions/download-artifact@v1
         with:
           name: code
-          path: .
+          path: rebrickable/api
+
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
