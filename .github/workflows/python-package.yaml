@@ -22,6 +22,7 @@ jobs:
           path: .
 
   test-3-8:
+    needs: generate-code
 
     runs-on: ubuntu-latest
     container: python:3.8.0
@@ -44,6 +45,7 @@ jobs:
           coveralls
 
   test:
+    needs: generate-code
 
     runs-on: ubuntu-latest
     strategy:
@@ -76,6 +78,12 @@ jobs:
         coveralls
 
   publish-docs:
+    needs:
+      - test
+      - generate-code
+
+    runs-on: ubuntu-latest
+
     steps:
       - name: Download generated code
         uses: actions/download-artifact@v1
@@ -99,7 +107,9 @@ jobs:
           directory: docs/_build/html
 
   publish:
-    needs: test
+    needs:
+      - test
+      - generate-code
 
     runs-on: ubuntu-latest
     strategy:
