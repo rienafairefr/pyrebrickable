@@ -57,4 +57,4 @@ def test_write_data(tmpdir):
 @mock.patch('rebrickable.cli.utils.get_data', return_value=read_data_dict)
 def test_get_user_token(mocked):
     assert get_user_token() == user_token
-    assert get_user_token('username') == other_user_token
+    assert get_user_token('other_username') == other_user_token
