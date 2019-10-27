@@ -32,6 +32,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: code
+          path: .
       - name: Install dependencies
         run: |
           pip install -r dev-requirements.txt
@@ -58,6 +59,7 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: code
+        path: .
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
@@ -89,6 +91,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: code
+          path: .
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
@@ -122,6 +125,8 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: code
+          path: .
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
