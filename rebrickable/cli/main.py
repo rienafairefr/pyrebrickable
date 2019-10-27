@@ -10,6 +10,11 @@ import click
 import yaml
 
 from rebrickable.api import ApiClient, Configuration
+from rebrickable.cli.data import data
+from rebrickable.data.database import reset_db_main
+from rebrickable.data.download import download_main
+from rebrickable.data.download_extra import download_extra_main
+from rebrickable.data.importing import import_main
 from .common import State
 
 from .lego import lego
@@ -78,6 +83,7 @@ def register():
 
 
 main.add_command(lego)
+main.add_command(data)
 main.add_command(users)
 main.add_command(user)
 

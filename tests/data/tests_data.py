@@ -1,8 +1,8 @@
 import pytest
 from sqlalchemy import create_engine
 
-from rebrickable_data.database import Session
-from rebrickable_data.models import *
+from rebrickable.data.database import Session
+from rebrickable.data.models import *
 
 models = [Color, Inventory, InventorySet,
           InventoryPart, Part, PartCategory, Set, Theme]

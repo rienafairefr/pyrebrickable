@@ -1,6 +1,6 @@
 from sqlalchemy import Integer, Column, String, Boolean
 
-from rebrickable_data.models import Base
+from . import Base
 
 
 class Color(Base):

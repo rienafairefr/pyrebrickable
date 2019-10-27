@@ -2,7 +2,7 @@ from sqlalchemy import Integer, Column, String, ForeignKey, Table, func, select,
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import relationship
 
-from rebrickable_data.models import Base
+from rebrickable.data.models import Base
 
 
 class PartCategory(Base):

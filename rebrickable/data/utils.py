@@ -2,7 +2,7 @@ import os
 from appdirs import AppDirs
 from sqlalchemy import inspect
 
-from rebrickable_data.models import *
+from .models import *
 
 data_dir = AppDirs('pyrebrickable').user_data_dir
 

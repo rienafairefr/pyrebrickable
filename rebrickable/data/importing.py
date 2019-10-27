@@ -6,9 +6,9 @@ import click
 import six
 from sqlalchemy import Table
 
-from rebrickable_data.models import Base
-from rebrickable_data.utils import data_dir, data_mapping
-from rebrickable_data.database import engine, Session, db_path
+from .models import Base
+from .utils import data_dir, data_mapping
+from .database import engine, Session, db_path
 
 
 def UnicodeDictReader(utf8_data, **kwargs):
