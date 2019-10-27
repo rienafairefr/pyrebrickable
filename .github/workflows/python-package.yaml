@@ -3,6 +3,25 @@ name: Python package
 on: [push, pull_request]
 
 jobs:
+  test-3.8:
+    container: python:3.8.0
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: generate code
+        run: |
+          make rebrickable/api
+      - name: Test
+        run: |
+          tox
+      - name: Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
+        run: |
+          coveralls
+
   test:
 
     runs-on: ubuntu-latest
