@@ -16,7 +16,8 @@ REQUIRES = ["decorator", 'appdirs', 'enum34', 'PyYaml', 'sqlalchemy',
 
 setup(
     name=NAME,
-    version=VERSION,
+    use_scm_version=True,
+    setup_requires=['setuptools_scm'],
     long_description="""This is pyrebrickable, tools for the www.rebrickable.com website and data
     
 It provides:

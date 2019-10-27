@@ -10,9 +10,6 @@ import json
 swagger_url = "https://rebrickable.com/api/v3/swagger/?format=openapi"
 swagger = 'swagger.json'
 rebrickable = 'rebrickable.json'
-VERSION = os.environ.get('TAG_NAME')
-if not VERSION:
-    VERSION = 'dev'
 
 
 def generate_swagger():
