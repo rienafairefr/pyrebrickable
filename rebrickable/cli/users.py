@@ -1,6 +1,5 @@
-from getpass import getpass
-
 import click
+from click import prompt
 
 from rebrickable.api import UsersApi, Badge
 from rebrickable.api.rest import ApiException
@@ -33,8 +32,8 @@ def users_badge(state, badge_id):
 
 def create_auth(state, username=None):
     if username is None:
-        username = input('Username: ')
-    password = getpass()
+        username = prompt('Username: ')
+    password = prompt('Password', hide_input=True)
     return state.api.users_token_create(username, password)
 
 

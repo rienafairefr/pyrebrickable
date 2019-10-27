@@ -2,6 +2,7 @@
 
 """Console script for pyrebrickable."""
 from __future__ import print_function
+
 import json
 from collections import namedtuple
 from getpass import getpass
@@ -11,15 +12,10 @@ import yaml
 
 from rebrickable.api import ApiClient, Configuration
 from rebrickable.cli.data import data
-from rebrickable.data.database import reset_db_main
-from rebrickable.data.download import download_main
-from rebrickable.data.download_extra import download_extra_main
-from rebrickable.data.importing import import_main
-from .common import State
-
-from .lego import lego
-from .user import user
-from .users import users
+from rebrickable.cli.common import State
+from rebrickable.cli.lego import lego
+from rebrickable.cli.user import user
+from rebrickable.cli.users import users
 
 try:
     from enum import Enum, EnumMeta  # pragma: no cover
