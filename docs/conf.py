@@ -171,8 +171,7 @@ def run_apidoc(_):
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
     cur_dir = os.path.abspath(os.path.dirname(__file__))
     modules = [
-        ('api', 'rebrickable.api'),
-        ('cli', 'rebrickable.cli')
+        ('rebrickable', 'rebrickable'),
     ]
 
     def rel(pth):
