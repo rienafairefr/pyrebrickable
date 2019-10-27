@@ -19,13 +19,13 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        pip install -r dev-requirements.txt -r requirements.txt
+        pip install -r dev-requirements.txt
     - name: generate code
       run: |
         make rebrickable/api
-    - name: Test with pytest
+    - name: Test
       run: |
-        pytest --cov=rebrickable -m "not integration"
+        tox
     - name: Coveralls
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
