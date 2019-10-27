@@ -1,0 +1,7 @@
+rebrickable.cli.login module
+============================
+
+.. automodule:: rebrickable.cli.login
+   :members:
+   :undoc-members:
+   :show-inheritance:

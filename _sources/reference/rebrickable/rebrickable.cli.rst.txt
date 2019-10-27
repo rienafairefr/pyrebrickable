@@ -9,6 +9,7 @@ Submodules
    rebrickable.cli.common
    rebrickable.cli.data
    rebrickable.cli.lego
+   rebrickable.cli.login
    rebrickable.cli.main
    rebrickable.cli.user
    rebrickable.cli.users
