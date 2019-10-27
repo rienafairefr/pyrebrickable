@@ -3,9 +3,10 @@ name: Python package
 on: [push, pull_request]
 
 jobs:
-  test-3-8:
+  generate-code:
+
     runs-on: ubuntu-latest
-    container: python:3.8.0
+
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
@@ -14,6 +15,25 @@ jobs:
       - name: generate code
         run: |
           make rebrickable/api
+      - name: Upload generated code
+        uses: actions/upload-artifact@v1
+        with:
+          name: code
+          path: .
+
+  test-3-8:
+
+    runs-on: ubuntu-latest
+    container: python:3.8.0
+
+    steps:
+      - name: Download generated code
+        uses: actions/download-artifact@v1
+        with:
+          name: code
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
       - name: Test
         run: |
           tox
@@ -32,7 +52,10 @@ jobs:
         python-version: [2.7, 3.5, 3.6, 3.7]
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Download generated code
+      uses: actions/download-artifact@v1
+      with:
+        name: code
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
@@ -62,7 +85,10 @@ jobs:
         python-version: [2.7, 3.5]
 
     steps:
-    - uses: actions/checkout@v1
+      - name: Download generated code
+        uses: actions/download-artifact@v1
+        with:
+          name: code
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
