@@ -6,7 +6,6 @@ pytest
 mock
 pytest-cov
 coveralls
-tox
 setuptools>=38.6.0
 twine>=1.11.0
 jsondiff
