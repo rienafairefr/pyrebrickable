@@ -12,3 +12,6 @@ jsondiff
 sphinx
 sphinx-click
 recommonmark
+tox
+tox-pyenv
+tox-gh-actions

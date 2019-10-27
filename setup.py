@@ -11,7 +11,7 @@ NAME = "pyrebrickable"
 VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
 
 
-REQUIRES = ["decorator", 'appdirs', 'enum34', 'PyYaml',
+REQUIRES = ["decorator", 'appdirs', 'enum34', 'PyYaml', 'sqlalchemy',
             "click >=6", "urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 
 setup(
