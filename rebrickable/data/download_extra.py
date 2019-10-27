@@ -1,26 +1,24 @@
 import time
 
 import click
+
 from rebrickable.api import LegoApi
 from rebrickable.api.rest import ApiException
-from rebrickable.cli.cli.main import get_api_client
+from rebrickable.cli.common import pass_state
 from rebrickable.data.database import Session, engine
 from rebrickable.data.models import Base, Moc, InventoryPart, Inventory, Color, Part
 
-client = get_api_client()
-
-api = LegoApi(client)
 
 # the smallest number MOC
 MOC_MIN = 1000
 
 
-def is_moc_absent(i):
+def is_moc_absent(api, i):
     # we can get a few 404 for deleted mocs, only declare not found if all not found +/-10
     around = range(i - 10, i + 10)
     mocs_found = []
     for i in around:
-        moc = get_moc(i)
+        moc = get_moc(api, i)
         mocs_found.append(not moc.absent)
     if any(mocs_found):
         return False
@@ -28,7 +26,7 @@ def is_moc_absent(i):
         return True
 
 
-def get_max(erase=False):
+def get_max(api, erase=False):
     session = Session()
     if erase:
         # reset the not found
@@ -45,7 +43,7 @@ def get_max(erase=False):
 
     while True:
         # geometrical growing
-        if is_moc_absent(i):
+        if is_moc_absent(api, i):
             break
         i = i * 2
         time.sleep(0.1)
@@ -58,7 +56,7 @@ def get_max(erase=False):
         if i1-i0 == 1:
             break
         i = int((i0 + i1) / 2)
-        if is_moc_absent(i):
+        if is_moc_absent(api, i):
             i1 = i
         else:
             i0 = i
@@ -68,7 +66,7 @@ def get_max(erase=False):
     return i0
 
 
-def get_moc(i):
+def get_moc(api, i):
     session = Session()
 
     moc = 'MOC-%i' % i
@@ -110,19 +108,20 @@ def get_moc(i):
 
 
 @click.command(name='download-extra')
-def download_extra_main():
+@pass_state
+def download_extra_main(state):
+    client = state.client
+
+    api = LegoApi(client)
+
     metadata = Base.metadata
 
     metadata.create_all(engine)
 
-    MOC_MAX = get_max(erase=False)
+    MOC_MAX = get_max(api, erase=False)
 
     ids = list(range(MOC_MIN, MOC_MAX))
     for i in ids:
-        get_moc(i)
+        get_moc(api, i)
 
         time.sleep(0.1)
-
-
-if __name__ == '__main__':
-    get_max()
