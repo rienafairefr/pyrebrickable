@@ -17,3 +17,4 @@ tox
 tox-pyenv
 tox-gh-actions
 -r requirements.txt
+wheel
