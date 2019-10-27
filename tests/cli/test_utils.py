@@ -2,10 +2,7 @@ import json
 
 import mock
 
-from rebrickable.cli.main import get_api_client
-from rebrickable.cli.user import get_user_token
-from rebrickable.cli.utils import get_data, write_data
-
+from rebrickable.cli.utils import get_data, write_data, get_api_client, get_user_token
 
 api_key = 'nice_api_key'
 user_token = 'user_token'

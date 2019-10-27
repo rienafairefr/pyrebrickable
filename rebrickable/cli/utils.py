@@ -1,10 +1,16 @@
 import json
 import os
 import re
-from enum import EnumMeta
 
 import click
 from appdirs import AppDirs
+
+from rebrickable.api import Configuration, ApiClient
+
+try:
+    from enum import Enum, EnumMeta  # pragma: no cover
+except ImportError:  # pragma: no cover
+    from enum34 import Enum, EnumMeta  # pragma: no cover
 
 config_dir = AppDirs('pyrebrickable').user_config_dir
 
@@ -17,8 +23,9 @@ DATA_PATH = os.path.join(config_dir, 'config.json')
 
 
 def write_data(data, data_path=DATA_PATH):
-    with open(data_path, 'w+') as data_file:
-        json.dump(data, data_file)
+    s = json.dumps(data, indent=2)
+    with open(data_path, 'w') as data_file:
+        data_file.write(s)
 
 
 def get_data(data_path=DATA_PATH):
@@ -70,3 +77,34 @@ class EnumType(click.Choice):
             word.pop()
 
         return ("_".join(word)).upper()
+
+
+def get_api_client():
+    configuration = Configuration()
+    api_key = get_api_key()
+    configuration.api_key['Authorization'] = api_key
+    configuration.api_key_prefix['Authorization'] = 'key'
+    return ApiClient(configuration)
+
+
+def get_api_key():
+    try:
+        data = get_data()
+        return data['api_key']
+    except KeyError:
+        raise Unregistered()
+
+
+class Unregistered(Exception):
+    pass
+
+
+class NotLoggedIn(Exception):
+    pass
+
+
+def get_user_token(username='%%default%%'):
+    user_token = get_data().get('users', {}).get(username, {}).get('token')
+    if user_token is None:
+        raise NotLoggedIn()
+    return user_token

@@ -5,24 +5,17 @@ from __future__ import print_function
 
 import json
 from collections import namedtuple
-from getpass import getpass
 
 import click
 import yaml
 
-from rebrickable.api import ApiClient, Configuration
 from rebrickable.cli.data import data
 from rebrickable.cli.common import State
 from rebrickable.cli.lego import lego
+from rebrickable.cli.login import login
 from rebrickable.cli.user import user
 from rebrickable.cli.users import users
-
-try:
-    from enum import Enum, EnumMeta  # pragma: no cover
-except ImportError:  # pragma: no cover
-    from enum34 import Enum, EnumMeta  # pragma: no cover
-
-from rebrickable.cli.utils import get_data, DATA_PATH, EnumType, write_data
+from rebrickable.cli.utils import get_data, DATA_PATH, EnumType, write_data, get_api_client, Unregistered, Enum
 
 
 class OutputFormat(Enum):
@@ -32,15 +25,6 @@ class OutputFormat(Enum):
 
 
 OutputFormatter = namedtuple('OutputFormatter', ['output'])
-
-
-def get_api_client():
-    configuration = Configuration()
-    data = get_data()
-    api_key = data['api_key']
-    configuration.api_key['Authorization'] = api_key
-    configuration.api_key_prefix['Authorization'] = 'key'
-    return ApiClient(configuration)
 
 
 @click.group(help="Rebrickable CLI implemented in Python")
@@ -57,21 +41,21 @@ def main(click_context, output):
     elif output == OutputFormat.py:
         format = OutputFormatter(output=lambda o: print(o))
 
+    def push_state(format, ctx):
+        ctx.obj = State(format, client=get_api_client())
+
     try:
-        click_context.obj = State(format=format, client=get_api_client())
-    except (IOError, KeyError, ValueError):
+        push_state(format, click_context)
+    except Unregistered:
         if click_context.invoked_subcommand != 'register':
-            print('please register your API key using: \nrebrickable register')
-            raise click.Abort()
-
-
-def get_api_key():
-    return getpass(prompt='Please enter your API key:')
+            print('Calling \"rebrickable register\" to register your API key:')
+            click_context.invoke(register)
+            push_state(format, click_context)
 
 
 @main.command(help='registers an API key with the CLI')
 def register():
-    key = get_api_key()
+    key = click.prompt('API key')
     data = get_data()
     data['api_key'] = key
     write_data(data)
@@ -82,6 +66,7 @@ main.add_command(lego)
 main.add_command(data)
 main.add_command(users)
 main.add_command(user)
+main.add_command(login)
 
 if __name__ == "__main__":
     main()

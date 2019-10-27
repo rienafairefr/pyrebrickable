@@ -1,24 +1,27 @@
 import json
 
 import click
+from click import pass_context
 
 from rebrickable.api import PartList, Profile, SetList, SetListSet, Build, UsersApi
 from rebrickable.api.rest import ApiException
+from .login import login
+from .utils import NotLoggedIn, get_user_token
 from .common import add_typed_subcommands, pass_state, \
     object_print, get_or_push
-from .utils import get_data
 
 
 @click.group(help='user data (sets, parts lists, set lists, etc.)')
 @click.option('--username', '-u', required=False, default='%%default%%')
 @pass_state
-def user(state, username):
+@pass_context
+def user(context, state, username):
     try:
         state.api = UsersApi(state.client)
         state.user_token = get_user_token(username)
-    except (IOError, KeyError, ValueError):
-        print('Please login using: \nrebrickable users login [-u username]')
-        raise click.Abort()
+    except NotLoggedIn:
+        print('Calling \"rebrickable login\" to login:')
+        context.invoke(login)
 
 
 @add_typed_subcommands(PartList)
@@ -35,7 +38,7 @@ def user_partlist(state, list_id):
 @object_print
 def user_partlist_delete(state):
     return state.api.users_partlists_delete(user_token=state.user_token,
-                                          list_id=state.list_id)
+                                            list_id=state.list_id)
 
 
 @user_partlist.command('partial_update')
@@ -46,7 +49,7 @@ def user_partlist_delete(state):
 @object_print
 def user_partlist_partial_update(state, *args, **kwargs):
     return state.api.users_partlists_partial_update(user_token=state.user_token,
-                                                  list_id=state.list_id, *args, **kwargs)
+                                                    list_id=state.list_id, *args, **kwargs)
 
 
 @user_partlist.group('parts')
@@ -62,10 +65,10 @@ def user_partlist_parts():
 @object_print
 def user_partlist_parts_create(state, part_num, quantity, color_id):
     return state.api.users_partlists_parts_create(user_token=state.user_token,
-                                                list_id=state.list_id,
-                                                part_num=part_num,
-                                                quantity=quantity,
-                                                color_id=color_id)
+                                                  list_id=state.list_id,
+                                                  part_num=part_num,
+                                                  quantity=quantity,
+                                                  color_id=color_id)
 
 
 @user_partlist_parts.command('delete')
@@ -75,9 +78,9 @@ def user_partlist_parts_create(state, part_num, quantity, color_id):
 @object_print
 def user_partlist_parts_delete(state, color_id, part_num):
     return state.api.users_partlists_parts_delete(user_token=state.user_token,
-                                                color_id=color_id,
-                                                list_id=state.list_id,
-                                                part_num=part_num)
+                                                  color_id=color_id,
+                                                  list_id=state.list_id,
+                                                  part_num=part_num)
 
 
 @user_partlist_parts.command('list')
@@ -95,8 +98,8 @@ def user_partlist_parts_list(state):
 @click.argument('part_num')
 def user_partlist_part(state, color_id, part_num):
     return state.api.users_partlists_parts_read(user_token=state.user_token, color_id=color_id,
-                                              list_id=state.list_id,
-                                              part_num=part_num)
+                                                list_id=state.list_id,
+                                                part_num=part_num)
 
 
 @user_partlist_part.command('update')
@@ -105,8 +108,8 @@ def user_partlist_part(state, color_id, part_num):
 @object_print
 def user_partlist_part_update(state, quantity):
     return state.api.users_partlists_parts_update(user_token=state.user_token, color_id=state.color_id,
-                                                list_id=state.list_id, part_num=state.part_num,
-                                                quantity=quantity)
+                                                  list_id=state.list_id, part_num=state.part_num,
+                                                  quantity=quantity)
 
 
 @user_partlist.command('update')
@@ -207,8 +210,8 @@ def user_setlist_set(state, set_num):
 @object_print
 def user_setlist_sets_create(state, set_num):
     return state.api.users_setlists_sets_create(user_token=state.user_token,
-                                              list_id=state.list_id,
-                                              set_num=set_num)
+                                                list_id=state.list_id,
+                                                set_num=set_num)
 
 
 @user_setlist_sets.command('delete')
@@ -216,8 +219,8 @@ def user_setlist_sets_create(state, set_num):
 @object_print
 def user_setlist_set_delete(state):
     return state.api.users_setlists_sets_delete(user_token=state.user_token,
-                                              list_id=state.list_id,
-                                              set_num=state.set_num)
+                                                list_id=state.list_id,
+                                                set_num=state.set_num)
 
 
 @user_setlist_sets.group()
@@ -231,8 +234,8 @@ def user_setlists_sets_partial():
 @object_print
 def user_setlist_set_partial_update(state, set_num):
     return state.api.users_setlists_sets_partial_update(user_token=state.user_token,
-                                                      list_id=state.list_id,
-                                                      set_num=set_num)
+                                                        list_id=state.list_id,
+                                                        set_num=set_num)
 
 
 @user_setlist_sets.command('update')
@@ -240,8 +243,8 @@ def user_setlist_set_partial_update(state, set_num):
 @object_print
 def user_setlist_set_update(state):
     return state.api.users_setlists_sets_update(user_token=state.user_token,
-                                              list_id=state.list_id,
-                                              set_num=state.set_num)
+                                                list_id=state.list_id,
+                                                set_num=state.set_num)
 
 
 @user_setlist.command('update')
@@ -250,8 +253,8 @@ def user_setlist_set_update(state):
 @object_print
 def user_setlist_update(state, name):
     return state.api.users_setlists_update(user_token=state.user_token,
-                                         list_id=state.list_id,
-                                         name=name)
+                                           list_id=state.list_id,
+                                           name=name)
 
 
 @user.group('sets')
@@ -289,7 +292,7 @@ def user_set(state, set_num):
 def user_sets_create(state, set_num):
     try:
         return state.api.users_sets_create(user_token=state.user_token,
-                                         set_num=set_num)
+                                           set_num=set_num)
     except ApiException as e:
         print('an error occured: %s, %s, %s' % (e.status, e.body, e.message))
 
@@ -338,7 +341,7 @@ def user_allparts(state):
 @click.argument('set_num')
 def user_build(state, set_num):
     return state.api.users_build_read(user_token=state.user_token,
-                                    set_num=set_num)
+                                      set_num=set_num)
 
 
 @user.group('lost_parts')
@@ -380,7 +383,7 @@ def user_partlists():
 @object_print
 def user_partlists_create(state, name):
     return state.api.users_partlists_create(user_token=state.user_token,
-                                          name=name)
+                                            name=name)
 
 
 @user_partlists.command('list')
@@ -388,8 +391,3 @@ def user_partlists_create(state, name):
 @object_print
 def user_partlists_list(state):
     return state.api.users_partlists_list(user_token=state.user_token)
-
-
-def get_user_token(username='%%default%%'):
-    data = get_data()
-    return data['users'][username]['token']
