@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rienafairefr/pyrebrickable.svg?branch=master)](https://travis-ci.org/rienafairefr/pyrebrickable)
+[![Actions Status](https://github.com/rienafairefr/pyrebrickable/workflows/python-package/badge.svg)](https://github.com/rienafairefr/pyrebrickable/actions)
 [![Coverage Status](https://coveralls.io/repos/github/rienafairefr/pyrebrickable/badge.svg?branch=master)](https://coveralls.io/github/rienafairefr/pyrebrickable?branch=master)
 
 # pyrebrickable
@@ -50,3 +50,6 @@ To use the rebrickable_data package, see [Data docs](https://rienafairefr.gitlab
 ## Author
 
 Matthieu Berthomé @rienafairefr
+
+
+[]: https://travis-ci.org/rienafairefr/pyrebrickable

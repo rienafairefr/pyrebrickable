@@ -8,7 +8,7 @@ import os
 from setuptools import setup
 
 NAME = "pyrebrickable"
-VERSION = os.environ.get('TRAVIS_TAG', os.environ.get('TAG_NAME', 'dev'))
+VERSION = os.environ.get('TAG_NAME', 'dev')
 
 
 REQUIRES = ["decorator", 'appdirs', 'enum34', 'PyYaml', 'sqlalchemy',

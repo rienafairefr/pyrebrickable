@@ -1,4 +1,3 @@
-# put env TWINE_REPOSITORY_URL=https://test.pypi.org/legacy/ for testing
 
 .PHONY: clean
 
@@ -12,7 +11,7 @@ swagger.json: rebrickable.json
 clean:
 	rm -rf rebrickable/api
 
-rebrickable/api: swagger.json Makefile
+rebrickable/api: swagger.json
 	docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local openapitools/openapi-generator-cli:v4.1.3 \
 	           generate \
 	           -g python \
@@ -22,7 +21,3 @@ rebrickable/api: swagger.json Makefile
 	           --git-repo-id pyrebrickable \
 	           -p generateSourceCodeOnly=true \
 	           -p packageName=rebrickable.api \
-
-build_docs:
-	set -e
-	make -C docs html
