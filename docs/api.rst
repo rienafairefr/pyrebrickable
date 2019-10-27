@@ -8,8 +8,8 @@ There are two sub-APIs, the Lego and Users API, the documentation auto-generated
    :maxdepth: 1
    :caption: Contents:
 
-     Lego API <../rebrickable/api/docs/LegoApi>
-     Users API <../rebrickable/api/docs/UsersApi>
+     Lego API <reference/rebrickable/rebrickable.api.api.lego_api.rst>
+     Users API <reference/rebrickable/rebrickable.api.api.users_api.rst>
 
 
 Indices and tables

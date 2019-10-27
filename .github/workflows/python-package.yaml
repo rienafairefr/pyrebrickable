@@ -75,6 +75,29 @@ jobs:
       run: |
         coveralls
 
+  publish-docs:
+    steps:
+      - name: Download generated code
+        uses: actions/download-artifact@v1
+        with:
+          name: code
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.5
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: Generate docs
+        run: |
+          make -C docs html
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          directory: docs/_build/html
+
   publish:
     needs: test
 
@@ -89,27 +112,24 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: code
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        pip install -r dev-requirements.txt -r requirements.txt
-    - name: generate code
-      run: |
-        make rebrickable/api
-    - name: Build package sdist
-      if: matrix.python-version == '2.7'
-      run: |
-        python setup.py sdist
-    - name: Build package wheel
-      run: |
-        python setup.py bdist_wheel
-    - name: Publish package
-      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
-      env:
-        TWINE_USERNAME: __token__
-        TWINE_PASSWORD: ${{ secrets.pypi_password }}
-      run: |
-        twine upload dist/*
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          pip install -r dev-requirements.txt
+      - name: Build package sdist
+        if: matrix.python-version == '2.7'
+        run: |
+          python setup.py sdist
+      - name: Build package wheel
+        run: |
+          python setup.py bdist_wheel
+      - name: Publish package
+        if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.pypi_password }}
+        run: |
+          twine upload dist/*

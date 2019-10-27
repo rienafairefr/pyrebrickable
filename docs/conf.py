@@ -177,7 +177,7 @@ def run_apidoc(_):
     def rel(pth):
         return os.path.abspath(os.path.join(cur_dir, "..", pth))
 
-    excludes = ['test', '../**setup.py']
+    excludes = ['../setup.py', '../tests/**/*.py', '../rebrickable/api/test/*.py']
 
     for module, dir_module in modules:
         output_dir = rel(os.path.join('docs', 'reference', dir_module))
