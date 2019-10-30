@@ -118,6 +118,7 @@ def generate_swagger():
                 "molds": ArrayOfString,
                 "alternates": ArrayOfString,
                 "external_ids": ref('ExternalIds'),
+                'print_of': String
             },
             'InventoryPart': {
                 "id": Integer,
@@ -227,6 +228,7 @@ def generate_swagger():
                 "LEGO": ArrayOfString
             },
             'BuildOptions': {
+                "added_days_ago": Integer,
                 "ignore_minifigs": Boolean,
                 "sort_by": Integer,
                 "max_year": Integer,

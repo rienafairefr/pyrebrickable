@@ -4,7 +4,7 @@
 TAG_NAME:=${TAG_NAME}
 VERSION ?= $(if $(TAG_NAME),$(TAG_NAME),dev)
 
-swagger.json: rebrickable.json
+swagger.json: rebrickable.json patch_swagger.py
 	python patch_swagger.py
 	echo -- `cat swagger.json`
 
