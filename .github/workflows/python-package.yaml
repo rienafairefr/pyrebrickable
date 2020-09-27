@@ -13,8 +13,16 @@ jobs:
         run: |
           pip3 install -r dev-requirements.txt
       - name: generate code
+        container: openapitools/openapi-generator-cli:v4.1.3
         run: |
-          make rebrickable/api
+          generate \
+           -g python \
+           -i swagger.json \
+           -o . \
+           --git-user-id rienafairefr \
+           --git-repo-id pyrebrickable \
+           -p generateSourceCodeOnly=true \
+           -p packageName=rebrickable.api \
       - name: scm_version
         run: |
           python3 -m setuptools_scm
