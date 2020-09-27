@@ -81,3 +81,5 @@ api-yaml/
 Pipfile.lock
 
 docs/reference/rebrickable/
+
+coverage_html/
