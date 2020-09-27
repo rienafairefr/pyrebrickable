@@ -6,7 +6,6 @@ jobs:
   generate-code:
 
     runs-on: ubuntu-latest
-    container: python:3.8.0
 
     steps:
       - uses: actions/checkout@v1
