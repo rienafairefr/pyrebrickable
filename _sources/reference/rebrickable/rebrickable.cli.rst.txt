@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    rebrickable.cli.common
    rebrickable.cli.data

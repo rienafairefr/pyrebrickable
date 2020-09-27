@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    rebrickable.api.models.all_part
    rebrickable.api.models.array_of_all_parts
