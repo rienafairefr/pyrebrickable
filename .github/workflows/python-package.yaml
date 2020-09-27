@@ -6,13 +6,12 @@ jobs:
   generate-code:
 
     runs-on: ubuntu-latest
+    container: python:3.8.0
 
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: |
-          python --version
-          pip --version
           pip install -r dev-requirements.txt
       - name: generate code
         run: |
