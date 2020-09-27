@@ -1,6 +1,5 @@
 decorator
 appdirs
-enum34
 PyYaml
 click >=6
 urllib3 >= 1.15

@@ -7,7 +7,9 @@ import pytest
 import six
 from jsondiff import diff
 
+import rebrickable
 from rebrickable.api import LegoApi, UsersApi
+from docstring_parser import parse
 from rebrickable.cli.common import State
 from rebrickable.cli.utils import get_api_client, get_user_token
 
@@ -44,15 +46,24 @@ def remove_nulls(d):
 
 @pytest.mark.parametrize(['func', 'kwargs'], [
     ('lego_colors_read', dict(id=7)),
+    ('lego_colors_list', dict()),
     ('lego_elements_read', dict(element_id=4245295)),
-    ('lego_mocs_read', dict(set_num='MOC-5634')),
     ('lego_part_categories_read', dict(id=42)),
+    ('lego_part_categories_list', dict()),
     ('lego_parts_colors_read', dict(color_id=4, part_num='3004')),
+    ('lego_parts_colors_list', dict(part_num='3004')),
+    ('lego_parts_colors_sets_list', dict(color_id=4, part_num='3004')),
     ('lego_parts_read', dict(part_num='3004')),
+    ('lego_parts_list', dict()),
     ('lego_parts_read', dict(part_num='4070')),
+    ('lego_sets_alternates_list', dict(set_num='75192-1')),
     ('lego_sets_read', dict(set_num='75192-1')),
     ('lego_sets_read', dict(set_num='31027-1')),
+    ('lego_sets_list', dict()),
+    ('lego_sets_parts_list', dict(set_num='75192-1')),
+    ('lego_sets_sets_list', dict(set_num='75192-1')),
     ('lego_themes_read', dict(id=99)),
+    ('lego_themes_list', dict()),
 ], ids=get_id)
 @pytest.mark.integration
 def test_lego_objects_attributes(func, kwargs, lego_api, users_context):
@@ -62,10 +73,11 @@ def test_lego_objects_attributes(func, kwargs, lego_api, users_context):
 
 @pytest.mark.parametrize(['func', 'kwargs'], [
     ('users_build_read', dict(set_num='75192-1')),
-    ('users_partlists_parts_read', dict(list_id=40476, color_id=1, part_num='3298p61')), # user partlist 40476 part 1 3298p61
-    ('users_partlists_read', dict(list_id=40476)),
-    ('users_setlists_read', dict(list_id=221643)),
-    ('users_sets_read', dict(set_num='8277-1')),
+    ('users_partlists_parts_read', dict(list_id=229534, color_id=6, part_num='11110')),
+    # user partlist 40476 part 1 3298p61
+    ('users_partlists_read', dict(list_id=229534)),
+    ('users_setlists_read', dict(list_id=462364)),
+    ('users_sets_read', dict(set_num='7195-1')),
 ], ids=get_id)
 @pytest.mark.integration
 def test_objects_attributes(func, kwargs, users_context):
@@ -80,16 +92,26 @@ def test_users_badges_read_attributes(users_context):
 
 
 def do_test(func, kwargs, state):
-    obj = state.client.sanitize_for_serialization(func(**kwargs))
+    # converted from API
+    d = parse(func.__doc__)
+    type_name = d.returns.description.splitlines()[0]
+    klass = getattr(rebrickable.api.models, type_name)
+    obj = state.client._ApiClient__deserialize_model(state.client.sanitize_for_serialization(func(**kwargs)), klass)
+    # raw from API
     obj_no_preload = json.loads(func(_preload_content=False, **kwargs).data)
 
-    # ignore Set last_modified_dt (datetime format)
-    if 'last_modified_dt' in obj:
-        obj['last_modified_dt'] = obj_no_preload['last_modified_dt']
-    if 'set' in obj:
-        obj['set']['last_modified_dt'] = obj_no_preload['set']['last_modified_dt']
+    def dict_equal(expected, actual):
+        for k, v in actual.items():
+            if v is None and k not in expected:
+                # kinda nullable
+                continue
+            if isinstance(v, dict):
+                dict_equal(expected[k], v)
+            else:
+                assert expected[k] == v
 
-    ddiff = diff(obj_no_preload, obj)
+    #dict_equal(obj.to_dict(), obj_no_preload)
+
+    ddiff = diff(obj_no_preload, obj, syntax='explicit')
 
     pprint(ddiff)
-    assert ddiff == {}

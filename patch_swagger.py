@@ -55,6 +55,8 @@ def generate_swagger():
                     "type": "object",
                     "properties": {
                         "count": Integer,
+                        'next': String,
+                        'previous': String,
                         "results": {
                             "type": "array",
                             "items": {
