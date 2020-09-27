@@ -14,44 +14,18 @@ jobs:
           python-version: 3.8
       - name: Install dependencies
         run: |
-          python3 --version
-          pip3 install --upgrade pip
-          pip3 install -r dev-requirements.txt
+          pip install -r dev-requirements.txt
       - name: generate code
         run: |
           make rebrickable/api
       - name: scm_version
         run: |
-          python3 -m setuptools_scm
+          python -m setuptools_scm
       - name: Upload generated code
         uses: actions/upload-artifact@v1
         with:
           name: code
           path: rebrickable/api
-
-  test-3-8:
-    needs: generate-code
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-      - name: Download generated code
-        uses: actions/download-artifact@v1
-        with:
-          name: code
-          path: rebrickable/api
-      - name: Install dependencies
-        run: |
-          pip3 install -r dev-requirements.txt
-      - name: Test
-        run: |
-          tox
-      - name: Coveralls
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
-        run: |
-          coveralls
 
   test:
     needs: generate-code
