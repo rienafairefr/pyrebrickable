@@ -128,7 +128,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [2.7, 3.5]
+        python-version: [3.5]
 
     steps:
       - uses: actions/checkout@v1
@@ -150,7 +150,7 @@ jobs:
         run: |
           pip install -r dev-requirements.txt
       - name: Build package sdist
-        if: matrix.python-version == '2.7'
+        if: matrix.python-version == '3.5'
         run: |
           python setup.py sdist
       - name: Build package wheel
